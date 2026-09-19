@@ -1,0 +1,4 @@
+diagnostic.disable.minecraft.language.comment.invalid=true
+diagnostic.disable.resourcepack.sound.missing=true
+diagnostic.disable.521=true
+diagnostic.disable.minecraft.format.path.length=true

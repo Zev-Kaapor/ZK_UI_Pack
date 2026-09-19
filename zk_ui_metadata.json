@@ -1,0 +1,13 @@
+// File modified by Zev Kaapor (GitHub: https://github.com/Zev-kaapor)
+// Forked from base by @tlgm2308.
+{
+  "namespace": "zk_ui_metadata",
+
+  "zk_ui_metadata": {
+    "$name": "ZK UI Pack",
+    "$version": "v1.0.0",
+    "$version_full": "v1.0.0-2026.9-(r1.21.100)",
+    "$global_variables_file_version": 117
+  }
+}
+

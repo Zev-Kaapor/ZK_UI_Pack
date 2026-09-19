@@ -1,0 +1,88 @@
+﻿v1.0.0 (100)-2026.9.19-(r1.21.100)
+FORK INITIAL RELEASE - ZK UI PACK BY ZEV KAAPOR
+### NEW FEATURES
+- Initial release of ZK UI Pack (Personal Fork of The Ty-el's UI Pack).
+- Rebranded all metadata, titles, and localized strings to ZK UI Pack.
+- Streamlined localization files (retained pt_BR, en_US, and en_base for optimal performance).
+- Cleaned up assets, texture references, and metadata structures.
+
+============================================================
+
+
+v1.2.5 (118)-2025.8.6-(r1.21.100)
+"THE MOST INFORMATIVE UPDATE EVER" UPDATE
+### NEW FEATURES
+- Added option descriptions to every setting in Keyboard & Mouse, Controller, Touch, General and Creator tabs and other missing options.
+
+### CHANGES
+- The toggle button texture alignment is now at the right of the toggle.
+- To avoid the case when users can't purchase items on the Marketplace, the Confirm Purchase dialog had been replaced with a simple and convenient checkbox to help users not purchasing by accident but still be able to make purchases easily without removing the pack. This does not affect Dressing Room screen.
+  + Known Issue: This change also affects free items. This issue will be resolved in a future update.
+
+### FIXES
+- Fixed excessively large spacings in Settings tabs that occur on v1.21.100+.
+- Fixed some visual bugs in option descriptions.
+- Fixed some pack errors in CSB Subscription Panel.
+
+============================================================
+
+
+v1.2.4b (117)-2025.6.23-(r1.21.92)
+a non-major hotfix for minecraft v1.21.90+
+(1.21.90+ only)
+- Added "$use_cycle_hotbar_buttons" global variable to allow players to hide Cycle Hotbar buttons when not needed.
+- Fixed some pack errors that only appear on v1.21.90 or higher.
+- The Chunk Position and Chunk Border text backgrounds can now be customized through "Text Background Opacity" accessibility setting.
+- Removed "$chat_bg_alpha" global variable as it's redundant with the "Chat Background Opacity" accessibility setting.
+
+============================================================
+
+
+v1.2.4a (116)-2025.5.25-(r1.21.82)
+a minor hotfix for v1.2.4 update
+- Fixed an issue that some UI files in "subpacks" folder went missing.
+- The default "alpha" value of Cycle Hotbar buttons is now 0.9 instead of 1.0.
+- The "HUD Menu" toggle on touch is no longer shown when in "Customize Controls".
+
+============================================================
+
+
+v1.2.4 (115)-2025.5.23-(r1.21.82)
+THE "ANTI-XP-OVERFLOW" UPDATE
+### KNOWN ISSUES
+- The "Confirm Purchase" dialog in Marketplace PDP Screen is currently broken, players can't make purchases from inside this dialog anymore. This does not affect "Confirm Purchase" dialog in Persona Screen. Players need to disable the pack first before purchasing. This is because Mojang blocked me from modifying some of Marketplace Screen elements without breaking its functionalities?? WHY???
+
+### NEW FEATURES
+- You can now use the controller's back button to toggle Player List in Pause Screen and Container Toolbox in inventory screens.
+- The "Total XP" label in HUD now fully supports up to over 4.2 billion XP instead of just about 1 billion XP in previous versions. No more nonsense overflows! (Thanks, asakizuki!)
+- Updated Cycle Hotbar button textures. Players can also customize size, offset and transparency of those buttons as well! Find it in the _global_variables.json file.
+- Expanded "Toggle Hover Text" functionality to all remaining container screens.
+
+### CHANGES
+- Redesigned Copy Coordinates UI panel in chat screen for seamless and compact approach.
+- Updated the splashes.json file to include some new splash texts from... "shark", and removed some multi-line splash texts since the new splash text renderer didn't handle multi-line strings properly.
+
+### FIXES
+- Fixed two pack errors since the game was updated to v1.21.80+.
+- Fixed a content log error in gameplay_common.json.
+- The "XP Level" label is now properly visible in creative mode.
+
+### REMOVED
+- As mentioned in "Known Issues", the ability to see accurate ratings in Marketplace PDP Screen was removed, it's no longer working...
+
+============================================================
+
+
+v1.2.3 (114)-2025.4.1-(r1.21.71)
+"THIS IS SO UN-BEE-LIEVABLE" UPDATE
+### CHANGES
+- Changed the year number in Pause Screen server info panel from 2024 to 2025.
+- Updated and simplified info panel in Hive XP Calculator.
+- Updated Chinese (Simplified) localizations.
+
+### FIXES
+- Fixed two pack errors since the game was updated to v1.21.70+.
+- The "More options" menu inside Settings/Storage will no longer be shown unexpectedly in Realms Settings Screen, it's now enforced to be shown only when inside pre-game Settings Screen.
+- Fixed UI layering issues of filter/sort popups inside Dressing Room Screen (a Vanilla bug).
+- Temporarily removed interact buttons in Confirm Purchase dialogs because those buttons are not functioning correctly for some reasons.
+

@@ -1,0 +1,46 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "v1.0.0-2026.9 - Fork of Vanilla UI with custom enhancements, fixes, and clean interface tweaks.",
+    "name": "ZK UI Pack",
+    "uuid": "7a7c9df4-0f1d-4644-8539-2fcd438cd150",
+    "version": [ 1, 0, 0 ],
+    "min_engine_version": [ 1, 20, 0 ]
+  },
+  "modules": [
+    {
+      "description": "ZK UI Pack Core Resources",
+      "type": "resources",
+      "uuid": "a6706f42-ff36-4d3c-82fe-8877866c4cd1",
+      "version": [ 1, 0, 0 ]
+    }
+  ],
+  "subpacks": [
+    {
+      "folder_name": "default",
+      "name": "Default",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "performance",
+      "name": "Performance",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "vanilla_default",
+      "name": "Default Vanilla",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "ultra_mode",
+      "name": "§c§lULTRA MODE (Performance Impact!)§r",
+      "memory_tier": 0
+    }
+  ],
+  "metadata": {
+    "authors": [ "Zev Kaapor" ],
+    "license": "Forked from The Ty-el's UI Pack by tlgm2308. All rights reserved to original authors for base design.",
+    "url": "https://github.com/Zev-kaapor/ZK_UI_Pack"
+  }
+}
+

@@ -1,0 +1,424 @@
+## Você pode personalizar estas 4 linhas a seguir
+## \/ \/
+inBed.title=zzz...	#
+inBed.subtitle=Bons sonhos! _(-w-)_	#
+## /\ /\
+
+## Don't change this translation, this is required
+pauseScreen.playersTitle=%s	#
+
+icontext.multiplyone=x1	### Maximum 6 characters
+icontext.all=Todos	### Maximum 6 characters
+icontext.hovertext.multiplyone=Quantidade do Item: Um Item	#
+icontext.hovertext.all=Quantidade do Item: Um Slot	#
+
+icontext.dropOne=Soltar Um	#
+icontext.dropAll=Soltar Todos	#
+icontext.destroyOne=Destruir Um	#
+icontext.destroyAll=Destruir Todos	#
+
+accessibility.chat.tts.autocomplete=Autocompletar	#
+accessibility.chat.tts.autocompleteback=Autocompletar Voltar	#
+accessibility.chat.tts.previous=Mensagem Anterior	#
+accessibility.chat.tts.next=Próxima Mensagem	#
+accessibility.chat.tts.textboxSearchTitle=Caixa de Pesquisa de Mensagens	#
+accessibility.chat.tts.visibilityModeToggle=Alternância do Modo de Visibilidade do Chat	#
+## O seguinte adiciona uma vírgula antes de cada alternância de modo por um pequeno período de espera antes que o tts leia todo o resto 
+accessibility.chat.tts.visibilityModeToggle.autocomplete=, Modo Atual: Painel de Autocompletar	#
+accessibility.chat.tts.visibilityModeToggle.chat=, Modo Atual: Painel de Chat	#
+
+accessibility.pause.infoPanelToggle=Alternar Painel de Informações	#
+accessibility.play.editMode=Editar	#
+accessibility.play.quickJoinButton=Botão de Entrada Rápida no Servidor	#
+accessibility.start.hideStartScreen=Ocultar Tela Inicial	#
+accessibility.start.showStartScreen=Mostrar Tela Inicial	#
+## Forma que mostrará no jogo: Pressione <B> ou <BACK> para mostrar a tela inicial novamente!
+accessibility.start.toggleStartScreenTooltip.prefix=Pressione	#
+accessibility.start.toggleStartScreenTooltip.infix=ou	#
+accessibility.start.toggleStartScreenTooltip.postfix=para mostrar a Tela Inicial novamente!	#
+accessibility.toggle.tts.closethreedotsmenu=Fechar Mais Opções	#
+accessibility.toggle.tts.searchBar=Alternar Barra de Pesquisa	#
+accessibility.toggle.tts.startsidebar=Botão do Menu da Barra Lateral	#
+accessibility.toggle.tts.threedotsmenu=Mais Opções	#
+
+attribute.name.minecraft:damage_taken=Danos sofridos	#
+attribute.name.minecraft:jump_strength=Força do Salto	#
+attribute.name.towardsUndead=Direção aos Mortos-vivos	#
+
+brewingGuide.assistantPanel.button=Encontre a Receita	#
+brewingGuide.assistantPanel.title=Encontre a Receita...	#
+brewingGuide.assistantPanel.closeTitle=Feche e mostre-me a receita!	#
+brewingGuide.explanation=Explicações:	#
+brewingGuide.explanation.baseDamage=Dano Base: dano do jogador atual, danos de espadas e ferramentas estão incluídos. Padrão: 1	#
+brewingGuide.fuelRemainingPrefix=Poções Restantes:	#
+brewingGuide.mundanePotion.name=Ingredientes da Poção Mundana: 	#
+brewingGuide.mundanePotion.anyofIngredients=Qualquer um dos seguintes itens:	#
+brewingGuide.modifier.whenAddedAsModifier=Quando adicionado como um modificador:	#
+brewingGuide.modifier.whenAddedToWaterBottle=Quando adicionado na garrafa de água:	#
+brewingGuide.modifierDescription.extend=[Extensão] Extende a duração da poção.	#
+brewingGuide.modifierDescription.enhance=[Melhoria] Aumenta o nível da poção.	#
+brewingGuide.modifierDescription.corrupt=[Corrupção] Muda o efeito da poção.	#
+brewingGuide.popup.optimizingEffectIcons=Otimizando ícones de efeito de mobs...	#
+brewingGuide.potionEffect.removePoison=Cura Veneno	#
+brewingGuide.potionEffect.removeWeakness=Cura Fraqueza	#
+brewingGuide.potionEffect.removeBlindness=Cura Cegueira	#
+brewingGuide.potionEffect.removeNausea=Cura Náusea	#
+brewingGuide.tab.basePotions=Poções Base	#
+brewingGuide.tab.splashPotions=Poções Arremessáveis	#
+brewingGuide.tab.lingeringPotions=Poções Prolongadas	#
+brewingGuide.tab.EduChemistryPotions=Produtos Químicos	#
+brewingGuide.tab.legend=Base & Modificadores	#
+brewingGuide.toggle.uselessRecipesVisibility=Alternar a visibilidade de receitas inúteis	#
+brewingGuide.toggle.fallbackItemRendererMode=Modo de renderização de item de fallback	#
+brewingGuide.uselessPotions.avoidTip=§o§dEvite qualquer um desses ingredientes especificamente nesta etapa porque Poções Mundanas são inúteis e não podem ser transformadas em nenhuma outra poção!	#
+
+chat.blacklistedMessageNotifier.itemHovered.uncheckedLabel=Mostrar mensagem na lista negra	#
+chat.blacklistedMessageNotifier.itemHovered.uncheckedLabelAlt=Mostrar mensagem e aplicar modo cursor	#
+chat.blacklistedMessageNotifier.itemHovered.checkedLabel=Ocultar mensagem na lista negra	#
+chat.blacklistedMessageNotifier.itemHovered.checkedLabelAlt=Desabilitar o modo cursor para ocultar a mensagem	#
+chat.blacklistedMessageNotifier.label=§o--- Mensagem oculta ---	#
+chat.chatToolbox.cannotEnter.tooltip=Não é possível entrar no modo de caixa de ferramentas de bate-papo ao digitar comandos ou em modos de preenchimento automático	#
+chat.navigationNotification.search=Pesquisando...	#
+chat.navigationNotification.caretMode=Modo Cursor do Chat habilitado...	#
+chat.placeHolderText=Digite sua mensagem de bate-papo ou comando aqui...	#
+chat.searchMessages.placeHolderText=Pesquisar mensagens...	#
+
+commandBlockScreen.placeHolderText=Digite sua entrada de comando aqui	#
+commandBlockScreen.placeHolderOutputText=A saída do seu comando estará aqui...	#
+
+compatibility.enabled=Modo de compatibilidade habilitado!	#
+compatibility.autoEnabledforServer=O Modo de Compatibilidade do ZK UI Pack para este servidor está disponível e será ativado automaticamente assim que você entrar!	#
+compatibility.enabledForAdditionalServers.disclaimer=Se você vir este distintivo em qualquer alternância de servidor externo, significa que esses servidores têm Modo de Compatibilidade para ZK UI Pack disponível. Verifique as informações do servidor na tela de pausa no jogo para obter mais informações.	#
+compatibility.zkUI=Compatível com ZK UI Pack!	#
+
+container.craftAll.itemsRemainHeader=Itens restantes após craftar todos:	#
+## Forma que mostrará no jogo: Vai craftar <números> tempo(s) ==> x<items_totais>
+container.craftAll.stepsToCraftPrefix=Vai craftar	#
+container.craftAll.stepsToCraftPostfix=tempo(s)	#
+
+container.destroyItemsTooltip.line1=Pressione duas vezes nos Itens para destruir os itens selecionados.	#
+container.destroyItemsTooltip.line1_touch=Toque duas vezes nos Itens para destruir os itens selecionados.	#
+container.destroyItemsTooltip.line2=§l§cTenha cuidado ao escolher itens para destruir!§r	#
+container.destroyItemsTooltip.cannotBeUsedInSurvival.line1=Não é possível usar o modo Destruir itens em Sobrevivência!	#
+container.destroyItemsTooltip.cannotBeUsedInSurvival.line2=§aEsta opção está disponível apenas no modo Criativo.§r	#
+container.fastCraft=Craft Rápido	#
+container.fastCraft.warningHoverText=Craft Rápido, §cMuito Perigoso!§r Pressione qualquer slot de item no livro de receitas para craftá-lo rapidamente! Pode perder seus itens valiosos para sempre se você craftar algo errado por acidente!	#
+container.highlightItems=Itens em destaque (Use maiúscula e minúscula!)	#
+container.highlightitems.placeholdertext=Itens em destaque...	#
+container.itemAmountHoverText.one=Quantidade de Item: Um Item	#
+container.itemAmountHoverText.max=Quantidade de Item: Um Pack	#
+container.itemAmountHoverText.maxFixed=Quantidade de Item: Um Pack (Fixo)	#
+container.invMode=Modo de Inventário:	#
+container.invMode.autoPlace=Colocar Automático	#
+container.invMode.manualPlace=Colocar Manual	#
+container.invMode.normalMode=Modo Normal	#
+container.invMode.autoPlaceMode=Modo Mover Rápido	#
+container.invMode.dropMode=Modo Soltar	#
+container.invMode.autoDestroyMode=Modo Destruir Itens	#
+container.quickCraft=Craft Rápido	#
+container.repair.durabilityGainedTooltip.anvil=Quantidades de durabilidade ganhas em comparação ao primeiro slot de entrada	#
+container.repair.durabilityGainedTooltip.grindstone=Quantidades de durabilidade obtidas em comparação ao item com menor durabilidade	#
+container.smithing_table.previewAngle=Ângulo de visualização:	#
+
+container.toolbox=Container Toolbox	#
+
+container.toolbox.slotBulkQuickMove.toInventory=Mover rápido para o inventário	#
+container.toolbox.slotBulkQuickMove.toContainer=Mover rápido para o contêiner	#
+
+container.toolbox.slotBulkClear.compact.line1=Clique duas vezes em  para limpar a Hotbar	#
+container.toolbox.slotBulkClear.compact.line2=§cSegure o SHIFT e Clique duas vezes em  para limpar o Inventário	#
+container.toolbox.slotBulkClear.compact.line1.controller=Pressione duas vezes para limpar a Hotbar	#
+container.toolbox.slotBulkClear.compact.line2.controllerPrefix=§cPressione duas vezes	#
+container.toolbox.slotBulkClear.compact.line2.controller=§cpara limpar o Inventário	#
+container.toolbox.slotBulkClear.compact.tts=Clique duas vezes para limpar a hotbar. Segure o Shift e clique duas vezes para limpar o inventário	#
+container.toolbox.slotBulkClear.compact.tts.controller=Pressione duas vezes para limpar a hotbar. Pressione duas vezes o botão "Mover Rápido" para limpar o inventário	#
+container.toolbox.slotBulkClear.hotbar=§cToque duas vezes para limpar a Hotbar	#
+container.toolbox.slotBulkClear.inventory=§cToque duas vezes para limpar o Inventário	#
+
+container.toolbox.slotDestroy.compact.line1= para destruir tudo	#
+container.toolbox.slotDestroy.compact.line2= para destruir um	#
+container.toolbox.slotDestroy.compact.line1.controller=Pressione para destruir tudo	#
+container.toolbox.slotDestroy.compact.line2.controller=para destruir um	#
+container.toolbox.slotDestroy.compact.tts=Clique para destruir todos os itens selecionados. Clique com o botão direito para destruir um item selecionado	#
+container.toolbox.slotDestroy.compact.tts.controller=Pressione para destruir todos os itens selecionados. Pressione "Pegar a metade/Colocar um" para destruir um item selecionado	#
+
+container.toolbox.slotDrop.compact.line1= para dropar tudo	#
+container.toolbox.slotDrop.compact.line2= para dropar um	#
+container.toolbox.slotDrop.compact.line1.controller=Pressione para dropar tudo	#
+container.toolbox.slotDrop.compact.line2.controller=para dropar um	#
+container.toolbox.slotDrop.compact.tts=Clique para dropar todos os itens selecionados. Clique com o botão direito para dropar um item selecionado	#
+container.toolbox.slotDrop.compact.tts.controller=Pressione para dropar todos os itens selecionados. Pressione "Pegar a metade/Colocar um" para dropar um item selecionado	#
+
+contentlog.keystrokeProtip=Dica profissional: Se você tem o registro de conteúdo (log) ativado, você pode usar Ctrl + H para abrir o log facilmente, em qualquer lugar! (requer teclado)	#
+contentlog.msgSize.header=Contagem de mensagens indexadas:	#
+contentlog.msgSize.maxFlag=[MAX]	#
+contentlog.msgSize.maxFlag.tooltip=Máximo é 100, mas você pode pegar o registro de conteúdo (log) completo nos arquivos de log salvos	#
+contentlog.filter.errors=Erros	#
+contentlog.filter.title=Mostrar tudo:	#
+contentlog.filter.warnings=Avisos	#
+
+controller.buttonTip.doublePress=[Pressione Duas Vezes]	#
+controller.buttonTip.highlightItems=Destacar Itens	#
+controller.buttonTip.playRecentWorld=Jogue o mundo salvo recentemente	#
+controller.buttonTip.playSelectedServer=Jogue o Servidor selecionado	#
+controller.buttonTip.toggleSidebar=Menu da Barra Lateral	#
+controller.buttonTip.toggleScreen=Mostrar/Ocultar Tela	#
+
+createWorldScreen.gameMode.personal.gameModeDefaultDescription=Sincronizado com o modo de jogo padrão do mundo.	#
+createWorldScreen.gameMode.personal.gameModeSpectatorDescription=Voe e observe o mundo sem interagir com ele de forma alguma.	#
+createWorldScreen.levelSeed.copySeedTooltip=Clique na caixa de texto de seed do mundo, selecione todo o texto de seed e pressione Copiar no teclado.	#
+createWorldScreen.levelSeed.copySeedTooltip.keyboard=Clique na caixa de texto da seed do mundo, pressione Ctrl + A e depois Ctrl + C no teclado para copiar a seed do mundo.	#
+createWorldScreen.serverSimDistanceDescription.header=O jogo carrega e aplica alterações dentro de uma quantidade especificada de Raio de Blocos.	#
+createWorldScreen.serverSimDistanceDescription.footer=Raio de Blocos:	#
+createWorldScreen.worldNameDescription.create=Aqui você pode nomear seu mundo.	#
+createWorldScreen.worldNameDescription.edit=Aqui você pode editar o nome do seu mundo.	#
+createWorldScreen.worldLocationSectionName=Localização da Pasta do Mundo:	#
+createWorldScreen.worldLocationSection.unknownLabel=(Desconhecido)	#
+
+deathScreen.btnBgLayout.labelHeader=Pressione em qualquer lugar para renascer	#
+deathScreen.btnBgLayout.labelHeader.touch=Toque em qualquer lugar para renascer	#
+deathScreen.btnBgLayout.labelFooter=ou volte ao Menu Principal	#
+
+dr.toggle.purchaseLock=Bloqueio de compra	#
+
+generator.infinite.desc=É um mundo infinito que continua para sempre. Várias paisagens são geradas utilizando biomas.	#
+generator.old.desc=É um mundo finito em tamanho e altura, 256x256x256. Usa gerações do mundo antigo.	#
+
+hudScreen.hideHudTooltip=Toque duas vezes para ocultar o HUD	#
+hudScreen.inventoryFull.warning=§lCheio!	#
+hudScreen.levelHeaderAbbreviated=Lvl	#
+hudScreen.lowDurability=Baixa durabilidade!	#
+hudScreen.scoreboardList.playerCount.header=Mostrando	#
+hudScreen.scoreboardList.playerCount.player=jogador	#
+hudScreen.scoreboardList.playerCount.players=jogadores	#
+hudScreen.scoreboardList.playerTag.self=[Você]	#
+hudScreen.scoreboardList.unscoredTitle=Jogadores sem Pontuação	#
+hudScreen.showHudTooltip=Toque nesta área para Mostrar HUD novamente!	#
+hudScreen.toggleables.hiveXpCalc.show=Mostrar o menu de calcular o XP do HIVE	#
+hudScreen.toggleables.hotbar.hide=Esconder a Hotbar	#
+hudScreen.toggleables.hotbar.show=Mostrar a Hotbar	#
+hudScreen.toggleables.scoreboardList.hide=Esconder a lista de Scoreboard	#
+hudScreen.toggleables.scoreboardList.show=Mostrar a lista de Scoreboard	#
+hudScreen.toggleables.scoreboardSidebar.hide=Esconder a barra lateral de Scoreboard	#
+hudScreen.toggleables.scoreboardSidebar.show=Mostrar a barra lateral de Scoreboard	#
+hudScreen.toggleables.tooltip=Pressione TAB para visualizar a lista de jogadores. Acesse os botões do HUD usando TAB + <tecla numérica>.	#
+
+itemLore.title=Visualizador de Informações do Item §o§7(BETA!)	#
+itemLore.emptyMessage=<Este slot está vazio!>	#
+
+key.peekListAndHUDTogglesForZkUI=Lista de Scoreboard espiada e Menu HUD para ZK UI Pack	#
+key.showContentLogGUI=Mostrar GUI de registro de conteúdo (log)	#
+key.showContentLogGUI.disabledTag=(desativado)	#
+key.toggleGraphicsMode=Alterar modos gráficos (se disponível)	#
+key.toggleHUD=Esconder/Mostrar HUD	#
+key.togglePaperDoll=Esconder/Mostrar Boneco de Papel	#
+
+## Formatação para mapa.chunk enquanto está no jogo: [Chunk: <xi>, <yi>, <zi> em <x>, <y>, <z>]
+map.chunk=Chunk	#
+map.chunk.in=em	#
+map.chunkBorder=Borda da Chunk	#
+map.chunkBorder.none=Nenhum	#
+
+menu.communityStandards=Ver Padrões da Comunidade	#
+menu.feedback=Enviar Feedback	#
+menu.multiplayerHelp=Ajuda Multijogador	#
+menu.quit=Sair do Jogo	#
+
+mobeffect.title.noEffects=Nenhum efeito ativado	#
+mobeffect.title.activeEffects=Efeitos ativados:	#
+
+modal.defaultTitle=Você tem certeza?	#
+
+networkWorld.view_server_store=Ver Loja do Servidor	#
+
+options.hardcoded_keybinds_section=Teclas de código fechado (embutidas e não podem ser modificadas)	#
+options.quickSettingsTitle=Opções Rápidas	#
+options.thirdperson.firstperson_short=Primeira	#
+options.thirdperson.thirdpersonback_short=Terceira (atrás)	#
+options.thirdperson.thirdpersonfront_short=Terceira (frente)	#
+options.toggleOptionDescriptions=Mostrar/ocultar descrições das opções	#
+
+options.enableAutoPlatformTextToSpeech.description=Habilita a conversão de texto em fala com as configurações do sistema.	#
+options.enableUITextToSpeech.description=Habilita a conversão de texto em fala nos menus.	#
+options.enableChatTextToSpeech.description=Habilita a conversão de texto em fala em mensagens no bate-papo e comandos.	#
+options.enableOpenChatMessage.description=Esconder/Mostrar as notificações do Chat.	#
+options.textBackgroundOpacity.description=Altera a opacidade do fundo do texto de títulos e subtítulos. Definir como 0% tornará os fundos completamente invisíveis.	#
+options.gamma.description=Ajusta o brilho do jogo.	#
+options.thirdperson.description=Altera a visualização em primeira/terceira pessoa. A visão em terceira pessoa permite ao jogador ver o ambiente próximo de uma perspectiva "externa".	#
+options.fullscreen.description=Coloca o Minecraft no modo Tela Cheia; mantê-lo desligado o mantém em uma janela.	#
+options.hidehand.description=Mostra ou oculta a mão do jogador na visão em primeira pessoa.	#
+options.hidepaperdoll.description=Alterna a visão lateral do player exibida no canto superior esquerdo da tela.	#
+options.hidehud.description=Mostra/oculta o HUD.	#
+options.screenAnimations.description=Altera as animações ao alternar entre UI ou menus.	#
+options.interfaceOpacity.description=Altera a opacidade do HUD. Escolher um item na barra de atalho ou interagir com a IU reverterá temporariamente a opacidade para 100%. Esta opção não afetará a opacidade do Boneco de Papel.	#
+options.fov.description=Altera o campo de visão. Controlando quanto do mundo do jogo fica visível na tela.	#
+options.splitscreen.description=Alterna entre a orientação horizontal e vertical da tela dividida.	#
+options.showautosaveicon.description=Oculta/mostra o ícone indicador de salvamento automático. O ícone indicador aparece no HUD quando o jogo tenta salvar automaticamente seu mundo no armazenamento do dispositivo.	#
+options.classic_box_selection.description=Altera a seleção de contorno do bloco. Desabilitar isso usará a seleção de destaque do bloco.	#
+options.ingamePlayerNames.description=Altera a visibilidade do texto da tag de nome que pode ser visto no topo da cabeça dos jogadores, mobs e NPCs.	#
+options.splitscreenIngamePlayerNames.description=Altera a visibilidade do texto da tag de nome que pode ser visto no topo da cabeça dos jogadores, mobs e NPCs, em tela dividida.	#
+options.viewBobbing.description=Alterna o movimento de "balançar" da câmera enquanto o jogador caminha.	#
+options.screenShake.description=Altera a vibração da tela quando os mapas usam os comandos "/camerashake". Desativar esta opção evita que a tela do jogo trema quando os comandos são executados.	#
+options.transparentleaves.description=Altera a transparência das folhas.	#
+options.bubbleparticles.description=Altera os gráficos sofisticados das colunas de bolhas de água. Isso pode diminuir o desempenho em alguns dispositivos.	#
+options.renderclouds.description=Altera os gráficos das nuvens. Desativar esta opção faz com que nenhuma nuvem seja renderizada.	#
+options.fancyskies.description=Altera o sol, a lua, as nuvens, as estrelas e a cor do céu. Desativar esta opção não irá renderizá-los no mundo e, em vez disso, apenas a cor do céu será renderizada.	#
+options.smooth_lighting.description=A iluminação é suavizada entre os blocos (oclusão de ambiente) ou cada bloco tem um nível de luz distinto.	#
+options.graphics.description=Gráficos sofisticados permitem efeitos gráficos de maior qualidade, incluindo folhas e nuvens transparentes.	#
+options.fov.toggle.description=Altera se a jogabilidade afeta as mudanças de FOV, ao correr, ao ter efeito de lentidão ou velocidade, etc.	#
+options.guiScale.description=Controla a escala da interface gráfica do usuário. Isso também controla o tamanho do HUD.	#
+options.gui.accessibility.scaling.description=Ativa uma versão extra grande da interface do menu como uma opção adicional de acessibilidade.	#
+options.uiprofile.description=Altera o estilo da UI do jogo entre clássico (UI de desktop) e Pocket UI. A UI clássica tem um estilo de UI semelhante ao Java, enquanto a Pocket UI tem slots de itens maiores, telas redesenhadas e mais fáceis de usar para dispositivos móveis.	#
+options.raytracing.description=Altera o ray tracing ligado ou desligado.	#
+options.upscaling.description=Aumenta as taxas de quadros em placas gráficas GeForce RTX com NVIDIA DLSS 2.0.	#
+options.raytracing.renderDistance.description=Controla a distância de renderização do pedaço do ray tracing se a opção "Ray Tracing" estiver ativada.	#
+options.renderDistance.description=Controla quantos pedaços do mundo são visíveis de uma só vez. Isso também afeta a distância de renderização da folhagem, como folhas transparentes, plantações e texturas animadas.	#
+options.maxFramerate.description=Limita as taxas de quadros por segundo. Limitar a taxa de quadros a um múltiplo da taxa de atualização do monitor do player pode economizar poder de processamento.	#
+options.msaa.description=Alterna a quantidade de suavização de serrilhado, que suaviza a imagem e remove bordas irregulares.	#
+options.texelAA.description=Alterna o anti-aliasing de pixels de textura, que suaviza os pixels dos blocos.	#
+options.vsync_dropdown.description=Limita as taxas de quadros por segundo à taxa de atualização da tela. Definir como Sem sincronização vertical ou Adaptável aumentará o FPS acima da taxa de atualização do monitor do jogador, mas afetará negativamente o poder de processamento.	#
+
+pauseScreen.thirdPartyWorld=Servidor em Destaque	#
+pauseScreen.realmWorld=Realm	#
+
+playscreen.navigateUp=Guia Superior	#
+playscreen.navigateDown=Guia Inferior	#
+playscreen.joinRecentExternalServer=Entrar no Servidor Externo Recente	#
+playscreen.lastPlayed=Último salvo:	#
+playscreen.loading=Carregando...	#
+playscreen.motd=MOTD	#
+playscreen.pinging=Pingando...	#
+playscreen.playButton=JOGAR!	#
+playscreen.projectsearch.placeholdertext=Pesquisar Projetos... [Use maiúsculas e minúsculas!]	#
+playscreen.recentlyPlayed=Jogado Recentemente	#
+playscreen.showWorldFolderName=Mostrar nome da pasta do mundo (experimental)	#
+playscreen.worldFolderName.undefined=(Indefinido ;-;)	#
+playscreen.worldFolderName.unknown=(Pasta Indefinida)	#
+playscreen.worldsFound=mundo(s) encontrado(s)	#
+playscreen.worldsearch.codelimiteddisclaimer=§l§cAVISO:§r Devido ao mau desempenho e limitações de código, só podemos indexar até §l§e50§r mundos mais recentes para serem pesquisáveis, desculpe pela inconveniência.	#
+playscreen.worldsearch.placeholdertext=Procure seus mundos favoritos... [Use maiúsculas e minúsculas!]	#
+playscreen.worldsearch.resultmessage_before=Resultados para: 	### Mantenha isso vazio (adicione um espaço " ") se sua localização não permitir
+playscreen.worldsearch.resultmessage_after= 	### Mantenha isso vazio (adicione um espaço " ") se sua localização não permitir
+playscreen.worldSize=Tamanho do Mundo:	#
+playscreen.warning.forceautoplace.title=Forçar movimento rápido em aviso	#
+playscreen.warning.forceautoplace.body=Use o recurso "Forçar Mover Rápido" em servidores por sua conta em risco, não abuse muito disso em servidores (especialmente Servidores em Destaque)!	#
+
+progressScreen.hiveNetherGlitch.title=AARGH,... aquele Nether Glitch de novo!	#
+progressScreen.hiveNetherGlitch.body=O que você pode fazer? Apenas... espere e volte, ou force o fechamento e reabra o jogo, ou se você estiver no Windows, use o botão "Restaurar" e não "Minimizar"! Deve fechar esta tela instantaneamente para você!	#
+
+resourcePack.packSearchPlaceHolderText.global=Pesquisar recursos globais...	#
+resourcePack.packSearchPlaceHolderText.world_resource=Pesquisar pacotes de textura...	#
+resourcePack.packSearchPlaceHolderText.world_behavior=Pesquisar pacotes de comportamento...	#
+resourcePack.showNotDownloaded=Mostrar não baixados	#
+resourcePack.zkUIWarningMessage=Se você já ativou o ZK UI Pack nos Recursos Globais, não é necessário ativá-lo nos Pacotes de Recursos do Mundo novamente.	#
+resourcePack.zkUI.globalVarsFailedToLoad.toastMessage=Ocorreu um erro ao tentar carregar /ui/_global_variables.json do ZK UI Pack. Verifique as sintaxes dos arquivos e tente novamente.	#
+
+screenshot.saveLocation=Local de Captura de Tela:	#
+screenshot.showSaveLocation=Mostrar Local de Captura de Tela	#
+
+screenLoading.tooLongTooltip=Se o jogo demorar muito para carregar esta tela, reinicie-o.	#
+
+serverform.searchPlaceHolderText=Filtrar pesquisa... [Use maiúsculas e minúsculas!]	#
+serverform.searchDisclaimer.tooltip=Certifique-se de não tentar pesquisar conteúdos que são usados com muita frequência nesta tela de formulário.	#
+
+storageManager.floatingFileStorageSelector.tooltip=Deseja alterar o local de armazenamento? Aperte aqui!	#
+
+store.cost=Custo:	#
+store.redeem=Obtenha gratuitamente!	#
+store.free.uppercase=§l§oGRÁTIS!	#
+
+store.confirmPurchase.title=Confirmar compra	#
+store.confirmPurchase.description=Tem certeza que deseja comprar este item? Aqui está o que você vai adquirir:	#
+store.confirmPurchase.description_completed=Você está pronto para ir. Agora você pode fechar este diálogo e aproveitar sua compra.	#
+store.confirmPurchase.tooltip=Você será solicitado a confirmar a compra ao pressionar os botões de compra para evitar comprar itens por acidente.	#
+store.proceedToPurchase=Aceite e prossiga com a compra	#
+
+dr.rarity.=Erro, é necessário limpar o filtro	#
+store.search.filter.=Erro, é necessário limpar o filtro	#
+
+store.search.filter.highlight.title=Filtrar Highlight	#
+store.search.filter.minecoinSpecials=Minecoins/Especiais	#
+store.search.filter.newOffers=Novas ofertas	#
+store.search.filter.redeemable=Resgatável	#
+store.search.filter.collectible=Colecionável por meio de Conquistas	#
+store.search.filter.paid=Pago	#
+
+trade.tradeAll=Trocar Tudo	#
+trade.maxLevelTag=MAX	#
+
+zkHive.xpCalculator.disclaimerLabel=Informações dos gráficos XP coletadas de hivetools.app. Não é afiliado à Hive Games de forma alguma.	#
+zkHive.xpCalculator.hideButtonLabel=Esconder	#
+zkHive.xpCalculator.maxLevel=Level Max	#
+zkHive.xpCalculator.increment=Incremento / lvl	#
+zkHive.xpCalculator.incrementCap=Cap ## ~= Máximo	#
+zkHive.xpCalculator.title=Interruptores de modo da calculadora Hive XP	#
+zkHive.xpCalculator.pageIdentifier=Página	#
+zkHive.xpCalculator.lastUpdated=Última atualização:	#
+
+zkAbout.about=Sobre ZK UI Pack	#
+zkAbout.customAvailable=Tela Personalizada Disponível!	#
+zkAbout.customAvailable.zeqa=Confira as regras do Zeqa e sobre a interface do usuário do ZK UI Pack aqui!	#
+zkAbout.minGameVerRequired=Versão mínima do Minecraft necessária:	#
+zkAbout.openAboutZkUITooltip.openText=Pressione para ver sobre ZK UI Pack (tela atualmente personalizada)	#
+zkAbout.openAboutZkUITooltip.closeText=Pressione para voltar à tela personalizada (tela atualmente Sobre ZK UI Pack)	#
+
+zkAbout.troubleshootingMode.deactivatePack.title=ZK UI Pack - Modo de solução de problemas	#
+zkAbout.troubleshootingMode.deactivatePack.desc=Pressione este botão "Desativar ZK UI Pack" para desativar o pacote instantaneamente e pressione "Fechar Opções" para concluir o processo de desativação.	#
+zkAbout.troubleshootingMode.deactivatePack.globalVarsFailedToLoadDesc=Você obteve este botão porque o arquivo /ui/_global_variables.json não foi carregado corretamente. Verifique as sintaxes do arquivo e tente novamente.	#
+zkAbout.troubleshootingMode.deactivatePack.deactivateButtonLabel=Desativar ZK UI Pack	#
+zkAbout.troubleshootingMode.deactivatePack.closeSettingsButtonLabel=Fechar Opções	#
+zkAbout.troubleshootingMode.deactivatePack.closeSettingsButtonLabel.locked=Não é possível desativar o ZK UI Pack durante o jogo	#
+zkAbout.troubleshootingMode.watermark.label_row1=ZK UI Pack	#
+zkAbout.troubleshootingMode.watermark.label_row2=Modo de solução de problemas	#
+zkAbout.troubleshootingMode.watermark.label_row1_globalVarsFailedToLoad=ZK UI Pack - Modo de soluções de problemas	#
+zkAbout.troubleshootingMode.watermark.label_row2_globalVarsFailedToLoad=§c(Variáveis globais falharam ao carregar!)	#
+
+zkAbout.expRequiredDialog.openSettings=Abra as configurações do jogo	#
+zkAbout.expRequiredDialog.title=ZK UI Pack: Bandeiras experimentais necessárias	#
+zkAbout.expRequiredDialog.header=Antes de continuar jogando com ZK UI Pack em sua versão atual do jogo, você deve primeiro alterar essas bandeiras experimentais manualmente §c(porque não pode ser automatizado)§r:	#
+zkAbout.expRequiredDialog.bodyParagraph1=Abra o "/ui/_global_variables.json" dentro da pasta do ZK UI Pack para modificar todas as bandeiras necessárias.	#
+zkAbout.expRequiredDialog.bodyParagraph2=Você também pode abrir as configurações do jogo para desativar a UI do ZK UI Pack com segurança.	#
+zkAbout.expRequiredDialog.gameVersionHeader=Sua versão atual do jogo:	#
+
+## DO NOT TRANSLATE PACK NAME
+zkAbout.creatorTitle=Mantenedor do Fork:	#
+zkAbout.aboutLabel1=O ZK UI Pack é um fork pessoal do Ty-el UI mantido por Zev Kaapor, focado na melhoria da interface Vanilla do Minecraft Bedrock, adicionando recursos, correções e melhorias visuais.	#
+zkAbout.aboutLabel2=§l§bDISCLAIMER§r: §oEste pacote é apenas uma textura de interface (Resource Pack), não um cliente modificado!§r	#
+zkAbout.aboutLabel3=Idiomas mantidos:	#
+zkAbout.aboutLabel4=Português (Brasil), Inglês (Estados Unidos)	#
+zkAbout.aboutLabel5=para uso próprio e personalização de interface.	#
+zkAbout.aboutLabel6=Projetos e repositórios em: https://github.com/Zev-kaapor	#
+zkAbout.translationHelp=Versão otimizada em Português e Inglês.	#
+
+zkAbout.features=Recursos 	#
+zkAbout.featuresTitleFeatures=§eRecursos Principais	#
+zkAbout.featuresLabel0=- Atualizações modernas de interface e ajustes no Ore UI.	#
+zkAbout.featuresLabel1=- Botões para soltar e destruir itens em contêineres e inventário.	#
+zkAbout.featuresLabel2=- Criação rápida (Quick Craft) e trocas rápidas (Trade All).	#
+zkAbout.featuresLabel3=- Alternador de modo de contêiner para saques rápidos.	#
+zkAbout.featuresLabel5=- Livro de receitas estilo Java Edition.	#
+zkAbout.featuresLabel6=- Indicadores de porcentagem e valores numéricos exatos em barras de XP e progresso.	#
+
+zkAbout.credits=Créditos	#
+zkAbout.creditsTitle=Créditos e Agradecimentos	#
+zkAbout.creditsTitleTranslators=Autor Original: tlgm2308 | Fork & Restruturação: Zev Kaapor	#
+
+zkAbout.usage=Uso do Projeto	#
+zkAbout.usageLabel1=PROJETO PESSOAL / FORK LIBERADO	#
+zkAbout.usageLabel2=- Modificações e personalizações para uso próprio.	#
+zkAbout.usageLabel7=- Fork pessoal mantido por Zev Kaapor. Código original por tlgm2308.	#
+
+zkAbout.validation=Validação da UI	#
+zkAbout.validation.errorList=Lista de erros	#
+zkAbout.validationLabel1=Quaisquer erros detectados pelo Sistema de Validação da ZK UI serão exibidos aqui.	#
+
+zkAbout.changelog=Changelog	#
+zkAbout.changelog.newfeatures=§bRECURSOS NOVOS	#
+zkAbout.changelog.changes=§aMUDANÇAS	#
+zkAbout.changelog.fixes=§eCORREÇÕES	#
+zkAbout.changelog.knownissues=§6PROBLEMAS CONHECIDOS	#
+zkAbout.changelog.removed=§cRECURSOS REMOVIDOS	#
+
+zkAbout.changelog100=v1.0.0	#
+zkAbout.changelog100.title=§aVERSÃO INICIAL DO FORK (ZK UI PACK)	#
+zkAbout.changelog100.label1=- Reestruturação completa do projeto para o fork ZK UI Pack por Zev Kaapor.	#

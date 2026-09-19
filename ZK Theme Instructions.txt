@@ -1,0 +1,26 @@
+﻿* How to add custom panorama:
+1. Add and replace the invisible /<this pack folder name>/textures/custom_panorama.png with your .png wallpaper (panorama) image file
+2. Open /ui/_zk_theme_template.json and change
+
+"$use_customizable_panorama": false,
+
+from false to true
+
+3. (Optional but Recommended) Open /ui/_global_variables.json file and modify:
+
+"$settings_gray_bg_visible": true,
+
+change true to false
+3. Save all files, open your game, activate the pack and enjoy
+
+* ZK UI Theme:
+If you want to customize even more things, like sounds, panoramas, UI, textures, etc. you can create your own ZK Theme, by making another pack, copy contents in /ui/_zk_theme_template.json, /ui/_global_variables.json, "sounds" folder into your pack. From that you can modify:
+- "theme_metadata", "custom_panorama" in _zk_theme_template.json
+- Some variable changes in _global_variables.json
+- Everything else in your ZK Theme pack.
+
+Note: If you didn't make change to some controls, you can delete them, but do not delete contents in the main ZK UI Pack folder, and make sure, your theme pack is on top of ZK UI Pack in order to work!
+
+
+- Zev Kaapor (Fork from @tlgm2308)
+

@@ -1,0 +1,80 @@
+# --- 1. Pacotes e Artefatos de Build (Arquivos compilados/gerados) ---
+*.mcpack
+*.mcaddon
+*.mcworld
+*.zip
+*.rar
+*.7z
+*.tar.gz
+build/
+dist/
+out/
+bin/
+releases/
+
+# --- 2. Arquivos Temporários, Backups e Logs ---
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.swo
+*~
+*.orig
+*.old
+*.log
+logs/
+crash-reports/
+dumps/
+
+# --- 3. Sistema Operacional (Windows / macOS / Linux) ---
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+.directory
+
+# --- 4. IDEs e Editores de Código ---
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains (IntelliJ, WebStorm, PyCharm, Fleet)
+.idea/
+.fleet/
+*.iml
+
+# Outros editores
+*.sublime-project
+*.sublime-workspace
+
+# --- 5. Scripts Auxiliares, Python e Ferramentas Dev ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+env/
+venv/
+node_modules/
+
+# --- 6. Segredos e Variáveis de Ambiente ---
+.env
+.env.*
+*.local

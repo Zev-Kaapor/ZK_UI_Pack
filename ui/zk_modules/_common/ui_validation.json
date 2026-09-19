@@ -1,0 +1,449 @@
+{
+  "namespace": "zk_ui_validation",
+
+  "zk_ui_validation_stack_system@zk_ui_validation.zk_ui_validation_template": {
+    "controls": [
+      //{
+      //  "global_variables_file_version_violation@$file_version_violation": {
+      //    "$file_version_source": "zk_ui_metadata.zk_ui_metadata"
+      //  }
+      //},
+      {
+        "scoreboard_sidebar_anchor@$gverr": {
+          "$variable_name": "scoreboard_sidebar_anchor",
+          "$variable_type": "anchor_string",
+          "$variable_data": "$scoreboard_sidebar_anchor"
+        }
+      },
+      // #region customizations
+      // ====================================
+      {
+        "zk_lib__item_ids@$fnf": {
+          "$validation_namespace": "zk_lib__item_ids",
+          "$codename": "zk_lib/item_ids"
+        }
+      },
+      {
+        "zk_pause_title:custom_titles@$fnf": {
+          "$validation_namespace": "zk_pause_title",
+          "$validation_modifier": ":custom_titles",
+          "$codename": "_pause_world_title"
+        }
+      },
+      {
+        "zk_custom_theme@$fnf": {
+          "$validation_namespace": "zk_custom_theme",
+          "$codename": "zk_custom_theme"
+        }
+      },
+      // ====================================
+      // #endregion customizations
+
+      // #region zk_oreui_design
+      // ====================================
+      {
+        "zk_oreui_design__anims@$fnf": {
+          "$validation_namespace": "zk_oreui_design__anims",
+          "$codename": "zk_oreui_design/anims"
+        }
+      },
+      {
+        "zk_oreui_design__buttons@$fnf": {
+          "$validation_namespace": "zk_oreui_design__buttons",
+          "$codename": "zk_oreui_design/buttons"
+        }
+      },
+      {
+        "zk_oreui_design__dialogs@$fnf": {
+          "$validation_namespace": "zk_oreui_design__dialogs",
+          "$codename": "zk_oreui_design/dialogs"
+        }
+      },
+      {
+        "zk_oreui_design__misc@$fnf": {
+          "$validation_namespace": "zk_oreui_design__misc",
+          "$codename": "zk_oreui_design/misc"
+        }
+      },
+      {
+        "zk_oreui_design__toggles@$fnf": {
+          "$validation_namespace": "zk_oreui_design__toggles",
+          "$codename": "zk_oreui_design/toggles"
+        }
+      },
+      // ====================================
+      // #endregion zk_oreui_design
+
+      // #region zk_modules
+      // ====================================
+
+      // #region zk_modules/_common
+      {
+        "zk_theme@$fnf": {
+          "$validation_namespace": "zk_theme",
+          "$codename": "zk_modules/_common/zk_theme"
+        }
+      },
+      {
+        "zk_threedots_menu@$fnf": {
+          "$validation_namespace": "zk_threedots_menu",
+          "$codename": "zk_modules/_common/zk_threedots_menu"
+        }
+      },
+      {
+        "zk_threedots_menu_common@$fnf": {
+          "$validation_namespace": "zk_threedots_menu",
+          "$validation_modifier": ":common",
+          "$codename": "zk_modules/_common/zk_threedots_menu:common"
+        }
+      },
+      {
+        "zk_anims@$fnf": {
+          "$validation_namespace": "zk_anims",
+          "$codename": "zk_modules/_common/zk_anims"
+        }
+      },
+      {
+        "zk_common@$fnf": {
+          "$validation_namespace": "zk_common",
+          "$codename": "zk_modules/_common/zk_common"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/_global
+      {
+        "zk_comp@$fnf": {
+          "$validation_namespace": "zk_comp",
+          "$codename": "zk_modules/_global/zk_comp"
+        }
+      },
+      {
+        "zk_subpack_settings@$fnf": {
+          "$validation_namespace": "zk_subpack_settings",
+          "$codename": "zk_modules/_global/zk_subpack_settings"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/about
+      {
+        "zk_about_common@$fnf": {
+          "$validation_namespace": "zk_about_common",
+          "$codename": "zk_modules/about/zk_about_common"
+        }
+      },
+      {
+        "zk_about@$fnf": {
+          "$validation_namespace": "zk_about",
+          "$codename": "zk_modules/about/zk_about"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/brewing_guide
+      {
+        "zk_brewing_guide_assistant@$fnf": {
+          "$validation_namespace": "zk_brewing_guide_assistant",
+          "$codename": "zk_modules/brewing_guide/zk_brewing_guide_assistant"
+        }
+      },
+      {
+        "zk_brewing_guide_assistant:dialog@$fnf": {
+          "$validation_namespace": "zk_brewing_guide_assistant",
+          "$validation_modifier": ":dialog",
+          "$codename": "zk_modules/brewing_guide/zk_brewing_guide_assistant_dialog"
+        }
+      },
+      {
+        "zk_brewing_guide_common@$fnf": {
+          "$validation_namespace": "zk_brewing_guide_common",
+          "$codename": "zk_modules/brewing_guide/zk_brewing_guide_common"
+        }
+      },
+      {
+        "zk_brewing_guide_entry_templates@$fnf": {
+          "$validation_namespace": "zk_brewing_guide_entry_templates",
+          "$codename": "zk_modules/brewing_guide/zk_brewing_guide_entry_templates"
+        }
+      },
+      {
+        "zk_brewing_guide_items@$fnf": {
+          "$validation_namespace": "zk_brewing_guide_items",
+          "$codename": "zk_modules/brewing_guide/zk_brewing_guide_items"
+        }
+      },
+      {
+        "zk_brewing_guide_menu@$fnf": {
+          "$validation_namespace": "zk_brewing_guide_menu",
+          "$codename": "zk_modules/brewing_guide/zk_brewing_guide_menu"
+        }
+      },
+      {
+        "zk_brewing_guide_common_art@$fnf": {
+          "$validation_namespace": "zk_brewing_guide_common_art",
+          "$codename": "zk_modules/brewing_guide/zk_brewing_guide_textures"
+        }
+      },
+      // #region zk_modules/brewing_guide/items
+      {
+        "zk_brewing_guide_items:base_potions@$fnf": {
+          "$validation_namespace": "zk_brewing_guide_items",
+          "$validation_modifier": ":base_potions",
+          "$codename": "zk_modules/brewing_guide/items/base_potions"
+        }
+      },
+      {
+        "zk_brewing_guide_items:linger_potions@$fnf": {
+          "$validation_namespace": "zk_brewing_guide_items",
+          "$validation_modifier": ":linger_potions",
+          "$codename": "zk_modules/brewing_guide/items/linger_potions"
+        }
+      },
+      {
+        "zk_brewing_guide_items:splash_potions@$fnf": {
+          "$validation_namespace": "zk_brewing_guide_items",
+          "$validation_modifier": ":splash_potions",
+          "$codename": "zk_modules/brewing_guide/items/splash_potions"
+        }
+      },
+      // #endregion zk_modules/brewing_guide/items
+      // #endregion
+
+      // #region zk_modules/confirm_purchase
+      {
+        "zk_confirm_purchase_dialog:dialog_common@$fnf": {
+          "$validation_namespace": "zk_confirm_purchase_dialog",
+          "$validation_modifier": ":dialog_common",
+          "$codename": "zk_modules/confirm_purchase/dialog_common"
+        }
+      },
+      {
+        "zk_confirm_purchase_dialog:dialog_pdp@$fnf": {
+          "$validation_namespace": "zk_confirm_purchase_dialog",
+          "$validation_modifier": ":dialog_pdp",
+          "$codename": "zk_modules/confirm_purchase/dialog_pdp"
+        }
+      },
+      {
+        "zk_confirm_purchase_dialog:dialog_persona@$fnf": {
+          "$validation_namespace": "zk_confirm_purchase_dialog",
+          "$validation_modifier": ":dialog_persona",
+          "$codename": "zk_modules/confirm_purchase/dialog_persona"
+        }
+      },
+      {
+        "zk_confirm_purchase_dialog:dialog_persona_sdl@$fnf": {
+          "$validation_namespace": "zk_confirm_purchase_dialog",
+          "$validation_modifier": ":dialog_persona_sdl",
+          "$codename": "zk_modules/confirm_purchase/dialog_persona_sdl"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/containers
+      {
+        "zk_bundle_item_count@$fnf": {
+          "$validation_namespace": "zk_bundle_item_count",
+          "$codename": "zk_modules/containers/bundle_item_count"
+        }
+      },
+      {
+        "zk_container_calc_panels@$fnf": {
+          "$validation_namespace": "zk_container_calc_panels",
+          "$codename": "zk_modules/containers/calc_panels"
+        }
+      },
+      {
+        "zk_container_common@$fnf": {
+          "$validation_namespace": "zk_container_common",
+          "$codename": "zk_modules/containers/container_common"
+        }
+      },
+      {
+        "zk_container_item_mode@$fnf": {
+          "$validation_namespace": "zk_container_item_mode",
+          "$codename": "zk_modules/containers/container_modes"
+        }
+      },
+      {
+        "zk_selected_item_count@$fnf": {
+          "$validation_namespace": "zk_selected_item_count",
+          "$codename": "zk_modules/containers/selected_item_count"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/featured_servers
+      {
+        "zk_cubecraft@$fnf": {
+          "$validation_namespace": "zk_cubecraft",
+          "$codename": "zk_modules/featured_servers/cubecraft_common"
+        }
+      },
+      {
+        "zk_hive@$fnf": {
+          "$validation_namespace": "zk_hive",
+          "$codename": "zk_modules/featured_servers/hive_common"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/hud
+      {
+        "zk_hud_blocked_player_notifier@$fnf": {
+          "$validation_namespace": "zk_hud_blocked_player_notifier",
+          "$codename": "zk_modules/hud/hud_blocked_player_notifier"
+        }
+      },
+      {
+        "zk_hud_common@$fnf": {
+          "$validation_namespace": "zk_hud_common",
+          "$codename": "zk_modules/hud/hud_common"
+        }
+      },
+      {
+        "zk_movable_modules@$fnf": {
+          "$validation_namespace": "zk_hud_movable_modules",
+          "$codename": "zk_modules/hud/hud_movable_modules"
+        }
+      },
+      {
+        "zk_hud_toggleables@$fnf": {
+          "$validation_namespace": "zk_hud_toggleables",
+          "$codename": "zk_modules/hud/hud_toggleables"
+        }
+      },
+      {
+        "zk_hud_utilities@$fnf": {
+          "$validation_namespace": "zk_hud_utilities",
+          "$codename": "zk_modules/hud/hud_utilities"
+        }
+      },
+      {
+        "zk_vanilla_xp_calc_map@$fnf": {
+          "$validation_namespace": "zk_vanilla_xp_calc_map",
+          "$codename": "zk_modules/hud/vanilla_xp_calc_map"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/item_durability
+      {
+        "zk_item_durability_tool@$fnf": {
+          "$validation_namespace": "zk_item_durability_tool",
+          "$codename": "zk_modules/item_durability/item_durability_calc"
+        }
+      },
+      {
+        "zk_inventory_item_durability_tool:collections@$fnf": {
+          "$validation_namespace": "zk_inventory_item_durability_tool",
+          "$validation_modifier": ":collections",
+          "$codename": "zk_modules/item_durability/item_durability_collections"
+        }
+      },
+      {
+        "zk_inventory_item_durability_tool:stack_calc@$fnf": {
+          "$validation_namespace": "zk_inventory_item_durability_tool",
+          "$validation_modifier": ":stack_calc",
+          "$codename": "zk_modules/item_durability/item_durability_stack_calc"
+        }
+      },
+      {
+        "zk_inventory_item_durability_tool@$fnf": {
+          "$validation_namespace": "zk_inventory_item_durability_tool",
+          "$codename": "zk_modules/item_durability/item_durability_tool"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/item_lore
+      {
+        "zk_item_lore_viewer@$fnf": {
+          "$validation_namespace": "zk_item_lore_viewer",
+          "$codename": "zk_modules/item_lore/item_lore_viewer"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/misc
+      {
+        "zk_auto_place@$fnf": {
+          "$validation_namespace": "zk_auto_place",
+          "$codename": "zk_modules/misc/auto_place"
+        }
+      },
+      {
+        "zk_smithing_preview@$fnf": {
+          "$validation_namespace": "zk_smithing_preview",
+          "$codename": "zk_modules/misc/smithing_preview"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/pause
+      {
+        "zk_pause_quit_confirm@$fnf": {
+          "$validation_namespace": "zk_pause_quit_confirm",
+          "$codename": "zk_modules/pause/pause_quit_confirmation"
+        }
+      },
+      {
+        "zk_pause_title@$fnf": {
+          "$validation_namespace": "zk_pause_title",
+          "$codename": "zk_modules/pause/pause_world_title"
+        }
+      },
+      {
+        "zk_profile_card_author@$fnf": {
+          "$validation_namespace": "zk_profile_card_author",
+          "$codename": "zk_modules/pause/profile_card_author"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/play
+      {
+        "zk_play_common@$fnf": {
+          "$validation_namespace": "zk_play_common",
+          "$codename": "zk_modules/play/play_common"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/start
+      {
+        "zk_start_sidebar_menu@$fnf": {
+          "$validation_namespace": "zk_start_sidebar_menu",
+          "$codename": "zk_modules/start/start_sidebar"
+        }
+      },
+      // #endregion
+
+      // #region zk_modules/util
+      {
+        "zk_percentage@$fnf": {
+          "$validation_namespace": "zk_percentage",
+          "$codename": "zk_modules/util/percentage_translator"
+        }
+      },
+      {
+        "zk_permission_icon_remapper@$fnf": {
+          "$validation_namespace": "zk_permission_icon_remapper",
+          "$codename": "zk_modules/util/permission_icon_remapper"
+        }
+      },
+      {
+        "zk_screen_ruler@$fnf": {
+          "$validation_namespace": "zk_screen_ruler",
+          "$codename": "zk_modules/util/screen_ruler"
+        }
+      }
+      // #endregion
+
+      // ====================================
+      // #endregion zk_modules
+    ]
+  }
+}
+

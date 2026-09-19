@@ -1,0 +1,11 @@
+{
+  "popup_toast": {
+    "layer": 1000,
+    "$toast_font_type": "default"
+  },
+
+  "modal_window_input_blocker": {
+    "size": [ "150%", "150%" ]
+  }
+}
+

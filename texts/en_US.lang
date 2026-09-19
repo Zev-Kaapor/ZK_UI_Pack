@@ -1,0 +1,519 @@
+zkAbout.packVersion=v1.0.0-2026.9
+zkHive.xpCalculator.lastUpdatedDateFormat=Mar 30th 2025
+
+## Don't change this translation, this is required
+pauseScreen.playersTitle=%s	#
+
+## Changes to vanilla localization
+container.repair.cost=Cost: %1$d
+
+## ZK UI Pack
+
+icontext.multiplyone=x1	## Maximum 6 characters
+icontext.all=All	## Maximum 6 characters
+icontext.hovertext.multiplyone=Item Amount: One Item
+icontext.hovertext.all=Item Amount: One Slot
+
+icontext.dropOne=Drop One
+icontext.dropAll=Drop All
+icontext.destroyOne=Destroy One
+icontext.destroyAll=Destroy All
+
+accessibility.chat.tts.autocomplete=Autocomplete
+accessibility.chat.tts.autocompleteback=Autocomplete Back
+accessibility.chat.tts.previous=Previous Message
+accessibility.chat.tts.next=Next Message
+accessibility.chat.tts.textboxSearchTitle=Search Messages Text Box
+accessibility.chat.tts.visibilityModeToggle=Chat Visibility Mode Toggle
+## The followings add a comma before each mode toggle for a small amount of waiting time before tts reads everything else
+accessibility.chat.tts.visibilityModeToggle.autocomplete=, Current Mode: Auto Complete Panel
+accessibility.chat.tts.visibilityModeToggle.chat=, Current Mode: Chat Panel
+
+accessibility.pause.infoPanelToggle=Info Panel Toggle
+accessibility.play.editMode=Edit Mode
+accessibility.play.quickJoinButton=Quick Join Server Button
+accessibility.start.hideStartScreen=Hide Start Screen
+accessibility.start.showStartScreen=Show Start Screen
+## Format to show in game: Press <B> or <BACK> to show Start Screen again!
+accessibility.start.toggleStartScreenTooltip.prefix=Press
+accessibility.start.toggleStartScreenTooltip.infix=or
+accessibility.start.toggleStartScreenTooltip.postfix=to show Start Screen again!
+accessibility.toggle.tts.closethreedotsmenu=Close More Options
+accessibility.toggle.tts.searchBar=Toggle Search Bar
+accessibility.toggle.tts.startsidebar=Sidebar Menu Button
+accessibility.toggle.tts.threedotsmenu=More Options
+
+attribute.name.minecraft:damage_taken=Damage Taken
+attribute.name.minecraft:jump_strength=Jump Strength
+attribute.name.towardsUndead=Towards Undead
+
+brewingGuide.assistantPanel.button=Find a recipe
+brewingGuide.assistantPanel.title=Find a recipe...
+brewingGuide.assistantPanel.closeTitle=Close & Show me the recipe!
+brewingGuide.explanation=Explanations:
+brewingGuide.explanation.baseDamage=BaseDamage: current player's damage, damages from weapons and tools are included. Default: 1
+brewingGuide.fuelRemainingPrefix=Brews Remaining:
+brewingGuide.mundanePotion.name=Mundane Potion Ingredients: 
+brewingGuide.mundanePotion.anyofIngredients=Any of the following items:
+brewingGuide.modifier.whenAddedAsModifier=When added as a modifier:
+brewingGuide.modifier.whenAddedToWaterBottle=When added to water bottle:
+brewingGuide.modifierDescription.extend=[Extension] Extends the duration of a potion.
+brewingGuide.modifierDescription.enhance=[Enhancement] Increases the level of a potion.
+brewingGuide.modifierDescription.corrupt=[Corruption] Changes the effect of a potion.
+brewingGuide.popup.optimizingEffectIcons=Optimizing Mob Effect Icons...
+brewingGuide.potionEffect.removePoison=Cures Poison
+brewingGuide.potionEffect.removeWeakness=Cures Weakness
+brewingGuide.potionEffect.removeBlindness=Cures Blindness
+brewingGuide.potionEffect.removeNausea=Cures Nausea
+brewingGuide.tab.basePotions=Base Potions
+brewingGuide.tab.splashPotions=Splash Potions
+brewingGuide.tab.lingeringPotions=Lingering Potions
+brewingGuide.tab.EduChemistryPotions=Chemical Medicines
+brewingGuide.tab.legend=Base & Modifiers
+brewingGuide.toggle.uselessRecipesVisibility=Toggle Useless Recipes' Visibility
+brewingGuide.toggle.fallbackItemRendererMode=Fallback Item Renderer Mode
+brewingGuide.uselessPotions.avoidTip=§o§dAvoid any of these ingredients specifically in this step because Mundane Potions are useless and can't be brewed into any other potions!
+
+chat.blacklistedMessageNotifier.itemHovered.uncheckedLabel=Show blacklisted message
+chat.blacklistedMessageNotifier.itemHovered.uncheckedLabelAlt=Show message and apply caret mode
+chat.blacklistedMessageNotifier.itemHovered.checkedLabel=Hide blacklisted message
+chat.blacklistedMessageNotifier.itemHovered.checkedLabelAlt=Disable caret mode to hide message
+chat.blacklistedMessageNotifier.label=§o--- Message hidden ---
+chat.caretMode=Enable Message Text Selection
+chat.caretMode.disable=Disable Message Text Selection
+chat.chatToolbox.cannotEnter.tooltip=Can't enter Chat Toolbox Mode while typing commands or in autocomplete modes
+chat.navigationNotification.search=Searching...
+chat.navigationNotification.caretMode=Chat Caret Mode is enabled...
+chat.placeHolderText=Enter your chat message or command here...
+chat.searchMessages.placeHolderText=Search messages...
+chat.searchMessages=Search Messages
+chat.searchMessages.hide=Close Search
+
+commandBlockScreen.placeHolderText=Enter your command input here
+commandBlockScreen.placeHolderOutputText=Your command output will be here...
+
+compatibility.enabled=Compatibility Mode Enabled!
+compatibility.autoEnabledforServer=ZK UI Pack's Compatibility Mode for this server is available and will automatically enable once you join!
+compatibility.enabledForAdditionalServers.disclaimer=If you see this badge on any external server toggles, it means that those servers have Compatibility Mode for ZK UI Pack available, check server info in pause screen in game for more info.
+compatibility.zkUI=Compatible with ZK UI Pack!
+
+container.craftAll.itemsRemainHeader=Items Remain after Craft All:
+## Format to show in game: Will craft <numbers> time(s) ==> x<total_items>
+container.craftAll.stepsToCraftPrefix=Will craft
+container.craftAll.stepsToCraftPostfix=time(s)
+
+container.destroyItemsTooltip.line1=Double Press on items to Destroy Selected Items.
+container.destroyItemsTooltip.line1_touch=Double Tap on items to Destroy Selected Items.
+container.destroyItemsTooltip.line2=§l§cBe careful when choosing items to destroy!§r
+container.destroyItemsTooltip.cannotBeUsedInSurvival.line1=Can't use Destroy Items mode in Survival!
+container.destroyItemsTooltip.cannotBeUsedInSurvival.line2=§aThis mode is only available in Creative game mode.§r
+container.fastCraft=Fast Craft
+container.fastCraft.warningHoverText=Fast Craft, §cVery Dangerous!§r Press on any item slot in recipe book to quick craft it! May lose your valuable items forever if you crafted something wrong by accident!
+container.highlightItems=Highlight Items (Case Sensitive!)
+container.highlightitems.placeholdertext=Highlight Items...
+container.itemAmountHoverText.one=Item Amount: One Item
+container.itemAmountHoverText.max=Item Amount: One Stack
+container.itemAmountHoverText.maxFixed=Item Amount: One Stack (Fixed)
+container.invMode=Inventory Mode:
+container.invMode.autoPlace=Auto Place
+container.invMode.manualPlace=Manual Place
+container.invMode.normalMode=Normal Mode
+container.invMode.autoPlaceMode=Quick Move Mode
+container.invMode.dropMode=Drop Mode
+container.invMode.autoDestroyMode=Destroy Items Mode
+container.quickCraft=Quick Craft
+container.repair.durabilityGainedTooltip.anvil=Durability amounts gained compare to the first input slot
+container.repair.durabilityGainedTooltip.grindstone=Durability amounts gained compare to the item with least durability
+container.smithing_table.previewAngle=Preview Angle:
+
+container.toolbox=Container Toolbox
+container.toolbox.buttonToggleHoverText=Toggle Hover Text Visibility
+container.toolbox.slotBulkQuickMove.toInventory=Quick Move to Inventory
+container.toolbox.slotBulkQuickMove.toContainer=Quick Move to Container
+
+container.toolbox.slotBulkClear.compact.line1=Double  to Clear Hotbar
+container.toolbox.slotBulkClear.compact.line2=§cHold SHIFT + Double  to Clear Inventory
+container.toolbox.slotBulkClear.compact.line1.controller=Double Press to Clear Hotbar
+container.toolbox.slotBulkClear.compact.line2.controllerPrefix=§cDouble Press
+container.toolbox.slotBulkClear.compact.line2.controller=§cto Clear Inventory
+container.toolbox.slotBulkClear.compact.tts=Double Click to clear hotbar. Hold Shift and Double Click to clear inventory
+container.toolbox.slotBulkClear.compact.tts.controller=Double press to clear hotbar. Double press the "quick move" key to clear inventory
+container.toolbox.slotBulkClear.hotbar=§cDouble Tap to Clear Hotbar
+container.toolbox.slotBulkClear.inventory=§cDouble Tap to Clear Inventory
+
+container.toolbox.slotDestroy.compact.line1= to Destroy All
+container.toolbox.slotDestroy.compact.line2= to Destroy One
+container.toolbox.slotDestroy.compact.line1.controller=Press to Destroy All
+container.toolbox.slotDestroy.compact.line2.controller=to Destroy One
+container.toolbox.slotDestroy.compact.tts=Click to destroy all selected items. Right click to destroy one selected item
+container.toolbox.slotDestroy.compact.tts.controller=Press to destroy all selected items. Press "Take Half/Place One" to destroy one selected item
+
+container.toolbox.slotDrop.compact.line1= to Drop All
+container.toolbox.slotDrop.compact.line2= to Drop One
+container.toolbox.slotDrop.compact.line1.controller=Press to Drop All
+container.toolbox.slotDrop.compact.line2.controller=to Drop One
+container.toolbox.slotDrop.compact.tts=Click to drop all selected items. Right click to drop one selected item
+container.toolbox.slotDrop.compact.tts.controller=Press to drop all selected items. Press "Take Half/Place One" to drop one selected item
+
+contentlog.keystrokeProtip=Protip: If you have Content Log GUI toggles enabled, you can use Ctrl + H to easily open Content Log GUI, anywhere! (requires keyboard)
+contentlog.msgSize.header=Indexed messages count:
+contentlog.msgSize.maxFlag=[MAX]
+contentlog.msgSize.maxFlag.tooltip=Maximum is 100, but you can get full content logs in saved log files
+contentlog.filter.error=Error
+contentlog.filter.inform=Information
+contentlog.filter.title=Show All:
+contentlog.filter.verbose=Verbose
+contentlog.filter.warning=Warning
+
+controller.buttonTip.doublePress=[Double Press]
+controller.buttonTip.highlightItems=Highlight Items
+controller.buttonTip.playRecentWorld=Play Recently Saved World
+controller.buttonTip.playSelectedServer=Play Selected Server
+controller.buttonTip.toggleContainerToolbox=Show/Hide Container Toolbox
+controller.buttonTip.togglePlayerList=Show/Hide Player List
+controller.buttonTip.toggleSidebar=Sidebar Menu
+controller.buttonTip.toggleScreen=Show/Hide Screen
+
+createWorldScreen.gameMode.personal.gameModeDefaultDescription=Synchronized with the default game mode of the world.
+createWorldScreen.gameMode.personal.gameModeSpectatorDescription=Fly around and observe the world without interacting with it in any way.
+createWorldScreen.levelSeed.copySeedTooltip=Press on the level seed text box, select all the seed text and press Copy on your keyboard.
+createWorldScreen.levelSeed.copySeedTooltip.keyboard=Click on the level seed text box, press Ctrl + A and then Ctrl + C on your keyboard to copy the level seed.
+createWorldScreen.serverSimDistanceDescription.header=The game loads and applies changes within a specified amount of block radius
+createWorldScreen.serverSimDistanceDescription.footer=Block Radius:
+createWorldScreen.worldNameDescription.create=This is where you can name your world.
+createWorldScreen.worldNameDescription.edit=This is where you can edit the name of your world.
+createWorldScreen.worldLocationSectionName=World Folder Location:
+createWorldScreen.worldLocationSection.unknownLabel=(Unknown)
+
+deathScreen.btnBgLayout.labelHeader=Press anywhere to Respawn
+deathScreen.btnBgLayout.labelHeader.touch=Tap anywhere to Respawn
+deathScreen.btnBgLayout.labelFooter=or go back to Main Menu
+
+dr.toggle.purchaseLock=Purchase Lock
+
+generator.infinite.desc=An infinite world goes on and on forever. Various landscapes generate utilizing biomes.
+generator.old.desc=A finite world in size and height, 256x256x256. Uses old world generations.
+
+hostOption.time.customTime=Custom Time:
+hostOption.time.customTime.warning=Warning: Gametime will be overridden!
+hostOption.time.customTimeSlider=Custom Time Slider
+hostOption.weather.query=Query Weather
+
+hudScreen.hideHudTooltip=Double Tap to Hide HUD
+hudScreen.inventoryFull.warning=§lFull!
+hudScreen.levelHeaderAbbreviated=Lvl
+hudScreen.lowDurability=Low Durability!
+hudScreen.scoreboardList.playerCount.header=Showing
+hudScreen.scoreboardList.playerCount.player=player
+hudScreen.scoreboardList.playerCount.players=players
+hudScreen.scoreboardList.playerTag.self=[You]
+hudScreen.scoreboardList.unscoredTitle=Unscored Players
+hudScreen.showHudTooltip=Tap this area to Show HUD again!
+hudScreen.totalItemCount.slots=§o§7slots
+hudScreen.toggleables.hiveXpCalc.show=Show HIVE XP Calculator Menu
+hudScreen.toggleables.hotbar.hide=Hide Hotbar
+hudScreen.toggleables.hotbar.show=Show Hotbar
+hudScreen.toggleables.scoreboardList.hide=Hide Scoreboard List
+hudScreen.toggleables.scoreboardList.show=Show Scoreboard List
+hudScreen.toggleables.scoreboardSidebar.hide=Hide Scoreboard Sidebar
+hudScreen.toggleables.scoreboardSidebar.show=Show Scoreboard Sidebar
+hudScreen.toggleables.tooltip=Hold TAB to peek Player List. Access HUD toggles by using TAB + <Number Key>.
+
+itemLore.title=Item Lore Viewer §o§7(BETA!)
+itemLore.emptyMessage=<This slot is empty!>
+
+key.peekListAndHUDTogglesForZkUI=Peek Scoreboard List and HUD Menu for ZK UI Pack
+key.showContentLogGUI=Show Content Log GUI
+key.showContentLogGUI.disabledTag=(disabled)
+key.toggleGraphicsMode=Switch Graphics Modes (if available)
+key.toggleHUD=Hide/Show HUD
+key.togglePaperDoll=Hide/Show Paper Doll
+
+## Formatting for map.chunk while ingame: [Chunk: <xi>, <yi>, <zi> in <x>, <y>, <z>]
+map.chunk=Chunk
+map.chunk.formattingError=Error: Invalid Position Text Format!
+map.chunk.in=in
+map.chunkBorder=Chunk Border
+map.chunkBorder.none=None
+
+menu.communityStandards=View Community Standards
+menu.feedback=Submit Feedback
+menu.multiplayerHelp=Multiplayer Help
+menu.quit=Quit Game
+
+mobeffect.title.noEffects=No Active Effects
+mobeffect.title.activeEffects=Active Effects:
+
+modal.defaultTitle=Are you sure?
+
+networkWorld.view_server_store=View Server Store
+
+options.hardcoded_keybinds_section=Hardcoded Keys (built-in and can't be modified)
+options.quickSettingsTitle=Quick Settings
+options.thirdperson.firstperson_short=First
+options.thirdperson.thirdpersonback_short=3rd Back
+options.thirdperson.thirdpersonfront_short=3rd Front
+options.toggleOptionDescriptions=Show/Hide Option Descriptions
+
+options.enableAutoPlatformTextToSpeech.description=Enables Text To Speech with System Settings.
+options.enableUITextToSpeech.description=Enables Text To Speech on background menus.
+options.enableChatTextToSpeech.description=Enables Text To Speech on chat messages and commands.
+options.enableOpenChatMessage.description=Hides/Shows the Open Chat notifications.
+options.textBackgroundOpacity.description=Changes text background opacity of titles and subtitles. Set to 0% will render backgrounds completely invisible.
+options.actionbarTextBackgroundOpacity.description=Changes text background opacity of action bar texts. Set to 0% will render backgrounds completely invisible.
+
+options.websocketsEnabled.description=Allows the player to connect to Websocket servers.
+options.websocketEncryption.description=Only allows Websocket connections with encryption. Requires "Websockets Enabled" option turned on.
+options.autoUpdateMode.description=Toggles to automatically update Marketplace contents.
+options.onlyAllowTrustedSkinsAllowed.description=Toggles to replace custom skins of other players that are not from Marketplace or Character Creator to default skins. This option may be enforced in some servers.
+options.pauseHint.description=Pauses the game while in the pause menu in singleplayer.
+options.enableEcoMode.description=Whether the game limits the FPS when a controller gets disconnected to save power.
+options.useRemoteConnect.description=Enables the option to sign in using a Microsoft invite link whenever the player is signed out.
+
+options.sensitivity.description=Adjusts the sensitivity of camera when turning.
+options.spyglassdampen.description=Adjusts the sensitivity of camera when turning using spyglass.
+options.invertYAxis.description=Toggles inversion of camera when looking up or down.
+options.autojump.description=Enables automatically jumping when the player walks near a block with a block of air above.
+options.fullkeyboardgameplay.description=Allows player to play the game using only keyboard keys.
+options.hidetooltips.description=Toggles to hide the controller hints.
+options.hidegamepadcursor.description=Toggles to hide the controller cursor.
+options.clearhotbar.description=Enables the use of a button to instantly clear the player's hotbar while in inventory.
+options.swapGamepadAB.description=Changes whether to swap the position of the A and B buttons.
+options.swapGamepadXY.description=Changes whether to swap the position of the X and Y buttons.
+options.gamepadcursorsensitivity.description=Adjusts the sensitivity of the controller's cursor in GUI's.
+options.resizableUI.description=Enables a menu where the position, opacity and size of individual buttons can be changed. Touch controls can only be customized while loaded into a world.
+options.lefthanded.description=Mirrors all buttons and objects for touch controls.
+options.showActionButton.description=Toggles whether buttons or the touchscreen are used to interact with blocks and items.
+options.sprintOnMovement.description=Enables players to sprint by holding the joystick forward.
+options.showToggleCameraPerspectiveButton.description=Shows a button that can change the camera perspective.
+options.joystickVisibilityOption.description=Changes the joystick's visibility.
+options.thumbstickOpacity.description=Adjusts the joystick's opacity.
+options.sneakOption.description=Toggles whether to tap the sneak button once to sneak, or to hold it down to sneak.
+options.buttonSize.description=Changes the size of the controls.
+options.destroyVibration.description=Toggles vibration when destroying blocks.
+options.splitVibration.description=Toggles vibration when splitting item stacks in a GUI.
+options.creativeDelayedBlockBreaking.description=Toggles whether blocks require a longer press to break in Creative mode.
+options.alwaysHighlightHoveringBoxInCrosshair.description=Determines whether blocks are always highlighted by the crosshair, or if they are highlighted only when tapped.
+options.usetouchpad.description=Chooses whether to use the touchscreen to interact throughout the screen or use a crosshair.
+options.swapJumpAndSneak.description=Chooses whether to swap the position of jump and sneak buttons.
+options.hotbarOnlyTouch.description=Chooses whether to use touch for the hotbar only. This option is intended for playing with controllers.
+options.dwellbeforedragtime.description=Adjusts the amount of time to dwell before dragging items.
+options.stacksplittingtriggertime.description=Adjusts the amount of time to trigger stack splitting.
+
+options.gamma.description=Adjusts the game's brightness.
+options.thirdperson.description=Toggles first/third person view. Third person view allows the player to view the nearby environment from an "outside" perspective.
+options.fullscreen.description=Puts Minecraft into Fullscreen mode; keeping it off keeps it in a window.
+options.hidehand.description=Shows or hides the player hand in first person view.
+options.hidepaperdoll.description=Toggles the side-view of the player displayed in the top-left corner of the screen.
+options.hidehud.description=Shows/Hides the HUD.
+options.screenAnimations.description=Toggles the animations when switching between UI or menus.
+options.interfaceOpacity.description=Toggles the opacity of the HUD. Choosing item on hotbar or interacting with UI will temporarily revert the opacity back to 100% . This option won't affect Paper Doll opacity.
+options.fov.description=Changes the field of view. Controls how much of the game world is visible on the screen.
+options.splitscreen.description=Toggles between the horizontal and vertical orientation of the splitscreen.
+options.showautosaveicon.description=Hides/Shows the autosave indicator icon. The indicator icon shows on HUD when the game is attempting to automatically save your world to device storage.
+options.classic_box_selection.description=Toggles the outline selection of the block. Disabling this will instead use highlight selection of the block.
+options.ingamePlayerNames.description=Toggles the name tag text visibility that can be seen on top of players' head, mobs and NPCs.
+options.splitscreenIngamePlayerNames.description=Toggles the name tag text visibility that can be seen on top of players' head, mobs and NPCs, while in split screen.
+options.viewBobbing.description=Toggles the "bobbing" motion of the camera as the player is walking.
+options.screenShake.description=Toggles screen shake when maps use the "/camerashake" commands. Disabling this option prevents the game from screen shaking when the commands are executed.
+options.transparentleaves.description=Toggles transparent leaves.
+options.bubbleparticles.description=Toggles the fancy water bubble columns graphics. This may lower performance on some devices.
+options.renderclouds.description=Toggles the clouds graphics. Disabling this option causes no clouds to be rendered.
+options.fancyskies.description=Toggles the sun, moon, clouds, stars and sky color. Disabling this option will not render them in the world and instead only sky color is rendered.
+options.smooth_lighting.description=Lighting is smoothed across the blocks (ambient occlusion) or each block has a distinctive light level.
+options.graphicsMode.description=Changes the graphics mode.
+options.graphicsMode.simple.description=Simple graphics reduce quality graphic effects, disable transparent leaves and clouds for better performance.
+options.graphicsMode.fancy.description=Fancy graphics enable higher quality graphic effects, including transparent leaves, transparent clouds.
+options.graphicsMode.deferred.description=Deferred graphics enable realistic lighting, vibrant colors, reflective water, emissive textures without ray tracing and is data driven.
+options.graphicsMode.rayTraced.description=Ray traced graphics enables even higher graphic effects, including realistic lighting, vibrant colors, reflective water and emissive textures. Only available on some supported ray tracing capable devices.
+options.graphicsModeSwitch.description=Toggles whether the graphics mode can be changed while in-game for "a better stability".
+options.graphicsQualityPresetMode.description=Choose your preferred quality preset. Select "Favor Performace" for a better experience on lower-end devices. Select "Favor Visuals" for a higher quality experience on higher-end devices.
+options.fov.toggle.description=Toggles whether gameplay affects FOV changes, when sprinting, when having slowness or speed effect, etc.
+options.guiScale.description=Controls the Graphical User Interface scale. This also controls the HUD size.
+options.uiprofile.description=Changes the game UI style between classic (Desktop UI) and Pocket UI. Classic UI has Java-like UI style, while Pocket UI has bigger item slots, redesigned screens, more user-friendly to mobile devices.
+options.raytracing.description=Toggles the ray tracing on or off.
+options.upscaling.description=Enables NVIDIA DLSS 2.0 to boost frame rates on GeForce RTX graphics cards and support higher than 1080 resolutions.
+options.deferredRenderDistance.description=Controls how many chunks of the world are visible at once if "Vibrant Visuals" option is on. This also affects the render distance of foliage such as transparent leaves, crops and animated textures.
+options.raytracingRenderDistance.description=Controls how many chunks of the world are visible at once if "Ray Tracing" option is on. This also affects the render distance of foliage such as transparent leaves, crops and animated textures.
+options.renderDistance.description=Controls how many chunks of the world are visible at once. This also affects the render distance of foliage such as transparent leaves, crops and animated textures.
+options.maxFramerate.description=Limits the framerates per second. Limiting the framerate to a multiple of the player monitor's refresh rate can save processing power.
+options.msaa.description=Toggles the amount of anti-aliasing, which smoothes the image and removes jagged edges.
+options.texelAA.description=Toggles texture pixel anti-aliasing, which smoothes the pixels of blocks.
+options.vsync.description=Limits the framerates per second to the screen's refresh rate. Set to No Vertical Sync or Adaptive will increase FPS higher than player monitor's refresh rate but negatively affect processing power.
+options.shadowQuality.description=Changes the quality of shadows created by blocks and entities.
+options.cloudQuality.description=Changes the quality of clouds and their shadows.
+options.volumetricFogQuality.description=Changes the quality of volumetric fog.
+options.reflectionsQuality.description=Changes the quality of reflections on blocks and water.
+options.bloomStrengthSlider.description=Adjusts the amount of bloom.
+options.upscalingMode.description=Changes the upscaling mode.
+options.upscalingPercentage.description=Adjusts the resolution of upscaling graphics.
+
+options.copyCoordinateUI.description=Shows feet and facing coordinates in the chat menu, as well as a button to copy them.
+options.creator.debuggerPasscodeRequired.description=Visual Studio Code will prompt user for passcode to connect.
+options.creator.debuggerPasscode.description=The passcode used for the debugger.
+options.creator.debuggerAutoAttach.description=Attempt to attach script debugger at level load, requires that either inbound port or connect address is set and that inbound or outbound connections are enabled.
+options.creator.debuggerAutoAttachTimeout.description=Amount of time to wait at world load for debugger to attach.
+options.creator.serverboundClientDiagnosticsEnabled.description=Starts a diagnostics capture session at level load.
+options.creator.watchdogHangThreshold.description=Sets the watchdog threshold for single tick hangs.
+options.creator.watchdogSpikeWarning.description=Enables the watchdog for single tick spikes.
+options.creator.watchdogSpikeThreshold.description=Sets the watchdog threshold for single tick spikes.
+options.creator.watchdogSlowWarning.description=Enables the watchdog for slow scripts over multiple ticks.
+options.creator.watchdogSlowThreshold.description=Sets the watchdog threshold for slow scripts over multiple ticks.
+options.creator.deviceInfoUseMemoryTierOverride.description=Whether to manually set the memory tier.
+options.creator.deviceInfoMemoryTier.description=Saves and shuts down the world when the combined script memory usage exceeds the given threshold.
+options.content_log_file.description=Enables a content log file in the game's files. The file location is shown below.
+options.content_log_gui.description=Enables the content log GUI feature.
+options.content_log_gui_show_on_errors.description=Opens the content log GUI upon errors during world load.
+options.content_log_gui.level.description=The minimum script level shown in the content log GUI and during world load.
+
+pauseScreen.thirdPartyWorld=Featured Server
+pauseScreen.realmWorld=Realm
+
+playscreen.navigateUp=Upper Tab
+playscreen.navigateDown=Lower Tab
+playscreen.joinRecentExternalServer=Join Recent External Server
+playscreen.lastPlayed=Last saved:
+playscreen.loading=Loading...
+playscreen.motd=MOTD
+playscreen.pinging=Pinging...
+playscreen.playButton=PLAY!
+playscreen.projectsearch.placeholdertext=Search projects... [Case Sensitive]
+playscreen.recentlyPlayed=Recently Played
+playscreen.showWorldFolderName=Show World Folder Name (Experimental)
+playscreen.worldFolderName.undefined=(Undefined ;-;)
+playscreen.worldFolderName.unknown=(Unknown Folder)
+playscreen.worldsFound=world(s) found
+playscreen.worldsearch.codelimiteddisclaimer=§l§cWARNING:§r Due to bad performance and code limitations, we can only index up to §l§e50§r most recent worlds to be searchable, sorry for the inconvenience.
+playscreen.worldsearch.placeholdertext=Search for your favorite worlds... [Case Sensitive!]
+playscreen.worldsearch.resultmessage_before=Results for: 	## Keep this empty (add a space " ") if your localization doesn't allow it
+playscreen.worldsearch.resultmessage_after= 	## Keep this empty (add a space " ") if your localization doesn't allow it
+playscreen.worldSize=World size:
+playscreen.warning.forceautoplace.title=Force Quick Move On Warning
+playscreen.warning.forceautoplace.body=Use Force Quick Move On feature in servers as your own risk, do not abuse this too much on servers (especially featured servers)!
+
+progressScreen.hiveNetherGlitch.title=AARGH,... Nether Glitch Again!
+progressScreen.hiveNetherGlitch.body=What can you do? Just... wait and rejoin, or force close and reopen the game, or if you're on Windows, use your "Restore Down" button, not "Minimize"! It should close this screen instantly for you!
+
+resourcePack.packSearchPlaceHolderText.global=Search Global Packs...
+resourcePack.packSearchPlaceHolderText.world_resource=Search Resource Packs...
+resourcePack.packSearchPlaceHolderText.world_behavior=Search Behavior Packs...
+resourcePack.showNotDownloaded=Show Not Downloaded
+resourcePack.zkUIWarningMessage=If you already activated ZK UI Pack in Global Resources, you shouldn't need to activate ZK UI Pack in World Resource Packs again.
+resourcePack.zkUI.globalVarsFailedToLoad.toastMessage=An error occured while trying to load /ui/_global_variables.json from ZK UI Pack. Please check the file syntaxes and try again.
+
+review.item.post.unowned=Download content to rate it
+
+screenshot.saveLocation=Screenshot Location:
+screenshot.showSaveLocation=Show Screenshot Location
+
+screenLoading.tooLongTooltip=If the game takes too long to load this screen, please restart the game.
+
+serverform.searchPlaceHolderText=Filter Search... [Case Sensitive!]
+serverform.searchDisclaimer.tooltip=Make sure you don't want to try to search contents that are used too often in this form screen.
+
+storageManager.floatingFileStorageSelector.tooltip=Want to change your storage location? Press here!
+
+store.coin.bundle=Coin Bundles
+store.cost=Cost:
+store.redeem=Get for free!
+store.free.uppercase=§l§oFREE!
+
+store.confirmPurchase.title=Confirm Purchase
+store.confirmPurchase.description=Are you sure you want to buy this item? Here's what you'll get:
+store.confirmPurchase.description_completed=You're good to go. You can now close this dialog and enjoy your purchase.
+store.confirmPurchase.tooltip=You will be prompted to confirm the purchase while you press on the purchase buttons to avoid buying items by accident.
+store.proceedToPurchase=Proceed to Purchase
+store.proceedToPurchaseSimplified=Proceed to Purchase
+
+## how it will be shown in game for "afterPurchase" and "notEnough": "<translation>: <balance>"
+store.confirmPurchase.walletBalance.afterPurchase.minecoins=Your minecoins balance after purchasing this item will be:
+store.confirmPurchase.walletBalance.afterPurchase.tokens=Your tokens balance after purchasing this item will be:
+store.confirmPurchase.walletBalance.notEnough.minecoins=You don't have enough minecoins to get this item, you can press the "+" icon to buy more minecoins, or purchase this item directly. Missing:
+store.confirmPurchase.walletBalance.notEnough.tokens=You don't have enough tokens to get this item, you can press the "+" icon to buy more tokens, or purchase this item directly. Missing:
+
+dr.rarity.=Error, Clear Filter is required
+store.search.filter.=Error, Clear Filter is required
+
+store.search.filter.highlight.title=Highlight Filter
+store.search.filter.minecoinSpecials=Minecoins/Specials
+store.search.filter.newOffers=New Offers
+store.search.filter.redeemable=Redeemable
+store.search.filter.collectible=Collectible through Achievements
+store.search.filter.paid=Paid
+
+trade.tradeAll=Trade All
+trade.maxLevelTag=MAX
+
+zkHive.xpCalculator.disclaimerLabel=XP Charts info collected from hivetools.app. Not affiliated with Hive Games in anyway.
+zkHive.xpCalculator.hideButtonLabel=Hide
+zkHive.xpCalculator.maxLevel=Max Level
+zkHive.xpCalculator.increment=Increment/lvl
+zkHive.xpCalculator.incrementCap=Cap
+zkHive.xpCalculator.title=Hive XP Calculator Mode Switches
+zkHive.xpCalculator.pageIdentifier=Page
+zkHive.xpCalculator.lastUpdated=Last Updated:
+
+zkAbout.about=About ZK UI Pack
+zkAbout.customAvailable=Custom Screen Available!
+zkAbout.customAvailable.zeqa=Check out Zeqa Rules & About ZK UI Pack here!
+zkAbout.minGameVerRequired=Minimum Minecraft Version required:
+zkAbout.openAboutZkUITooltip.openText=Press me to open About ZK UI Pack (currently custom screen)
+zkAbout.openAboutZkUITooltip.closeText=Press me to go back to custom screen (currently About ZK UI Pack screen)
+
+zkAbout.troubleshootingMode.deactivatePack.title=ZK UI Pack Troubleshooting Mode
+zkAbout.troubleshootingMode.deactivatePack.desc=Press this "Deactivate ZK UI Pack" button to deactivate the pack instantly, and press "Close Settings" to complete the deactivation process.
+zkAbout.troubleshootingMode.deactivatePack.globalVarsFailedToLoadDesc=You got this button because the /ui/_global_variables.json file wasn't loaded correctly. Please check the file syntaxes and try again.
+zkAbout.troubleshootingMode.deactivatePack.deactivateButtonLabel=Deactivate ZK UI Pack
+zkAbout.troubleshootingMode.deactivatePack.closeSettingsButtonLabel=Close Settings
+zkAbout.troubleshootingMode.deactivatePack.closeSettingsButtonLabel.locked=Can't deactivate ZK UI Pack while in game
+zkAbout.troubleshootingMode.watermark.label_row1=ZK UI Pack
+zkAbout.troubleshootingMode.watermark.label_row2=Troubleshooting Mode
+zkAbout.troubleshootingMode.watermark.label_row1_globalVarsFailedToLoad=ZK UI Pack Troubleshooting Mode
+zkAbout.troubleshootingMode.watermark.label_row2_globalVarsFailedToLoad=§c(Global Variables failed to load!)
+
+zkAbout.expRequiredDialog.openSettings=Open Game Settings
+zkAbout.expRequiredDialog.title=ZK UI Pack: Experimental Flags Required
+zkAbout.expRequiredDialog.header=Before continue playing with ZK UI Pack in your current version of the game, you should change these experimental flag(s) manually first §c(because it can't be automated)§r:
+zkAbout.expRequiredDialog.bodyParagraph1=Open the "/ui/_global_variables.json" inside the ZK UI Pack's folder to modify required flags.
+zkAbout.expRequiredDialog.bodyParagraph2=You can also open Game Settings to safely deactivate ZK UI Pack.
+zkAbout.expRequiredDialog.gameVersionHeader=Your current game version:
+
+## DO NOT TRANSLATE PACK NAME
+zkAbout.creatorTitle=§l§eFork Maintainer Info:
+zkAbout.aboutLabel1=ZK UI Pack is a personal fork maintained by Zev Kaapor based on Ty-el's UI Pack, focused on enhancing the Bedrock Vanilla UI with performance tweaks, clean interface, and useful features.
+zkAbout.aboutLabel2=§l§bDISCLAIMER§r: §oThis pack is just a resource pack, not an actual client!§r
+zkAbout.aboutLabel3=Maintained languages:
+zkAbout.aboutLabel4=English (United States), Portuguese (Brazil)
+zkAbout.aboutLabel5=tailored for personal usage and custom development.
+zkAbout.aboutLabel6=Check projects and dev experiments at: https://github.com/Zev-kaapor
+
+zkAbout.features=Features
+zkAbout.featuresTitleFeatures=§eMain Features
+zkAbout.featuresLabel_N_1=- Redesigned most screens to follow modern Ore UI Design principles.
+zkAbout.featuresLabel_N_2=- Added HUD enhancements, accurate XP labels, durability viewers, and free slots counter.
+zkAbout.featuresLabel_N_3=- Container Toolbox with bulk quick move, drop one/all, and destroy options.
+zkAbout.featuresLabel_N_5=- Quick Craft, Trade All, and Java-style recipe book layouts.
+
+zkAbout.credits=Credits
+zkAbout.creditsTitle=Credits & Attributions
+zkAbout.creditsTitleTranslators=Original Base: tlgm2308 | Fork & Restructure: Zev Kaapor
+
+zkAbout.usage=Terms of Use
+zkAbout.usageLabel1=PERSONAL FORK / OPEN SOURCE
+zkAbout.usageLabel2=- Free to modify and adapt for personal usage.
+zkAbout.usageLabel7=- Fork maintained by Zev Kaapor. Original base code by tlgm2308.
+
+zkAbout.validation=UI Validation
+zkAbout.validation.errorList=Error List
+zkAbout.validationLabel1=Any errors detected by "ZK UI Pack Validation System" will be shown here.
+
+zkAbout.changelog=Changelog
+zkAbout.changelog.newfeatures=§bNEW FEATURES
+zkAbout.changelog.changes=§aCHANGES
+zkAbout.changelog.fixes=§eFIXES
+zkAbout.changelog.knownissues=§6KNOWN ISSUES
+zkAbout.changelog.removed=§cFEATURES REMOVED
+
+zkAbout.changelog100=v1.0.0
+zkAbout.changelog100.title=FORK INITIAL RELEASE
+zkAbout.changelog100.label1=- Initial release of ZK UI Pack by Zev Kaapor.
