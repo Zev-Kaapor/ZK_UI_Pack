@@ -913,9 +913,6 @@
       "path": "ui/store_inventory_screen.json"
     },
     {
-      "path": "ui/store_item_list_screen.json"
-    },
-    {
       "path": "ui/store_sort_menu_screen.json"
     },
     {
