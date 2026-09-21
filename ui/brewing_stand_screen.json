@@ -1,6 +1,4 @@
-// File made and modified by @tlgm2308 (Twitter).
-// Please respect my works ;-;, and do not use my code without permissions!
-// Original code by (c) Mojang & (c) Microsoft. All rights reserved.
+
 {
   "brewing_stand_screen": {
     "$use_brewing_guide_gui|default": true,
