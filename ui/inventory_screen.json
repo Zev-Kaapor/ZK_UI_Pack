@@ -212,17 +212,10 @@
       {
         "construction_tab_panel": {
           "type": "panel",
-          "size": [ "100%", "100%c" ],
-          "max_size": [ "100%", 25 ],
+          "size": [ "100%", 25 ],
           "controls": [
             {
-              "construction_tab_factory": {
-                "type": "factory",
-                "size": [ "100%", "100%c" ],
-                "control_ids": {
-                  "construction_tab": "@crafting.construction_tab"
-                }
-              }
+              "construction_tab@crafting.construction_tab": {}
             }
           ]
         }
@@ -230,17 +223,10 @@
       {
         "equipment_tab_panel": {
           "type": "panel",
-          "size": [ "100%", "100%c" ],
-          "max_size": [ "100%", 25 ],
+          "size": [ "100%", 25 ],
           "controls": [
             {
-              "equipment_tab_factory": {
-                "type": "factory",
-                "size": [ "100%", "100%c" ],
-                "control_ids": {
-                  "equipment_tab": "@crafting.equipment_tab"
-                }
-              }
+              "equipment_tab@crafting.equipment_tab": {}
             }
           ]
         }
@@ -248,17 +234,10 @@
       {
         "items_tab_panel": {
           "type": "panel",
-          "size": [ "100%", "100%c" ],
-          "max_size": [ "100%", 25 ],
+          "size": [ "100%", 25 ],
           "controls": [
             {
-              "items_tab_factory": {
-                "type": "factory",
-                "size": [ "100%", "100%c" ],
-                "control_ids": {
-                  "items_tab": "@crafting.items_tab"
-                }
-              }
+              "items_tab@crafting.items_tab": {}
             }
           ]
         }
@@ -266,17 +245,10 @@
       {
         "nature_tab_panel": {
           "type": "panel",
-          "size": [ "100%", "100%c" ],
-          "max_size": [ "100%", 25 ],
+          "size": [ "100%", 25 ],
           "controls": [
             {
-              "nature_tab_factory": {
-                "type": "factory",
-                "size": [ "100%", "100%c" ],
-                "control_ids": {
-                  "nature_tab": "@crafting.nature_tab"
-                }
-              }
+              "nature_tab@crafting.nature_tab": {}
             }
           ]
         }
@@ -951,4 +923,3 @@
     ]
   }
 }
-
