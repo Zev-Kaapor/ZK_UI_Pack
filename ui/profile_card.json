@@ -250,11 +250,6 @@
           "layer": -4
         }
       },
-      {
-        "author_bg_panel@zk_profile_card_author.author_bg_panel": {
-          "layer": 0
-        }
-      }
     ]
   },
 
@@ -263,9 +258,6 @@
     "layer": 100,
     "ignored": "($is_pregame or $hide_skin)",
     "controls": [
-      {
-        "author_panel@zk_profile_card_author.author_panel": {}
-      }
     ]
   }
 }
