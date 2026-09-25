@@ -63,6 +63,11 @@
               "changelog100_button@zk_about.changelog100_button": {
                 "$toggle_group_forced_index": 5
               }
+            },
+            {
+              "changelog101_button@zk_about.changelog101_button": {
+                "$toggle_group_forced_index": 6
+              }
             }
           ]
         }
@@ -109,6 +114,12 @@
           "$version_label": "zkAbout.changelog100",
           "$section_topic_control": "changelog100"
         }
+      },
+      {
+        "changelog_101@zk_about_common.section_title_changelog": {
+          "$version_label": "zkAbout.changelog101",
+          "$section_topic_control": "changelog101"
+        }
       }
     ]
   },
@@ -143,7 +154,8 @@
             { "credits@zk_about.credits_section": {} },
             { "usage@zk_about.usage_section": {} },
             { "validation@zk_about.validation_section": {} },
-            { "changelog100@zk_about.changelog100_section": {} }
+            { "changelog100@zk_about.changelog100_section": {} },
+            { "changelog101@zk_about.changelog101_section": {} }
           ]
         }
       },
@@ -253,7 +265,7 @@
       {
         "padding_1": {
           "type": "panel",
-          "size": [ 0, 10 ]
+          "size": [ 0, 18 ]
         }
       },
       { "label_1@$default_label": { "$line": 1 } },
@@ -322,16 +334,21 @@
         "title_1@zk_about_common.generic_label": {
           "text": "zkAbout.featuresTitleFeatures",
           "font_type": "MinecraftTen",
-          "font_size": "large"
+          "font_size": "large",
+          "size": [ "100%", "24px" ],
+          "max_size": [ "100%", "24px" ]
         }
       },
       {
-        "small_pad@common.empty_panel": { "size": [ 1, 1 ] }
+        "small_pad@common.empty_panel": { "size": [ 1, 4 ] }
       },
       {
         "simple_header_bar@common.simple_header_bar": {
           "size": [ "100%", 1 ]
         }
+      },
+      {
+        "content_pad@common.empty_panel": { "size": [ 1, 28 ] }
       },
       { "f_label_1@$default_label": { "$line": "_N_1" } },
       { "f_label_2@$default_label": { "$line": "_N_2" } },
@@ -360,6 +377,9 @@
           "font_type": "MinecraftTen",
           "font_size": "large"
         }
+      },
+      {
+        "title_pad@common.empty_panel": { "size": [ 1, 8 ] }
       },
       {
         "label_1@$default_label": {
@@ -396,8 +416,14 @@
           "font_size": "large"
         }
       },
+      {
+        "title_pad@common.empty_panel": { "size": [ 1, 8 ] }
+      },
       { "label_1@$default_label": { "$line": 1 } },
-      { "label_2@$default_label": { "$line": 2 } }
+      { "label_2@$default_label": { "$line": 2 } },
+      { "label_3@$default_label": { "$line": 3 } },
+      { "label_4@$default_label": { "$line": 4 } },
+      { "label_5@$default_label": { "$line": 5 } }
     ]
   },
 
@@ -414,6 +440,9 @@
           "font_type": "MinecraftTen",
           "font_size": "large"
         }
+      },
+      {
+        "title_pad@common.empty_panel": { "size": [ 1, 8 ] }
       },
       { "label_1@$default_label": { "$line": 1 } },
       {
@@ -462,6 +491,9 @@
         }
       },
       {
+        "title_pad@common.empty_panel": { "size": [ 1, 8 ] }
+      },
+      {
         "ver_text@zk_about_common.generic_label": {
           "text": "v1.0.0 (ZK UI Pack Initial Release)",
           "localize": false
@@ -474,6 +506,52 @@
         }
       },
       { "label_1@$cl_label": { "$line": 1 } }
+    ]
+  },
+
+  "changelog101_button@zk_about_common.section_toggle_button": {
+    "$section_topic": "changelog101"
+  },
+
+  "cl101_label@zk_about_common.changelog_desc_label": {
+    "$ver": 101
+  },
+
+  "changelog101_section@zk_about_common.main_sections": {
+    "$section_topic_control": "changelog101",
+    "$cl_label|default": "zk_about.cl101_label",
+    "controls": [
+      {
+        "title@zk_about_common.generic_label": {
+          "text": "zkAbout.changelog101.title",
+          "font_type": "MinecraftTen",
+          "font_size": "large"
+        }
+      },
+      {
+        "title_pad@common.empty_panel": { "size": [ 1, 8 ] }
+      },
+      {
+        "ver_text@zk_about_common.generic_label": {
+          "text": "v1.0.1 (UI Refinement and Localization Update)",
+          "localize": false
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ 4, 4 ]
+        }
+      },
+      { "label_1@$cl_label": { "$line": 1 } },
+      { "label_2@$cl_label": { "$line": 2 } },
+      { "label_3@$cl_label": { "$line": 3 } },
+      { "label_4@$cl_label": { "$line": 4 } },
+      { "label_5@$cl_label": { "$line": 5 } },
+      { "label_6@$cl_label": { "$line": 6 } },
+      { "label_7@$cl_label": { "$line": 7 } },
+      { "label_8@$cl_label": { "$line": 8 } },
+      { "label_9@$cl_label": { "$line": 9 } }
     ]
   },
 

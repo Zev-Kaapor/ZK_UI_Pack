@@ -1,4 +1,4 @@
-zkAbout.packVersion=v1.0.0-2026.9
+zkAbout.packVersion=v1.0.1-2026.9.25
 zkHive.xpCalculator.lastUpdatedDateFormat=Mar 30th 2025
 
 ## Don't change this translation, this is required
@@ -499,8 +499,11 @@ zkAbout.creditsTitle=Credits & Attributions
 zkAbout.creditsTitleTranslators=Original Base: tlgm2308 | Fork & Restructure: Zev Kaapor
 
 zkAbout.usage=Terms of Use
-zkAbout.usageLabel1=PERSONAL FORK / OPEN SOURCE
-zkAbout.usageLabel2=- Free to modify and adapt for personal usage.
+zkAbout.usageLabel1=PERSONAL USE AND OPEN DEVELOPMENT
+zkAbout.usageLabel2=- You may modify and adapt this pack for personal use and development.
+zkAbout.usageLabel3=- When sharing changes, preserve credit for Zev Kaapor, the original author, and contributors.
+zkAbout.usageLabel4=- Do not redistribute this pack or modified versions through stores, monetization platforms, or third-party packs without permission.
+zkAbout.usageLabel5=- Do not present the code, assets, or restructured UI as your own original work.
 zkAbout.usageLabel7=- Fork maintained by Zev Kaapor. Original base code by tlgm2308.
 
 zkAbout.validation=UI Validation
@@ -517,3 +520,15 @@ zkAbout.changelog.removed=§cFEATURES REMOVED
 zkAbout.changelog100=v1.0.0
 zkAbout.changelog100.title=FORK INITIAL RELEASE
 zkAbout.changelog100.label1=- Initial release of ZK UI Pack by Zev Kaapor.
+
+zkAbout.changelog101=v1.0.1
+zkAbout.changelog101.title=UI REFINEMENT AND LOCALIZATION UPDATE
+zkAbout.changelog101.label1=- Reworked the Pause Screen, Settings, Start Screen, Inventory, and About UI layouts.
+zkAbout.changelog101.label2=- Redesigned the Pause Screen layout and improved its navigation and information structure.
+zkAbout.changelog101.label3=- Updated Settings and Store UI organization, including refreshed icons and removed legacy screens.
+zkAbout.changelog101.label4=- Optimized the Inventory tab panels, crafting controls, and quick-craft presentation.
+zkAbout.changelog101.label5=- Simplified the About UI by removing obsolete author panels and shared legacy code.
+zkAbout.changelog101.label6=- Updated UI icons, pack branding, metadata, and resource references.
+zkAbout.changelog101.label7=- Added Portuguese translations for the About screen, inventory tools, and Creative time controls.
+zkAbout.changelog101.label8=- Fixed About screen text spacing and reduced the Inventory quick-craft arrow size.
+zkAbout.changelog101.label9=- Consolidated the release metadata and automated Bedrock pack packaging workflow.

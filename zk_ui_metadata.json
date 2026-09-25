@@ -5,8 +5,8 @@
 
   "zk_ui_metadata": {
     "$name": "ZK UI Pack",
-    "$version": "v1.0.0",
-    "$version_full": "v1.0.0-2026.9-(r1.21.100)",
+    "$version": "v1.0.1",
+    "$version_full": "v1.0.1-2026.9.25-(r1.21.100)",
     "$global_variables_file_version": 117
   }
 }

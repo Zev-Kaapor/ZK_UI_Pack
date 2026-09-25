@@ -408,7 +408,7 @@
     "type": "image",
     "layer": 3,
     "texture": "textures/ui/arrow",
-    "size": [ 16, 13 ]
+    "size": [ 12, 10 ]
   },
 
   "crafting_arrow_large_image": {

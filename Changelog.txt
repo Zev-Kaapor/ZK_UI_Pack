@@ -1,4 +1,20 @@
-﻿v1.0.0 (100)-2026.9.19-(r1.21.100)
+﻿v1.0.1 (101)-2026.9.25-(r1.21.100)
+UI REFINEMENT AND LOCALIZATION UPDATE
+### CHANGES
+- Reworked the Pause Screen, Settings, Start Screen, Inventory, and About UI layouts.
+- Redesigned the Pause Screen layout and improved its navigation and information structure.
+- Updated Settings and Store UI organization, including refreshed icons and removed legacy screens.
+- Optimized the Inventory tab panels, crafting controls, and quick-craft presentation.
+- Simplified the About UI by removing obsolete author panels and shared legacy code.
+- Updated UI icons, pack branding, metadata, and resource references.
+- Added Portuguese translations for the About screen, inventory tools, and Creative time controls.
+- Fixed About screen text spacing and reduced the Inventory quick-craft arrow size.
+- Consolidated release metadata and automated Bedrock pack packaging.
+
+============================================================
+
+
+v1.0.0 (100)-2026.9.19-(r1.21.100)
 FORK INITIAL RELEASE - ZK UI PACK BY ZEV KAAPOR
 ### NEW FEATURES
 - Initial release of ZK UI Pack (Personal Fork of The Ty-el's UI Pack).

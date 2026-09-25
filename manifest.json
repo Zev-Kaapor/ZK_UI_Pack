@@ -1,10 +1,10 @@
 {
   "format_version": 2,
   "header": {
-    "description": "§ev1.0.0§r §7(by Zev Kaapor)§r - Vanilla UI treatment pack with QoL tweaks, custom clicking sounds, and clean interface enhancements.",
+    "description": "§ev1.0.1§r §7(by Zev Kaapor)§r - Vanilla UI treatment pack with QoL tweaks, custom clicking sounds, and clean interface enhancements.",
     "name": "ZK UI Pack",
     "uuid": "7a7c9df4-0f1d-4644-8539-2fcd438cd150",
-    "version": [ 1, 0, 0 ],
+    "version": [ 1, 0, 1 ],
     "min_engine_version": [ 1, 20, 0 ]
   },
   "modules": [
@@ -12,7 +12,7 @@
       "description": "ZK UI Pack Core Resources",
       "type": "resources",
       "uuid": "a6706f42-ff36-4d3c-82fe-8877866c4cd1",
-      "version": [ 1, 0, 0 ]
+      "version": [ 1, 0, 1 ]
     }
   ],
   "subpacks": [

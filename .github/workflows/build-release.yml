@@ -1,0 +1,117 @@
+name: Build Bedrock Resource Pack
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package-and-release:
+    name: Package and release MCPack
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Validate manifest and calculate release version
+        shell: bash
+        env:
+          EVENT_BEFORE: ${{ github.event.before }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          jq empty manifest.json
+
+          current_version="$(jq -er '.header.version | arrays | join(".")' manifest.json)"
+          module_type="$(jq -er '.modules | map(select(.type == "resources")) | length' manifest.json)"
+          header_uuid="$(jq -er '.header.uuid' manifest.json)"
+          module_uuid="$(jq -er '.modules[] | select(.type == "resources") | .uuid' manifest.json)"
+
+          test "$module_type" -ge 1
+          test -n "$header_uuid"
+          test -n "$module_uuid"
+          test "$header_uuid" != "$module_uuid"
+
+          previous_version=""
+          if [[ "$EVENT_BEFORE" != "0000000000000000000000000000000000000000" ]]; then
+            previous_manifest="$(git show "$EVENT_BEFORE:manifest.json" 2>/dev/null || true)"
+            if [[ -n "$previous_manifest" ]]; then
+              previous_version="$(printf '%s' "$previous_manifest" | jq -er '.header.version | arrays | join(".")')"
+            fi
+          fi
+
+          short_sha="$(printf '%.7s' "$COMMIT_SHA")"
+          release_version="v$current_version"
+
+          if [[ "$current_version" == "$previous_version" ]]; then
+            release_version="${release_version}+${short_sha}"
+          fi
+
+          release_tag="$release_version"
+          artifact_name="ZK_UI_Pack-${release_version}.mcpack"
+
+          {
+            echo "CURRENT_VERSION=$current_version"
+            echo "PREVIOUS_VERSION=$previous_version"
+            echo "RELEASE_VERSION=$release_version"
+            echo "RELEASE_TAG=$release_tag"
+            echo "ARTIFACT_NAME=$artifact_name"
+          } >> "$GITHUB_ENV"
+
+          echo "Pack version: $current_version"
+          echo "Previous pack version: ${previous_version:-none}"
+          echo "Release tag: $release_tag"
+
+      - name: Build MCPack with pack contents at ZIP root
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          staging_dir="$RUNNER_TEMP/zk-ui-pack"
+          artifact_path="$RUNNER_TEMP/$ARTIFACT_NAME"
+          rm -rf "$staging_dir" "$artifact_path"
+          mkdir -p "$staging_dir"
+
+          rsync -a \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '*.zip' \
+            --exclude '*.mcpack' \
+            ./ "$staging_dir/"
+
+          test -f "$staging_dir/manifest.json"
+          jq empty "$staging_dir/manifest.json"
+
+          (
+            cd "$staging_dir"
+            zip -X -q -r "$artifact_path" .
+          )
+
+          test -s "$artifact_path"
+          echo "ARTIFACT_PATH=$artifact_path" >> "$GITHUB_ENV"
+          echo "Created $artifact_path"
+
+      - name: Create or update GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          notes="Automated Bedrock Resource Pack release for commit ${GITHUB_SHA:0:7}.\n\nPack version: $CURRENT_VERSION\nPrevious pack version: ${PREVIOUS_VERSION:-none}\n\nThe .mcpack file contains the pack contents at the ZIP root, including manifest.json."
+
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" "$ARTIFACT_PATH" --clobber
+          else
+            gh release create "$RELEASE_TAG" "$ARTIFACT_PATH" \
+              --title "ZK UI Pack $RELEASE_VERSION" \
+              --notes "$notes"
+          fi

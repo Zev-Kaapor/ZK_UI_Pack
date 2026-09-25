@@ -1,3 +1,5 @@
+zkAbout.packVersion=v1.0.1-2026.9.25	#
+
 ## Você pode personalizar estas 4 linhas a seguir
 ## \/ \/
 inBed.title=zzz...	#
@@ -121,6 +123,7 @@ container.repair.durabilityGainedTooltip.grindstone=Quantidades de durabilidade 
 container.smithing_table.previewAngle=Ângulo de visualização:	#
 
 container.toolbox=Container Toolbox	#
+container.toolbox.buttonToggleHoverText=Alternar visibilidade do texto ao passar o cursor	#
 
 container.toolbox.slotBulkQuickMove.toInventory=Mover rápido para o inventário	#
 container.toolbox.slotBulkQuickMove.toContainer=Mover rápido para o contêiner	#
@@ -183,6 +186,10 @@ dr.toggle.purchaseLock=Bloqueio de compra	#
 
 generator.infinite.desc=É um mundo infinito que continua para sempre. Várias paisagens são geradas utilizando biomas.	#
 generator.old.desc=É um mundo finito em tamanho e altura, 256x256x256. Usa gerações do mundo antigo.	#
+
+hostOption.time.customTime=Hora personalizada:	#
+hostOption.time.customTime.warning=Aviso: o horário do jogo será substituído!	#
+hostOption.time.customTimeSlider=Controle deslizante de hora personalizada	#
 
 hudScreen.hideHudTooltip=Toque duas vezes para ocultar o HUD	#
 hudScreen.inventoryFull.warning=§lCheio!	#
@@ -392,6 +399,10 @@ zkAbout.translationHelp=Versão otimizada em Português e Inglês.	#
 
 zkAbout.features=Recursos 	#
 zkAbout.featuresTitleFeatures=§eRecursos Principais	#
+zkAbout.featuresLabel_N_1=- Redesenho da maioria das telas seguindo os princípios modernos de design do Ore UI.	#
+zkAbout.featuresLabel_N_2=- Melhorias no HUD, indicadores precisos de XP, visualizadores de durabilidade e contador de slots livres.	#
+zkAbout.featuresLabel_N_3=- Caixa de ferramentas de contêiner com movimentação rápida em massa, opções para soltar um/todos e destruir itens.	#
+zkAbout.featuresLabel_N_5=- Criação rápida, troca de todos os itens e livro de receitas no estilo da Edição Java.	#
 zkAbout.featuresLabel0=- Atualizações modernas de interface e ajustes no Ore UI.	#
 zkAbout.featuresLabel1=- Botões para soltar e destruir itens em contêineres e inventário.	#
 zkAbout.featuresLabel2=- Criação rápida (Quick Craft) e trocas rápidas (Trade All).	#
@@ -404,8 +415,11 @@ zkAbout.creditsTitle=Créditos e Agradecimentos	#
 zkAbout.creditsTitleTranslators=Autor Original: tlgm2308 | Fork & Restruturação: Zev Kaapor	#
 
 zkAbout.usage=Uso do Projeto	#
-zkAbout.usageLabel1=PROJETO PESSOAL / FORK LIBERADO	#
-zkAbout.usageLabel2=- Modificações e personalizações para uso próprio.	#
+zkAbout.usageLabel1=USO PESSOAL E DESENVOLVIMENTO ABERTO	#
+zkAbout.usageLabel2=- Você pode modificar e adaptar este pack para uso pessoal e desenvolvimento.	#
+zkAbout.usageLabel3=- Ao compartilhar alterações, mantenha os créditos de Zev Kaapor, do autor original e dos colaboradores.	#
+zkAbout.usageLabel4=- Não redistribua este pack ou versões modificadas em lojas, plataformas de monetização ou pacotes de terceiros sem autorização.	#
+zkAbout.usageLabel5=- Não apresente o código, os assets ou a estrutura reescrita como criação original.	#
 zkAbout.usageLabel7=- Fork pessoal mantido por Zev Kaapor. Código original por tlgm2308.	#
 
 zkAbout.validation=Validação da UI	#
@@ -422,3 +436,15 @@ zkAbout.changelog.removed=§cRECURSOS REMOVIDOS	#
 zkAbout.changelog100=v1.0.0	#
 zkAbout.changelog100.title=§aVERSÃO INICIAL DO FORK (ZK UI PACK)	#
 zkAbout.changelog100.label1=- Reestruturação completa do projeto para o fork ZK UI Pack por Zev Kaapor.	#
+
+zkAbout.changelog101=v1.0.1	#
+zkAbout.changelog101.title=§aREFINAMENTO DA UI E ATUALIZAÇÕES DE LOCALIZAÇÃO	#
+zkAbout.changelog101.label1=- Reestruturação das telas de pausa, configurações, tela inicial, inventário e About.	#
+zkAbout.changelog101.label2=- Reestruturação da tela de pausa, com navegação e organização de informações aprimoradas.	#
+zkAbout.changelog101.label3=- Atualização da organização das telas de Configurações e Loja, com ícones renovados e remoção de telas antigas.	#
+zkAbout.changelog101.label4=- Otimização dos painéis de abas do Inventário, dos controles de criação e da apresentação da criação rápida.	#
+zkAbout.changelog101.label5=- Simplificação da tela About com a remoção de painéis de autor obsoletos e códigos legados compartilhados.	#
+zkAbout.changelog101.label6=- Atualização de ícones, identidade visual do pack, metadados e referências de recursos.	#
+zkAbout.changelog101.label7=- Adicionadas traduções em português para a tela About, ferramentas do inventário e controles de hora no modo criativo.	#
+zkAbout.changelog101.label8=- Corrigido o espaçamento dos textos do About e reduzido o tamanho da seta de criação rápida no inventário.	#
+zkAbout.changelog101.label9=- Metadados da release consolidados e workflow de empacotamento do pack Bedrock automatizado.	#
