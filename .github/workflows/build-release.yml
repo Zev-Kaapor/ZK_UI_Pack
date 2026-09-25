@@ -106,12 +106,21 @@ jobs:
         run: |
           set -euo pipefail
 
-          notes="Automated Bedrock Resource Pack release for commit ${GITHUB_SHA:0:7}.\n\nPack version: $CURRENT_VERSION\nPrevious pack version: ${PREVIOUS_VERSION:-none}\n\nThe .mcpack file contains the pack contents at the ZIP root, including manifest.json."
+          notes_file="$RUNNER_TEMP/release-notes.md"
+          printf '%s\n' \
+            "Automated Bedrock Resource Pack release for commit ${GITHUB_SHA:0:7}." \
+            "" \
+            "Pack version: $CURRENT_VERSION" \
+            "Previous pack version: ${PREVIOUS_VERSION:-none}" \
+            "" \
+            "The .mcpack file contains the pack contents at the ZIP root, including manifest.json." \
+            > "$notes_file"
 
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release upload "$RELEASE_TAG" "$ARTIFACT_PATH" --clobber
+            gh release edit "$RELEASE_TAG" --notes-file "$notes_file"
           else
             gh release create "$RELEASE_TAG" "$ARTIFACT_PATH" \
               --title "ZK UI Pack $RELEASE_VERSION" \
-              --notes "$notes"
+              --notes-file "$notes_file"
           fi
