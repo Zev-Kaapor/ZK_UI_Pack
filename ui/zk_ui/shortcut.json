@@ -1,0 +1,41 @@
+// ZK shortcuts
+{
+    "namespace": "zk",
+
+    // Empty panel
+    "empty_panel": {
+        "type": "panel",
+        "size": [0, 0]
+    },
+
+    // Stack ver
+    "stack_ver": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": ["100%", "100%c"]
+    },
+
+    // Pad hor 2px
+    "pad_hor_2px": {
+        "type": "panel",
+        "size": [2, "100%"]
+    },
+
+    // Pad ver 4px
+    "pad_ver_4px": {
+        "type": "panel",
+        "size": ["100%", 4]
+    },
+
+    // Pad ver 2px
+    "pad_ver_2px": {
+        "type": "panel",
+        "size": ["100%", 2]
+    },
+
+    // Pad ver 8px
+    "pad_ver_8px": {
+        "type": "panel",
+        "size": ["100%", 8]
+    }
+}

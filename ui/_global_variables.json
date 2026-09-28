@@ -1,0 +1,11 @@
+// ZK global variables
+{
+    // Settings screen
+    "$zk:enable_force_spectator": true,
+
+    // Ore ui colors
+    "$oreui_default_text_color": [0.117, 0.117, 0.121],
+    "$oreui_light_text_color": [1.0, 1.0, 1.0],
+    "$oreui_locked_text_color": [0.3, 0.3, 0.3],
+    "$oreui_background_color": [0.782, 0.782, 0.786]
+}

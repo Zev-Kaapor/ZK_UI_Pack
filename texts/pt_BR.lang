@@ -1,0 +1,18 @@
+## Search
+zk.searchItems=Pesquisar... (Diferencia maiúsculas!)
+zk.searchSettings=Pesquisar Configurações
+zk.searchSettings.placeHolder=Pesquisar configurações... (somente minúsculas)
+zk.searchAvailablePack=Pesquisar pacotes disponíveis... (Diferencia maiúsculas)
+zk.searchSelectedPack=Pesquisar pacotes selecionados... (Diferencia maiúsculas)
+
+## World settings
+zk.achievmentWarning=Você não pode ganhar conquistas.
+zk.settings.forceSpectator=Forçar Espectador
+zk.worldLocation=Local do Mundo:
+
+## Storage management
+zk.storage.openScreen=Abrir Tela de Gerenciamento de Armazenamento
+zk.cachesStorageLocation=Local de Caches e Armazenamento
+zk.selectAllInvert=Selecionar Tudo/Inverter Seleção
+zk.showMoreInfo=Mostrar Mais Informações
+zk.sizeTotal=Tamanho total estimado:

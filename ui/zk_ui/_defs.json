@@ -1,0 +1,11 @@
+// ZK definitions
+{
+    "namespace": "zk_defs",
+
+    // Variables
+    "variables": {
+        "$subpack_mode": 1,
+        "$is_full_feature_mode": false,
+        "$is_performance_mode": false
+    }
+}

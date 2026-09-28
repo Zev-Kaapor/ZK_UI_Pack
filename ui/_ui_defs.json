@@ -1,0 +1,22 @@
+// ZK ui definitions
+{
+    "ui_defs": [
+        "ui/zk_ui/_common.json",
+        "ui/zk_ui/_defs.json",
+        "ui/zk_ui/padding.json",
+        "ui/zk_ui/shortcut.json",
+        "ui/zk_ui/common/buttons.json",
+        "ui/zk_ui/common/new_dialog.json",
+        "ui/zk_ui/common/slider.json",
+        "ui/zk_ui/common/toggles.json",
+        "ui/zk_ui/common/ui.json",
+        "ui/zk_ui/settings/controls.json",
+        "ui/zk_ui/settings/general_section.json",
+        "ui/zk_ui/settings/manifest_validation.json",
+        "ui/zk_ui/settings/search_settings.json",
+        "ui/zk_ui/settings/settings.json",
+        "ui/zk_ui/settings/settings_options.json",
+        "ui/zk_ui/settings/storage_management.json",
+        "ui/zk_ui/settings/world_management.json"
+    ]
+}

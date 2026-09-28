@@ -1,0 +1,47 @@
+// Common ui tweaks
+{
+    // Scrolling panel
+    "scrolling_panel": {
+        "$use_scrolling_panel_oreui_style|default": false,
+        "$touch": false,
+        "modifications": [
+            {
+                "array_name": "variables",
+                "operation": "insert_front",
+                "value": {
+                    "requires": "$use_scrolling_panel_oreui_style",
+                    "$scroll_box_mouse_image_control": "zk_common.container_scroll_box_image_fade_gray"
+                }
+            }
+        ]
+    },
+
+    // Button
+    "button": {
+        "$pressed_button_name|default": "button.nothing",
+        "$button_sound_name|default": "random.release",
+        "sound_name": "$button_sound_name"
+    },
+
+    // Close button
+    "close_button": {
+        "$close_button_sound_name|default": "random.click",
+        "sound_name": "$close_button_sound_name"
+    },
+
+    // Toggle
+    "toggle": {
+        "$toggle_sound_volume|default": 1.0,
+        "$toggle_sound_name|default": "random.click",
+        "$toggle_always_listen_to_input|default": false,
+        "sound_name": "$toggle_sound_name",
+        "sound_volume": "$toggle_sound_volume",
+        "always_listen_to_input": "$toggle_always_listen_to_input"
+    },
+
+    // Screen background
+    "screen_background": {
+        "$screen_background_size|default": ["100%", "100%"],
+        "size": "$screen_background_size"
+    }
+}

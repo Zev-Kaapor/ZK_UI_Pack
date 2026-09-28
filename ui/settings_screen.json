@@ -1,0 +1,194 @@
+// Settings screen
+{
+    // Settings screen base
+    "settings_screen_base": {
+        "$is_settings_screen": true,
+        "$settings_spatial_pattern_fix_enabled": false,
+        "$use_dark_iwbg": false,
+        "$include_migrated_json_ui_settings_tabs": true
+    },
+
+    // Settings screen base fullscreen
+    "settings_screen_base_fullscreen": {
+        "$is_settings_screen": true,
+        "$settings_spatial_pattern_fix_enabled": false,
+        "$use_dark_iwbg": false,
+        "$include_migrated_json_ui_settings_tabs": true
+    },
+
+    // Section header panels world sections
+    "section_header_panels/world_sections": {
+        "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "texture@zk_settings.top_packs_header_panel": {
+                            "$selected_state_collection_name": "#selected_pack_items_level",
+                            "$available_state_collection_name": "#available_pack_items_level",
+                            "$packs_header_name": "_texture_section",
+                            "$is_pack": "level_texture_pack_button_toggle"
+                        }
+                    },
+                    {
+                        "addon@zk_settings.top_packs_header_panel": {
+                            "$selected_state_collection_name": "#selected_pack_items_addon",
+                            "$available_state_collection_name": "#available_pack_items_addon",
+                            "$packs_header_name": "_addon_section",
+                            "$is_pack": "addon_button_toggle"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    // Section header panels general and controls sections
+    "section_header_panels/general_and_controls_sections": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "global@zk_settings.top_packs_header_panel": {
+                            "$selected_state_collection_name": "#selected_pack_items_global",
+                            "$available_state_collection_name": "#available_pack_items_global",
+                            "$packs_header_name": "_global_section",
+                            "$is_pack": "global_texture_pack_button_toggle"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    // View subscriptions section centered
+    "view_subscriptions_section_centered": {
+        "type": "panel",
+        "size": ["100%", "100%c"],
+        "controls": [
+            {
+                "view_subscriptions_section@general_section.view_subscriptions_section": {}
+            }
+        ]
+    },
+
+    // Global texture pack section centered
+    "global_texture_pack_section_centered": {
+        "type": "panel",
+        "size": ["100%", "100%c"],
+        "controls": [
+            {
+                "global_texture_pack_section@general_section.global_texture_pack_section": {}
+            }
+        ]
+    },
+
+    // Selector stack panel
+    "selector_stack_panel": {
+        "$settings_spatial_pattern_fix_enabled": false
+    },
+
+    // Section content panels packs sections
+    "section_content_panels/packs_sections": {
+        "use_child_anchors": true
+    },
+
+    // Section content panels
+    "section_content_panels": {
+        "size": ["100%", "100%c"],
+        "offset": [0, 0]
+    },
+
+    // Section footer panels general and controls sections
+    "section_footer_panels/general_and_controls_sections": {
+        "modifications": [
+            {
+                "control_name": "storage_management_footer",
+                "operation": "remove"
+            }
+        ]
+    },
+
+    // Section content panels general and controls sections
+    "section_content_panels/general_and_controls_sections": {
+        "modifications": [
+            {
+                "control_name": "account_section",
+                "operation": "replace",
+                "value": {
+                    "new_account_section@zk_generalSection.account_section": {}
+                }
+            },
+            {
+                "control_name": "view_subscriptions_section",
+                "operation": "replace",
+                "value": {
+                    "view_subscriptions_section_centered@settings.view_subscriptions_section_centered": {}
+                }
+            },
+            {
+                "control_name": "global_texture_pack_section",
+                "operation": "replace",
+                "value": {
+                    "global_texture_pack_section_centered@settings.global_texture_pack_section_centered": {}
+                }
+            }
+        ]
+    },
+
+    // Selector stack panel accessibility button
+    "selector_stack_panel/accessibility_button": {
+        "$toggle_group_forced_index": 512
+    },
+
+    // Selector stack panel controls and settings selector pane language button
+    "selector_stack_panel/controls_and_settings_selector_pane/language_button": {
+        "ignored": false
+    },
+
+    // Section content panels general and controls sections language section
+    "section_content_panels/general_and_controls_sections/language_section": {
+        "ignored": false
+    },
+
+    // Section content panels general and controls sections storage management header
+    "section_content_panels/general_and_controls_sections/storage_management_header": {
+        "ignored": true
+    },
+
+    // Section factory common
+    "section_factory_common": {
+        "type": "stack_panel",
+        "size": ["100%", "100%c"],
+        "use_child_anchors": true,
+        "controls": [
+            {
+                "factory": {
+                    "type": "stack_panel",
+                    "size": "$jdok",
+                    "$jdok|default": ["100%", "100%c"],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "factory": {
+                        "name": "($_section_name + '_section_factory')",
+                        "control_name": "$section_child_controls",
+                        "max_children_size": 1
+                    },
+                    "$section_toggle_prop|default": "(#toggle_state * 1)",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "$section_toggle_bind",
+                            "source_property_name": "$section_toggle_prop",
+                            "target_property_name": "#collection_length"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

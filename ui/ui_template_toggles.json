@@ -1,0 +1,20 @@
+// Toggle templates
+{
+    // One state dark content
+    "one_state_dark_content@common_toggles.dark_content_toggle": {
+        "$checked_hover_control": "common_toggles.toggle_unchecked_hover",
+        "$checked_control": "common_toggles.toggle_unchecked"
+    },
+
+    // One state light content
+    "one_state_light_content@common_toggles.light_content_toggle": {
+        "$checked_hover_control": "common_toggles.toggle_unchecked_hover",
+        "$checked_control": "common_toggles.toggle_unchecked"
+    },
+
+    // One state light text
+    "one_state_light_text@common_toggles.light_text_toggle": {
+        "$checked_hover_control": "common_toggles.toggle_unchecked_hover",
+        "$checked_control": "common_toggles.toggle_unchecked"
+    }
+}

@@ -1,0 +1,124 @@
+// ZK common ui
+{
+    "namespace": "zk_common",
+
+    // Screen background
+    "screen_background": {
+        "type": "image",
+        "texture": "textures/ui/Black",
+        "alpha": 0.5,
+        "size": ["150%", "150%"]
+    },
+
+    // Container scroll box image fade gray
+    "container_scroll_box_image_fade_gray": {
+        "type": "image",
+        "texture": "textures/ui/White",
+        "color": [0.5, 0.5, 0.5],
+        "layer": 17
+    },
+
+    // Title header oreui style
+    "title_header_oreui_style": {
+        "type": "label",
+        "color": "$oreui_default_text_color",
+        "font_type": "MinecraftTen",
+        "font_scale_factor": 1.15,
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": ["default", "default"],
+        "offset": [0, -2.5]
+    },
+
+    // Header line
+    "header_line": {
+        "type": "image",
+        "texture": "textures/ui/Black",
+        "size": ["150%", 1],
+        "alpha": 0.667
+    },
+
+    // Header screen oreui style
+    "header_screen_oreui_style": {
+        "$header_size|default": ["100%", 26],
+        "$header_content_controls|default": [],
+        "type": "panel",
+        "size": "$header_size",
+        "controls": [
+            {
+                "header_img": {
+                    "type": "image",
+                    "texture": "textures/zk_ui/ore_ui/screens/topbar_image",
+                    "size": ["150%", "150%"],
+                    "anchor_from": "bottom_middle",
+                    "anchor_to": "bottom_middle"
+                }
+            },
+            {
+                "content": {
+                    "type": "panel",
+                    "size": "$header_size",
+                    "layer": 2,
+                    "controls": "$header_content_controls"
+                }
+            }
+        ]
+    },
+
+    // Raw toggle
+    "raw_toggle": {
+        "type": "panel",
+        "$toggle_consume_hover_events|default": true,
+        "$toggle_view_binding_name|default": "blabla",
+        "controls": [
+            {
+                "$toggle_view_binding_name@common.toggle": {
+                    "size": "$toggle_size",
+                    "button_mappings": "$button_mappings",
+                    "consume_hover_events": "$toggle_consume_hover_events",
+                    "$unchecked_control|default": "common.empty_panel",
+                    "$checked_control|default": "common.empty_panel",
+                    "$unchecked_hover_control|default": "common.empty_panel",
+                    "$checked_hover_control|default": "common.empty_panel",
+                    "$unchecked_locked_control|default": "common.empty_panel",
+                    "$checked_locked_control|default": "common.empty_panel",
+                    "$unchecked_locked_hover_control|default": "common.empty_panel",
+                    "$checked_locked_hover_control|default": "common.empty_panel",
+                    "$toggle_size|default": ["100%", "100%"],
+                    "$button_mappings|default": [
+                        {
+                            "from_button_id": "button.menu_select",
+                            "to_button_id": "button.menu_select",
+                            "mapping_type": "pressed"
+                        },
+                        {
+                            "from_button_id": "button.menu_ok",
+                            "to_button_id": "button.menu_ok",
+                            "mapping_type": "focused"
+                        },
+                        {
+                            "from_button_id": "button.controller_back",
+                            "to_button_id": "button.controller_back",
+                            "mapping_type": "focused",
+                            "ignored": "(not $allow_controller_back_button_mapping)"
+                        },
+                        {
+                            "ignored": "(not $enable_directional_toggling)",
+                            "from_button_id": "button.menu_left",
+                            "to_button_id": "$toggle_off_button",
+                            "mapping_type": "pressed",
+                            "input_mode_condition": "gamepad_and_not_gaze"
+                        },
+                        {
+                            "ignored": "(not $enable_directional_toggling)",
+                            "from_button_id": "button.menu_right",
+                            "to_button_id": "$toggle_on_button",
+                            "mapping_type": "pressed",
+                            "input_mode_condition": "gamepad_and_not_gaze"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

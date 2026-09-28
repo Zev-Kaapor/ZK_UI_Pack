@@ -1,0 +1,24 @@
+// ZK paddings
+{
+    "namespace": "zk_pad",
+
+    // Panel
+    "panel": {
+        "type": "panel"
+    },
+
+    // 2px x
+    "2px_x@panel": {
+        "size": [2, 0]
+    },
+
+    // 2px y
+    "2px_y@panel": {
+        "size": [0, 2]
+    },
+
+    // 4px x
+    "4px_x@panel": {
+        "size": [4, 0]
+    }
+}
