@@ -1,0 +1,67 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Pack version and release tag
+      - name: Resolve version
+        id: version
+        run: |
+          VERSION="$(jq -r '.header.version | map(tostring) | join(".")' manifest.json)"
+          SHORT_SHA="$(git rev-parse --short=7 HEAD)"
+
+          if git ls-remote --exit-code --tags origin "refs/tags/v$VERSION" > /dev/null; then
+            TAG="v$VERSION+$SHORT_SHA"
+            FILE="ZK_UI_Pack_v${VERSION}_$SHORT_SHA.mcpack"
+          else
+            TAG="v$VERSION"
+            FILE="ZK_UI_Pack_v$VERSION.mcpack"
+          fi
+
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "file=$FILE" >> "$GITHUB_OUTPUT"
+          echo "Release: $TAG ($FILE)"
+
+      # Zip pack contents, then rename to mcpack
+      - name: Build mcpack
+        run: |
+          zip -r -q -X pack.zip . \
+            -x ".git/*" ".github/*" ".gitignore" ".gitattributes" \
+               "*.md" "LICENSE*" "*.zip" "*.mcpack"
+
+          # Manifest must sit at the zip root
+          unzip -l pack.zip | awk '{print $4}' | grep -qx "manifest.json"
+
+          mv pack.zip "${{ steps.version.outputs.file }}"
+
+      # Publish release
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+          FILE: ${{ steps.version.outputs.file }}
+        run: |
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            gh release upload "$TAG" "$FILE" --clobber
+          else
+            gh release create "$TAG" "$FILE" \
+              --target "$GITHUB_SHA" \
+              --title "ZK UI Pack $TAG" \
+              --generate-notes \
+              --latest
+          fi
