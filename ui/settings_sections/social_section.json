@@ -1,0 +1,41 @@
+// Settings party section
+{
+    // Party privacy label
+    "party_privacy_label": {
+        "size": ["100% - 28px", "default"]
+    },
+
+    // Microsoft account settings header
+    "microsoft_account_settings_header_panel": {
+        "type": "panel",
+        "size": ["100%", "100%c"],
+        "controls": [
+            {
+                "text": {
+                    "type": "label",
+                    "text": "options.xboxLive.settings",
+                    "color": "$sub_header_text_color",
+                    "size": ["100% - 28px", "default"]
+                }
+            }
+        ]
+    },
+
+    // Microsoft account settings label
+    "microsoft_account_settings_label": {
+        "size": ["100% - 28px", "default"]
+    },
+
+    // Party section
+    "party_section": {
+        "modifications": [
+            {
+                "control_name": "microsoft_account_settings_header",
+                "operation": "replace",
+                "value": {
+                    "microsoft_account_settings_header@social_section.microsoft_account_settings_header_panel": {}
+                }
+            }
+        ]
+    }
+}

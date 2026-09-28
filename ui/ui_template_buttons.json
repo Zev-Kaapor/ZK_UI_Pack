@@ -81,5 +81,56 @@
                 }
             }
         ]
+    },
+
+    // ZK design light text button
+    "zk_design:light_text_button@zk_oreui_design__buttons.light_text_button": {
+        "button_mappings": "$button_mappings",
+        "$button_mappings|default": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "$pressed_button_name",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "$pressed_button_name",
+                "mapping_type": "focused"
+            }
+        ]
+    },
+
+    // ZK design red text button
+    "zk_design:red_text_button@zk_oreui_design__buttons.red_text_button": {
+        "button_mappings": "$button_mappings",
+        "$button_mappings|default": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "$pressed_button_name",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "$pressed_button_name",
+                "mapping_type": "focused"
+            }
+        ]
+    },
+
+    // ZK design green text button
+    "zk_design:green_text_button@zk_oreui_design__buttons.green_text_button": {
+        "button_mappings": "$button_mappings",
+        "$button_mappings|default": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "$pressed_button_name",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "$pressed_button_name",
+                "mapping_type": "focused"
+            }
+        ]
     }
 }

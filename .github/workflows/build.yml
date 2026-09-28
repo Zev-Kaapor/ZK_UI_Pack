@@ -3,6 +3,7 @@ name: Build and Release
 on:
   push:
     branches: [main]
+    paths: [manifest.json]
   workflow_dispatch:
 
 permissions:
@@ -25,9 +26,17 @@ jobs:
           VERSION="$(jq -r '.header.version | map(tostring) | join(".")' manifest.json)"
           SHORT_SHA="$(git rev-parse --short=7 HEAD)"
 
+          SKIP=false
+          PRERELEASE=false
+
           if git ls-remote --exit-code --tags origin "refs/tags/v$VERSION" > /dev/null; then
+            # Push only releases new versions, manual runs get a prerelease build
+            if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+              SKIP=true
+            fi
             TAG="v$VERSION+$SHORT_SHA"
             FILE="ZK_UI_Pack_v${VERSION}_$SHORT_SHA.mcpack"
+            PRERELEASE=true
           else
             TAG="v$VERSION"
             FILE="ZK_UI_Pack_v$VERSION.mcpack"
@@ -35,10 +44,18 @@ jobs:
 
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "file=$FILE" >> "$GITHUB_OUTPUT"
-          echo "Release: $TAG ($FILE)"
+          echo "skip=$SKIP" >> "$GITHUB_OUTPUT"
+          echo "prerelease=$PRERELEASE" >> "$GITHUB_OUTPUT"
+
+          if [ "$SKIP" = "true" ]; then
+            echo "Version v$VERSION already released, skipping"
+          else
+            echo "Release: $TAG ($FILE)"
+          fi
 
       # Zip pack contents, then rename to mcpack
       - name: Build mcpack
+        if: steps.version.outputs.skip != 'true'
         run: |
           zip -r -q -X pack.zip . \
             -x ".git/*" ".github/*" ".gitignore" ".gitattributes" \
@@ -51,13 +68,21 @@ jobs:
 
       # Publish release
       - name: Create release
+        if: steps.version.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.version.outputs.tag }}
           FILE: ${{ steps.version.outputs.file }}
+          PRERELEASE: ${{ steps.version.outputs.prerelease }}
         run: |
           if gh release view "$TAG" > /dev/null 2>&1; then
             gh release upload "$TAG" "$FILE" --clobber
+          elif [ "$PRERELEASE" = "true" ]; then
+            gh release create "$TAG" "$FILE" \
+              --target "$GITHUB_SHA" \
+              --title "ZK UI Pack $TAG" \
+              --generate-notes \
+              --prerelease
           else
             gh release create "$TAG" "$FILE" \
               --target "$GITHUB_SHA" \

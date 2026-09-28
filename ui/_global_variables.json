@@ -7,5 +7,24 @@
     "$oreui_default_text_color": [0.117, 0.117, 0.121],
     "$oreui_light_text_color": [1.0, 1.0, 1.0],
     "$oreui_locked_text_color": [0.3, 0.3, 0.3],
-    "$oreui_background_color": [0.782, 0.782, 0.786]
+    "$oreui_background_color": [0.782, 0.782, 0.786],
+
+    // Dialogs
+    "$enable_reduced_motion_mode": false,
+    "$fill_alpha": 0.6,
+
+    // Ore ui design button colors
+    "$zk_oreui_design:light_button_default_text_color": [0.117, 0.117, 0.121],
+    "$zk_oreui_design:light_button_hover_text_color": [0.117, 0.117, 0.121],
+    "$zk_oreui_design:light_button_pressed_text_color": [0.117, 0.117, 0.121],
+    "$zk_oreui_design:light_button_locked_text_color": [0.3, 0.3, 0.3],
+    "$zk_oreui_design:green_button_default_text_color": [1.0, 1.0, 1.0],
+    "$zk_oreui_design:green_button_hover_text_color": [1.0, 1.0, 1.0],
+    "$zk_oreui_design:green_button_pressed_text_color": [1.0, 1.0, 1.0],
+    "$zk_oreui_design:red_button_default_text_color": [1.0, 1.0, 1.0],
+    "$zk_oreui_design:red_button_hover_text_color": [1.0, 1.0, 1.0],
+    "$zk_oreui_design:red_button_pressed_text_color": [1.0, 1.0, 1.0],
+
+    // Ore ui design title color
+    "$zk_oreui_design:common_title_text_color": [0.0, 0.0, 0.0]
 }

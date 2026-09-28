@@ -62,6 +62,19 @@
         ]
     },
 
+    // Delete text button
+    "delete_text_button@zk_buttons.oreui_red_text_button": {
+        "size": ["100%", 20],
+        "$pressed_button_name": "button.delete_manifest",
+        "$button_text": "manifestvalidation.delete",
+        "bindings": [
+            {
+                "binding_name": "(not #is_working)",
+                "binding_name_override": "#enabled"
+            }
+        ]
+    },
+
     // Pack error log header
     "pack_error_log_header@zk_settings.item_with_bg": {
         "controls": [
@@ -99,6 +112,37 @@
                                 "bindings": [
                                     {
                                         "binding_name": "#refresh_visible",
+                                        "binding_name_override": "#visible",
+                                        "binding_condition": "once"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "delete_padding": {
+                                "type": "panel",
+                                "size": [4, "100%c"],
+                                "bindings": [
+                                    {
+                                        "binding_name": "#delete_visible",
+                                        "binding_name_override": "#visible",
+                                        "binding_condition": "once"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "delete_button": {
+                                "type": "panel",
+                                "size": [80, "100%c"],
+                                "controls": [
+                                    {
+                                        "button@zk_manifestValidation.delete_text_button": {}
+                                    }
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_name": "#delete_visible",
                                         "binding_name_override": "#visible",
                                         "binding_condition": "once"
                                     }
