@@ -1,0 +1,705 @@
+// ZK about screen sections
+{
+    "namespace": "zk_about",
+
+    // About screen
+    "zk_about_screen@zk_about_common.dynamic_dialog_screen": {
+        "$selector_stack_panel": "zk_about.selector_stack_panel",
+        "$section_content_panels": "zk_about.section_content_panels",
+        "$header_safezone_control": "common_store.store_top_bar_filler",
+        "$header_bar_control": "common_store.store_top_bar",
+        "$section_header_panels": "zk_about.section_header_panels",
+        "$section_footer_panels": "zk_about.section_footer_panels",
+        "$is_full_screen_layout": true
+    },
+
+    // Section selector
+    "selector_stack_panel": {
+        "type": "stack_panel",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "orientation": "vertical",
+        "$default_selector_toggle_index": 0,
+        "ttsSectionContainer": true,
+        "controls": [
+            {
+                "zk_about_selector_pane": {
+                    "type": "stack_panel",
+                    "controls": [
+                        {
+                            "padding_0": {
+                                "type": "panel",
+                                "size": [0, 4]
+                            }
+                        },
+                        {
+                            "about_button@zk_about.about_button": {
+                                "$toggle_group_forced_index": 0
+                            }
+                        },
+                        {
+                            "features_button@zk_about.features_button": {
+                                "$toggle_group_forced_index": 1
+                            }
+                        },
+                        {
+                            "credits_button@zk_about.credits_button": {
+                                "$toggle_group_forced_index": 2
+                            }
+                        },
+                        {
+                            "usage_button@zk_about.usage_button": {
+                                "$toggle_group_forced_index": 3
+                            }
+                        },
+                        {
+                            "changelog_category@zk_about_common.topic_category": {
+                                "$category": "changelog"
+                            }
+                        },
+                        {
+                            "changelog010_button@zk_about.changelog010_button": {
+                                "$toggle_group_forced_index": 4
+                            }
+                        },
+                        {
+                            "changelog001_button@zk_about.changelog001_button": {
+                                "$toggle_group_forced_index": 5
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Header section titles
+    "section_title_labels": {
+        "type": "panel",
+        "size": ["100%c", "100%c"],
+        "controls": [
+            {
+                "about@zk_about_common.section_title": {
+                    "$section_title": "zk.about.about",
+                    "$section_topic_control": "about"
+                }
+            },
+            {
+                "features@zk_about_common.section_title": {
+                    "$section_title": "zk.about.features",
+                    "$section_topic_control": "features"
+                }
+            },
+            {
+                "credits@zk_about_common.section_title": {
+                    "$section_title": "zk.about.credits",
+                    "$section_topic_control": "credits"
+                }
+            },
+            {
+                "usage@zk_about_common.section_title": {
+                    "$section_title": "zk.about.usage",
+                    "$section_topic_control": "usage"
+                }
+            },
+            {
+                "changelog010@zk_about_common.section_title_changelog": {
+                    "$version_label": "zk.about.changelog010",
+                    "$section_topic_control": "changelog010"
+                }
+            },
+            {
+                "changelog001@zk_about_common.section_title_changelog": {
+                    "$version_label": "zk.about.changelog001",
+                    "$section_topic_control": "changelog001"
+                }
+            }
+        ]
+    },
+
+    // Section contents
+    "section_content_panels": {
+        "type": "stack_panel",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "size": ["100% - 6px", "100%c + 5px"],
+        "offset": [2, 0],
+        "controls": [
+            {
+                "seecret_panel_for_touch": {
+                    "type": "panel",
+                    "size": ["100%", 0],
+                    "controls": [
+                        {
+                            "hidden_panel@zk_about_common.section_content_hidden": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "section_contents_header@zk_about_common.section_contents_header": {}
+            },
+            {
+                "general_sections": {
+                    "type": "stack_panel",
+                    "controls": [
+                        {
+                            "about@zk_about.about_section": {}
+                        },
+                        {
+                            "features@zk_about.features_section": {}
+                        },
+                        {
+                            "credits@zk_about.credits_section": {}
+                        },
+                        {
+                            "usage@zk_about.usage_section": {}
+                        },
+                        {
+                            "changelog010@zk_about.changelog010_section": {}
+                        },
+                        {
+                            "changelog001@zk_about.changelog001_section": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "section_contents_footer@zk_about_common.section_contents_footer": {}
+            }
+        ]
+    },
+
+    // Section headers
+    "section_header_panels": {
+        "type": "panel",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "size": ["100% - 6px", "100%c"],
+        "offset": [2, 0],
+        "controls": [
+            {
+                "header_panel": {
+                    "type": "stack_panel",
+                    "controls": []
+                }
+            }
+        ]
+    },
+
+    // Section footers
+    "section_footer_panels": {
+        "type": "panel",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "size": ["100% - 6px", "100%c"],
+        "offset": [2, 0],
+        "controls": [
+            {
+                "footer_panel": {
+                    "type": "stack_panel",
+                    "controls": []
+                }
+            }
+        ]
+    },
+
+    // About button
+    "about_button@zk_about_common.section_toggle_button": {
+        "$section_topic": "about"
+    },
+
+    // About section
+    "about_section@zk_about_common.main_sections": {
+        "$section_topic_control": "about",
+        "controls": [
+            {
+                "pack_info_stack": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": ["100%", 48],
+                    "controls": [
+                        {
+                            "pack_icon": {
+                                "type": "image",
+                                "texture": "textures/zk_ui/icons/about",
+                                "size": [48, 48],
+                                "layer": 1
+                            }
+                        },
+                        {
+                            "padding": {
+                                "type": "panel",
+                                "size": [6, 4]
+                            }
+                        },
+                        {
+                            "text_panel": {
+                                "type": "stack_panel",
+                                "orientation": "vertical",
+                                "size": ["fill", "100%"],
+                                "controls": [
+                                    {
+                                        "pad_top": {
+                                            "type": "panel",
+                                            "size": [0, 8]
+                                        }
+                                    },
+                                    {
+                                        "pack_name@zk_about_common.generic_label": {
+                                            "localize": false,
+                                            "text": "§eZK UI PACK",
+                                            "font_type": "MinecraftTen",
+                                            "font_size": "large"
+                                        }
+                                    },
+                                    {
+                                        "pad_version": {
+                                            "type": "panel",
+                                            "size": [0, 2]
+                                        }
+                                    },
+                                    {
+                                        "version_text@zk_about_common.generic_label": {
+                                            "text": "zk.about.packVersion"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "padding_0": {
+                    "type": "panel",
+                    "size": [0, 8]
+                }
+            },
+            {
+                "label_creator@zk_about_common.generic_label": {
+                    "text": "zk.about.creator"
+                }
+            },
+            {
+                "label_github@zk_about_common.generic_label": {
+                    "localize": false,
+                    "text": "§bGitHub§r: github.com/Zev-Kaapor/ZK_UI_Pack"
+                }
+            },
+            {
+                "padding_1": {
+                    "type": "panel",
+                    "size": [0, 12]
+                }
+            },
+            {
+                "label_1@$default_label": {
+                    "$line": 1
+                }
+            },
+            {
+                "pad_notice": {
+                    "type": "panel",
+                    "size": [0, 10]
+                }
+            },
+            {
+                "label_2@$default_label": {
+                    "$line": 2
+                }
+            },
+            {
+                "pad_disclaimer": {
+                    "type": "panel",
+                    "size": [0, 10]
+                }
+            },
+            {
+                "disclaimer_text@zk_about_common.generic_label": {
+                    "text": "zk.about.disclaimer"
+                }
+            }
+        ]
+    },
+
+    // Features button
+    "features_button@zk_about_common.section_toggle_button": {
+        "$section_topic": "features"
+    },
+
+    // Features section
+    "features_section@zk_about_common.main_sections": {
+        "$section_topic_control": "features",
+        "controls": [
+            {
+                "title@zk_about_common.generic_label": {
+                    "text": "zk.about.featuresTitle",
+                    "font_type": "MinecraftTen",
+                    "font_size": "large"
+                }
+            },
+            {
+                "start_header@zk_about_common.header_title_label": {
+                    "$text": "zk.about.features.start"
+                }
+            },
+            {
+                "pad_start": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_1@$default_label": {
+                    "$line": 1
+                }
+            },
+            {
+                "label_2@$default_label": {
+                    "$line": 2
+                }
+            },
+            {
+                "label_3@$default_label": {
+                    "$line": 3
+                }
+            },
+            {
+                "settings_header@zk_about_common.header_title_label": {
+                    "$text": "zk.about.features.settings"
+                }
+            },
+            {
+                "pad_settings": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_4@$default_label": {
+                    "$line": 4
+                }
+            },
+            {
+                "label_5@$default_label": {
+                    "$line": 5
+                }
+            },
+            {
+                "dialogs_header@zk_about_common.header_title_label": {
+                    "$text": "zk.about.features.dialogs"
+                }
+            },
+            {
+                "pad_dialogs": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_6@$default_label": {
+                    "$line": 6
+                }
+            },
+            {
+                "label_7@$default_label": {
+                    "$line": 7
+                }
+            },
+            {
+                "sound_header@zk_about_common.header_title_label": {
+                    "$text": "zk.about.features.sound"
+                }
+            },
+            {
+                "pad_sound": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_8@$default_label": {
+                    "$line": 8
+                }
+            },
+            {
+                "label_9@$default_label": {
+                    "$line": 9
+                }
+            }
+        ]
+    },
+
+    // Credits button
+    "credits_button@zk_about_common.section_toggle_button": {
+        "$section_topic": "credits"
+    },
+
+    // Credits section
+    "credits_section@zk_about_common.main_sections": {
+        "$section_topic_control": "credits",
+        "controls": [
+            {
+                "title@zk_about_common.generic_label": {
+                    "text": "zk.about.creditsTitle",
+                    "font_type": "MinecraftTen",
+                    "font_size": "large"
+                }
+            },
+            {
+                "title_pad": {
+                    "type": "panel",
+                    "size": [0, 8]
+                }
+            },
+            {
+                "label_1@$default_label": {
+                    "$line": 1
+                }
+            },
+            {
+                "label_2@$default_label": {
+                    "$line": 2
+                }
+            },
+            {
+                "label_3@$default_label": {
+                    "$line": 3
+                }
+            },
+            {
+                "pad_mojang": {
+                    "type": "panel",
+                    "size": [0, 10]
+                }
+            },
+            {
+                "label_4@$default_label": {
+                    "$line": 4
+                }
+            }
+        ]
+    },
+
+    // Terms of use button
+    "usage_button@zk_about_common.section_toggle_button": {
+        "$section_topic": "usage"
+    },
+
+    // Terms of use section
+    "usage_section@zk_about_common.main_sections": {
+        "$section_topic_control": "usage",
+        "controls": [
+            {
+                "title@zk_about_common.generic_label": {
+                    "text": "zk.about.usage",
+                    "font_type": "MinecraftTen",
+                    "font_size": "large"
+                }
+            },
+            {
+                "personal_header@zk_about_common.header_title_label": {
+                    "$text": "zk.about.usage.personal"
+                }
+            },
+            {
+                "pad_personal": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_1@$default_label": {
+                    "$line": 1
+                }
+            },
+            {
+                "label_2@$default_label": {
+                    "$line": 2
+                }
+            },
+            {
+                "label_3@$default_label": {
+                    "$line": 3
+                }
+            },
+            {
+                "label_4@$default_label": {
+                    "$line": 4
+                }
+            }
+        ]
+    },
+
+    // Changelog v0.1.0 button
+    "changelog010_button@zk_about_common.section_toggle_button": {
+        "$section_topic": "changelog010"
+    },
+
+    // Changelog v0.1.0 line
+    "cl010_label@zk_about_common.changelog_desc_label": {
+        "$ver": 10
+    },
+
+    // Changelog v0.1.0 section
+    "changelog010_section@zk_about_common.main_sections": {
+        "$section_topic_control": "changelog010",
+        "$cl_label|default": "zk_about.cl010_label",
+        "controls": [
+            {
+                "title@zk_about_common.generic_label": {
+                    "text": "zk.about.changelog010.title",
+                    "font_type": "MinecraftTen",
+                    "font_size": "large"
+                }
+            },
+            {
+                "new_features_title@zk_about_common.new_features_title": {}
+            },
+            {
+                "pad_1": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_1@$cl_label": {
+                    "$line": 1
+                }
+            },
+            {
+                "label_2@$cl_label": {
+                    "$line": 2
+                }
+            },
+            {
+                "label_3@$cl_label": {
+                    "$line": 3
+                }
+            },
+            {
+                "label_4@$cl_label": {
+                    "$line": 4
+                }
+            },
+            {
+                "label_5@$cl_label": {
+                    "$line": 5
+                }
+            },
+            {
+                "label_6@$cl_label": {
+                    "$line": 6
+                }
+            },
+            {
+                "label_7@$cl_label": {
+                    "$line": 7
+                }
+            },
+            {
+                "changes_title@zk_about_common.changes_title": {}
+            },
+            {
+                "pad_8": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_8@$cl_label": {
+                    "$line": 8
+                }
+            },
+            {
+                "label_9@$cl_label": {
+                    "$line": 9
+                }
+            },
+            {
+                "label_10@$cl_label": {
+                    "$line": 10
+                }
+            },
+            {
+                "label_11@$cl_label": {
+                    "$line": 11
+                }
+            },
+            {
+                "label_12@$cl_label": {
+                    "$line": 12
+                }
+            },
+            {
+                "fixes_title@zk_about_common.fixes_title": {}
+            },
+            {
+                "pad_13": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_13@$cl_label": {
+                    "$line": 13
+                }
+            },
+            {
+                "label_14@$cl_label": {
+                    "$line": 14
+                }
+            },
+            {
+                "label_15@$cl_label": {
+                    "$line": 15
+                }
+            }
+        ]
+    },
+
+    // Changelog v0.0.1 button
+    "changelog001_button@zk_about_common.section_toggle_button": {
+        "$section_topic": "changelog001"
+    },
+
+    // Changelog v0.0.1 line
+    "cl001_label@zk_about_common.changelog_desc_label": {
+        "$ver": 1
+    },
+
+    // Changelog v0.0.1 section
+    "changelog001_section@zk_about_common.main_sections": {
+        "$section_topic_control": "changelog001",
+        "$cl_label|default": "zk_about.cl001_label",
+        "controls": [
+            {
+                "title@zk_about_common.generic_label": {
+                    "text": "zk.about.changelog001.title",
+                    "font_type": "MinecraftTen",
+                    "font_size": "large"
+                }
+            },
+            {
+                "new_features_title@zk_about_common.new_features_title": {}
+            },
+            {
+                "pad_1": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_1@$cl_label": {
+                    "$line": 1
+                }
+            },
+            {
+                "label_2@$cl_label": {
+                    "$line": 2
+                }
+            }
+        ]
+    }
+}

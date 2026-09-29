@@ -16,3 +16,78 @@ zk.cachesStorageLocation=Local de Caches e Armazenamento
 zk.selectAllInvert=Selecionar Tudo/Inverter Seleção
 zk.showMoreInfo=Mostrar Mais Informações
 zk.sizeTotal=Tamanho total estimado:
+
+## Start screen
+zk.about=Sobre o ZK UI Pack
+zk.start.hideInterface=Ocultar interface
+zk.start.showInterface=Mostrar interface
+
+## About screen
+zk.about.about=Sobre
+zk.about.features=Recursos
+zk.about.credits=Créditos
+zk.about.usage=Termos de uso
+zk.about.changelog=Changelog
+zk.about.changelog010=v0.1.0
+zk.about.changelog001=v0.0.1
+zk.about.packVersion=Versão v0.1.0
+zk.about.creator=Criado e mantido por Zev Kaapor
+zk.about.disclaimer=§7§oEste pacote não é afiliado à Microsoft nem à Mojang Studios.
+zk.about.aboutLabel1=O ZK UI Pack é um pacote de interface para o Minecraft Bedrock, desenvolvido para ser limpo, com funções extras e mantendo o aspecto vanilla do jogo base, trazendo ajustes nas interfaces, sons personalizados e melhorias de qualidade de vida. O pacote possui suporte a dois idiomas: EN e PT-BR.
+zk.about.aboutLabel2=§l§bAVISO§r: §oEste pacote é apenas uma textura de interface (Resource Pack), ele não é um cliente modificado.§r
+zk.about.openAboutZkUITooltip.openText=Pressione para ver o Sobre do ZK UI Pack
+zk.about.openAboutZkUITooltip.closeText=Pressione para voltar à tela anterior
+
+## About features
+zk.about.featuresTitle=§eRecursos
+zk.about.features.start=§aTELA INICIAL
+zk.about.features.settings=§6CONFIGURAÇÕES
+zk.about.features.dialogs=§dINTERFACE E DIÁLOGOS
+zk.about.features.sound=§9SOM E IDIOMAS
+zk.about.featuresLabel1=- Layout centralizado com acesso rápido a Jogar, Partida Rápida e Marketplace.
+zk.about.featuresLabel2=- Menu lateral com atalhos para perfil, caixa de entrada, conquistas, servidores e Realms.
+zk.about.featuresLabel3=- Opção de ocultar a interface para visualizar o panorama.
+zk.about.featuresLabel4=- Telas reorganizadas no padrão visual Ore UI, com busca de opções.
+zk.about.featuresLabel5=- Gerenciamento de armazenamento e informações detalhadas de cada pacote.
+zk.about.featuresLabel6=- Janelas de confirmação e de carregamento com visual moderno.
+zk.about.featuresLabel7=- Destaque em vermelho para ações irreversíveis, como exclusões.
+zk.about.featuresLabel8=- Som de clique personalizado em botões e alternadores.
+zk.about.featuresLabel9=- Textos disponíveis em inglês e português (Brasil).
+
+## About credits
+zk.about.creditsTitle=Créditos e agradecimentos
+zk.about.creditsLabel1=- §bZev Kaapor§r: criação, estrutura e manutenção do pack.
+zk.about.creditsLabel2=- §a@tlgm2308 (Ty-el UI)§r: base do menu lateral, dos diálogos e da tela Sobre.
+zk.about.creditsLabel3=- §d@Itzriyo157 (Déesse UI)§r: base das telas de configuração.
+zk.about.creditsLabel4=- §6Microsoft e Mojang Studios§r: interface e sons originais do Minecraft.
+
+## About terms of use
+zk.about.usage.personal=§6USO PESSOAL E DESENVOLVIMENTO ABERTO
+zk.about.usageLabel1=- Você pode modificar e adaptar este pack para uso pessoal.
+zk.about.usageLabel2=- Ao compartilhar alterações, mantenha os créditos do ZK UI Pack e dos autores originais.
+zk.about.usageLabel3=- Não redistribua este pack ou versões modificadas em lojas ou plataformas de monetização sem autorização.
+zk.about.usageLabel4=- Não apresente o código ou os assets como criação sua.
+
+## About changelog
+zk.about.changelog.newfeatures=§bNOVIDADES
+zk.about.changelog.changes=§aMUDANÇAS
+zk.about.changelog.fixes=§eCORREÇÕES
+zk.about.changelog010.title=§aCONFIGURAÇÕES E TELA INICIAL
+zk.about.changelog10.label1=- Telas de configuração no estilo Ore UI: geral, controles, mundo, armazenamento e pacotes.
+zk.about.changelog10.label2=- Nova tela inicial com Jogar, Partida Rápida, Marketplace, skin ao lado e versão no rodapé.
+zk.about.changelog10.label3=- Menu lateral com perfil, caixa de entrada, conquistas, servidores, Realms, feedback e sair.
+zk.about.changelog10.label4=- Botão para ocultar e mostrar a interface da tela inicial.
+zk.about.changelog10.label5=- Diálogos, confirmações e telas de carregamento no estilo Ore UI.
+zk.about.changelog10.label6=- Tela Sobre com recursos, créditos, termos de uso e changelog.
+zk.about.changelog10.label7=- Som de clique personalizado nos botões.
+zk.about.changelog10.label8=- Botão de confirmar fica vermelho em ações de exclusão.
+zk.about.changelog10.label9=- Logo do Minecraft menor, deixando a tela inicial mais leve.
+zk.about.changelog10.label10=- Removido o botão duplicado de navegação das sub-telas de configuração.
+zk.about.changelog10.label11=- Releases publicadas só quando a versão muda, com builds de teste manuais.
+zk.about.changelog10.label12=- Painel de eventos da tela inicial menor e alinhado aos botões.
+zk.about.changelog10.label13=- Restaurado o botão Excluir na tela de informações do pacote.
+zk.about.changelog10.label14=- Textos da seção de party alinhados com o restante das configurações.
+zk.about.changelog10.label15=- Botão de comentário do menu lateral abrindo o site de feedback.
+zk.about.changelog001.title=§aESTRUTURA INICIAL
+zk.about.changelog1.label1=- Estrutura base do pacote com manifesto, ícone e descrição.
+zk.about.changelog1.label2=- Geração automática do .mcpack e publicação das releases no GitHub.

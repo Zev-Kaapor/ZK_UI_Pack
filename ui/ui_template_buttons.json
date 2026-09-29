@@ -132,5 +132,22 @@
                 "mapping_type": "focused"
             }
         ]
+    },
+
+    // ZK design green content button
+    "zk_design:green_content_button@zk_oreui_design__buttons.green_content_button": {
+        "button_mappings": "$button_mappings",
+        "$button_mappings|default": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "$pressed_button_name",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "$pressed_button_name",
+                "mapping_type": "focused"
+            }
+        ]
     }
 }

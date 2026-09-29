@@ -16,3 +16,78 @@ zk.cachesStorageLocation=Caches & Storage Location
 zk.selectAllInvert=Select All/Invert Selection
 zk.showMoreInfo=Show More Information
 zk.sizeTotal=Estimated total size:
+
+## Start screen
+zk.about=About ZK UI Pack
+zk.start.hideInterface=Hide interface
+zk.start.showInterface=Show interface
+
+## About screen
+zk.about.about=About
+zk.about.features=Features
+zk.about.credits=Credits
+zk.about.usage=Terms of use
+zk.about.changelog=Changelog
+zk.about.changelog010=v0.1.0
+zk.about.changelog001=v0.0.1
+zk.about.packVersion=Version v0.1.0
+zk.about.creator=Created and maintained by Zev Kaapor
+zk.about.disclaimer=§7§oThis pack is not affiliated with Microsoft or Mojang Studios.
+zk.about.aboutLabel1=ZK UI Pack is an interface pack for Minecraft Bedrock, designed to be clean, with extra features while keeping the vanilla look of the base game, bringing interface tweaks, custom sounds, and quality of life improvements. The pack supports two languages: EN and PT-BR.
+zk.about.aboutLabel2=§l§bNOTICE§r: §oThis pack is only an interface texture (Resource Pack), it is not a modified client.§r
+zk.about.openAboutZkUITooltip.openText=Press to see About ZK UI Pack
+zk.about.openAboutZkUITooltip.closeText=Press to go back to the previous screen
+
+## About features
+zk.about.featuresTitle=§eFeatures
+zk.about.features.start=§aSTART SCREEN
+zk.about.features.settings=§6SETTINGS
+zk.about.features.dialogs=§dINTERFACE AND DIALOGS
+zk.about.features.sound=§9SOUND AND LANGUAGES
+zk.about.featuresLabel1=- Centered layout with quick access to Play, Quick Play, and Marketplace.
+zk.about.featuresLabel2=- Side menu with shortcuts to profile, inbox, achievements, servers, and Realms.
+zk.about.featuresLabel3=- Option to hide the interface and view the panorama.
+zk.about.featuresLabel4=- Screens reorganized in the Ore UI visual style, with option search.
+zk.about.featuresLabel5=- Storage management and detailed information for each pack.
+zk.about.featuresLabel6=- Confirmation and loading windows with a modern look.
+zk.about.featuresLabel7=- Red highlight for irreversible actions, such as deletions.
+zk.about.featuresLabel8=- Custom click sound on buttons and toggles.
+zk.about.featuresLabel9=- Texts available in English and Portuguese (Brazil).
+
+## About credits
+zk.about.creditsTitle=Credits and thanks
+zk.about.creditsLabel1=- §bZev Kaapor§r: creation, structure, and maintenance of the pack.
+zk.about.creditsLabel2=- §a@tlgm2308 (Ty-el UI)§r: base of the side menu, dialogs, and About screen.
+zk.about.creditsLabel3=- §d@Itzriyo157 (Déesse UI)§r: base of the settings screens.
+zk.about.creditsLabel4=- §6Microsoft and Mojang Studios§r: original Minecraft interface and sounds.
+
+## About terms of use
+zk.about.usage.personal=§6PERSONAL USE AND OPEN DEVELOPMENT
+zk.about.usageLabel1=- You may modify and adapt this pack for personal use.
+zk.about.usageLabel2=- When sharing changes, keep the credits of ZK UI Pack and the original authors.
+zk.about.usageLabel3=- Do not redistribute this pack or modified versions on stores or monetization platforms without permission.
+zk.about.usageLabel4=- Do not present the code or assets as your own creation.
+
+## About changelog
+zk.about.changelog.newfeatures=§bNEW FEATURES
+zk.about.changelog.changes=§aCHANGES
+zk.about.changelog.fixes=§eFIXES
+zk.about.changelog010.title=§aSETTINGS AND START SCREEN
+zk.about.changelog10.label1=- Ore UI style settings screens: general, controls, world, storage, and packs.
+zk.about.changelog10.label2=- New start screen with Play, Quick Play, Marketplace, skin beside them, and version in the footer.
+zk.about.changelog10.label3=- Side menu with profile, inbox, achievements, servers, Realms, feedback, and quit.
+zk.about.changelog10.label4=- Button to hide and show the start screen interface.
+zk.about.changelog10.label5=- Ore UI style dialogs, confirmations, and loading screens.
+zk.about.changelog10.label6=- About screen with features, credits, terms of use, and changelog.
+zk.about.changelog10.label7=- Custom click sound on buttons.
+zk.about.changelog10.label8=- Confirm button turns red on delete actions.
+zk.about.changelog10.label9=- Smaller Minecraft logo for a lighter start screen.
+zk.about.changelog10.label10=- Removed the duplicate navigation button from settings sub screens.
+zk.about.changelog10.label11=- Releases published only when the version changes, with manual test builds.
+zk.about.changelog10.label12=- Smaller start screen events panel, aligned with the buttons.
+zk.about.changelog10.label13=- Restored the Delete button in the pack information screen.
+zk.about.changelog10.label14=- Party section texts aligned with the rest of the settings.
+zk.about.changelog10.label15=- Side menu feedback button now opens the feedback website.
+zk.about.changelog001.title=§aINITIAL STRUCTURE
+zk.about.changelog1.label1=- Base pack structure with manifest, icon, and description.
+zk.about.changelog1.label2=- Automatic .mcpack build and GitHub release publishing.

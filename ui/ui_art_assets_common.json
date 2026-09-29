@@ -1,0 +1,17 @@
+// Common art assets
+{
+    // Title panel windows
+    "title_panel_win10": {
+        "size": ["42%", "18.85%x"]
+    },
+
+    // Title panel mac
+    "title_panel_osx": {
+        "size": ["42%", "19.37%x"]
+    },
+
+    // Title panel pocket and console
+    "title_panel_pocket": {
+        "size": ["42%", "18.85%x"]
+    }
+}

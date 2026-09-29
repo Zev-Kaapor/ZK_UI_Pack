@@ -1,0 +1,816 @@
+// ZK about screen common layout
+{
+    "namespace": "zk_about_common",
+
+    // Dynamic dialog screen
+    "dynamic_dialog_screen@common.base_screen": {
+        "type": "screen",
+        "size": ["100%", "100%"],
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_cancel",
+                "to_button_id": "button.menu_exit",
+                "mapping_type": "global"
+            },
+            {
+                "from_button_id": "button.menu_tab_left",
+                "to_button_id": "button.menu_tab_left",
+                "mapping_type": "global",
+                "scope": "view"
+            },
+            {
+                "from_button_id": "button.menu_tab_right",
+                "to_button_id": "button.menu_tab_right",
+                "mapping_type": "global",
+                "scope": "view"
+            }
+        ],
+        "$use_custom_panorama": "$is_pregame",
+        "$screen_content": "zk_about_common.zk_about_content",
+        "$screen_bg_content": "common.screen_background",
+        "$screen_helpers_content": "zk_about_common.dynamic_helpers_content"
+    },
+
+    // Zk about content
+    "zk_about_content": {
+        "type": "panel",
+        "$selector_stack_panel": "zk_about.selector_stack_panel",
+        "$section_content_panels": "zk_about.section_content_panels",
+        "$section_header_panels": "zk_about.section_header_panels",
+        "$section_footer_panels": "zk_about.section_footer_panels",
+        "controls": [
+            {
+                "header@zk_about_common.zk_header": {}
+            },
+            {
+                "container": {
+                    "type": "panel",
+                    "size": ["100%", "100%"],
+                    "controls": [
+                        {
+                            "dialog_content@zk_about_common.dialog_content": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Header
+    "zk_header": {
+        "type": "panel",
+        "size": ["100%", 24],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "layer": 2,
+        "controls": [
+            {
+                "image": {
+                    "type": "image",
+                    "texture": "textures/zk_ui/ore_ui/screens/topbar_image",
+                    "size": ["150%", "150%"],
+                    "anchor_from": "bottom_middle",
+                    "anchor_to": "bottom_middle"
+                }
+            },
+            {
+                "close_button@zk_buttons.close_button": {
+                    "anchor_from": "left_middle",
+                    "anchor_to": "left_middle",
+                    "offset": [2, 0],
+                    "size": [22, 22],
+                    "layer": 4
+                }
+            },
+            {
+                "section_title_labels@zk_about.section_title_labels": {
+                    "size": ["100%", "100%"],
+                    "layer": 4
+                }
+            },
+            {
+                "header_line": {
+                    "type": "image",
+                    "texture": "textures/ui/Black",
+                    "size": ["100%", 1],
+                    "alpha": 0.45,
+                    "anchor_from": "bottom_middle",
+                    "anchor_to": "bottom_middle",
+                    "offset": [0, 1],
+                    "layer": 8
+                }
+            }
+        ]
+    },
+
+    // Section title
+    "section_title": {
+        "type": "label",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "layer": 2,
+        "color": "$oreui_default_text_color",
+        "text": "$section_title",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "($section_topic_control + '_button_toggle')",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "font_type": "MinecraftTen",
+        "font_scale_factor": 1.15,
+        "size": ["default", "default"],
+        "offset": [0, -3]
+    },
+
+    // Section title changelog
+    "section_title_changelog": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%cm"],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "offset": [0, -3],
+        "layer": 2,
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "($section_topic_control + '_button_toggle')",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "section_title@zk_about_common.section_title": {
+                    "$section_title": "zk.about.changelog",
+                    "offset": [0, 0],
+                    "bindings": []
+                }
+            },
+            {
+                "space": {
+                    "type": "panel",
+                    "size": [6, 0]
+                }
+            },
+            {
+                "version_title@zk_about_common.section_title": {
+                    "$section_title": "$version_label",
+                    "offset": [0, 0],
+                    "bindings": []
+                }
+            }
+        ]
+    },
+
+    // Dialog content
+    "dialog_content": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "max_size": "$common_content_area_max_size",
+        "$common_content_area_max_size|default": [700, "100%"],
+        "controls": [
+            {
+                "selector_area@zk_about_common.selector_area": {}
+            },
+            {
+                "content_area@zk_about_common.content_area_wrapper": {}
+            },
+            {
+                "section_divider@zk_about_common.section_divider": {}
+            }
+        ]
+    },
+
+    // Scrollable selector area content
+    "scrollable_selector_area_content": {
+        "type": "panel",
+        "offset": ["6px", "2px"],
+        "size": ["100% - 8px", "100%c + 4px"],
+        "controls": [
+            {
+                "$selector_stack_panel@$selector_stack_panel": {}
+            }
+        ]
+    },
+
+    // Selector area
+    "selector_area": {
+        "type": "panel",
+        "offset": ["-8px", "25px"],
+        "size": ["30% + 8px", "100% - 25px"],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "layer": 3,
+        "focus_container": true,
+        "use_last_focus": true,
+        "$focus_navigation_mode_override_down|default": "contained",
+        "$focus_navigation_mode_override_up|default": "contained",
+        "$focus_navigation_mode_override_left|default": "",
+        "$focus_navigation_mode_override_right|default": "",
+        "focus_navigation_mode_down": "$focus_navigation_mode_override_down",
+        "focus_navigation_mode_up": "$focus_navigation_mode_override_up",
+        "focus_navigation_mode_left": "$focus_navigation_mode_override_left",
+        "focus_navigation_mode_right": "$focus_navigation_mode_override_right",
+        "controls": [
+            {
+                "scrolling_panel@common.scrolling_panel": {
+                    "$scrolling_content": "zk_about_common.scrollable_selector_area_content",
+                    "$show_background": false,
+                    "$scroll_size": ["5px", "100% - 4px"],
+                    "$scroll_bar_left_padding_size": [1, 0]
+                }
+            }
+        ]
+    },
+
+    // Section divider
+    "section_divider": {
+        "type": "image",
+        "offset": ["30%", "25px"],
+        "size": ["4px", "100% - 25px"],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "layer": 5,
+        "texture": "textures/ui/HowToPlayDivider"
+    },
+
+    // Content area wrapper
+    "content_area_wrapper": {
+        "type": "panel",
+        "offset": ["4px", "25px"],
+        "size": ["70% + 4px", "100% - 25px"],
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "layer": 1,
+        "controls": [
+            {
+                "content_area@zk_about_common.content_area": {}
+            }
+        ]
+    },
+
+    // Content area
+    "content_area": {
+        "type": "panel",
+        "size": ["100% - 6px", "100%"],
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "controls": [
+            {
+                "control": {
+                    "type": "stack_panel",
+                    "size": ["100%", "100%"],
+                    "anchor_from": "top_right",
+                    "anchor_to": "top_right",
+                    "controls": [
+                        {
+                            "header_panel": {
+                                "type": "panel",
+                                "layer": 20,
+                                "size": ["100%", "100%c"],
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "controls": [
+                                    {
+                                        "content@$section_header_panels": {}
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "scrolling_panel@common.scrolling_panel": {
+                                "size": ["100%", "fill"],
+                                "$scrolling_content": "$section_content_panels",
+                                "$show_background": false,
+                                "$scroll_size": ["5px", "100% - 4px"],
+                                "$scroll_bar_left_padding_size": [5, 0],
+                                "$scroll_bar_right_padding_size": [5, 0]
+                            }
+                        },
+                        {
+                            "footer_panel": {
+                                "type": "panel",
+                                "layer": 20,
+                                "size": ["100%", "100%c"],
+                                "anchor_from": "bottom_left",
+                                "anchor_to": "bottom_left",
+                                "controls": [
+                                    {
+                                        "content@$section_footer_panels": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Toggle button control
+    "toggle_button_control": {
+        "type": "panel",
+        "layer": 2,
+        "controls": [
+            {
+                "tab_button_text": {
+                    "type": "label",
+                    "anchor_from": "left_middle",
+                    "anchor_to": "left_middle",
+                    "size": ["100% - 10px", "default"],
+                    "max_size": ["100% - 14px", "100% - 4px"],
+                    "offset": [4, 0],
+                    "text": "('zk.about.' + $section_topic)",
+                    "layer": 3,
+                    "color": "$text_color",
+                    "alpha": "$content_alpha"
+                }
+            }
+        ]
+    },
+
+    // Section toggle button
+    "section_toggle_button": {
+        "type": "panel",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "size": ["100%", "23px"],
+        "controls": [
+            {
+                "section_toggle_button@common_toggles.dark_sidebar_toggle": {
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "size": ["100%", "23px"],
+                    "$button_type_panel": "zk_about_common.toggle_button_control",
+                    "$radio_toggle_group": true,
+                    "$toggle_name": "navigation_tab",
+                    "$toggle_group_default_selected": "$default_selector_toggle_index",
+                    "$toggle_tab_focus_binding_type": "global",
+                    "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
+                    "$toggle_on_hover_binding_type": "global",
+                    "$toggle_on_hover_binding_name": "#toggle_on_hover",
+                    "$toggle_tts_toggle_on_text": "accessibility.state.selected",
+                    "$toggle_tts_toggle_off_text": "accessibility.state.unselected",
+                    "$toggle_tts_name": "accessibility.tab.tts.title",
+                    "$toggle_view_binding_name": "($section_topic + '_button_toggle')",
+                    "$toggle_property_bag": {
+                        "#panel_title": "('zk.about.' + $section_topic)"
+                    }
+                }
+            }
+        ]
+    },
+
+    // Main sections
+    "main_sections": {
+        "$section_topic_control|default": "none",
+        "$default_label|default": "zk_about_common.section_generic_label",
+        "type": "stack_panel",
+        "size": ["100%", "100%c"],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "($section_topic_control + '_button_toggle')",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    // Section contents header
+    "section_contents_header": {
+        "type": "input_panel",
+        "focus_enabled": true,
+        "size": ["100%", "4px"]
+    },
+
+    // Section contents footer
+    "section_contents_footer": {
+        "type": "input_panel",
+        "focus_enabled": true,
+        "size": ["100%", "4px"]
+    },
+
+    // Generic label
+    "generic_label": {
+        "type": "label",
+        "size": ["default", "default"],
+        "max_size": ["100%", "default"],
+        "color": "$text_color",
+        "hide_hyphen": true,
+        "$text_color|default": "$main_header_text_color"
+    },
+
+    // Section generic label
+    "section_generic_label@zk_about_common.generic_label": {
+        "$line|default": "",
+        "text": "('zk.about.' + $section_topic_control + 'Label' + $line)"
+    },
+
+    // Changelog desc label
+    "changelog_desc_label@zk_about_common.generic_label": {
+        "$ver|default": 100,
+        "$line|default": 1,
+        "text": "('zk.about.changelog' + $ver + '.label' + $line)"
+    },
+
+    // Header title label
+    "header_title_label": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": ["100%", "100%c"],
+        "$text|default": "",
+        "$font_scale_factor|default": 1.333,
+        "controls": [
+            {
+                "empty_space@common.empty_panel": {
+                    "size": [8, 8]
+                }
+            },
+            {
+                "header_title_label@zk_about_common.generic_label": {
+                    "font_type": "MinecraftTen",
+                    "font_scale_factor": "$font_scale_factor",
+                    "text": "$text"
+                }
+            },
+            {
+                "small_pad@common.empty_panel": {
+                    "size": [1, 1]
+                }
+            },
+            {
+                "simple_header_bar@zk_about_common.header_bar": {
+                    "size": ["100%", 1]
+                }
+            }
+        ]
+    },
+
+    // New features title
+    "new_features_title@zk_about_common.header_title_label": {
+        "$text": "zk.about.changelog.newfeatures"
+    },
+
+    // Changes title
+    "changes_title@zk_about_common.header_title_label": {
+        "$text": "zk.about.changelog.changes"
+    },
+
+    // Fixes title
+    "fixes_title@zk_about_common.header_title_label": {
+        "$text": "zk.about.changelog.fixes"
+    },
+
+    // Topic category
+    "topic_category": {
+        "type": "panel",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "size": ["100%", "100%c"],
+        "$category|default": "",
+        "controls": [
+            {
+                "category_text": {
+                    "type": "label",
+                    "font_type": "MinecraftTen",
+                    "font_scale_factor": 1.333,
+                    "anchor_from": "bottom_left",
+                    "anchor_to": "bottom_left",
+                    "size": ["default", "default"],
+                    "max_size": ["100%", "40px"],
+                    "offset": [2, 0],
+                    "text": "('zk.about.' + $category)",
+                    "color": "$main_header_text_color"
+                }
+            }
+        ]
+    },
+
+    // Section content hidden
+    "section_content_hidden": {
+        "type": "panel",
+        "size": ["100%", "100%cm"],
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "offset": [0, -24],
+        "controls": []
+    },
+
+    // Zk about content multiscreen
+    "zk_about_content_multiscreen": {
+        "type": "panel",
+        "controls": [
+            {
+                "screen_panel@$screen_panel": {
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "zk_about_screen_toggle",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "zk_about_content@zk_about_common.zk_about_content": {
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "zk_about_screen_toggle",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "zk_about_screen_toggle@zk_about_common.zk_about_screen_toggle": {}
+            },
+            {
+                "zk_about_navigator_tooltip@zk_about_common.zk_about_navigator_tooltip": {
+                    "$control_name": "zk_about_navigator_tooltip",
+                    "offset": "@zk_about_common.tooltip_begin_animation_offset",
+                    "variables": [],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "zk_about_screen_toggle",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Zk about bg multiscreen
+    "zk_about_bg_multiscreen": {
+        "type": "panel",
+        "controls": [
+            {
+                "screen_bg_panel@$screen_bg_panel": {
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "zk_about_screen_toggle",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "gray_bg@common.screen_background": {
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "zk_about_screen_toggle",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Zk about header bar control multiscreen
+    "zk_about_header_bar_control_multiscreen": {
+        "type": "panel",
+        "controls": [
+            {
+                "header_bar_panel@$header_bar_panel": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "zk_about_screen_toggle",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "zk_about_top_bar@common_store.store_top_bar": {
+                    "$store_top_bar_size": ["100%", 30],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "zk_about_screen_toggle",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Zk about header safezone control multiscreen
+    "zk_about_header_safezone_control_multiscreen": {
+        "type": "panel",
+        "controls": [
+            {
+                "header_safezone_panel@$header_safezone_panel": {
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "zk_about_screen_toggle",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "zk_about_top_bar_filler@common_store.store_top_bar_filler": {
+                    "$store_top_bar_size": ["100%", 30],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "zk_about_screen_toggle",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Zk about screen toggle
+    "zk_about_screen_toggle@common_toggles.light_content_toggle_visibility_one_button_state": {
+        "size": [24, 24],
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
+        "offset": [-4, -4],
+        "layer": 300,
+        "$toggle_name": "zk_about_screen_toggle",
+        "$button_content": "zk_about_common.zk_about_icon",
+        "$toggle_group_forced_index": 101,
+        "$button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.menu_select",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "button.menu_ok",
+                "mapping_type": "focused"
+            },
+            {
+                "from_button_id": "button.controller_start",
+                "to_button_id": "button.menu_select",
+                "mapping_type": "global"
+            }
+        ]
+    },
+
+    // Zk about icon
+    "zk_about_icon": {
+        "type": "image",
+        "texture": "textures/zk_ui/icons/about",
+        "size": [16, 16],
+        "controls": [
+            {
+                "zk_about_navigator_tooltip@zk_about_common.zk_about_navigator_tooltip": {
+                    "ignored": "($toggle_unchecked or $toggle_checked)"
+                }
+            }
+        ]
+    },
+
+    // Zk about navigator tooltip
+    "zk_about_navigator_tooltip": {
+        "type": "panel",
+        "size": ["200px", "100%cm + 16px"],
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
+        "$tooltip_text|default": "zk.about.openAboutZkUITooltip.openText",
+        "variables": [
+            {
+                "requires": "($toggle_checked_hover)",
+                "$tooltip_text": "zk.about.openAboutZkUITooltip.closeText"
+            }
+        ],
+        "controls": [
+            {
+                "navigator_tip@common.static_tooltip_popup_with_image_and_text": {
+                    "$tooltip_panel_size": ["100%", "100%cm + 8px"],
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right",
+                    "$tooltip_panel_offset": [7, -32],
+                    "$tooltip_popup_image": "textures/ui/infobulb",
+                    "$tooltip_button_binding_type": "none",
+                    "$tooltip_button_collection_name": "",
+                    "$tooltip_text_binding_name": "$tooltip_text",
+                    "$tooltip_chevron_anchor": "bottom_right",
+                    "$tooltip_popup_chevron_offset": ["-30%x", "100%y - 3px"]
+                }
+            }
+        ]
+    },
+
+    // Dynamic helpers content
+    "dynamic_helpers_content": {
+        "type": "panel",
+        "size": ["100%", "100%cm"],
+        "controls": [
+            {
+                "gamepad_helper_left_bumper@common.gamepad_helper_left_bumper": {
+                    "$icon_description_bind": "howtoplay.previous",
+                    "offset": [4, 0],
+                    "anchor_from": "bottom_left",
+                    "anchor_to": "bottom_left"
+                }
+            },
+            {
+                "middle_helpers": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": ["100%c", "100%cm"],
+                    "anchor_from": "bottom_middle",
+                    "anchor_to": "bottom_middle",
+                    "controls": [
+                        {
+                            "gamepad_helper_a@common.gamepad_helper_a": {}
+                        },
+                        {
+                            "gamepad_helper_b@common.gamepad_helper_b": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "gamepad_helper_right_bumper@common.gamepad_helper_right_bumper": {
+                    "$icon_description_bind": "howtoplay.next",
+                    "offset": [-4, 0],
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right"
+                }
+            }
+        ]
+    },
+
+    // Header bar
+    "header_bar": {
+        "type": "image",
+        "texture": "textures/ui/White",
+        "color": "$main_header_text_color",
+        "alpha": 0.35,
+        "size": ["100%", 1]
+    },
+
+    // Tooltip begin animation offset
+    "tooltip_begin_animation_offset": {
+        "anim_type": "offset",
+        "easing": "out_back",
+        "from": [220, 0],
+        "to": [220, -8],
+        "duration": "($transition_time_pop * 2)",
+        "next": "@zk_about_common.tooltip_begin_animation_offset_start"
+    },
+
+    // Tooltip begin animation offset start
+    "tooltip_begin_animation_offset_start": {
+        "anim_type": "offset",
+        "easing": "out_back",
+        "duration": "$transition_time_pop",
+        "from": [220, -8],
+        "to": [-8, -8],
+        "next": "@zk_about_common.tooltip_begin_animation_offset_wait"
+    },
+
+    // Tooltip begin animation offset wait
+    "tooltip_begin_animation_offset_wait": {
+        "anim_type": "wait",
+        "duration": 5,
+        "next": "@zk_about_common.tooltip_begin_animation_offset_end"
+    },
+
+    // Tooltip begin animation offset end
+    "tooltip_begin_animation_offset_end": {
+        "anim_type": "offset",
+        "easing": "out_back",
+        "duration": "$transition_time_push",
+        "from": [-8, -8],
+        "to": [220, -8],
+        "destroy_at_end": "$control_name",
+        "$control_name|default": "empty_panel"
+    }
+}

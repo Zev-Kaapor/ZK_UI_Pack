@@ -16,5 +16,44 @@
     "one_state_light_text@common_toggles.light_text_toggle": {
         "$checked_hover_control": "common_toggles.toggle_unchecked_hover",
         "$checked_control": "common_toggles.toggle_unchecked"
+    },
+
+    // Light content toggle visibility
+    "light_content_toggle_visibility@common_toggles.light_template_toggle": {
+        "$button_type_panel": "common_buttons.button_content_panel",
+        "$button_content|default": "common_toggles.toggle_image",
+        "$button_offset|default": [0, 0],
+        "sound_name": "random.release"
+    },
+
+    // Light content toggle visibility one button state
+    "light_content_toggle_visibility_one_button_state@common_toggles.light_content_toggle_visibility": {
+        "$hover_texture": "textures/ui/button_borderless_light",
+        "$pressed_texture": "textures/ui/button_borderless_lighthover",
+        "$pressed_no_hover_texture": "textures/ui/button_borderless_lighthover",
+        "$default_checked_text_color": "$light_toggle_default_text_color"
+    },
+
+    // Dark sidebar template toggle
+    "dark_sidebar_template_toggle@common_toggles.dark_template_toggle": {
+        "$button_image_size": ["100%", "100%"],
+        "$button_content_size": ["100%", "100%"],
+        "$default_border_visible": false,
+        "$hover_border_visible": false,
+        "$button_image_fill": true,
+        "$default_texture|default": "",
+        "$hover_texture|default": "textures/ui/white_background",
+        "$pressed_texture|default": "textures/ui/White",
+        "$pressed_no_hover_texture|default": "textures/ui/white_background",
+        "$locked_texture|default": "textures/ui/banners_no_border",
+        "$default_texture_color|default": "$sidebar_bg_color",
+        "$default_checked_texture_color|default": "$sidebar_expanded_section_bg_color",
+        "$hover_texture_color|default": "$sidebar_default_hover_color",
+        "$hover_checked_texture_color|default": "$sidebar_default_hover_color"
+    },
+
+    // Dark sidebar toggle
+    "dark_sidebar_toggle@common_toggles.dark_ui_toggle": {
+        "$template_toggle": "common_toggles.dark_sidebar_template_toggle"
     }
 }
