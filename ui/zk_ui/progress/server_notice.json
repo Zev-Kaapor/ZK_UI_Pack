@@ -1,0 +1,87 @@
+// ZK stuck loading notice for third party servers
+{
+    "namespace": "zk_server_notice",
+
+    // Stuck loading notice
+    "nether_glitch_info_panel": {
+        "ignored": "(not ($is_on_3p_server and $is_dimension_loading_screen))",
+        "type": "stack_panel",
+        "size": ["100%", "100%c + 8px"],
+        "propagate_alpha": true,
+        "disable_anim_fast_forward": true,
+        "alpha": 0,
+        "anims": ["@zk_server_notice.anim_nether_glitch_info_alpha_wait"],
+        "controls": [
+            {
+                "emoticon": {
+                    "type": "label",
+                    "text": "§r( ° A °) = !!",
+                    "font_size": "large",
+                    "shadow": true,
+                    "localize": false,
+                    "size": ["default", "default"]
+                }
+            },
+            {
+                "title": {
+                    "type": "label",
+                    "text": "zk.progress.netherGlitch.title",
+                    "font_type": "MinecraftTen",
+                    "font_scale_factor": 1.5,
+                    "shadow": true,
+                    "text_alignment": "left",
+                    "size": ["100% - 90px", "default"],
+                    "max_size": [720, "default"]
+                }
+            },
+            {
+                "subtitle": {
+                    "type": "label",
+                    "text": "zk.progress.netherGlitch.body",
+                    "shadow": true,
+                    "text_alignment": "left",
+                    "size": ["100% - 90px", "default"],
+                    "max_size": [720, "default"]
+                }
+            }
+        ]
+    },
+
+    // Notice wait before showing
+    "anim_nether_glitch_info_alpha_wait": {
+        "anim_type": "alpha",
+        "easing": "linear",
+        "duration": 10,
+        "from": 0,
+        "to": 0,
+        "next": "@zk_server_notice.anim_nether_glitch_info_alpha_show"
+    },
+
+    // Notice fade in
+    "anim_nether_glitch_info_alpha_show": {
+        "anim_type": "alpha",
+        "easing": "out_expo",
+        "duration": 0.5,
+        "from": 0,
+        "to": 1
+    },
+
+    // Loading title wait before hiding
+    "anim_nether_glitch_info_remove_loading_alpha_wait": {
+        "anim_type": "alpha",
+        "easing": "linear",
+        "duration": 10,
+        "from": 1,
+        "to": 1,
+        "next": "@zk_server_notice.anim_nether_glitch_info_remove_loading_alpha_show"
+    },
+
+    // Loading title fade out
+    "anim_nether_glitch_info_remove_loading_alpha_show": {
+        "anim_type": "alpha",
+        "easing": "out_expo",
+        "duration": 0.5,
+        "from": 1,
+        "to": 0
+    }
+}

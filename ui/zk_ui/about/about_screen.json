@@ -2,17 +2,6 @@
 {
     "namespace": "zk_about",
 
-    // About screen
-    "zk_about_screen@zk_about_common.dynamic_dialog_screen": {
-        "$selector_stack_panel": "zk_about.selector_stack_panel",
-        "$section_content_panels": "zk_about.section_content_panels",
-        "$header_safezone_control": "common_store.store_top_bar_filler",
-        "$header_bar_control": "common_store.store_top_bar",
-        "$section_header_panels": "zk_about.section_header_panels",
-        "$section_footer_panels": "zk_about.section_footer_panels",
-        "$is_full_screen_layout": true
-    },
-
     // Section selector
     "selector_stack_panel": {
         "type": "stack_panel",
@@ -58,13 +47,18 @@
                             }
                         },
                         {
-                            "changelog010_button@zk_about.changelog010_button": {
+                            "changelog020_button@zk_about.changelog020_button": {
                                 "$toggle_group_forced_index": 4
                             }
                         },
                         {
-                            "changelog001_button@zk_about.changelog001_button": {
+                            "changelog010_button@zk_about.changelog010_button": {
                                 "$toggle_group_forced_index": 5
+                            }
+                        },
+                        {
+                            "changelog001_button@zk_about.changelog001_button": {
+                                "$toggle_group_forced_index": 6
                             }
                         }
                     ]
@@ -100,6 +94,12 @@
                 "usage@zk_about_common.section_title": {
                     "$section_title": "zk.about.usage",
                     "$section_topic_control": "usage"
+                }
+            },
+            {
+                "changelog020@zk_about_common.section_title_changelog": {
+                    "$version_label": "zk.about.changelog020",
+                    "$section_topic_control": "changelog020"
                 }
             },
             {
@@ -154,6 +154,9 @@
                         },
                         {
                             "usage@zk_about.usage_section": {}
+                        },
+                        {
+                            "changelog020@zk_about.changelog020_section": {}
                         },
                         {
                             "changelog010@zk_about.changelog010_section": {}
@@ -408,6 +411,27 @@
                 }
             },
             {
+                "game_header@zk_about_common.header_title_label": {
+                    "$text": "zk.about.features.game"
+                }
+            },
+            {
+                "pad_game": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_10@$default_label": {
+                    "$line": 10
+                }
+            },
+            {
+                "label_11@$default_label": {
+                    "$line": 11
+                }
+            },
+            {
                 "sound_header@zk_about_common.header_title_label": {
                     "$text": "zk.about.features.sound"
                 }
@@ -527,6 +551,108 @@
             {
                 "label_4@$default_label": {
                     "$line": 4
+                }
+            }
+        ]
+    },
+
+    // Changelog v0.2.0 button
+    "changelog020_button@zk_about_common.section_toggle_button": {
+        "$section_topic": "changelog020"
+    },
+
+    // Changelog v0.2.0 line
+    "cl020_label@zk_about_common.changelog_desc_label": {
+        "$ver": 20
+    },
+
+    // Changelog v0.2.0 section
+    "changelog020_section@zk_about_common.main_sections": {
+        "$section_topic_control": "changelog020",
+        "$cl_label|default": "zk_about.cl020_label",
+        "controls": [
+            {
+                "title@zk_about_common.generic_label": {
+                    "text": "zk.about.changelog020.title",
+                    "font_type": "MinecraftTen",
+                    "font_size": "large"
+                }
+            },
+            {
+                "new_features_title@zk_about_common.new_features_title": {}
+            },
+            {
+                "pad_1": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_1@$cl_label": {
+                    "$line": 1
+                }
+            },
+            {
+                "label_2@$cl_label": {
+                    "$line": 2
+                }
+            },
+            {
+                "label_3@$cl_label": {
+                    "$line": 3
+                }
+            },
+            {
+                "label_4@$cl_label": {
+                    "$line": 4
+                }
+            },
+            {
+                "label_5@$cl_label": {
+                    "$line": 5
+                }
+            },
+            {
+                "label_6@$cl_label": {
+                    "$line": 6
+                }
+            },
+            {
+                "changes_title@zk_about_common.changes_title": {}
+            },
+            {
+                "pad_7": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_7@$cl_label": {
+                    "$line": 7
+                }
+            },
+            {
+                "label_8@$cl_label": {
+                    "$line": 8
+                }
+            },
+            {
+                "label_9@$cl_label": {
+                    "$line": 9
+                }
+            },
+            {
+                "fixes_title@zk_about_common.fixes_title": {}
+            },
+            {
+                "pad_10": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_10@$cl_label": {
+                    "$line": 10
                 }
             }
         ]

@@ -22,15 +22,20 @@ zk.about=About ZK UI Pack
 zk.start.hideInterface=Hide interface
 zk.start.showInterface=Show interface
 
+## Loading screen
+zk.progress.netherGlitch.title=AARGH... Nether Glitch again!
+zk.progress.netherGlitch.body=What can you do? Just wait and rejoin, or force close and reopen the game. If you are on Windows, use the "Restore Down" button instead of "Minimize", it should close this screen instantly!
+
 ## About screen
 zk.about.about=About
 zk.about.features=Features
 zk.about.credits=Credits
 zk.about.usage=Terms of use
 zk.about.changelog=Changelog
+zk.about.changelog020=v0.2.0
 zk.about.changelog010=v0.1.0
 zk.about.changelog001=v0.0.1
-zk.about.packVersion=Version v0.1.0
+zk.about.packVersion=Version v0.2.0
 zk.about.creator=Created and maintained by Zev Kaapor
 zk.about.disclaimer=§7§oThis pack is not affiliated with Microsoft or Mojang Studios.
 zk.about.aboutLabel1=ZK UI Pack is an interface pack for Minecraft Bedrock, designed to be clean, with extra features while keeping the vanilla look of the base game, bringing interface tweaks, custom sounds, and quality of life improvements. The pack supports two languages: EN and PT-BR.
@@ -43,9 +48,10 @@ zk.about.featuresTitle=§eFeatures
 zk.about.features.start=§aSTART SCREEN
 zk.about.features.settings=§6SETTINGS
 zk.about.features.dialogs=§dINTERFACE AND DIALOGS
+zk.about.features.game=§cIN GAME
 zk.about.features.sound=§9SOUND AND LANGUAGES
-zk.about.featuresLabel1=- Centered layout with quick access to Play, Quick Play, and Marketplace.
-zk.about.featuresLabel2=- Side menu with shortcuts to profile, inbox, achievements, servers, and Realms.
+zk.about.featuresLabel1=- Centered layout with quick access to Play, Servers, and Marketplace.
+zk.about.featuresLabel2=- Side menu with shortcuts to profile, inbox, achievements, and Realms.
 zk.about.featuresLabel3=- Option to hide the interface and view the panorama.
 zk.about.featuresLabel4=- Screens reorganized in the Ore UI visual style, with option search.
 zk.about.featuresLabel5=- Storage management and detailed information for each pack.
@@ -53,6 +59,8 @@ zk.about.featuresLabel6=- Confirmation and loading windows with a modern look.
 zk.about.featuresLabel7=- Red highlight for irreversible actions, such as deletions.
 zk.about.featuresLabel8=- Custom click sound on buttons and toggles.
 zk.about.featuresLabel9=- Texts available in English and Portuguese (Brazil).
+zk.about.featuresLabel10=- Pause screen with shortcuts, quit confirmation, and an option to hide the interface.
+zk.about.featuresLabel11=- Loading screen with percentage, animation, and a notice for stuck loading on servers.
 
 ## About credits
 zk.about.creditsTitle=Credits and thanks
@@ -72,6 +80,17 @@ zk.about.usageLabel4=- Do not present the code or assets as your own creation.
 zk.about.changelog.newfeatures=§bNEW FEATURES
 zk.about.changelog.changes=§aCHANGES
 zk.about.changelog.fixes=§eFIXES
+zk.about.changelog020.title=§aPAUSE AND LOADING SCREENS
+zk.about.changelog20.label1=- Redesigned pause screen with your skin beside it, centered buttons, and a shortcut bar.
+zk.about.changelog20.label2=- Confirmation before leaving the world, with a red quit button.
+zk.about.changelog20.label3=- World name on the pause screen, with featured server icons.
+zk.about.changelog20.label4=- Option to hide the pause screen interface.
+zk.about.changelog20.label5=- New loading screen with percentage and an animated pickaxe.
+zk.about.changelog20.label6=- Notice when dimension loading gets stuck on servers.
+zk.about.changelog20.label7=- About button also available in the pause shortcut bar.
+zk.about.changelog20.label8=- Loading bar always visible when changing dimensions.
+zk.about.changelog20.label9=- Servers in the center of the start screen, replacing Quick Play.
+zk.about.changelog20.label10=- Removed Quick Play, which opened the new player flow and changed your current skin.
 zk.about.changelog010.title=§aSETTINGS AND START SCREEN
 zk.about.changelog10.label1=- Ore UI style settings screens: general, controls, world, storage, and packs.
 zk.about.changelog10.label2=- New start screen with Play, Quick Play, Marketplace, skin beside them, and version in the footer.

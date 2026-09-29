@@ -2,35 +2,6 @@
 {
     "namespace": "zk_about_common",
 
-    // Dynamic dialog screen
-    "dynamic_dialog_screen@common.base_screen": {
-        "type": "screen",
-        "size": ["100%", "100%"],
-        "button_mappings": [
-            {
-                "from_button_id": "button.menu_cancel",
-                "to_button_id": "button.menu_exit",
-                "mapping_type": "global"
-            },
-            {
-                "from_button_id": "button.menu_tab_left",
-                "to_button_id": "button.menu_tab_left",
-                "mapping_type": "global",
-                "scope": "view"
-            },
-            {
-                "from_button_id": "button.menu_tab_right",
-                "to_button_id": "button.menu_tab_right",
-                "mapping_type": "global",
-                "scope": "view"
-            }
-        ],
-        "$use_custom_panorama": "$is_pregame",
-        "$screen_content": "zk_about_common.zk_about_content",
-        "$screen_bg_content": "common.screen_background",
-        "$screen_helpers_content": "zk_about_common.dynamic_helpers_content"
-    },
-
     // Zk about content
     "zk_about_content": {
         "type": "panel",

@@ -1,0 +1,35 @@
+// ZK ore ui toggles
+{
+    "namespace": "zk_oreui_design__toggles",
+
+    // Light template toggle
+    "light_template_toggle@common_toggles.light_template_toggle": {
+        "$default_texture|default": "textures/zk_ui/ore_ui/buttons/button_borderless_light",
+        "$hover_texture|default": "textures/zk_ui/ore_ui/buttons/button_borderless_lightpressednohover",
+        "$pressed_texture|default": "textures/zk_ui/ore_ui/buttons/button_borderless_lighthover",
+        "$pressed_no_hover_texture|default": "textures/zk_ui/ore_ui/buttons/button_borderless_lightpressed",
+        "$default_text_color|default": "$zk_oreui_design:light_button_default_text_color",
+        "$hover_text_color|default": "$zk_oreui_design:light_button_hover_text_color",
+        "$default_checked_text_color|default": "$zk_oreui_design:light_button_pressed_text_color",
+        "$hover_checked_text_color|default": "$zk_oreui_design:light_button_hover_text_color"
+    },
+
+    // Light text toggle visibility
+    "light_text_toggle_visibility@zk_oreui_design__toggles.light_template_toggle": {
+        "$button_type_panel": "common_buttons.new_ui_binding_button_label",
+        "$button_offset|default": [0, 0],
+        "$button_text|default": "",
+        "$button_text_binding_type|default": "none",
+        "$button_binding_condition|default": "none",
+        "$button_text_grid_collection_name|default": "",
+        "$pressed_alpha|default": 1,
+        "sound_name": "random.release"
+    },
+
+    // Light text toggle visibility one button state
+    "light_text_toggle_visibility_one_button_state@zk_oreui_design__toggles.light_text_toggle_visibility": {
+        "$hover_texture|default": "textures/zk_ui/ore_ui/buttons/button_borderless_light",
+        "$pressed_no_hover_texture|default": "textures/zk_ui/ore_ui/buttons/button_borderless_lighthover",
+        "$default_checked_text_color|default": "$zk_oreui_design:light_button_default_text_color"
+    }
+}

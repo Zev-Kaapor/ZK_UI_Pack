@@ -373,13 +373,6 @@
                 }
             },
             {
-                "servers_button@zk_start_sidebar.start_sidebar_button_base": {
-                    "$button_icon": "textures/ui/servers",
-                    "$button_text": "menu.servers",
-                    "$pressed_button_name": "button.menu_servers"
-                }
-            },
-            {
                 "realms_promo_button@zk_start_sidebar.start_sidebar_button_base": {
                     "ignored": "$pre_release",
                     "$button_icon": "textures/ui/realmsIcon",

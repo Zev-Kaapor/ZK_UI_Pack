@@ -106,13 +106,15 @@
         ]
     },
 
-    // Quick play button
-    "zk_quick_play_button@zk_oreui_design__buttons.light_content_button": {
+    // Servers button
+    "zk_servers_button@zk_oreui_design__buttons.light_content_button": {
         "size": ["100% - 2px", "100% - 2px"],
-        "$pressed_button_name": "button.menu_get_started",
-        "$button_text": "menu.quickplay",
-        "$zk_button_icon": "textures/ui/icon_new",
-        "$focus_id": "quick_play_button",
+        "$pressed_button_name": "button.menu_servers",
+        "$button_text": "menu.servers",
+        "$zk_button_icon": "textures/ui/servers",
+        "$zk_button_icon_size": [15, 15],
+        "$zk_button_icon_offset": [12, 0],
+        "$focus_id": "servers_button",
         "$button_content": "start.zk_secondary_button_content",
         "button_mappings": [
             {
@@ -128,12 +130,12 @@
         ]
     },
 
-    // Quick play button stack
-    "zk_quick_play_stack@start.stacked_row": {
+    // Servers button stack
+    "zk_servers_stack@start.stacked_row": {
         "size": ["100%", 28],
         "controls": [
             {
-                "quick_play_button@start.zk_quick_play_button": {}
+                "servers_button@start.zk_servers_button": {}
             }
         ]
     },
@@ -180,7 +182,7 @@
                 "operation": "insert_after",
                 "value": [
                     {
-                        "quick_play@start.zk_quick_play_stack": {
+                        "servers@start.zk_servers_stack": {
                             "ignored": "(not $play_button_visible)"
                         }
                     }

@@ -22,15 +22,20 @@ zk.about=Sobre o ZK UI Pack
 zk.start.hideInterface=Ocultar interface
 zk.start.showInterface=Mostrar interface
 
+## Loading screen
+zk.progress.netherGlitch.title=AARGH... aquele Nether Glitch de novo!
+zk.progress.netherGlitch.body=O que você pode fazer? Apenas espere e entre de novo, ou feche o jogo à força e abra novamente. Se estiver no Windows, use o botão "Restaurar" em vez de "Minimizar", isso deve fechar esta tela na hora!
+
 ## About screen
 zk.about.about=Sobre
 zk.about.features=Recursos
 zk.about.credits=Créditos
 zk.about.usage=Termos de uso
 zk.about.changelog=Changelog
+zk.about.changelog020=v0.2.0
 zk.about.changelog010=v0.1.0
 zk.about.changelog001=v0.0.1
-zk.about.packVersion=Versão v0.1.0
+zk.about.packVersion=Versão v0.2.0
 zk.about.creator=Criado e mantido por Zev Kaapor
 zk.about.disclaimer=§7§oEste pacote não é afiliado à Microsoft nem à Mojang Studios.
 zk.about.aboutLabel1=O ZK UI Pack é um pacote de interface para o Minecraft Bedrock, desenvolvido para ser limpo, com funções extras e mantendo o aspecto vanilla do jogo base, trazendo ajustes nas interfaces, sons personalizados e melhorias de qualidade de vida. O pacote possui suporte a dois idiomas: EN e PT-BR.
@@ -43,9 +48,10 @@ zk.about.featuresTitle=§eRecursos
 zk.about.features.start=§aTELA INICIAL
 zk.about.features.settings=§6CONFIGURAÇÕES
 zk.about.features.dialogs=§dINTERFACE E DIÁLOGOS
+zk.about.features.game=§cEM JOGO
 zk.about.features.sound=§9SOM E IDIOMAS
-zk.about.featuresLabel1=- Layout centralizado com acesso rápido a Jogar, Partida Rápida e Marketplace.
-zk.about.featuresLabel2=- Menu lateral com atalhos para perfil, caixa de entrada, conquistas, servidores e Realms.
+zk.about.featuresLabel1=- Layout centralizado com acesso rápido a Jogar, Servidores e Marketplace.
+zk.about.featuresLabel2=- Menu lateral com atalhos para perfil, caixa de entrada, conquistas e Realms.
 zk.about.featuresLabel3=- Opção de ocultar a interface para visualizar o panorama.
 zk.about.featuresLabel4=- Telas reorganizadas no padrão visual Ore UI, com busca de opções.
 zk.about.featuresLabel5=- Gerenciamento de armazenamento e informações detalhadas de cada pacote.
@@ -53,6 +59,8 @@ zk.about.featuresLabel6=- Janelas de confirmação e de carregamento com visual 
 zk.about.featuresLabel7=- Destaque em vermelho para ações irreversíveis, como exclusões.
 zk.about.featuresLabel8=- Som de clique personalizado em botões e alternadores.
 zk.about.featuresLabel9=- Textos disponíveis em inglês e português (Brasil).
+zk.about.featuresLabel10=- Tela de pausa com atalhos, confirmação ao sair e opção de ocultar a interface.
+zk.about.featuresLabel11=- Tela de carregamento com porcentagem, animação e aviso de carregamento travado em servidores.
 
 ## About credits
 zk.about.creditsTitle=Créditos e agradecimentos
@@ -72,6 +80,17 @@ zk.about.usageLabel4=- Não apresente o código ou os assets como criação sua.
 zk.about.changelog.newfeatures=§bNOVIDADES
 zk.about.changelog.changes=§aMUDANÇAS
 zk.about.changelog.fixes=§eCORREÇÕES
+zk.about.changelog020.title=§aTELA DE PAUSA E CARREGAMENTO
+zk.about.changelog20.label1=- Tela de pausa redesenhada com a skin ao lado, botões centralizados e barra de atalhos.
+zk.about.changelog20.label2=- Confirmação antes de sair do mundo, com o botão de saída em vermelho.
+zk.about.changelog20.label3=- Nome do mundo na pausa, com ícones dos servidores parceiros.
+zk.about.changelog20.label4=- Opção de ocultar a interface da tela de pausa.
+zk.about.changelog20.label5=- Nova tela de carregamento com porcentagem e picareta animada.
+zk.about.changelog20.label6=- Aviso ao ficar preso no carregamento de dimensão em servidores.
+zk.about.changelog20.label7=- Botão Sobre também disponível na barra de atalhos da pausa.
+zk.about.changelog20.label8=- Barra de carregamento sempre visível ao trocar de dimensão.
+zk.about.changelog20.label9=- Servidores no centro da tela inicial, no lugar da Partida Rápida.
+zk.about.changelog20.label10=- Removida a Partida Rápida, que abria o fluxo de jogador novo e trocava a skin atual.
 zk.about.changelog010.title=§aCONFIGURAÇÕES E TELA INICIAL
 zk.about.changelog10.label1=- Telas de configuração no estilo Ore UI: geral, controles, mundo, armazenamento e pacotes.
 zk.about.changelog10.label2=- Nova tela inicial com Jogar, Partida Rápida, Marketplace, skin ao lado e versão no rodapé.

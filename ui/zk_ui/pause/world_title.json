@@ -1,0 +1,112 @@
+// ZK pause world title icons
+{
+    "namespace": "zk_pause_title",
+
+    // Icon border
+    "icon_border": {
+        "type": "image",
+        "texture": "textures/ui/black_border",
+        "size": ["100% + 2px", "100% + 2px"],
+        "layer": -1
+    },
+
+    // World icon template
+    "title_icon_template": {
+        "type": "image",
+        "texture": "$title_icon_texture",
+        "$title_icon_texture|default": "",
+        "$world_name": "",
+        "$show_outline_border|default": true,
+        "layer": 2,
+        "$use_custom_world_name_property|default": false,
+        "$custom_world_name_property|default": false,
+        "bindings": [
+            {
+                "binding_name": "#players_list_title"
+            },
+            {
+                "ignored": "$use_custom_world_name_property",
+                "binding_type": "view",
+                "source_property_name": "(not (#players_list_title - $world_name = #players_list_title))",
+                "target_property_name": "#visible"
+            },
+            {
+                "ignored": "(not $use_custom_world_name_property)",
+                "binding_type": "view",
+                "source_property_name": "$custom_world_name_property",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "icon_border@zk_pause_title.icon_border": {
+                    "ignored": "(not $show_outline_border)"
+                }
+            }
+        ]
+    },
+
+    // World and featured server icons
+    "title_icons": {
+        "type": "panel",
+        "controls": [
+            {
+                "hive_bedrock@zk_pause_title.title_icon_template": {
+                    "ignored": "(not $is_on_3p_server)",
+                    "$title_icon_texture": "textures/zk_ui/server_icons/hive_bedrock",
+                    "$world_name": "Hive Games"
+                }
+            },
+            {
+                "cubecraft@zk_pause_title.title_icon_template": {
+                    "ignored": "(not $is_on_3p_server)",
+                    "$title_icon_texture": "textures/zk_ui/server_icons/cubecraft",
+                    "$world_name": "CubeCraft Games",
+                    "$show_outline_border": false
+                }
+            },
+            {
+                "galaxite@zk_pause_title.title_icon_template": {
+                    "ignored": "(not $is_on_3p_server)",
+                    "$title_icon_texture": "textures/zk_ui/server_icons/galaxite",
+                    "$world_name": "Galaxite"
+                }
+            },
+            {
+                "lifeboat@zk_pause_title.title_icon_template": {
+                    "ignored": "(not $is_on_3p_server)",
+                    "$title_icon_texture": "textures/zk_ui/server_icons/lifeboat",
+                    "$world_name": "Lifeboat Network"
+                }
+            },
+            {
+                "enchanted_dragons@zk_pause_title.title_icon_template": {
+                    "ignored": "(not $is_on_3p_server)",
+                    "$title_icon_texture": "textures/zk_ui/server_icons/enchanted_dragons",
+                    "$world_name": "Enchanted"
+                }
+            },
+            {
+                "zeqa@zk_pause_title.title_icon_template": {
+                    "$title_icon_texture": "textures/zk_ui/server_icons/zeqa",
+                    "$world_name": "Zeqa Network"
+                }
+            },
+            {
+                "nethergames@zk_pause_title.title_icon_template": {
+                    "$title_icon_texture": "textures/zk_ui/server_icons/nethergames",
+                    "$world_name": "NetherGames Network"
+                }
+            },
+            {
+                "local_world_icon@zk_pause_title.title_icon_template": {
+                    "layer": 0,
+                    "ignored": "$is_on_3p_server",
+                    "$use_custom_world_name_property": true,
+                    "$title_icon_texture": "textures/blocks/grass_side_carried",
+                    "$custom_world_name_property": "((#players_list_title - 'Zeqa Network' = #players_list_title) or (#players_list_title - 'NetherGames Network' = #players_list_title))"
+                }
+            }
+        ]
+    }
+}

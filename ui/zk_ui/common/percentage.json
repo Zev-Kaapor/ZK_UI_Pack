@@ -1,0 +1,169 @@
+// ZK percentage labels
+{
+    "namespace": "zk_percentage",
+
+    // Percentage label from a progress value
+    "progress_percentage_label_template": {
+        "type": "label",
+        "size": ["default", "default"],
+        "text": "#text",
+        "font_type": "$percentage_font_type",
+        "shadow": "$percentage_text_shadow",
+        "color": "$percentage_text_color",
+        "localize": false,
+        "$percentage_font_type|default": "default",
+        "$percentage_text_shadow|default": true,
+        "$percentage_text_color|default": "$item_stack_count_color",
+        "$reverse_output_value|default": false,
+        "$progress_binding_type|default": "none",
+        "$progress_binding_name|default": "#none",
+        "$progress_collection_name|default": "",
+        "$progress_binding_condition|default": "none",
+        "$progress_total_binding_type|default": "none",
+        "$progress_total_binding_name|default": "#none",
+        "$progress_total_collection_name|default": "",
+        "$progress_total_binding_condition|default": "none",
+        "$progress_binding_source_control|default": "",
+        "$progress_binding_source_property|default": "",
+        "$progress_binding_source_has_sibling_scope|default": false,
+        "$custom_progress_label_format|default": "#percentage_label",
+        "$show_floating_point_numbers|default": true,
+        "$show_trailing_zeros_in_percentage_labels|default": false,
+        "$percentage_label_preformatted|default": "((#post_processing_percentage + #overflow_sign + '%') - 'Z.0Z0' - 'Z0' - 'Z')",
+        "variables": [
+            {
+                "requires": "$show_trailing_zeros_in_percentage_labels",
+                "$percentage_label_preformatted": "((#post_processing_percentage + #overflow_sign + '%') - 'Z')"
+            }
+        ],
+        "bindings": [
+            {
+                "ignored": "($progress_binding_name = '#none')",
+                "binding_type": "$progress_binding_type",
+                "binding_name": "$progress_binding_name",
+                "binding_name_override": "#current_value",
+                "binding_collection_name": "$progress_collection_name",
+                "binding_condition": "$progress_binding_condition"
+            },
+            {
+                "ignored": "($progress_total_binding_name = '#none')",
+                "binding_type": "$progress_total_binding_type",
+                "binding_name": "$progress_total_binding_name",
+                "binding_name_override": "#total_value",
+                "binding_collection_name": "$progress_total_collection_name",
+                "binding_condition": "$progress_total_binding_condition"
+            },
+            {
+                "ignored": "($progress_binding_source_control = '')",
+                "binding_type": "view",
+                "source_control_name": "$progress_binding_source_control",
+                "source_property_name": "$progress_binding_source_property",
+                "target_property_name": "#current_value",
+                "resolve_sibling_scope": "$progress_binding_source_has_sibling_scope"
+            },
+            {
+                "ignored": "($progress_total_binding_name = '#none' and not ($progress_binding_source_control = ''))",
+                "binding_type": "view",
+                "source_property_name": "((#current_value / #total_value) * 100000)",
+                "target_property_name": "#progress_ratio"
+            },
+            {
+                "ignored": "(not ($progress_total_binding_name = '#none') and $reverse_output_value)",
+                "binding_type": "view",
+                "source_property_name": "(#current_value * 100000)",
+                "target_property_name": "#progress_ratio"
+            },
+            {
+                "ignored": "(not ($progress_total_binding_name = '#none') and not $reverse_output_value)",
+                "binding_type": "view",
+                "source_property_name": "(100000 - #current_value * 100000)",
+                "target_property_name": "#progress_ratio"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#progress_ratio * (1 - ((#progress_ratio < 0) * 2)))",
+                "target_property_name": "#num"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#num > 9999) * 10000 + (#num > 19999) * 10000 + (#num > 29999) * 10000 + (#num > 39999) * 10000 + (#num > 49999) * 10000 + (#num > 59999) * 10000 + (#num > 69999) * 10000 + (#num > 79999) * 10000 + (#num > 89999) * 10000 + (#num > 99999) * 1000)",
+                "target_property_name": "#d"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#d + (#num - #d > 999) * 1000 + (#num - #d > 1999) * 1000 + (#num - #d > 2999) * 1000 + (#num - #d > 3999) * 1000 + (#num - #d > 4999) * 1000 + (#num - #d > 5999) * 1000 + (#num - #d > 6999) * 1000 + (#num - #d > 7999) * 1000 + (#num - #d > 8999) * 1000)",
+                "target_property_name": "#s"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#s + (#num - #s > 99) * 100 + (#num - #s > 199) * 100 + (#num - #s > 299) * 100 + (#num - #s > 399) * 100 + (#num - #s > 499) * 100 + (#num - #s > 599) * 100 + (#num - #s > 699) * 100 + (#num - #s > 799) * 100 + (#num - #s > 899) * 100)",
+                "target_property_name": "#d_d"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#d_d + (#num - #d_d > 9) * 10 + (#num - #d_d > 19) * 10 + (#num - #d_d > 29) * 10 + (#num - #d_d > 39) * 10 + (#num - #d_d > 49) * 10 + (#num - #d_d > 59) * 10 + (#num - #d_d > 69) * 10 + (#num - #d_d > 79) * 10 + (#num - #d_d > 89) * 10)",
+                "target_property_name": "#d_s"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#d_s + (#num - #d_s > 0) + (#num - #d_s > 1) + (#num - #d_s > 2) + (#num - #d_s > 3) + (#num - #d_s > 4) + (#num - #d_s > 5) + (#num - #d_s > 6) + (#num - #d_s > 7) + (#num - #d_s > 8))",
+                "target_property_name": "#d_ssl1"
+            },
+            {
+                "ignored": true,
+                "binding_type": "view",
+                "source_property_name": "('§z' + #d_ssl1)",
+                "target_property_name": "#debug_output"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#d_ssl1 / 10 + (#d_ssl1 - ((#d_ssl1 / 10) * 10) > 4) * 1)",
+                "target_property_name": "#pc_pre"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#pc_pre / 100)",
+                "target_property_name": "#pc_e0"
+            },
+            {
+                "ignored": "(not $show_floating_point_numbers)",
+                "binding_type": "view",
+                "source_property_name": "((#pc_pre - #pc_e0 * 100) / 10)",
+                "target_property_name": "#pc_em1"
+            },
+            {
+                "ignored": "(not $show_floating_point_numbers)",
+                "binding_type": "view",
+                "source_property_name": "(#pc_pre - (#pc_e0 * 100 + #pc_em1 * 10))",
+                "target_property_name": "#pc_em2"
+            },
+            {
+                "ignored": "(not $show_floating_point_numbers)",
+                "binding_type": "view",
+                "source_property_name": "('§z' + #pc_e0 + 'Z.' + #pc_em1 + 'Z' + #pc_em2)",
+                "target_property_name": "#post_processing_percentage"
+            },
+            {
+                "ignored": "$show_floating_point_numbers",
+                "binding_type": "view",
+                "source_property_name": "('§z' + #pc_e0)",
+                "target_property_name": "#post_processing_percentage"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(('Z' + (#progress_ratio > 100000) + ':Z+' + (#progress_ratio < -100000) + ':Z-') - 'false:Z+' - 'false:Z-' - 'true:')",
+                "target_property_name": "#overflow_sign"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "$percentage_label_preformatted",
+                "target_property_name": "#percentage_label"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "$custom_progress_label_format",
+                "target_property_name": "#text"
+            }
+        ]
+    }
+}
