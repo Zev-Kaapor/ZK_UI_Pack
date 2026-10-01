@@ -1,0 +1,122 @@
+// ZK item durability tool
+{
+    "namespace": "zk_item_durability_tool",
+
+    // Calc
+    "calc": {
+        "type": "panel",
+        "visible": false,
+        "size": [0, 0],
+        "$current_durability_binding_name|default": "#none",
+        "$current_durability_binding_type|default": "none",
+        "$current_durability_collection_name|default": "",
+        "$total_durability_binding_name|default": "#none",
+        "$total_durability_binding_type|default": "none",
+        "$total_durability_collection_name|default": "",
+        "$input_source|default": "",
+        "$cur_input_source_property|default": "",
+        "$cur_output_source_property|default": "#cur_out",
+        "$tot_input_source_property|default": "",
+        "$tot_output_source_property|default": "#tot_out",
+        "$use_sibling_scope|default": false,
+        "$durability_ratio_in_percent_output_bind|default": "#no_ratio_output",
+        "bindings": [
+            {
+                "ignored": "($current_durability_binding_name = '#none')",
+                "binding_name": "$current_durability_binding_name",
+                "binding_name_override": "#cur_in",
+                "binding_type": "$current_durability_binding_type",
+                "binding_collection_name": "$current_durability_collection_name"
+            },
+            {
+                "ignored": "($total_durability_binding_name = '#none')",
+                "binding_name": "$total_durability_binding_name",
+                "binding_name_override": "#tot_in",
+                "binding_type": "$total_durability_binding_type",
+                "binding_collection_name": "$total_durability_collection_name"
+            },
+            {
+                "ignored": "($input_source = '')",
+                "binding_type": "view",
+                "source_control_name": "$input_source",
+                "source_property_name": "$cur_input_source_property",
+                "target_property_name": "#cur_in",
+                "resolve_sibling_scope": "$use_sibling_scope"
+            },
+            {
+                "ignored": "($input_source = '')",
+                "binding_type": "view",
+                "source_control_name": "$input_source",
+                "source_property_name": "$tot_input_source_property",
+                "target_property_name": "#tot_in",
+                "resolve_sibling_scope": "$use_sibling_scope"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#cur_in * (1 - (#cur_in < 0) * 2))",
+                "target_property_name": "#n"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#tot_in * (1 - (#tot_in < 0) * 2))",
+                "target_property_name": "#tn"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(10000 * ((#n > 9999) + (#n > 19999) + (#n > 29999) + (#n > 39999) + (#n > 49999) + (#n > 59999) + (#n > 69999) + (#n > 79999) + (#n > 89999)))",
+                "target_property_name": "#e4_c"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#e4_c + 1000 * ((#n - #e4_c > 999) + (#n - #e4_c > 1999) + (#n - #e4_c > 2999) + (#n - #e4_c > 3999) + (#n - #e4_c > 4999) + (#n - #e4_c > 5999) + (#n - #e4_c > 6999) + (#n - #e4_c > 7999) + (#n - #e4_c > 8999)))",
+                "target_property_name": "#e3_c"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#e3_c + 100 * (((#n - #e3_c) > 99) + ((#n - #e3_c) > 199) + ((#n - #e3_c) > 299) + ((#n - #e3_c) > 399) + ((#n - #e3_c) > 499) + ((#n - #e3_c) > 599) + ((#n - #e3_c) > 699) + ((#n - #e3_c) > 799) + ((#n - #e3_c) > 899)))",
+                "target_property_name": "#e2_c"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#e2_c + 10 * (((#n - #e2_c) > 9) + ((#n - #e2_c) > 19) + ((#n - #e2_c) > 29) + ((#n - #e2_c) > 39) + ((#n - #e2_c) > 49) + ((#n - #e2_c) > 59) + ((#n - #e2_c) > 69) + ((#n - #e2_c) > 79) + ((#n - #e2_c) > 89)))",
+                "target_property_name": "#e1_c"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#e1_c + ((#n - #e1_c) = 1) + ((#n - #e1_c) = 2) * 2 + ((#n - #e1_c) = 3) * 3 + ((#n - #e1_c) = 4) * 4 + ((#n - #e1_c) = 5) * 5 + ((#n - #e1_c) = 6) * 6 + ((#n - #e1_c) = 7) * 7 + ((#n - #e1_c) = 8) * 8 + ((#n - #e1_c) = 9) * 9) * (1 - (#cur_in < 0) * 2))",
+                "target_property_name": "$cur_output_source_property"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(10000 * ((#tn > 9999) + (#tn > 19999) + (#tn > 29999) + (#tn > 39999) + (#tn > 49999) + (#tn > 59999) + (#tn > 69999) + (#tn > 79999) + (#tn > 89999)))",
+                "target_property_name": "#e4_t"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#e4_t + 1000 * ((#tn - #e4_t > 999) + (#tn - #e4_t > 1999) + (#tn - #e4_t > 2999) + (#tn - #e4_t > 3999) + (#tn - #e4_t > 4999) + (#tn - #e4_t > 5999) + (#tn - #e4_t > 6999) + (#tn - #e4_t > 7999) + (#tn - #e4_t > 8999)))",
+                "target_property_name": "#e3_t"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#e3_t + 100 * (((#tn - #e3_t) > 99) + ((#tn - #e3_t) > 199) + ((#tn - #e3_t) > 299) + ((#tn - #e3_t) > 399) + ((#tn - #e3_t) > 499) + ((#tn - #e3_t) > 599) + ((#tn - #e3_t) > 699) + ((#tn - #e3_t) > 799) + ((#tn - #e3_t) > 899)))",
+                "target_property_name": "#e2_t"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#e2_t + 10 * (((#tn - #e2_t) > 9) + ((#tn - #e2_t) > 19) + ((#tn - #e2_t) > 29) + ((#tn - #e2_t) > 39) + ((#tn - #e2_t) > 49) + ((#tn - #e2_t) > 59) + ((#tn - #e2_t) > 69) + ((#tn - #e2_t) > 79) + ((#tn - #e2_t) > 89)))",
+                "target_property_name": "#e1_t"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#e1_t + ((#tn - #e1_t) = 1) + ((#tn - #e1_t) = 2) * 2 + ((#tn - #e1_t) = 3) * 3 + ((#tn - #e1_t) = 4) * 4 + ((#tn - #e1_t) = 5) * 5 + ((#tn - #e1_t) = 6) * 6 + ((#tn - #e1_t) = 7) * 7 + ((#tn - #e1_t) = 8) * 8 + ((#tn - #e1_t) = 9) * 9) * (1 - (#tot_in < 0) * 2))",
+                "target_property_name": "$tot_output_source_property"
+            },
+            {
+                "ignored": "($durability_ratio_in_percent_output_bind = '#no_ratio_output')",
+                "binding_type": "view",
+                "source_property_name": "(($cur_output_source_property / $tot_output_source_property) * 100)",
+                "target_property_name": "$durability_ratio_in_percent_output_bind"
+            }
+        ]
+    }
+}

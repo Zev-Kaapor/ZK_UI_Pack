@@ -1,0 +1,696 @@
+// ZK item lore viewer
+{
+    "namespace": "zk_item_lore_viewer",
+
+    // Technical item lore text
+    "technical_item_lore_text": {
+        "type": "label",
+        "text": "#text",
+        "size": ["100%", "default"],
+        "hide_hyphen": true,
+        "$text_binding|default": "",
+        "$secondary_text_binding|default": "",
+        "$text_binding_condition|default": "none",
+        "$custom_text_binding_format|default": "",
+        "$custom_secondary_text_binding_format|default": "",
+        "$use_secondary_text_binding|default": false,
+        "$use_secondary_text_view_binding|default": false,
+        "$use_custom_visibility_binding|default": false,
+        "$visibility_binding_name|default": "",
+        "$ignore_visible_binding|default": false,
+        "color": "$7_color_format",
+        "bindings": [
+            {
+                "binding_type": "collection_details",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_name": "$text_binding",
+                "binding_condition": "$text_binding_condition",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "ignored": "(not $use_secondary_text_binding)",
+                "binding_name": "$secondary_text_binding",
+                "binding_condition": "$text_binding_condition",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "$custom_text_binding_format",
+                "target_property_name": "#text"
+            },
+            {
+                "ignored": "(not $use_secondary_text_view_binding)",
+                "binding_type": "view",
+                "source_property_name": "$custom_secondary_text_binding_format",
+                "target_property_name": "#secondary_view_output"
+            },
+            {
+                "ignored": "($use_custom_visibility_binding or $ignore_visible_binding)",
+                "binding_type": "view",
+                "source_property_name": "(not (($text_binding = '') or ($text_binding = -1)))",
+                "target_property_name": "#visible"
+            },
+            {
+                "ignored": "(not $use_custom_visibility_binding)",
+                "binding_name": "$visibility_binding_name",
+                "binding_name_override": "#visible"
+            }
+        ]
+    },
+
+    // Item lore text item
+    "item_lore_text_item": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": ["100%", "100%c"],
+        "$item_collection_name|default": "$item_lore_collection_name",
+        "$slot_selected_binding_name|default": "#is_selected_slot",
+        "bindings": [
+            {
+                "binding_type": "collection_details",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_name": "#collection_index",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "$slider_view_binding_name",
+                "source_property_name": "#slider_value",
+                "target_property_name": "#slider_value"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#slider_value = #collection_index)",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "collection_index@zk_item_lore_viewer.technical_item_lore_text": {
+                    "$ignore_visible_binding": true,
+                    "$text_binding": "#collection_index",
+                    "$text_binding_condition": "none",
+                    "$custom_text_binding_format": "('Index: §r' + #collection_index + '§r')"
+                }
+            },
+            {
+                "empty_item_lore_text": {
+                    "type": "label",
+                    "text": "itemLore.emptyMessage",
+                    "shadow": true,
+                    "size": ["100%", "default"],
+                    "color": "$7_color_format",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "bindings": [
+                        {
+                            "binding_name": "#item_id_aux",
+                            "binding_condition": "none",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$item_collection_name"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#item_id_aux = -1)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "item_renderer_panel": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": ["100%", 20],
+                    "controls": [
+                        {
+                            "item_renderer@common.item_renderer": {
+                                "size": [20, 20]
+                            }
+                        },
+                        {
+                            "padding": {
+                                "type": "panel",
+                                "size": [4, 4]
+                            }
+                        },
+                        {
+                            "item_count_text": {
+                                "type": "label",
+                                "text": "#text",
+                                "shadow": true,
+                                "font_size": "large",
+                                "color": "$item_stack_count_color",
+                                "bindings": [
+                                    {
+                                        "binding_name": "$stack_count_binding_name",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "$item_collection_name",
+                                        "binding_condition": "$stack_count_binding_condition"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('x' + $stack_count_binding_name)",
+                                        "target_property_name": "#text"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(not ($stack_count_binding_name = ''))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "durability_bar": {
+                                "type": "panel",
+                                "size": ["100%c", "100%"],
+                                "controls": [
+                                    {
+                                        "durability_bar@common.durability_bar": {
+                                            "$durability_bar_size": [100, 4],
+                                            "$durability_bar_offset": [0, 0]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "item_lore_text": {
+                    "type": "label",
+                    "text": "#hover_text",
+                    "shadow": true,
+                    "size": ["100%", "default"],
+                    "color": "$item_hover_text_color",
+                    "bindings": [
+                        {
+                            "binding_name": "#hover_text",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$item_collection_name"
+                        }
+                    ]
+                }
+            },
+            {
+                "technical_item_lore_texts_panel": {
+                    "type": "stack_panel",
+                    "orientation": "vertical",
+                    "size": ["100%", "100%c"],
+                    "bindings": [
+                        {
+                            "binding_name": "#item_id_aux",
+                            "binding_condition": "none",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$item_collection_name"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not (#item_id_aux = -1))",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "the_line_for_technical_item_lore": {
+                                "type": "panel",
+                                "size": ["100%", 5],
+                                "controls": [
+                                    {
+                                        "the_line": {
+                                            "type": "image",
+                                            "texture": "textures/ui/White",
+                                            "size": ["90%", 1],
+                                            "color": "$7_color_format"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "item_id_aux@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#item_id_aux",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('item_id_aux: §r' + #item_id_aux + '§r')"
+                            }
+                        },
+                        {
+                            "item_id@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#item_id_aux",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('item_id: §r' + #secondary_view_output + ':' + (#item_id_aux - (#secondary_view_output * 65536)) + '§r')",
+                                "$use_secondary_text_view_binding": true,
+                                "$custom_secondary_text_binding_format": "((#item_id_aux - (#item_id_aux < 0) * 65535) / 65536)"
+                            }
+                        },
+                        {
+                            "charged_item@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#charged_item",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('charged_item: §r' + #charged_item + '§r')"
+                            }
+                        },
+                        {
+                            "item_custom_color@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#item_custom_color",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('item_custom_color: [dec] §r' + #item_custom_color + '§r')"
+                            }
+                        },
+                        {
+                            "item_pickup_time@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#item_pickup_time",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('item_pickup_time: §r' + #item_pickup_time + '§r')"
+                            }
+                        },
+                        {
+                            "banner_patterns@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#banner_patterns",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('banner_patterns: ' + #banner_patterns + '§r')"
+                            }
+                        },
+                        {
+                            "banner_colors@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#banner_colors",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('banner_colors: ' + #banner_colors + '§r')"
+                            }
+                        },
+                        {
+                            "banner_type@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#banner_type",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('banner_type: ' + #banner_type + '§r')"
+                            }
+                        },
+                        {
+                            "armor_trim_material@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#armor_trim_material",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('armor_trim_material: ' + #armor_trim_material + '§r')"
+                            }
+                        },
+                        {
+                            "item_lodestone_tracking_handle@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#item_lodestone_tracking_handle",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('item_lodestone_tracking_handle: §r' + #item_lodestone_tracking_handle + '§r')"
+                            }
+                        },
+                        {
+                            "decorated_pot_sherds@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#decorated_pot_sherds",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('decorated_pot_sherds: ' + #decorated_pot_sherds + '§r')"
+                            }
+                        },
+                        {
+                            "shield_base_color@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#shield_base_color",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('shield_base_color: ' + #shield_base_color + '§r')"
+                            }
+                        },
+                        {
+                            "shield_base_color_hovered@zk_item_lore_viewer.technical_item_lore_text": {
+                                "$text_binding": "#shield_base_color_hovered",
+                                "$text_binding_condition": "none",
+                                "$custom_text_binding_format": "('shield_base_color_hovered: ' + #shield_base_color_hovered + '§r')"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Item lore text stack panel
+    "item_lore_text_stack_panel": {
+        "type": "stack_panel",
+        "size": ["100%", "100%c"],
+        "collection_name": "$item_lore_collection_name",
+        "$item_template|default": "zk_item_lore_viewer.item_lore_text_item",
+        "$slider_view_binding_name|default": "none",
+        "factory": {
+            "name": "('item_lore_factory__' + $item_lore_collection_name)",
+            "control_name": "$item_template",
+            "factory_variables": ["$slider_view_binding_name"]
+        },
+        "property_bag": {
+            "#collection_length": "$collection_length"
+        },
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_property_name": "#collection_length",
+                "target_property_name": "#collection_length"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "$factory_visible_source_control",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    // Item lore scrolling content
+    "item_lore_scrolling_content": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": ["100% - 8px", "100%c"],
+        "$stack_count_binding_name|default": "#inventory_stack_count",
+        "$stack_count_binding_condition|default": "none",
+        "$durability_bar_required|default": true,
+        "$item_renderer_binding_condition|default": "none",
+        "$scrolling_content_anchor_from": "top_middle",
+        "$scrolling_content_anchor_to": "top_middle",
+        "controls": [
+            {
+                "padding_top@common.empty_panel": {
+                    "size": [0, 8]
+                }
+            },
+            {
+                "item_lore_factory:combined_hotbar_and_inventory_items@zk_item_lore_viewer.item_lore_text_stack_panel": {
+                    "$item_lore_collection_name": "combined_hotbar_and_inventory_items",
+                    "$factory_visible_source_control": "item_lore_collection_mode__combined_hotbar_and_inventory_items",
+                    "$slider_view_binding_name": "item_lore_slider__combined_hotbar_and_inventory_items",
+                    "$collection_length": 36
+                }
+            },
+            {
+                "item_lore_factory:container_items@zk_item_lore_viewer.item_lore_text_stack_panel": {
+                    "ignored": "(not $is_container_screen)",
+                    "$item_lore_collection_name": "container_items",
+                    "$factory_visible_source_control": "item_lore_collection_mode__container_items",
+                    "$slider_view_binding_name": "item_lore_slider__container_items",
+                    "$collection_length": "$zk_item_lore_viewer:container_items_collection_length"
+                }
+            },
+            {
+                "padding_bottom@common.empty_panel": {
+                    "size": [0, 8]
+                }
+            }
+        ]
+    },
+
+    // Item lore scrolling panel
+    "item_lore_scrolling_panel@common.scrolling_panel": {
+        "$scrolling_content": "zk_item_lore_viewer.item_lore_scrolling_content",
+        "$show_background": false,
+        "$scroll_size": ["5px", "100% - 4px"],
+        "$scroll_bar_left_padding_size": [1, 0]
+    },
+
+    // Item lore collection mode toggle
+    "item_lore_collection_mode_toggle@common_toggles.light_text_toggle": {
+        "size": ["fill", 20],
+        "$radio_toggle_group": true,
+        "$toggle_name": "item_lore_collection_type_toggle",
+        "$toggle_tts_type_priority": 1001,
+        "$toggle_tts_toggle_on_text": "",
+        "$toggle_tts_toggle_off_text": "",
+        "$toggle_tts_index_priority": 1002,
+        "$toggle_tts_name": "accessibility.tab.tts.title",
+        "$toggle_tts_enabled_binding_type": "global",
+        "$ignore_tts_enabled_bind": true
+    },
+
+    // Item lore collection mode toggles panel
+    "item_lore_collection_mode_toggles_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%", 20],
+        "$toggle_panel|default": "zk_item_lore_viewer.item_lore_collection_mode_toggle",
+        "controls": [
+            {
+                "toggle_combined_hotbar_and_inventory_items@$toggle_panel": {
+                    "$toggle_view_binding_name": "item_lore_collection_mode__combined_hotbar_and_inventory_items",
+                    "$toggle_group_forced_index": 0,
+                    "$button_text": "combined_hotbar_and_inventory_items",
+                    "$toggle_default_state": true
+                }
+            },
+            {
+                "toggle_container_items@$toggle_panel": {
+                    "ignored": "(not $is_container_screen)",
+                    "$toggle_view_binding_name": "item_lore_collection_mode__container_items",
+                    "$toggle_group_forced_index": 1,
+                    "$button_text": "container_items"
+                }
+            }
+        ]
+    },
+
+    // Item lore content panel
+    "item_lore_content_panel": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": [236, "100%"],
+        "layer": 5,
+        "focus_container": true,
+        "use_last_focus": true,
+        "$focus_navigation_mode_override_down|default": "contained",
+        "$focus_navigation_mode_override_up|default": "contained",
+        "$focus_navigation_mode_override_left|default": "",
+        "$focus_navigation_mode_override_right|default": "",
+        "focus_navigation_mode_down": "$focus_navigation_mode_override_down",
+        "focus_navigation_mode_up": "$focus_navigation_mode_override_up",
+        "focus_navigation_mode_left": "$focus_navigation_mode_override_left",
+        "focus_navigation_mode_right": "$focus_navigation_mode_override_right",
+        "controls": [
+            {
+                "padding_top@common.empty_panel": {
+                    "size": [0, 4]
+                }
+            },
+            {
+                "item_lore_collection_mode_toggles_panel@zk_item_lore_viewer.item_lore_collection_mode_toggles_panel": {}
+            },
+            {
+                "slider_panels@zk_item_lore_viewer.item_lore_slider_panels": {}
+            },
+            {
+                "item_lore_scrolling_panel@zk_item_lore_viewer.item_lore_scrolling_panel": {
+                    "size": ["100%", "fill"]
+                }
+            }
+        ]
+    },
+
+    // Item lore slider panels
+    "item_lore_slider_panels": {
+        "type": "panel",
+        "size": ["100%", 16],
+        "controls": [
+            {
+                "item_lore_slider:combined_hotbar_and_inventory_items@zk_item_lore_viewer.item_lore_slider_item": {
+                    "$slider_view_binding_name": "item_lore_slider__combined_hotbar_and_inventory_items",
+                    "$slider_visible_source_control": "item_lore_collection_mode__combined_hotbar_and_inventory_items",
+                    "$slider_steps": 36
+                }
+            },
+            {
+                "item_lore_slider:container_items@zk_item_lore_viewer.item_lore_slider_item": {
+                    "ignored": "(not $is_container_screen)",
+                    "$slider_view_binding_name": "item_lore_slider__container_items",
+                    "$slider_visible_source_control": "item_lore_collection_mode__container_items",
+                    "$slider_steps": "$zk_item_lore_viewer:container_items_collection_length"
+                }
+            }
+        ]
+    },
+
+    // Item lore slider item
+    "item_lore_slider_item": {
+        "type": "panel",
+        "size": ["100%", 18],
+        "$slider_steps|default": 0,
+        "$slider_visible_source_control|default": "",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "$slider_visible_source_control",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "$slider_view_binding_name@common.slider": {
+                    "size": ["100% - 16px", 10],
+                    "$slider_name": "$slider_view_binding_name",
+                    "property_bag": {
+                        "#slider_steps": "$slider_steps",
+                        "#slider_value_init": 0
+                    },
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "#slider_steps",
+                            "target_property_name": "#slider_steps"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "#slider_value_init",
+                            "target_property_name": "#slider_value"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Item lore toggle
+    "item_lore_toggle@common_toggles.transparent_content_toggle": {
+        "size": [20, 40],
+        "anchor_from": "left_middle",
+        "anchor_to": "right_middle",
+        "offset": [-4, 0],
+        "$button_content": "zk_common.arrow_image_switchable_toggle_content",
+        "$toggle_name": "item_lore_panel_toggle",
+        "$toggle_view_binding_name": "item_lore_panel_toggle",
+        "$default_focus_precedence": -2,
+        "$toggle_group_forced_index": 1,
+        "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+        "$focus_override_up": "FOCUS_OVERRIDE_STOP",
+        "$focus_override_down": "FOCUS_OVERRIDE_STOP",
+        "$ignore_tts_enabled_bind": true
+    },
+
+    // Item lore toggle bg
+    "item_lore_toggle_bg@common_toggles.light_template_toggle": {
+        "size": ["400%", "100%"],
+        "$unchecked_control": "common.empty_panel",
+        "$checked_control": "common.empty_panel",
+        "$unchecked_hover_control": "common.empty_panel",
+        "$checked_hover_control": "common.empty_panel",
+        "$unchecked_locked_control": "common.empty_panel",
+        "$checked_locked_control": "common.empty_panel",
+        "$unchecked_locked_hover_control": "common.empty_panel",
+        "$checked_locked_hover_control": "common.empty_panel",
+        "$toggle_name": "item_lore_panel_toggle",
+        "$toggle_group_forced_index": 0,
+        "$radio_toggle_group": true,
+        "$toggle_focus_enabled": false,
+        "sound_volume": 0,
+        "$focus_override_left": "FOCUS_OVERRIDE_STOP",
+        "$focus_override_down": "FOCUS_OVERRIDE_STOP",
+        "$focus_override_up": "FOCUS_OVERRIDE_STOP",
+        "$ignore_tts_enabled_bind": true,
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.menu_select",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "button.menu_ok",
+                "mapping_type": "focused"
+            },
+            {
+                "from_button_id": "button.menu_cancel",
+                "to_button_id": "button.menu_select",
+                "mapping_type": "global"
+            },
+            {
+                "from_button_id": "button.menu_inventory_cancel",
+                "to_button_id": "button.menu_select",
+                "mapping_type": "global"
+            }
+        ]
+    },
+
+    // Item lore panel
+    "item_lore_panel": {
+        "type": "panel",
+        "size": [240, "100%"],
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "item_lore_panel_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "input_panel": {
+                    "type": "input_panel",
+                    "size": ["100%", "100%"],
+                    "focus_enabled": true,
+                    "focus_identifier": "item_lore_input_panel",
+                    "focus_change_down": "FOCUS_OVERRIDE_STOP",
+                    "focus_change_up": "FOCUS_OVERRIDE_STOP",
+                    "focus_change_right": "FOCUS_OVERRIDE_STOP"
+                }
+            },
+            {
+                "item_lore_toggle_background": {
+                    "type": "image",
+                    "texture": "textures/ui/Black",
+                    "size": ["1000%", "130%"],
+                    "anchor_from": "right_middle",
+                    "anchor_to": "right_middle",
+                    "offset": ["200%", 0],
+                    "alpha": 0.4
+                }
+            },
+            {
+                "item_lore_toggle_bg@zk_item_lore_viewer.item_lore_toggle_bg": {
+                    "anchor_from": "left_middle",
+                    "anchor_to": "right_middle"
+                }
+            },
+            {
+                "side_dialog_panel@common_dialogs.main_panel_no_buttons": {
+                    "size": ["100%", "100%"],
+                    "$text_name": "itemLore.title",
+                    "$show_close_button": false,
+                    "$child_control": "zk_item_lore_viewer.item_lore_content_panel"
+                }
+            }
+        ]
+    },
+
+    // Item lore viewer
+    "item_lore_viewer@zk_subpack_settings.item_lore_viewer_settings": {
+        "type": "panel",
+        "size": ["100%c - 18px", "100%"],
+        "max_size": [240, "100%"],
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "layer": 1000,
+        "$is_container_screen|default": false,
+        "$zk_item_lore_viewer:container_items_collection_length|default": 1,
+        "controls": [
+            {
+                "item_lore_toggle@zk_item_lore_viewer.item_lore_toggle": {
+                    "ignored": "(not $enable_item_lore_viewer)",
+                    "layer": 10
+                }
+            },
+            {
+                "item_lore_panel@zk_item_lore_viewer.item_lore_panel": {
+                    "ignored": "(not $enable_item_lore_viewer)"
+                }
+            }
+        ]
+    }
+}

@@ -26,5 +26,10 @@
     "$zk_oreui_design:red_button_pressed_text_color": [1.0, 1.0, 1.0],
 
     // Ore ui design title color
-    "$zk_oreui_design:common_title_text_color": [0.0, 0.0, 0.0]
+    "$zk_oreui_design:common_title_text_color": [0.0, 0.0, 0.0],
+
+    // Containers
+    "$force_auto_place_on": false,
+    "$use_container_toggles": true,
+    "$use_quick_craft_button": true
 }

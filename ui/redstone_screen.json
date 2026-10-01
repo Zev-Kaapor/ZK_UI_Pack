@@ -1,0 +1,68 @@
+// Hopper, dispenser and dropper screens
+{
+
+    // Redstone root panel
+    "panel/root_panel": {
+        "$container_item_mode_supported": true,
+        "$button_ref": "zk_container_item_mode.item_button_ref",
+        "$default_mode_controls": "common.container_slot_button_prototype",
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "container_item_mode_switch_panel@zk_container_item_mode.container_item_mode_switch_panel": {
+                            "ignored": "$pocket_screen",
+                            "$toggle_panel": "zk_container_item_mode.container_item_mode_switch_right_tab",
+                            "$panel_anchor_from": "top_right",
+                            "$panel_anchor_to": "top_left",
+                            "$panel_offset": [-4, 0],
+                            "$hover_text_anchor": "right_middle",
+                            "$hover_text_offset": [-8, 2]
+                        }
+                    },
+                    {
+                        "container_item_type_switch_holder@zk_container_item_mode.container_item_type_switch_holder": {
+                            "ignored": "$pocket_screen",
+                            "layer": 10,
+                            "$toggle_anchor_from": "top_right",
+                            "$toggle_anchor_to": "top_right",
+                            "$toggle_offset": [-22, 5]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    // Redstone panel
+    "panel": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "item_lore_viewer@zk_item_lore_viewer.item_lore_viewer": {}
+                    }
+                ]
+            }
+        ]
+    },
+
+    // Hopper screen
+    "hopper_screen": {
+        "$zk_item_lore_viewer:container_items_collection_length": 5
+    },
+
+    // Dispenser screen
+    "dispenser_screen": {
+        "$zk_item_lore_viewer:container_items_collection_length": 9
+    },
+
+    // Dropper screen
+    "dropper_screen": {
+        "$zk_item_lore_viewer:container_items_collection_length": 9
+    }
+}

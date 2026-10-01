@@ -149,5 +149,16 @@
                 "mapping_type": "focused"
             }
         ]
+    },
+
+    // Transparent background button
+    "transparent_background_button@common_buttons.transparent_content_button": {
+        "$default_button_texture": "",
+        "$hover_button_texture": "",
+        "$pressed_button_texture": "",
+        "$locked_button_texture": "",
+        "$pressed_button_name|default": "",
+        "$hover_state_border_visible": true,
+        "$pressed_state_border_visible": true
     }
 }

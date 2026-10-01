@@ -1,0 +1,720 @@
+// ZK container item modes
+{
+    "namespace": "zk_container_item_mode",
+
+    // Container item mode switch panel
+    "container_item_mode_switch_panel": {
+        "ignored": "(not $container_item_mode_supported)",
+        "visible": "$use_container_toggles",
+        "$container_item_mode_supported|default": false,
+        "$use_container_toggles|default": true,
+        "$container_item_mode_panel_orientation|default": "vertical",
+        "$is_inventory_screen|default": false,
+        "type": "stack_panel",
+        "orientation": "$container_item_mode_panel_orientation",
+        "size": "$container_item_mode_switch_size",
+        "anchor_from": "$panel_anchor_from",
+        "anchor_to": "$panel_anchor_to",
+        "offset": "$panel_offset",
+        "$container_item_mode_switch_size|default": [30, 72],
+        "$toggle_panel|default": "zk_container_item_mode.container_item_mode_switch_left_tab",
+        "$toggle_size|default": [30, 25],
+        "$panel_anchor_from|default": "top_left",
+        "$panel_anchor_to|default": "top_right",
+        "$panel_offset|default": [4, 0],
+        "$force_auto_place_on|default": false,
+        "layer": 8,
+        "controls": [
+            {
+                "default_mode_toggle_panel@zk_container_item_mode.container_item_mode_switch_ui_toggle": {
+                    "$tab_view_binding_name": "default_mode_toggle",
+                    "$toggle_group_forced_index": 0,
+                    "$tab_content_panel": "zk_container_item_mode.default_mode_toggle_control",
+                    "$hover_text": "container.invMode.normalMode",
+                    "$toggle_default_state": "(not $force_auto_place_on)",
+                    "$is_top_most_tab": true
+                }
+            },
+            {
+                "auto_place_mode_toggle_panel@zk_container_item_mode.container_item_mode_switch_ui_toggle": {
+                    "$tab_view_binding_name": "auto_place_mode_toggle",
+                    "$toggle_group_forced_index": 1,
+                    "$tab_content_panel": "zk_container_item_mode.auto_place_mode_toggle_control",
+                    "$hover_text": "container.invMode.autoPlaceMode",
+                    "$toggle_default_state": "$force_auto_place_on"
+                }
+            },
+            {
+                "drop_mode_toggle_panel@zk_container_item_mode.container_item_mode_switch_ui_toggle": {
+                    "$tab_view_binding_name": "drop_mode_toggle",
+                    "$toggle_group_forced_index": 2,
+                    "$tab_content_panel": "zk_container_item_mode.drop_mode_toggle_control",
+                    "$hover_text": "container.invMode.dropMode"
+                }
+            },
+            {
+                "auto_destroy_mode_toggle_with_bindings@zk_container_item_mode.container_item_mode_switch_ui_toggle": {
+                    "ignored": "(not $is_inventory_screen)",
+                    "$tab_view_binding_name": "auto_destroy_mode_toggle",
+                    "$toggle_group_forced_index": 3,
+                    "$tab_content_panel": "zk_container_item_mode.auto_destroy_mode_toggle_control",
+                    "$hover_text": "container.invMode.autoDestroyMode",
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_name": "#is_creative_mode",
+                            "binding_name_override": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Container item mode switch ui toggle
+    "container_item_mode_switch_ui_toggle": {
+        "type": "panel",
+        "size": "$toggle_panel_size",
+        "$toggle_panel_size|default": "$toggle_size",
+        "$toggle_panel_anchor|default": "center",
+        "controls": [
+            {
+                "$tab_view_binding_name@$toggle_panel": {
+                    "anchor_from": "$toggle_panel_anchor",
+                    "anchor_to": "$toggle_panel_anchor"
+                }
+            }
+        ]
+    },
+
+    // Compact container item mode switch panel
+    "compact_container_item_mode_switch_panel": {
+        "ignored": "(not $container_item_mode_supported)",
+        "visible": "$use_container_toggles",
+        "$container_item_mode_supported|default": false,
+        "$use_container_toggles|default": true,
+        "$is_inventory_screen|default": false,
+        "type": "panel",
+        "size": "$toggle_size",
+        "anchor_from": "$panel_anchor_from",
+        "anchor_to": "$panel_anchor_to",
+        "offset": "$panel_offset",
+        "$toggle_panel|default": "zk_container_item_mode.container_item_mode_switch_right_tab",
+        "$toggle_size|default": ["100%", 33],
+        "$panel_anchor_from|default": "top_left",
+        "$panel_anchor_to|default": "top_right",
+        "$panel_offset|default": [4, 0],
+        "$force_auto_place_on|default": false,
+        "layer": 8,
+        "controls": [
+            {
+                "default_mode_tab@zk_container_item_mode.compact_container_item_mode_switch_toggle_item": {
+                    "$tab_view_binding_name": "default_mode_toggle",
+                    "$visible_tab_view_binding_name": "auto_destroy_mode_toggle",
+                    "$toggle_group_forced_index": 0,
+                    "$toggle_default_state": "(not $force_auto_place_on)",
+                    "$tab_content_panel": "zk_container_item_mode.auto_destroy_mode_toggle_control",
+                    "$hover_text": "container.invMode.autoDestroyMode"
+                }
+            },
+            {
+                "auto_place_mode_tab@zk_container_item_mode.compact_container_item_mode_switch_toggle_item": {
+                    "$tab_view_binding_name": "auto_place_mode_toggle",
+                    "$visible_tab_view_binding_name": "default_mode_toggle",
+                    "$toggle_group_forced_index": 1,
+                    "$toggle_default_state": "$force_auto_place_on",
+                    "$tab_content_panel": "zk_container_item_mode.default_mode_toggle_control",
+                    "$hover_text": "container.invMode.normalMode"
+                }
+            },
+            {
+                "drop_mode_tab@zk_container_item_mode.compact_container_item_mode_switch_toggle_item": {
+                    "$tab_view_binding_name": "drop_mode_toggle",
+                    "$visible_tab_view_binding_name": "auto_place_mode_toggle",
+                    "$toggle_group_forced_index": 2,
+                    "$tab_content_panel": "zk_container_item_mode.auto_place_mode_toggle_control",
+                    "$hover_text": "container.invMode.autoPlaceMode"
+                }
+            },
+            {
+                "auto_destroy_mode_tab@zk_container_item_mode.compact_container_item_mode_switch_toggle_item": {
+                    "$tab_view_binding_name": "auto_destroy_mode_toggle",
+                    "$visible_tab_view_binding_name": "drop_mode_toggle",
+                    "$toggle_group_forced_index": 3,
+                    "$tab_content_panel": "zk_container_item_mode.drop_mode_toggle_control",
+                    "$hover_text": "container.invMode.dropMode"
+                }
+            }
+        ]
+    },
+
+    // Compact container item mode switch toggle item
+    "compact_container_item_mode_switch_toggle_item": {
+        "type": "panel",
+        "size": "$toggle_size",
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "$tab_one_button_state": true,
+        "$unchecked_text_color|default": "$tab_checked_text_color",
+        "$unchecked_hover_text_color|default": "$tab_checked_hover_text_color",
+        "$unchecked_locked_text_color|default": "$tab_checked_locked_text_color",
+        "$unchecked_locked_hover_text_color|default": "$tab_checked_locked_hover_text_color",
+        "$toggle_item_bindings|default": [
+            {
+                "binding_type": "view",
+                "source_control_name": "$visible_tab_view_binding_name",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "bindings": "$toggle_item_bindings",
+        "controls": [
+            {
+                "$tab_view_binding_name@$toggle_panel": {
+                    "size": ["100%", "100%"]
+                }
+            }
+        ]
+    },
+
+    // Default mode toggle control
+    "default_mode_toggle_control@zk_common.item_renderer": {
+        "property_bag": {
+            "#item_id_aux": 3538944
+        }
+    },
+
+    // Auto place mode toggle control
+    "auto_place_mode_toggle_control": {
+        "type": "image",
+        "texture": "$texture",
+        "$texture|default": "textures/zk_ui/container/auto_place_glyph",
+        "color": "$text_color",
+        "size": [13, 13],
+        "variables": [
+            {
+                "requires": "$pocket_screen",
+                "$texture": "textures/zk_ui/container/auto_place_glyph_horizontal"
+            }
+        ]
+    },
+
+    // Drop mode toggle control
+    "drop_mode_toggle_control": {
+        "type": "image",
+        "texture": "textures/zk_ui/container/drop_glyph",
+        "color": "$text_color",
+        "size": [13, 13]
+    },
+
+    // Auto destroy mode toggle control
+    "auto_destroy_mode_toggle_control": {
+        "type": "image",
+        "texture": "textures/ui/icon_trash",
+        "size": [13, 14]
+    },
+
+    // Container item mode switch tab content
+    "container_item_mode_switch_tab_content": {
+        "type": "panel",
+        "$tab_content_panel|default": "common.empty_panel",
+        "controls": [
+            {
+                "tab_content_panel@$tab_content_panel": {}
+            },
+            {
+                "hover_text_panel@zk_common.hover_text_panel": {
+                    "ignored": "(not $is_hover_state)"
+                }
+            }
+        ]
+    },
+
+    // Container item mode switch left tab
+    "container_item_mode_switch_left_tab@common_toggles.light_template_toggle": {
+        "size": "$toggle_size",
+        "$toggle_size|default": [30, 25],
+        "$radio_toggle_group": true,
+        "$toggle_name": "container_item_mode_switch",
+        "$default_focus_precedence": -2,
+        "$toggle_tts_type_priority": 1001,
+        "$toggle_tts_toggle_on_text": "",
+        "$toggle_tts_toggle_off_text": "",
+        "$toggle_tts_index_priority": 1002,
+        "$tab_content": "zk_container_item_mode.container_item_mode_switch_tab_content",
+        "$tab_panel": "common_tabs.tab_panel",
+        "$toggle_tts_name": "accessibility.tab.tts.title",
+        "$toggle_tts_enabled_binding_type": "global",
+        "$ignore_tts_enabled_bind": true,
+        "$is_checked_state|default": false,
+        "$is_hover_state|default": false,
+        "$unchecked_default_image": "textures/ui/TabLeftBack",
+        "$unchecked_hover_image": "textures/ui/TabLeftBackHover",
+        "$unchecked_locked_image": "textures/ui/TabLeftBack",
+        "$unchecked_locked_hover_image": "textures/ui/TabLeftBack",
+        "$checked_default_image|default": "textures/ui/TabLeftFront",
+        "$checked_hover_image|default": "textures/ui/TabLeftFrontHover",
+        "$checked_locked_image|default": "textures/ui/TabLeftFront",
+        "$checked_locked_hover_image|default": "textures/ui/TabLeftFront",
+        "$unchecked_text_color": "$tab_unchecked_text_color",
+        "$unchecked_hover_text_color": "$tab_unchecked_hover_text_color",
+        "$unchecked_locked_text_color": "$tab_unchecked_locked_text_color",
+        "$unchecked_locked_hover_text_color": "$tab_unchecked_locked_hover_text_color",
+        "$checked_text_color": "$tab_checked_text_color",
+        "$checked_hover_text_color": "$tab_checked_hover_text_color",
+        "$checked_locked_text_color": "$tab_checked_locked_text_color",
+        "$checked_locked_hover_text_color": "$tab_checked_locked_hover_text_color",
+        "$is_top_most_tab|default": false,
+        "$tab_one_button_state|default": false,
+        "variables": [
+            {
+                "requires": "$is_top_most_tab",
+                "$unchecked_default_image": "textures/ui/TabLeftBackTopMost",
+                "$unchecked_hover_image": "textures/ui/TabLeftBackTopMostHover",
+                "$unchecked_locked_image": "textures/ui/TabLeftBackTopMost",
+                "$unchecked_locked_hover_image": "textures/ui/TabLeftBackTopMost",
+                "$checked_default_image": "textures/ui/TabLeftFrontTopMost",
+                "$checked_hover_image": "textures/ui/TabLeftFrontTopMostHover",
+                "$checked_locked_image": "textures/ui/TabLeftFrontTopMost",
+                "$checked_locked_hover_image": "textures/ui/TabLeftFrontTopMost"
+            }
+        ],
+        "controls": [
+            {
+                "unchecked@$tab_panel": {
+                    "$tab_texture": "$unchecked_default_image",
+                    "$text_color": "$unchecked_text_color",
+                    "$tab_state": "unchecked",
+                    "layer": 1
+                }
+            },
+            {
+                "unchecked_hover@$tab_panel": {
+                    "$tab_texture": "$unchecked_hover_image",
+                    "$text_color": "$unchecked_hover_text_color",
+                    "$tab_state": "unchecked_hover",
+                    "$is_hover_state": true,
+                    "layer": 1
+                }
+            },
+            {
+                "unchecked_locked@$tab_panel": {
+                    "$tab_texture": "$unchecked_locked_image",
+                    "$text_color": "$unchecked_locked_text_color",
+                    "$tab_state": "unchecked_locked",
+                    "layer": 1
+                }
+            },
+            {
+                "unchecked_locked_hover@$tab_panel": {
+                    "$tab_texture": "$unchecked_locked_hover_image",
+                    "$text_color": "$unchecked_locked_hover_text_color",
+                    "$tab_state": "unchecked_locked_hover",
+                    "layer": 1
+                }
+            },
+            {
+                "checked@$tab_panel": {
+                    "$tab_texture": "$checked_default_image",
+                    "$text_color": "$checked_text_color",
+                    "$tab_state": "checked",
+                    "$is_checked_state": true,
+                    "layer": 2
+                }
+            },
+            {
+                "checked_hover@$tab_panel": {
+                    "$tab_texture": "$checked_hover_image",
+                    "$text_color": "$checked_hover_text_color",
+                    "$tab_state": "checked_hover",
+                    "$is_checked_state": true,
+                    "$is_hover_state": true,
+                    "layer": 2
+                }
+            },
+            {
+                "checked_locked@$tab_panel": {
+                    "$tab_texture": "$checked_locked_image",
+                    "$text_color": "$checked_locked_text_color",
+                    "$tab_state": "checked_locked",
+                    "$is_checked_state": true,
+                    "layer": 2
+                }
+            },
+            {
+                "checked_locked_hover@$tab_panel": {
+                    "$tab_texture": "$checked_locked_hover_image",
+                    "$text_color": "$checked_locked_hover_text_color",
+                    "$tab_state": "checked_locked_hover",
+                    "$is_checked_state": true,
+                    "layer": 2
+                }
+            }
+        ]
+    },
+
+    // Container item mode switch right tab
+    "container_item_mode_switch_right_tab@zk_container_item_mode.container_item_mode_switch_left_tab": {
+        "$unchecked_default_image": "textures/ui/TabRightBack",
+        "$unchecked_hover_image": "textures/ui/TabRightBackHover",
+        "$unchecked_locked_image": "textures/ui/TabRightBack",
+        "$unchecked_locked_hover_image": "textures/ui/TabRightBack",
+        "$checked_default_image|default": "textures/ui/TabRightFront",
+        "$checked_hover_image|default": "textures/ui/TabRightFrontHover",
+        "$checked_locked_image|default": "textures/ui/TabRightFront",
+        "$checked_locked_hover_image|default": "textures/ui/TabRightFront",
+        "variables": [
+            {
+                "requires": "$is_top_most_tab",
+                "$unchecked_default_image": "textures/ui/TabRightBackTopMost",
+                "$unchecked_hover_image": "textures/ui/TabRightBackTopMostHover",
+                "$unchecked_locked_image": "textures/ui/TabRightBackTopMost",
+                "$unchecked_locked_hover_image": "textures/ui/TabRightBackTopMost",
+                "$checked_default_image": "textures/ui/TabRightFrontTopMost",
+                "$checked_hover_image": "textures/ui/TabRightFrontTopMostHover",
+                "$checked_locked_image": "textures/ui/TabRightFrontTopMost",
+                "$checked_locked_hover_image": "textures/ui/TabRightFrontTopMost"
+            },
+            {
+                "requires": "$tab_one_button_state",
+                "$unchecked_default_image": "$checked_default_image",
+                "$unchecked_hover_image": "$checked_hover_image",
+                "$unchecked_locked_image": "$checked_locked_image",
+                "$unchecked_locked_hover_image": "$checked_locked_hover_image"
+            }
+        ]
+    },
+
+    // Item button ref slot prototype
+    "item_button_ref_slot_prototype@common.container_slot_button_prototype": {
+        "layer": 6,
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "$button_id",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "$button_id",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_secondary_select",
+                "to_button_id": "$button_id",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.controller_select",
+                "to_button_id": "$button_id",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_auto_place",
+                "to_button_id": "$button_id",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.controller_secondary_select",
+                "to_button_id": "$button_id",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_inventory_drop",
+                "to_button_id": "$button_id",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_inventory_drop_all",
+                "to_button_id": "$button_id",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "$button_id",
+                "mapping_type": "double_pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "$button_id",
+                "mapping_type": "double_pressed"
+            }
+        ]
+    },
+
+    // Item button ref common
+    "item_button_ref_common": {
+        "type": "collection_panel",
+        "$amount_state|default": "(not #amount_one)",
+        "factory": {
+            "name": "('ref_' + $button_id)",
+            "control_name": "zk_container_item_mode.item_button_ref_slot_prototype",
+            "max_children_size": 1
+        },
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "$mode_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#mode_on"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "container_item_type_switch",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#amount_one"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#mode_on and $amount_state) * 1)",
+                "target_property_name": "#collection_length"
+            }
+        ]
+    },
+
+    // Item button ref
+    "item_button_ref": {
+        "type": "input_panel",
+        "$is_inventory_screen|default": false,
+        "$default_mode_controls|default": "crafting.inventory_container_slot_button",
+        "controls": [
+            {
+                "auto_place_all_button_ref@zk_container_item_mode.item_button_ref_common": {
+                    "$mode_toggle": "auto_place_mode_toggle",
+                    "$button_id": "button.container_auto_place"
+                }
+            },
+            {
+                "auto_place_one_button_ref@zk_container_item_mode.item_button_ref_common": {
+                    "$mode_toggle": "auto_place_mode_toggle",
+                    "$amount_state": "#amount_one",
+                    "$button_id": "button.container_auto_place_one"
+                }
+            },
+            {
+                "drop_all_button_ref@zk_container_item_mode.item_button_ref_common": {
+                    "$mode_toggle": "drop_mode_toggle",
+                    "$button_id": "button.drop_all"
+                }
+            },
+            {
+                "drop_one_button_ref@zk_container_item_mode.item_button_ref_common": {
+                    "$mode_toggle": "drop_mode_toggle",
+                    "$amount_state": "#amount_one",
+                    "$button_id": "button.drop_one"
+                }
+            },
+            {
+                "destroy_button_ref@zk_container_item_mode.item_button_ref_common": {
+                    "ignored": "(not $is_inventory_screen)",
+                    "$mode_toggle": "auto_destroy_mode_toggle",
+                    "$amount_state": "(#amount_one or (not #amount_one))",
+                    "$button_id": "button.container_auto_destroy"
+                }
+            },
+            {
+                "default_button_ref": {
+                    "type": "collection_panel",
+                    "factory": {
+                        "name": "ref_default_",
+                        "control_name": "$default_mode_controls",
+                        "max_children_size": 1
+                    },
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "default_mode_toggle",
+                            "source_property_name": "(#toggle_state * 1)",
+                            "target_property_name": "#collection_length"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Container item type switch
+    "container_item_type_switch@common_toggles.underline_toggle": {
+        "visible": "$use_container_toggles",
+        "$use_container_toggles|default": true,
+        "$is_inventory_screen|default": false,
+        "anchor_from": "$toggle_anchor_from",
+        "anchor_to": "$toggle_anchor_to",
+        "offset": "$toggle_offset",
+        "$toggle_group_forced_index": 10,
+        "$toggle_name": "container_item_type_switch",
+        "$default_focus_precedence": -2,
+        "$toggle_anchor_from|default": "bottom_right",
+        "$toggle_anchor_to|default": "bottom_right",
+        "$toggle_offset|default": [-6, -80],
+        "layer": 2,
+        "$toggle_content": "zk_container_item_mode.container_item_type_switch_text_panel",
+        "$unchecked_underline_color": "$title_text_color"
+    },
+
+    // Container item type switch holder
+    "container_item_type_switch_holder": {
+        "type": "panel",
+        "size": ["100%", "100%"],
+        "$is_inventory_screen|default": false,
+        "$state_expression|default": "(not #state_default)",
+        "variables": [
+            {
+                "requires": "$is_inventory_screen",
+                "$state_expression": "(not (#state_default or #state_auto_destroy))"
+            }
+        ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "default_mode_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#state_default"
+            },
+            {
+                "ignored": "(not $is_inventory_screen)",
+                "binding_type": "view",
+                "source_control_name": "auto_destroy_mode_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#state_auto_destroy"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "$state_expression",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "container_item_type_switch@zk_container_item_mode.container_item_type_switch": {}
+            }
+        ]
+    },
+
+    // Container item type switch text panel
+    "container_item_type_switch_text_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%cm"],
+        "$text_color": "$title_text_color",
+        "$current_mode_text|default": "x64",
+        "variables": [
+            {
+                "requires": "$checked_state",
+                "$current_mode_text": "x1"
+            }
+        ],
+        "controls": [
+            {
+                "left_bracket": {
+                    "type": "label",
+                    "text": "[",
+                    "color": "$text_color",
+                    "localize": false
+                }
+            },
+            {
+                "padding_0": {
+                    "type": "panel",
+                    "size": [4, 4]
+                }
+            },
+            {
+                "current_mode_text": {
+                    "type": "label",
+                    "text": "$current_mode_text",
+                    "localize": false,
+                    "color": "$text_color"
+                }
+            },
+            {
+                "padding_2": {
+                    "type": "panel",
+                    "size": [4, 4]
+                }
+            },
+            {
+                "right_bracket": {
+                    "type": "label",
+                    "text": "]",
+                    "color": "$text_color",
+                    "localize": false
+                }
+            }
+        ]
+    },
+
+    // Compact container item type switch
+    "compact_container_item_type_switch@common_tabs.right_tab_toggle_control_content": {
+        "visible": "$use_container_toggles",
+        "$use_container_toggles|default": true,
+        "$is_inventory_screen|default": false,
+        "size": ["100%", 20],
+        "$toggle_group_forced_index": 10,
+        "$toggle_name": "container_item_type_switch",
+        "anchor_from": "right_middle",
+        "anchor_to": "top_right",
+        "offset": [0, 0],
+        "layer": 4,
+        "$tab_checked_content": "zk_container_item_mode.compact_container_item_type_switch_one_control",
+        "$tab_unchecked_content": "zk_container_item_mode.compact_container_item_type_switch_all_control",
+        "$tab_checked_hover_content": "zk_container_item_mode.compact_container_item_type_switch_one_hover_control",
+        "$tab_unchecked_hover_content": "zk_container_item_mode.compact_container_item_type_switch_all_hover_control",
+        "$checked_default_image": "textures/ui/TabRightBack",
+        "$checked_hover_image": "textures/ui/TabRightBackHover",
+        "$checked_locked_image": "textures/ui/TabRightBack",
+        "$checked_locked_hover_image": "textures/ui/TabRightBack"
+    },
+
+    // Compact container item type switch control template
+    "compact_container_item_type_switch_control_template": {
+        "type": "panel",
+        "size": ["100% - 8px", "100% - 8px"],
+        "layer": 5,
+        "$is_hover_state|default": false,
+        "$hover_text_offset": [-8, 2],
+        "$hover_text_anchor": "right_middle",
+        "controls": [
+            {
+                "text_panel": {
+                    "type": "label",
+                    "size": ["100%", 10],
+                    "text": "$toggle_text",
+                    "color": "$text_color",
+                    "text_alignment": "center"
+                }
+            },
+            {
+                "hover_text_panel@zk_common.hover_text_panel": {
+                    "ignored": "(not $is_hover_state)"
+                }
+            }
+        ]
+    },
+
+    // Compact container item type switch one control
+    "compact_container_item_type_switch_one_control@zk_container_item_mode.compact_container_item_type_switch_control_template": {
+        "$toggle_text": "icontext.multiplyone",
+        "$hover_text": "icontext.hovertext.multiplyone",
+        "$text_color": "$tab_unchecked_text_color"
+    },
+
+    // Compact container item type switch all control
+    "compact_container_item_type_switch_all_control@zk_container_item_mode.compact_container_item_type_switch_control_template": {
+        "$toggle_text": "icontext.all",
+        "$hover_text": "icontext.hovertext.all",
+        "$text_color": "$tab_unchecked_text_color"
+    },
+
+    // Compact container item type switch one hover control
+    "compact_container_item_type_switch_one_hover_control@zk_container_item_mode.compact_container_item_type_switch_one_control": {
+        "$text_color": "$tab_unchecked_hover_text_color",
+        "$is_hover_state": true
+    },
+
+    // Compact container item type switch all hover control
+    "compact_container_item_type_switch_all_hover_control@zk_container_item_mode.compact_container_item_type_switch_all_control": {
+        "$text_color": "$tab_unchecked_hover_text_color",
+        "$is_hover_state": true
+    }
+}

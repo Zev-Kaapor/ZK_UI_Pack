@@ -2,16 +2,16 @@
     "format_version": 2,
     "header": {
         "name": "§fZK UI Pack§r",
-        "description": "§bv0.2.0 §7(by Zev Kaapor)§r §f- Clean vanilla UI tweaks, custom sounds, and QoL enhancements.§r",
+        "description": "§bv0.3.0 §7(by Zev Kaapor)§r §f- Clean vanilla UI tweaks, custom sounds, and QoL enhancements.§r",
         "uuid": "fa9cf03f-fe7f-458b-8770-29f15ecb15d5",
-        "version": [0, 2, 0],
+        "version": [0, 3, 0],
         "min_engine_version": [1, 21, 0]
     },
     "modules": [
         {
             "type": "resources",
             "uuid": "1152dcb5-0da8-4392-8696-8780db0825b2",
-            "version": [0, 2, 0]
+            "version": [0, 3, 0]
         }
     ],
     "metadata": {

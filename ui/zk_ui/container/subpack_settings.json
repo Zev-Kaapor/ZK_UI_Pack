@@ -1,0 +1,12 @@
+// ZK container settings
+{
+    "namespace": "zk_subpack_settings",
+
+    // Destroy items tooltip anim control
+    "destroy_items_tooltip_anim_control@zk_common.anim_destroy_items_tooltip_alpha_start": {},
+
+    // Item lore viewer settings
+    "item_lore_viewer_settings": {
+        "$enable_item_lore_viewer": false
+    }
+}

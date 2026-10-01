@@ -28,6 +28,12 @@
         "ui/zk_ui/progress/server_notice.json",
         "ui/zk_ui/start/sidebar.json",
         "ui/zk_ui/about/about_common.json",
-        "ui/zk_ui/about/about_screen.json"
+        "ui/zk_ui/about/about_screen.json",
+        "ui/zk_ui/common/container.json",
+        "ui/zk_ui/container/item_lore_viewer.json",
+        "ui/zk_ui/container/item_durability_tool.json",
+        "ui/zk_ui/container/subpack_settings.json",
+        "ui/zk_ui/container/calc_panels.json",
+        "ui/zk_ui/container/item_mode.json"
     ]
 }

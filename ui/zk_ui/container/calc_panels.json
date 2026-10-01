@@ -1,0 +1,820 @@
+// ZK container calculation panels
+{
+    "namespace": "zk_container_calc_panels",
+
+    // Crafting screen calc panels
+    "crafting_screen_calc_panels": {
+        "visible": "(not $is_publish or $debug_mode)",
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": ["100%cm", "100%c"],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "controls": [
+            {
+                "crafting_input_count_calc@zk_container_calc_panels.crafting_input_count_calc": {}
+            },
+            {
+                "crafting_output_count_calc@zk_container_calc_panels.crafting_output_count_calc": {}
+            },
+            {
+                "crafting_output_count_progress_calc@zk_container_calc_panels.crafting_output_count_progress_calc": {}
+            },
+            {
+                "crafting_items_remain_after_craft_all_calc@zk_container_calc_panels.crafting_items_remain_after_craft_all_calc": {}
+            }
+        ]
+    },
+
+    // Crafting input count calc
+    "crafting_input_count_calc": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%cm"],
+        "collection_name": "$item_collection_name",
+        "$item_collection_name|default": "crafting_input_items",
+        "controls": [
+            {
+                "header": {
+                    "type": "label",
+                    "text": "input_stack_count: ",
+                    "font_size": "small",
+                    "shadow": true
+                }
+            },
+            {
+                "crafting_input_item_count_0@zk_container_calc_panels.crafting_input_item_count": {
+                    "collection_index": 0
+                }
+            },
+            {
+                "crafting_input_item_count_1@zk_container_calc_panels.crafting_input_item_count": {
+                    "collection_index": 1
+                }
+            },
+            {
+                "crafting_input_item_count_2@zk_container_calc_panels.crafting_input_item_count": {
+                    "collection_index": 2
+                }
+            },
+            {
+                "crafting_input_item_count_3@zk_container_calc_panels.crafting_input_item_count": {
+                    "collection_index": 3
+                }
+            },
+            {
+                "crafting_input_item_count_4@zk_container_calc_panels.crafting_input_item_count": {
+                    "collection_index": 4
+                }
+            },
+            {
+                "crafting_input_item_count_5@zk_container_calc_panels.crafting_input_item_count": {
+                    "collection_index": 5
+                }
+            },
+            {
+                "crafting_input_item_count_6@zk_container_calc_panels.crafting_input_item_count": {
+                    "collection_index": 6
+                }
+            },
+            {
+                "crafting_input_item_count_7@zk_container_calc_panels.crafting_input_item_count": {
+                    "collection_index": 7
+                }
+            },
+            {
+                "crafting_input_item_count_8@zk_container_calc_panels.crafting_input_item_count": {
+                    "collection_index": 8,
+                    "$ignore_separator": true
+                }
+            },
+            {
+                "minimum_item_count_panel": {
+                    "type": "panel",
+                    "size": [2, 0],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_0",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c0",
+                            "resolve_sibling_scope": true
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_1",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c1",
+                            "resolve_sibling_scope": true
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_2",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c2",
+                            "resolve_sibling_scope": true
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_3",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c3",
+                            "resolve_sibling_scope": true
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_4",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c4",
+                            "resolve_sibling_scope": true
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_5",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c5",
+                            "resolve_sibling_scope": true
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_6",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c6",
+                            "resolve_sibling_scope": true
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_7",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c7",
+                            "resolve_sibling_scope": true
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_8",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c8",
+                            "resolve_sibling_scope": true
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_output_item_count",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#output_stack_count"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((((not (#c0 > #c1)) or (#c1 = 0)) * 1) * #c0 + (((#c0 > #c1) or (#c0 = 0)) * 1) * #c1)",
+                            "target_property_name": "#mv01"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((((not (#mv01 > #c2)) or (#c2 = 0)) * 1) * #mv01 + (((#mv01 > #c2) or (#mv01 = 0)) * 1) * #c2)",
+                            "target_property_name": "#mv12"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((((not (#mv12 > #c3)) or (#c3 = 0)) * 1) * #mv12 + (((#mv12 > #c3) or (#mv12 = 0)) * 1) * #c3)",
+                            "target_property_name": "#mv23"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((((not (#mv23 > #c4)) or (#c4 = 0)) * 1) * #mv23 + (((#mv23 > #c4) or (#mv23 = 0)) * 1) * #c4)",
+                            "target_property_name": "#mv34"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((((not (#mv34 > #c5)) or (#c5 = 0)) * 1) * #mv34 + (((#mv34 > #c5) or (#mv34 = 0)) * 1) * #c5)",
+                            "target_property_name": "#mv45"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((((not (#mv45 > #c6)) or (#c6 = 0)) * 1) * #mv45 + (((#mv45 > #c6) or (#mv45 = 0)) * 1) * #c6)",
+                            "target_property_name": "#mv56"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((((not (#mv56 > #c7)) or (#c7 = 0)) * 1) * #mv56 + (((#mv56 > #c7) or (#mv56 = 0)) * 1) * #c7)",
+                            "target_property_name": "#mv67"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((((not (#mv67 > #c8)) or (#c8 = 0)) * 1) * #mv67 + (((#mv67 > #c8) or (#mv67 = 0)) * 1) * #c8)",
+                            "target_property_name": "#minimum_item_count_final"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('minimum_count_steps: ' + #mv01 + ' / ' + #mv12 + ' / ' + #mv23 + ' / ' + #mv34 + ' / ' + #mv45 + ' / ' + #mv56 + ' / ' + #mv67 + ' / ==>> ' + #minimum_item_count_final)",
+                            "target_property_name": "#minimum_count_steps"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Crafting input item count
+    "crafting_input_item_count": {
+        "type": "label",
+        "text": "#text",
+        "font_size": "small",
+        "shadow": true,
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "$separator|default": " / ",
+        "$ignore_separator|default": false,
+        "variables": [
+            {
+                "requires": "$ignore_separator",
+                "$separator": ""
+            }
+        ],
+        "bindings": [
+            {
+                "binding_name": "#inventory_stack_count",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_name": "#item_id_aux",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(((#inventory_stack_count * 1) + (not (#item_id_aux = -1)) * (#inventory_stack_count = '') * 1))",
+                "target_property_name": "#stack_count"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "('§z' + #stack_count + $separator)",
+                "target_property_name": "#text"
+            }
+        ]
+    },
+
+    // Crafting output count calc
+    "crafting_output_count_calc": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%cm"],
+        "collection_name": "$item_collection_name",
+        "$item_collection_name|default": "crafting_output_items",
+        "controls": [
+            {
+                "header": {
+                    "type": "label",
+                    "text": "output_stack_count: ",
+                    "font_size": "small",
+                    "shadow": true
+                }
+            },
+            {
+                "crafting_output_item_count": {
+                    "type": "label",
+                    "text": "#text",
+                    "font_size": "small",
+                    "shadow": true,
+                    "collection_index": 0,
+                    "bindings": [
+                        {
+                            "binding_name": "#inventory_stack_count",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$item_collection_name"
+                        },
+                        {
+                            "binding_name": "#item_id_aux",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$item_collection_name"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(((#inventory_stack_count * 1) + (not (#item_id_aux = -1)) * (#inventory_stack_count = '') * 1))",
+                            "target_property_name": "#stack_count"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('§z' + #stack_count)",
+                            "target_property_name": "#text"
+                        }
+                    ]
+                }
+            },
+            {
+                "output_count_multiplied_by_times": {
+                    "type": "label",
+                    "text": "#text",
+                    "font_size": "small",
+                    "shadow": true,
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "minimum_item_count_panel",
+                            "source_property_name": "(' ==> x' + (#minimum_item_count_final * #output_stack_count))",
+                            "target_property_name": "#text"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Crafting output count progress calc
+    "crafting_output_count_progress_calc": {
+        "type": "label",
+        "text": "#text",
+        "font_size": "small",
+        "shadow": true,
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "minimum_item_count_panel",
+                "source_property_name": "#minimum_count_steps",
+                "target_property_name": "#text"
+            }
+        ]
+    },
+
+    // Crafting items remain after craft all calc
+    "crafting_items_remain_after_craft_all_calc": {
+        "type": "panel",
+        "size": ["100%c", "100%c"],
+        "$separator|default": " / ",
+        "controls": [
+            {
+                "items_remain_after_craft_all_calc": {
+                    "type": "label",
+                    "text": "#text",
+                    "font_size": "small",
+                    "shadow": true,
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "minimum_item_count_panel",
+                            "source_property_name": "#minimum_item_count_final",
+                            "target_property_name": "#min_item_count"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_0",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c0"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_1",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c1"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_2",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c2"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_3",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c3"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_4",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c4"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_5",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c5"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_6",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c6"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_7",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c7"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_input_item_count_8",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#c8"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#c0 - #min_item_count) * ((#c0 - #min_item_count) > 0))",
+                            "target_property_name": "#items_remain_slot_0"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#c1 - #min_item_count) * ((#c1 - #min_item_count) > 0))",
+                            "target_property_name": "#items_remain_slot_1"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#c2 - #min_item_count) * ((#c2 - #min_item_count) > 0))",
+                            "target_property_name": "#items_remain_slot_2"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#c3 - #min_item_count) * ((#c3 - #min_item_count) > 0))",
+                            "target_property_name": "#items_remain_slot_3"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#c4 - #min_item_count) * ((#c4 - #min_item_count) > 0))",
+                            "target_property_name": "#items_remain_slot_4"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#c5 - #min_item_count) * ((#c5 - #min_item_count) > 0))",
+                            "target_property_name": "#items_remain_slot_5"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#c6 - #min_item_count) * ((#c6 - #min_item_count) > 0))",
+                            "target_property_name": "#items_remain_slot_6"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#c7 - #min_item_count) * ((#c7 - #min_item_count) > 0))",
+                            "target_property_name": "#items_remain_slot_7"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#c8 - #min_item_count) * ((#c8 - #min_item_count) > 0))",
+                            "target_property_name": "#items_remain_slot_8"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#items_remain_slot_0 + #items_remain_slot_1 + #items_remain_slot_2 + #items_remain_slot_3 + #items_remain_slot_4 + #items_remain_slot_5 + #items_remain_slot_6 + #items_remain_slot_7 + #items_remain_slot_8)",
+                            "target_property_name": "#items_remain_sum"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('items_remain_after_craft_all: ' + #items_remain_slot_0 + $separator + #items_remain_slot_1 + $separator + #items_remain_slot_2 + $separator + #items_remain_slot_3 + $separator + #items_remain_slot_4 + $separator + #items_remain_slot_5 + $separator + #items_remain_slot_6 + $separator + #items_remain_slot_7 + $separator + #items_remain_slot_8 + ' ==> ' + #items_remain_sum)",
+                            "target_property_name": "#text"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Quick craft hover text panel
+    "quick_craft_hover_text_panel": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": ["100%cm", "100%c"],
+        "controls": [
+            {
+                "header_stack_panel": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": ["100%c", 10],
+                    "controls": [
+                        {
+                            "header@zk_common.hover_text_single_line": {
+                                "text": "controller.buttonTip.craftAll"
+                            }
+                        },
+                        {
+                            "padding": {
+                                "type": "panel",
+                                "size": [4, 0]
+                            }
+                        },
+                        {
+                            "double_press_header@zk_common.hover_text_single_line": {
+                                "text": "controller.buttonTip.doublePress"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "quick_craft_times_text_panel": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": ["100%c", 10],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_output_item_count",
+                            "source_property_name": "(#stack_count > 0)",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "p1@zk_common.hover_text_single_line": {
+                                "text": "container.craftAll.stepsToCraftPrefix",
+                                "color": "$5_color_format"
+                            }
+                        },
+                        {
+                            "padding_0": {
+                                "type": "panel",
+                                "size": [4, 0]
+                            }
+                        },
+                        {
+                            "p2@zk_common.hover_text_single_line": {
+                                "text": "#text",
+                                "color": "$5_color_format",
+                                "localize": false,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "minimum_item_count_panel",
+                                        "source_property_name": "('§l' + (#minimum_item_count_final * (not (#output_stack_count = 0))) + ' ')",
+                                        "target_property_name": "#text"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "padding_1": {
+                                "type": "panel",
+                                "size": [4, 0]
+                            }
+                        },
+                        {
+                            "p3@zk_common.hover_text_single_line": {
+                                "text": "container.craftAll.stepsToCraftPostfix",
+                                "color": "$5_color_format"
+                            }
+                        },
+                        {
+                            "p4@zk_common.hover_text_single_line": {
+                                "text": "#text",
+                                "localize": false,
+                                "color": "$5_color_format",
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "minimum_item_count_panel",
+                                        "source_property_name": "(' ==> §lx' + (#minimum_item_count_final * #output_stack_count))",
+                                        "target_property_name": "#text"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "items_remain_after_craft_all_panel": {
+                    "type": "stack_panel",
+                    "orientation": "vertical",
+                    "size": ["100%cm", "100%c"],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "items_remain_after_craft_all_calc",
+                            "source_property_name": "(#items_remain_sum > 0)",
+                            "target_property_name": "#condition_1"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "crafting_output_item_count",
+                            "source_property_name": "(#stack_count > 0)",
+                            "target_property_name": "#condition_2"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#condition_1 and #condition_2)",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "padding_top": {
+                                "type": "panel",
+                                "size": [0, 10]
+                            }
+                        },
+                        {
+                            "header@zk_common.hover_text_single_line": {
+                                "text": "container.craftAll.itemsRemainHeader"
+                            }
+                        },
+                        {
+                            "items_remain_after_craft_all_grids@zk_container_calc_panels.items_remain_after_craft_all_grids": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Items remain after craft all grids
+    "items_remain_after_craft_all_grids": {
+        "type": "panel",
+        "size": ["100%c", "100%c"],
+        "layer": 3,
+        "$use_items_remain_after_craft_all_3x3_grid|default": false,
+        "controls": [
+            {
+                "items_remain_after_craft_all_grid_2x2": {
+                    "ignored": "$use_items_remain_after_craft_all_3x3_grid",
+                    "type": "stack_panel",
+                    "orientation": "vertical",
+                    "size": [36, 36],
+                    "controls": [
+                        {
+                            "row_0": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "size": [36, 18],
+                                "controls": [
+                                    {
+                                        "ir00@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_0",
+                                            "$items_remain_slot_index": "#items_remain_slot_0"
+                                        }
+                                    },
+                                    {
+                                        "ir10@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_1",
+                                            "$items_remain_slot_index": "#items_remain_slot_1"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "row_1": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "size": [36, 18],
+                                "controls": [
+                                    {
+                                        "ir01@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_2",
+                                            "$items_remain_slot_index": "#items_remain_slot_2"
+                                        }
+                                    },
+                                    {
+                                        "ir11@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_3",
+                                            "$items_remain_slot_index": "#items_remain_slot_3"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "items_remain_after_craft_all_grid_3x3": {
+                    "ignored": "(not $use_items_remain_after_craft_all_3x3_grid)",
+                    "type": "stack_panel",
+                    "orientation": "vertical",
+                    "size": [54, 54],
+                    "controls": [
+                        {
+                            "row_0": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "size": [54, 18],
+                                "controls": [
+                                    {
+                                        "ir00@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_0",
+                                            "$items_remain_slot_index": "#items_remain_slot_0"
+                                        }
+                                    },
+                                    {
+                                        "ir10@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_1",
+                                            "$items_remain_slot_index": "#items_remain_slot_1"
+                                        }
+                                    },
+                                    {
+                                        "ir20@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_2",
+                                            "$items_remain_slot_index": "#items_remain_slot_2"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "row_1": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "size": [54, 18],
+                                "controls": [
+                                    {
+                                        "ir01@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_3",
+                                            "$items_remain_slot_index": "#items_remain_slot_3"
+                                        }
+                                    },
+                                    {
+                                        "ir11@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_4",
+                                            "$items_remain_slot_index": "#items_remain_slot_4"
+                                        }
+                                    },
+                                    {
+                                        "ir21@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_5",
+                                            "$items_remain_slot_index": "#items_remain_slot_5"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "row_2": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "size": [54, 18],
+                                "controls": [
+                                    {
+                                        "ir02@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_6",
+                                            "$items_remain_slot_index": "#items_remain_slot_6"
+                                        }
+                                    },
+                                    {
+                                        "ir12@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_7",
+                                            "$items_remain_slot_index": "#items_remain_slot_7"
+                                        }
+                                    },
+                                    {
+                                        "ir22@zk_container_calc_panels.items_remain_after_craft_all_grid_item": {
+                                            "$item_renderer_source_control": "crafting_input_item_count_8",
+                                            "$items_remain_slot_index": "#items_remain_slot_8"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Items remain after craft all grid item
+    "items_remain_after_craft_all_grid_item@common.cell_image": {
+        "size": [18, 18],
+        "$item_renderer_source_control|default": "crafting_input_item_count_0",
+        "$items_remain_slot_index|default": "#items_remain_slot_0",
+        "controls": [
+            {
+                "item_renderer@common.item_renderer": {
+                    "layer": 2,
+                    "size": [16, 16],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "$item_renderer_source_control",
+                            "source_property_name": "#item_id_aux",
+                            "target_property_name": "#item_id_aux"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "items_remain_after_craft_all_calc",
+                            "source_property_name": "($items_remain_slot_index > 0)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "stack_count_label@common.stack_count_label": {
+                    "ignored": false,
+                    "text": "#text",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "items_remain_after_craft_all_calc",
+                            "source_property_name": "('§z' + $items_remain_slot_index)",
+                            "target_property_name": "#text"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "items_remain_after_craft_all_calc",
+                            "source_property_name": "($items_remain_slot_index > 1)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

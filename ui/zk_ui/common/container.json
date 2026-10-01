@@ -1,0 +1,516 @@
+// ZK common container elements
+{
+    "namespace": "zk_common",
+
+    // Item renderer
+    "item_renderer": {
+        "type": "custom",
+        "renderer": "inventory_item_renderer",
+        "size": [16, 16]
+    },
+
+    // Drop button icon
+    "drop_button_icon": {
+        "type": "panel",
+        "size": "$tools_button_size",
+        "$icon_text|default": "",
+        "$item_size|default": [16, 16],
+        "controls": [
+            {
+                "chest_renderer@zk_common.item_renderer": {
+                    "size": "$item_size",
+                    "property_bag": {
+                        "#item_id_aux": 3538944
+                    },
+                    "layer": 1
+                }
+            },
+            {
+                "down_arrow_icon": {
+                    "type": "image",
+                    "texture": "textures/ui/down_arrow",
+                    "size": [12, 12],
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "layer": 2
+                }
+            },
+            {
+                "text": {
+                    "type": "label",
+                    "text": "$icon_text",
+                    "font_size": "small",
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right",
+                    "layer": 3
+                }
+            },
+            {
+                "hover_text_panel@zk_common.hover_text_panel": {}
+            }
+        ]
+    },
+
+    // Destroy button icon
+    "destroy_button_icon": {
+        "type": "panel",
+        "size": "$tools_button_size",
+        "$icon_text|default": "",
+        "$item_size|default": ["100%", "100%"],
+        "controls": [
+            {
+                "trash_bin_icon": {
+                    "type": "image",
+                    "texture": "textures/ui/icon_trash",
+                    "layer": 1,
+                    "size": "$item_size"
+                }
+            },
+            {
+                "text": {
+                    "type": "label",
+                    "text": "$icon_text",
+                    "font_size": "small",
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right",
+                    "layer": 2
+                }
+            },
+            {
+                "hover_text_panel@zk_common.hover_text_panel": {}
+            }
+        ]
+    },
+
+    // Item cell buttons panel
+    "item_cell_buttons_panel": {
+        "type": "stack_panel",
+        "orientation": "$orientation",
+        "layer": 1,
+        "size": "$panel_size",
+        "$orientation|default": "vertical",
+        "$panel_size|default": ["100%cm", "100%c"],
+        "$tools_button_size|default": [16, 16],
+        "$is_inventory_screen|default": false,
+        "variables": [
+            {
+                "requires": "$pocket_screen",
+                "$tools_button_size": [28, 28],
+                "$cell_size": [28, 28],
+                "$cell_content_size": [26, 26],
+                "$item_size": [24, 24]
+            },
+            {
+                "requires": "($orientation = 'horizontal')",
+                "$panel_size": ["100%c", "100%cm"]
+            }
+        ],
+        "controls": [
+            {
+                "drop@zk_common.custom_item_cell": {
+                    "$cell_content": "zk_common.drop_button_icon",
+                    "$pressed_button_name": "button.cursor_drop_one",
+                    "$icon_text": "icontext.multiplyone",
+                    "$hover_text": "icontext.dropOne",
+                    "sound_name": "random.pop",
+                    "sound_volume": 1,
+                    "sound_pitch": 1
+                }
+            },
+            {
+                "drop_all@zk_common.custom_item_cell": {
+                    "$cell_content": "zk_common.drop_button_icon",
+                    "$pressed_button_name": "button.cursor_drop_all",
+                    "$icon_text": "icontext.all",
+                    "$hover_text": "icontext.dropAll",
+                    "sound_name": "random.pop2",
+                    "sound_volume": 1,
+                    "sound_pitch": 1
+                }
+            },
+            {
+                "destroy@zk_common.custom_item_cell": {
+                    "ignored": "(not $is_inventory_screen)",
+                    "$cell_content": "zk_common.destroy_button_icon",
+                    "$pressed_button_name": "button.clear_hotbar_or_remove_one",
+                    "$icon_text": "icontext.multiplyone",
+                    "$hover_text": "icontext.destroyOne",
+                    "sound_name": "random.break",
+                    "sound_volume": 0.8,
+                    "sound_pitch": 1,
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_name": "#is_creative_mode",
+                            "binding_name_override": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "destroy_all@zk_common.custom_item_cell": {
+                    "ignored": "(not $is_inventory_screen)",
+                    "$cell_content": "zk_common.destroy_button_icon",
+                    "$pressed_button_name": "button.destroy_selection",
+                    "$icon_text": "icontext.all",
+                    "$hover_text": "icontext.destroyAll",
+                    "sound_name": "mob.wither.break_block",
+                    "sound_volume": 0.1,
+                    "sound_pitch": 1,
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_name": "#is_creative_mode",
+                            "binding_name_override": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Custom item cell
+    "custom_item_cell@common_buttons.transparent_background_button": {
+        "$button_content": "zk_common.custom_item_cell_control",
+        "$button_pressed_offset|default": [0, 0],
+        "size": "$tools_button_size",
+        "$hover_state_border_visible": false,
+        "$pressed_state_border_visible": false
+    },
+
+    // Custom item cell control
+    "custom_item_cell_control": {
+        "type": "panel",
+        "size": "$cell_size",
+        "$cell_size|default": [16, 16],
+        "$cell_content|default": "common.empty_panel",
+        "$cell_content_size|default": [16, 16],
+        "$background_images|default": "common.cell_image",
+        "controls": [
+            {
+                "cell_bg@$background_images": {
+                    "layer": 1
+                }
+            },
+            {
+                "highlight_slot@common.highlight_slot": {
+                    "visible": "(not $default_state)",
+                    "layer": 2,
+                    "bindings": []
+                }
+            },
+            {
+                "white_border_slot@common.white_border_slot": {
+                    "visible": "(not $default_state)",
+                    "layer": 3
+                }
+            },
+            {
+                "cell_content": {
+                    "type": "panel",
+                    "size": "$cell_size",
+                    "controls": [
+                        {
+                            "cell_content@$cell_content": {
+                                "size": "$cell_content_size",
+                                "layer": 4
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Hover text single line
+    "hover_text_single_line": {
+        "type": "label",
+        "text": "$hover_text",
+        "shadow": "$hover_text_shadow",
+        "localize": "$hover_text_localize",
+        "color": "$item_hover_text_color",
+        "size": "$hover_text_size",
+        "max_size": "$hover_text_max_size",
+        "bindings": "$hover_text_bindings"
+    },
+
+    // Hover text image panel
+    "hover_text_image_panel": {
+        "type": "image",
+        "texture": "textures/ui/purpleBorder",
+        "size": ["100%c + 10px", "100%c + 8px"],
+        "layer": 100,
+        "anchor_from": "center",
+        "anchor_to": "$hover_text_anchor",
+        "offset": "$hover_text_offset",
+        "$hover_text_shadow|default": false,
+        "$hover_text_localize|default": true,
+        "$hover_text_offset|default": [8, 2],
+        "$hover_text_anchor|default": "left_middle",
+        "$hover_text|default": "",
+        "$hover_text_size|default": ["default", "default"],
+        "$hover_text_max_size|default": ["default", "default"],
+        "$hover_text_bindings|default": [],
+        "controls": [
+            {
+                "hover_text@$hover_text_panel": {
+                    "layer": 1
+                }
+            }
+        ]
+    },
+
+    // Hover text button
+    "hover_text_button": {
+        "type": "button",
+        "size": [1, 1],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "layer": 200,
+        "follows_cursor": true,
+        "consume_hover_events": false,
+        "always_handle_pointer": true,
+        "focus_enabled": false,
+        "focus_magnet_enabled": false,
+        "tts_ignore_count": true,
+        "tts_skip_message": true,
+        "tts_inherit_siblings": true,
+        "allow_clipping": false,
+        "controls": [
+            {
+                "hover@zk_common.hover_text_image_panel": {}
+            }
+        ]
+    },
+
+    // Hover text panel
+    "hover_text_panel": {
+        "ignored": "(not $hover_state)",
+        "visible": "(not ($hover_text = ''))",
+        "type": "panel",
+        "allow_clipping": false,
+        "$hover_text|default": "",
+        "$hover_text_panel|default": "zk_common.hover_text_single_line",
+        "$use_hover_text_renderer|default": false,
+        "controls": [
+            {
+                "hover_text_button@zk_common.hover_text_button": {
+                    "ignored": "($touch or $use_hover_text_renderer)"
+                }
+            },
+            {
+                "hover_text_image_panel@zk_common.hover_text_image_panel": {
+                    "ignored": "(not $touch or $use_hover_text_renderer)"
+                }
+            },
+            {
+                "hover_text_renderer@common.hover_text": {
+                    "ignored": "(not $use_hover_text_renderer)",
+                    "allow_clipping": false,
+                    "layer": 200,
+                    "property_bag": {
+                        "#hover_text_label": "$hover_text"
+                    },
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "#hover_text_label",
+                            "target_property_name": "#hover_text"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Destroy items warning tooltip
+    "destroy_items_warning_tooltip@common.selected_item_details": {
+        "ignored": "(not $is_inventory_screen)",
+        "$is_inventory_screen|default": false,
+        "layer": 30,
+        "$alpha_anim": "@zk_subpack_settings.destroy_items_tooltip_anim_control",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "auto_destroy_mode_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "panel_image": {
+                    "type": "image",
+                    "size": ["100%c + 8px", "100%c + 8px"],
+                    "propagate_alpha": true,
+                    "disable_anim_fast_forward": true,
+                    "animation_reset_name": "button.destroy_selection_tooltip",
+                    "alpha": "$alpha_anim",
+                    "texture": "textures/ui/purpleBorder",
+                    "layer": 1,
+                    "controls": [
+                        {
+                            "label_stack": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "size": ["100%c", "100%cm"],
+                                "controls": [
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "textures/ui/trash",
+                                            "size": [13, 17]
+                                        }
+                                    },
+                                    {
+                                        "padding": {
+                                            "type": "panel",
+                                            "size": [4, 0]
+                                        }
+                                    },
+                                    {
+                                        "label_panel_creative": {
+                                            "type": "stack_panel",
+                                            "orientation": "vertical",
+                                            "use_child_anchors": true,
+                                            "size": ["100%cm", "100%c"],
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "global",
+                                                    "binding_name": "#is_creative_mode",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "line_1": {
+                                                        "ignored": "$touch",
+                                                        "type": "label",
+                                                        "text": "container.destroyItemsTooltip.line1",
+                                                        "color": "$item_hover_text_color"
+                                                    }
+                                                },
+                                                {
+                                                    "line_1_touch": {
+                                                        "ignored": "(not $touch)",
+                                                        "type": "label",
+                                                        "text": "container.destroyItemsTooltip.line1_touch",
+                                                        "color": "$item_hover_text_color"
+                                                    }
+                                                },
+                                                {
+                                                    "line_2": {
+                                                        "type": "label",
+                                                        "text": "container.destroyItemsTooltip.line2",
+                                                        "color": "$item_hover_text_color"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "label_panel_survival": {
+                                            "type": "stack_panel",
+                                            "orientation": "vertical",
+                                            "use_child_anchors": true,
+                                            "size": ["100%cm", "100%c"],
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "global",
+                                                    "binding_name": "(not #is_creative_mode)",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "line_1": {
+                                                        "type": "label",
+                                                        "text": "container.destroyItemsTooltip.cannotBeUsedInSurvival.line1",
+                                                        "color": "$item_hover_text_color"
+                                                    }
+                                                },
+                                                {
+                                                    "line_2": {
+                                                        "type": "label",
+                                                        "text": "container.destroyItemsTooltip.cannotBeUsedInSurvival.line2",
+                                                        "color": "$item_hover_text_color"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Anim destroy items tooltip alpha start
+    "anim_destroy_items_tooltip_alpha_start": {
+        "anim_type": "alpha",
+        "easing": "linear",
+        "duration": 0,
+        "from": 1,
+        "to": 1,
+        "reset_event": "button.destroy_selection_tooltip",
+        "next": "@zk_common.anim_destroy_items_tooltip_alpha_wait"
+    },
+
+    // Anim destroy items tooltip alpha wait
+    "anim_destroy_items_tooltip_alpha_wait": {
+        "anim_type": "wait",
+        "duration": 1.5,
+        "next": "@zk_common.anim_destroy_items_tooltip_alpha_alpha"
+    },
+
+    // Anim destroy items tooltip alpha alpha
+    "anim_destroy_items_tooltip_alpha_alpha": {
+        "anim_type": "alpha",
+        "easing": "in_expo",
+        "duration": 0.8,
+        "from": 1,
+        "to": 0
+    },
+
+    // Arrow image switchable toggle content
+    "arrow_image_switchable_toggle_content": {
+        "type": "image",
+        "texture": "textures/ui/Black",
+        "alpha": "$fill_alpha",
+        "$fill_alpha|default": 0.6,
+        "$invert_arrow_image_state|default": false,
+        "$arrow_unchecked_image|default": "textures/ui/arrow_left_white",
+        "$arrow_checked_image|default": "textures/ui/arrow_right_white",
+        "$arrow_image_size|default": [4, 7],
+        "variables": [
+            {
+                "requires": "$invert_arrow_image_state",
+                "$arrow_unchecked_image": "textures/ui/arrow_right_white",
+                "$arrow_checked_image": "textures/ui/arrow_left_white"
+            }
+        ],
+        "controls": [
+            {
+                "arrow_unchecked_image": {
+                    "ignored": "$pressed_state",
+                    "type": "image",
+                    "texture": "$arrow_unchecked_image",
+                    "layer": 1,
+                    "size": "$arrow_image_size"
+                }
+            },
+            {
+                "arrow_checked_image": {
+                    "ignored": "(not $pressed_state)",
+                    "type": "image",
+                    "texture": "$arrow_checked_image",
+                    "layer": 1,
+                    "size": "$arrow_image_size"
+                }
+            }
+        ]
+    }
+}
