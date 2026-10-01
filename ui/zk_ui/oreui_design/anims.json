@@ -2,50 +2,6 @@
 {
     "namespace": "zk_oreui_design__anims",
 
-    // Dialog exit size animation push
-    "dialog_exit_size_animation_push": {
-        "anim_type": "size",
-        "easing": "in_quart",
-        "duration": "$transition_time_push",
-        "from": ["100%sm", "100%sm"],
-        "to": ["100%sm - 24px", "100%sm - 24px"],
-        "play_event": "screen.exit_push",
-        "end_event": "screen.exit_end"
-    },
-
-    // Dialog exit size animation pop
-    "dialog_exit_size_animation_pop": {
-        "anim_type": "size",
-        "easing": "in_quart",
-        "duration": "$transition_time_pop",
-        "from": ["100%sm", "100%sm"],
-        "to": ["100%sm - 24px", "100%sm - 24px"],
-        "play_event": "screen.exit_pop",
-        "end_event": "screen.exit_end"
-    },
-
-    // Dialog entrance size animation push
-    "dialog_entrance_size_animation_push": {
-        "anim_type": "size",
-        "easing": "out_quart",
-        "duration": "$transition_time_push",
-        "from": ["100%sm - 24px", "100%sm - 24px"],
-        "to": ["100%sm", "100%sm"],
-        "play_event": "screen.entrance_push",
-        "end_event": "screen.entrance_end"
-    },
-
-    // Dialog entrance size animation pop
-    "dialog_entrance_size_animation_pop": {
-        "anim_type": "size",
-        "easing": "out_quart",
-        "duration": "$transition_time_pop",
-        "from": ["100%sm - 24px", "100%sm - 24px"],
-        "to": ["100%sm", "100%sm"],
-        "play_event": "screen.entrance_pop",
-        "end_event": "screen.entrance_end"
-    },
-
     // Oreui popup dialog body anim size
     "oreui_popup_dialog_body_anim_size": {
         "anim_type": "size",

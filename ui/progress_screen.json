@@ -1,5 +1,6 @@
 // Modal progress screen
 {
+
     // Simple popup dialog base
     "simple_popup_dialog_base": {
         "size": ["100%", "100%"],
@@ -241,123 +242,21 @@
 
     // Modal progress panel with cancel
     "modal_progress_panel_with_cancel": {
-        "controls": [
-            {
-                "dialog_content@zk_oreui_design__dialogs.oreui_simple_dialog_panel": {
-                    "size": ["100%", "100%cm"],
-                    "$child_control": "progress.modal_progress_panel_content"
-                }
-            }
-        ]
-    },
-
-    // Modal progress panel content
-    "modal_progress_panel_content": {
         "type": "stack_panel",
         "orientation": "vertical",
-        "size": ["100% - 8px", "100%c"],
+        "size": [256, "100%c"],
         "controls": [
             {
-                "padding_top@common.empty_panel": {
-                    "size": [16, 16]
-                }
-            },
-            {
-                "title_panel@progress.modal_progress_title_panel": {}
-            },
-            {
-                "loading_spinner_panel@common.empty_panel": {
-                    "size": ["100%", "100%c + 8px"],
-                    "bindings": [
-                        {
-                            "binding_name": "#bar_animation_visible",
-                            "binding_name_override": "#visible"
-                        }
-                    ],
-                    "controls": [
-                        {
-                            "progress_loading_spinner@progress.progress_loading_spinner": {
-                                "offset": [0, 0],
-                                "color": "$title_text_color",
-                                "bindings": []
-                            }
-                        }
-                    ]
+                "dialog@zk_oreui_design__dialogs.oreui_dialog_panel": {
+                    "size": ["100%", "100%c"],
+                    "$dialog_style": "no_footer",
+                    "$dialog_header_content": "progress.modal_progress_dialog_header",
+                    "$dialog_body_content": "progress.modal_progress_dialog_body"
                 }
             },
             {
                 "modal_button_panel@progress.modal_button_panel": {
-                    "size": ["100%", "100%cm"]
-                }
-            },
-            {
-                "padding_bottom@common.empty_panel": {
-                    "size": [16, 16]
-                }
-            }
-        ]
-    },
-
-    // Modal progress title panel
-    "modal_progress_title_panel": {
-        "type": "stack_panel",
-        "orientation": "vertical",
-        "size": ["100%", "100%c"],
-        "controls": [
-            {
-                "progress_title_text@progress.progress_screen_text": {
-                    "size": ["100%", "default"],
-                    "max_size": ["100%", 32],
-                    "text_alignment": "center",
-                    "text": "#title_text",
-                    "color": "$zk_oreui_design:common_title_text_color",
-                    "font_type": "MinecraftTen",
-                    "font_scale_factor": 1.5,
-                    "bindings": [
-                        {
-                            "binding_name": "#title_text"
-                        }
-                    ]
-                }
-            },
-            {
-                "padding_middle_0@common.empty_panel": {
-                    "size": [6, 6]
-                }
-            },
-            {
-                "progress_bar_text@progress.progress_screen_text": {
-                    "size": ["100%", "default"],
-                    "max_size": ["100%", 30],
-                    "text_alignment": "center",
-                    "text": "#progress_text",
-                    "color": "$zk_oreui_design:common_title_text_color",
-                    "bindings": [
-                        {
-                            "binding_name": "#progress_text"
-                        }
-                    ]
-                }
-            },
-            {
-                "padding_middle_1@common.empty_panel": {
-                    "size": [6, 6],
-                    "bindings": [
-                        {
-                            "binding_name": "#loading_bar_visible",
-                            "binding_name_override": "#visible"
-                        }
-                    ]
-                }
-            },
-            {
-                "progress_bar_panel@common.empty_panel": {
-                    "size": ["100%", "100%c"],
-                    "controls": [
-                        {
-                            "progress_bar@progress.progress_bar": {}
-                        }
-                    ]
+                    "size": ["100%", 40]
                 }
             }
         ]
@@ -374,7 +273,7 @@
         "size": ["100%", 26]
     },
 
-    // Pickaxe animation
+    // Pick axe animation
     "pick_axe_animation": {
         "anim_type": "flip_book",
         "initial_uv": [0, 0],
@@ -385,7 +284,7 @@
         "easing": "linear"
     },
 
-    // Loading pickaxe icon
+    // Mine chop dig icon
     "mine_chop_dig_icon": {
         "type": "image",
         "layer": 1,
@@ -396,30 +295,30 @@
         "color": [1, 1, 1, 1]
     },
 
-    // Realms stories loading screen
+    // Realms stories loading progress screen
     "realms_stories_loading_progress_screen": {
         "$screen_content": "progress.realms_loading_world_modal_progress_screen_content",
         "$screen_bg_content": "progress.realms_loading_background"
     },
 
-    // World saving screen
+    // World saving progress screen
     "world_saving_progress_screen": {
         "$ignore_percentage_text": true
     },
 
-    // Overworld loading screen
+    // Overworld loading progress screen
     "overworld_loading_progress_screen": {
         "$force_loading_bar_visible": true,
         "$is_dimension_loading_screen": true
     },
 
-    // Nether loading screen
+    // Nether loading progress screen
     "nether_loading_progress_screen": {
         "$force_loading_bar_visible": true,
         "$is_dimension_loading_screen": true
     },
 
-    // The End loading screen
+    // Theend loading progress screen
     "theend_loading_progress_screen": {
         "$force_loading_bar_visible": true,
         "$is_dimension_loading_screen": true
@@ -435,14 +334,14 @@
         ]
     },
 
-    // Title panel text
+    // Title panel progress title text
     "title_panel/progress_title_text": {
         "font_type": "MinecraftTen",
         "font_scale_factor": 1.5,
         "shadow": true
     },
 
-    // Loading title and status text
+    // Progress title panel
     "progress_title_panel": {
         "type": "stack_panel",
         "orientation": "vertical",
@@ -502,7 +401,7 @@
         "size": ["100%", "100%c"]
     },
 
-    // Empty modal buttons
+    // Modal button empty panel
     "modal_button_empty_panel@progress.button_panel": {
         "controls": [
             {
@@ -511,7 +410,7 @@
         ]
     },
 
-    // World loading panel
+    // World modal progress panel
     "world_modal_progress_panel": {
         "size": ["100%", "100%"],
         "anchor_from": "center",
@@ -638,12 +537,12 @@
         ]
     },
 
-    // World convert loading panel
+    // World convert modal progress screen content world modal progress panel
     "world_convert_modal_progress_screen_content/world_modal_progress_panel": {
         "$modal_button_panel_type": "progress.modal_button_panel"
     },
 
-    // World save loading panel
+    // World save modal progress screen content world modal progress panel
     "world_save_modal_progress_screen_content/world_modal_progress_panel": {
         "$modal_button_panel_type": "progress.modal_button_panel_with_retry"
     },
@@ -653,7 +552,7 @@
         "$screen_bg_content": "progress.progress_gradient_background"
     },
 
-    // Bottom gradient background
+    // Progress gradient background
     "progress_gradient_background": {
         "type": "panel",
         "controls": [
@@ -673,7 +572,7 @@
         ]
     },
 
-    // World save icon
+    // World save modal progress screen content save icon
     "world_save_modal_progress_screen_content/save_icon": {
         "anchor_from": "bottom_right",
         "anchor_to": "bottom_right",
@@ -683,5 +582,110 @@
     // Mobile data icon
     "mobile_data_icon": {
         "layer": 2
+    },
+
+    // Modal progress dialog header
+    "modal_progress_dialog_header": {
+        "type": "panel",
+        "controls": [
+            {
+                "title_label_panel": {
+                    "type": "panel",
+                    "size": ["100%", 24],
+                    "controls": [
+                        {
+                            "dialog_title": {
+                                "type": "label",
+                                "color": "$main_header_text_color",
+                                "text": "#title_text",
+                                "size": ["default", "default"],
+                                "max_size": ["100%", "default"],
+                                "shadow": true,
+                                "text_alignment": "center",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#title_text"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Modal progress dialog body
+    "modal_progress_dialog_body": {
+        "type": "panel",
+        "controls": [
+            {
+                "inner_controls": {
+                    "type": "stack_panel",
+                    "orientation": "vertical",
+                    "use_child_anchors": true,
+                    "size": ["100% - 16px", "100%c"],
+                    "controls": [
+                        {
+                            "padding_top@common.empty_panel": {
+                                "size": [10, 10]
+                            }
+                        },
+                        {
+                            "loading_spinner": {
+                                "type": "image",
+                                "texture": "textures/ui/loading_spin",
+                                "uv_size": [7, 7],
+                                "size": [14, 14],
+                                "uv": "@progress.spinner_animation"
+                            }
+                        },
+                        {
+                            "padding_middle@common.empty_panel": {
+                                "size": [8, 8]
+                            }
+                        },
+                        {
+                            "progress_bar_text@progress.progress_screen_text": {
+                                "size": ["100%", "default"],
+                                "max_size": ["100%", 30],
+                                "text_alignment": "center",
+                                "text": "#progress_text",
+                                "color": "$body_text_color",
+                                "font_scale_factor": 0.8,
+                                "shadow": true,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#progress_text"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "padding_bar@common.empty_panel": {
+                                "size": [6, 6]
+                            }
+                        },
+                        {
+                            "progress_bar_panel@common.empty_panel": {
+                                "size": ["100%", "100%c"],
+                                "controls": [
+                                    {
+                                        "progress_bar@progress.progress_bar": {
+                                            "size": ["100% - 4px", 2]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "padding_bottom@common.empty_panel": {
+                                "size": [10, 10]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
     }
 }

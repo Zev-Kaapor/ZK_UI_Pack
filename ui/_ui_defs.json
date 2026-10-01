@@ -34,6 +34,7 @@
         "ui/zk_ui/container/item_durability_tool.json",
         "ui/zk_ui/container/subpack_settings.json",
         "ui/zk_ui/container/calc_panels.json",
-        "ui/zk_ui/container/item_mode.json"
+        "ui/zk_ui/container/item_mode.json",
+        "ui/zk_ui/container/bulk_move.json"
     ]
 }

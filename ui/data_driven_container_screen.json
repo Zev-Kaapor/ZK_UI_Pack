@@ -28,7 +28,12 @@
                             "layer": 10,
                             "$toggle_anchor_from": "top_right",
                             "$toggle_anchor_to": "top_right",
-                            "$toggle_offset": [-22, 5]
+                            "$toggle_offset": [-22, 9]
+                        }
+                    },
+                    {
+                        "bulk_move_tabs@zk_container_bulk_move.bulk_move_tabs": {
+                            "ignored": "$pocket_screen"
                         }
                     }
                 ]

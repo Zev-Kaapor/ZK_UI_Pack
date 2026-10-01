@@ -230,8 +230,6 @@
         "$dialog_header_content|default": "zk_oreui_design__dialogs.form_fitting_dialog_header_content",
         "$dialog_body_content|default": "zk_oreui_design__dialogs.dialog_body_content",
         "$dialog_footer_content|default": "zk_oreui_design__dialogs.dialog_footer_content",
-        // 28px: header
-        // 46px: 16px footer padding + 30px 1 button
         "$dialog_body_indent_size|default": ["100%", "100% - 28px - 46px"],
         "$dialog_body_indent_offset|default": [0, 28],
         "$dialog_footer_content_size|default": [0, 30],
@@ -485,41 +483,6 @@
                     "type": "label",
                     "text": "N/A",
                     "layer": 5
-                }
-            }
-        ]
-    },
-
-    // Oreui simple dialog panel
-    "oreui_simple_dialog_panel": {
-        "type": "panel",
-        "controls": [
-            {
-                "dialog_background": {
-                    "type": "image",
-                    "texture": "textures/zk_ui/ore_ui/dialogs/dialog_background_light_opaque",
-                    "size": ["100%sm", "100%sm"],
-                    "disable_anim_fast_forward": true,
-                    "animation_reset_name": "screen_animation_reset",
-                    "anims": [
-                        "@zk_oreui_design__anims.dialog_entrance_size_animation_push",
-                        "@zk_oreui_design__anims.dialog_entrance_size_animation_pop",
-                        "@zk_oreui_design__anims.dialog_exit_size_animation_push",
-                        "@zk_oreui_design__anims.dialog_exit_size_animation_pop"
-                    ]
-                }
-            },
-            {
-                "content_panel": {
-                    "type": "panel",
-                    "size": ["100% + 12px", "100%c + 14px"],
-                    "offset": [0, -2],
-                    "layer": 1,
-                    "controls": [
-                        {
-                            "child_control@$child_control": {}
-                        }
-                    ]
                 }
             }
         ]
