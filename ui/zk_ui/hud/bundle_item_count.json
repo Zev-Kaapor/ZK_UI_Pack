@@ -1,0 +1,74 @@
+// ZK bundle item count
+{
+    "namespace": "zk_bundle_item_count",
+
+    // Bundle item count calc
+    "bundle_item_count_calc": {
+        "type": "panel",
+        "size": [0, 0],
+        "$current_storage_binding_name|default": "#none",
+        "$current_storage_binding_type|default": "none",
+        "$current_storage_collection_name|default": "",
+        "$total_storage_binding_name|default": "#none",
+        "$total_storage_binding_type|default": "none",
+        "$total_storage_collection_name|default": "",
+        "$input_source|default": "",
+        "$cur_input_source_property|default": "",
+        "$cur_output_source_property|default": "#cur_out",
+        "$tot_input_source_property|default": "",
+        "$tot_output_source_property|default": "#tot_out",
+        "$use_sibling_scope|default": false,
+        "bindings": [
+            {
+                "ignored": "($current_storage_binding_name = '#none')",
+                "binding_name": "$current_storage_binding_name",
+                "binding_name_override": "#n",
+                "binding_type": "$current_storage_binding_type",
+                "binding_collection_name": "$current_storage_collection_name"
+            },
+            {
+                "ignored": "($total_storage_binding_name = '#none')",
+                "binding_name": "$total_storage_binding_name",
+                "binding_name_override": "#tn",
+                "binding_type": "$total_storage_binding_type",
+                "binding_collection_name": "$total_storage_collection_name"
+            },
+            {
+                "ignored": "($input_source = '')",
+                "binding_type": "view",
+                "source_control_name": "$input_source",
+                "source_property_name": "$cur_input_source_property",
+                "target_property_name": "#n",
+                "resolve_sibling_scope": "$use_sibling_scope"
+            },
+            {
+                "ignored": "($input_source = '')",
+                "binding_type": "view",
+                "source_control_name": "$input_source",
+                "source_property_name": "$tot_input_source_property",
+                "target_property_name": "#tn",
+                "resolve_sibling_scope": "$use_sibling_scope"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#n > 9) * 10 + (#n > 19) * 10 + (#n > 29) * 10 + (#n > 39) * 10 + (#n > 49) * 10 + (#n > 59) * 10)",
+                "target_property_name": "#e1_c"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#e1_c + (#n - #e1_c > 0) + (#n - #e1_c > 1) + (#n - #e1_c > 2) + (#n - #e1_c > 3) + (#n - #e1_c > 4) + (#n - #e1_c > 5) + (#n - #e1_c > 6) + (#n - #e1_c > 7) + (#n - #e1_c > 8))",
+                "target_property_name": "$cur_output_source_property"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#tn > 9) * 10 + (#tn > 19) * 10 + (#tn > 29) * 10 + (#tn > 39) * 10 + (#tn > 49) * 10 + (#tn > 59) * 10)",
+                "target_property_name": "#e1_t"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#e1_t + (#tn - #e1_t > 0) + (#tn - #e1_t > 1) + (#tn - #e1_t > 2) + (#tn - #e1_t > 3) + (#tn - #e1_t > 4) + (#tn - #e1_t > 5) + (#tn - #e1_t > 6) + (#tn - #e1_t > 7) + (#tn - #e1_t > 8))",
+                "target_property_name": "$tot_output_source_property"
+            }
+        ]
+    }
+}

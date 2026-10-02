@@ -36,9 +36,19 @@
         "ui/zk_ui/container/calc_panels.json",
         "ui/zk_ui/container/item_mode.json",
         "ui/zk_ui/container/bulk_move.json",
+        "ui/zk_ui/container/item_search.json",
         "ui/zk_ui/modules/smithing_preview.json",
         "ui/zk_ui/brewing_stand.json",
         "ui/zk_ui/trade_2.json",
-        "ui/zk_ui/modules/hover_fix.json"
+        "ui/zk_ui/modules/hover_fix.json",
+        "ui/zk_ui/hud/movable_modules.json",
+        "ui/zk_ui/hud/bundle_item_count.json",
+        "ui/zk_ui/hud/common.json",
+        "ui/zk_ui/hud/toggleables.json",
+        "ui/zk_ui/common/anims.json",
+        "ui/zk_ui/hud/utilities.json",
+        "ui/zk_ui/hud/xp_calc_map.json",
+        "ui/zk_ui/item_ids.json",
+        "ui/zk_ui/furnace.json"
     ]
 }

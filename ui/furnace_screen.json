@@ -44,6 +44,12 @@
                 "operation": "insert_back",
                 "value": [
                     {
+                        "item_search_bar@zk_item_search.item_search_bar": {
+                            "ignored": "$pocket_screen",
+                            "layer": 10
+                        }
+                    },
+                    {
                         "item_lore_viewer@zk_item_lore_viewer.item_lore_viewer": {}
                     }
                 ]
@@ -105,5 +111,297 @@
         "anchor_from": "left_middle",
         "anchor_to": "right_middle",
         "offset": [-2, 0]
+    },
+
+    // Left tab
+    "left_tab@common_tabs.tab_left": {},
+
+    // Top tab
+    "top_tab@furnace.left_tab": {
+        "size": ["100%", 25],
+        "alpha": 0.2,
+        "$anims|default": [],
+        "anims": "$anims",
+        "$offset|default": [0, 0],
+        "offset": "$offset",
+        "$toggle_focus_enabled": false,
+        "$toggle_name": "navigation_tab",
+        "$toggle_group_default_selected": "$search_index",
+        "$tab_content": "common_tabs.empty_tab_panel",
+        "$allow_controller_back_button_mapping": "$is_ps4"
+    },
+
+    // Tab navigation panel layout
+    "tab_navigation_panel_layout": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": [36, "100%"],
+        "ttsSectionContainer": true,
+        "controls": [
+            {
+                "navigation_tabs": {
+                    "type": "panel",
+                    "size": ["100%", "fill"],
+                    "controls": [
+                        {
+                            "content": {
+                                "type": "stack_panel",
+                                "size": ["100%", "100% - 25px"],
+                                "anchor_to": "top_left",
+                                "anchor_from": "top_left",
+                                "controls": [
+                                    {
+                                        "food_tab_holder": {
+                                            "type": "panel",
+                                            "size": ["100%", "100%cm"],
+                                            "controls": [
+                                                {
+                                                    "food_tab_control@furnace.food_tab": {
+                                                        "$is_top_most_tab": true,
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "#food_tab_visible",
+                                                                "binding_name_override": "#visible"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "blocks_tab_holder": {
+                                            "type": "panel",
+                                            "size": ["100%", "100%cm"],
+                                            "controls": [
+                                                {
+                                                    "blocks_tab_leftmost@furnace.blocks_tab": {
+                                                        "$is_top_most_tab": true,
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "#blocks_tab_is_leftmost",
+                                                                "binding_name_override": "#visible"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "blocks_tab_normal@furnace.blocks_tab": {
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "#blocks_tab_visible_not_leftmost",
+                                                                "binding_name_override": "#visible"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "items_tab_holder": {
+                                            "type": "panel",
+                                            "size": ["100%", "100%cm"],
+                                            "controls": [
+                                                {
+                                                    "items_tab_leftmost@furnace.items_tab": {
+                                                        "$is_top_most_tab": true,
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "#items_tab_is_leftmost",
+                                                                "binding_name_override": "#visible"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "items_tab_normal@furnace.items_tab": {
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "#items_tab_visible_not_leftmost",
+                                                                "binding_name_override": "#visible"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "fill_panel_0": {
+                                            "type": "panel",
+                                            "size": ["100%", "fill"]
+                                        }
+                                    },
+                                    {
+                                        "search_tab_holder": {
+                                            "type": "panel",
+                                            "size": ["100%", 25],
+                                            "controls": [
+                                                {
+                                                    "search_tab@furnace.search_tab": {
+                                                        "$focus_override_right": "default_layout_toggle"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "fuel_toggle",
+                                        "source_property_name": "(not #toggle_state)",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "fuel_tab_holder@zk_furnace.fuel_tab_holder": {
+                                "anchor_from": "bottom_left",
+                                "anchor_to": "bottom_left"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Recipe book panel tab navigation panel
+    "recipe_book_panel/tab_navigation_panel": {
+        "size": [30, "100%"],
+        "offset": [4, 0],
+        "anchor_from": "top_left",
+        "anchor_to": "top_right"
+    },
+
+    // Recipe book panel gamepad helper bumpers
+    "recipe_book_panel/gamepad_helper_bumpers": {
+        "size": [16, 146],
+        "offset": [-5, 10],
+        "anchor_from": "top_left",
+        "anchor_to": "top_right"
+    },
+
+    // Tab content tab content search bar panel items panel scroll pane
+    "tab_content/tab_content_search_bar_panel/items_panel/scroll_pane": {
+        "$scroll_view_port_offset": [0, 1],
+        "$scroll_view_port_offset_touch": [0, 1],
+        "$scroll_view_port_size": ["100%", "100% - 2px"]
+    },
+
+    // Tab content tab content search bar panel items panel shadow stack shadow container
+    "tab_content/tab_content_search_bar_panel/items_panel/shadow_stack/shadow_container": {
+        "ignored": true
+    },
+
+    // Tab label
+    "tab_label": {
+        "text": "#text",
+        "property_bag": {
+            "#text_true": "zk.fuelInformation"
+        },
+        "bindings": [
+            {
+                "binding_name": "#tab_label_text",
+                "binding_name_override": "#text_false"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "fuel_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#toggle"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "('#text_' + #toggle)",
+                "target_property_name": "#text"
+            }
+        ]
+    },
+
+    // Cust scroll panel
+    "cust_scroll_panel": {
+        "type": "panel",
+        "controls": [
+            {
+                "scroll_panel@furnace.scroll_panel": {
+                    "size": ["100%", "100%"],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "fuel_toggle",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "fuel_scroll_panel@common.container_scroll_panel": {
+                    "$allow_scroll_even_when_content_fits": false,
+                    "$scrolling_content": "zk_furnace.fuel_panel",
+                    "$collection_name": "itzriyo157",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "fuel_toggle",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Tab content tab content search bar panel search and filter panel
+    "tab_content/tab_content_search_bar_panel/search_and_filter_panel": {
+        "bindings": [
+            {
+                "binding_name": "#is_left_tab_search"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "fuel_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#toggle"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#is_left_tab_search and not #toggle)",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    // Tab content tab content search bar panel tab label holder filter toggle holder
+    "tab_content/tab_content_search_bar_panel/tab_label_holder/filter_toggle_holder": {
+        "bindings": [
+            {
+                "binding_name": "#is_left_tab_search"
+            },
+            {
+                "binding_name": "#is_left_tab_inventory"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "fuel_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#toggle"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not #toggle and not #is_left_tab_inventory and (not #is_left_tab_search or $is_pocket_mode))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    // Recipe book panel tab content panel
+    "recipe_book_panel/tab_content_panel": {
+        "$scrolling_pane_control": "furnace.cust_scroll_panel"
     }
 }

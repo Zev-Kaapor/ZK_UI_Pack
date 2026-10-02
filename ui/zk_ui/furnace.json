@@ -1,0 +1,788 @@
+// ZK furnace
+{
+    "namespace": "zk_furnace",
+
+    // F container item
+    "f_container_item@zk_common.guide_container_item": {
+        "controls": [
+            {
+                "hover_text@common.white_border_slot": {
+                    "layer": 2,
+                    "controls": [
+                        {
+                            "highlight@common.cell_image": {
+                                "texture": "textures/ui/highlight_slot",
+                                "size": ["100% - 2px", "100% - 2px"]
+                            }
+                        },
+                        {
+                            "text@zk_common.custom_hover_text": {
+                                "$hover_text": "('%' + $item_name + '\n\n%zk.burningTime ' + $minutes_burn + '%course.edu.estimatedLength.minutesUnit ' + $seconds_burn + '%course.edu.estimatedLength.secondsUnit\n%zk.noItemsSmeltedPerFuel ' + $items_smelted)"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "background_images": {
+                    "type": "image",
+                    "texture": "textures/ui/recipe_book_item_bg",
+                    "layer": 1
+                }
+            },
+            {
+                "item_panel": {
+                    "type": "panel",
+                    "layer": 8,
+                    "size": [16, 16],
+                    "controls": [
+                        {
+                            "item_texture": {
+                                "ignored": "$use_item_renderer",
+                                "type": "image",
+                                "texture": "$i_texture",
+                                "$i_texture|default": "('textures/items/' + $item_texture)"
+                            }
+                        },
+                        {
+                            "item_renderer_panel": {
+                                "ignored": "(not $use_item_renderer)",
+                                "type": "panel",
+                                "controls": [
+                                    {
+                                        "render@zk_common.item_renderer_off": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "text_label": {
+                    "ignored": "(not $show_text_label)",
+                    "type": "label",
+                    "text": "$text_label",
+                    "color": "$item_stack_count_color",
+                    "offset": "$text_label_offset",
+                    "anchor_to": "$text_label_anchor",
+                    "anchor_from": "$text_label_anchor",
+                    "font_scale_factor": "$text_font_scale_factor",
+                    "layer": 9,
+                    "shadow": true
+                }
+            },
+            {
+                "additional_control@$additional_control": {}
+            }
+        ]
+    },
+
+    // Fuel panel
+    "fuel_panel@zk_item_ids.index": {
+        "type": "panel",
+        "size": ["100%", "100%c"],
+        "controls": [
+            {
+                "stacking": {
+                    "type": "stack_panel",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "size": ["100%", "100%c"],
+                    "controls": [
+                        {
+                            "row_1@zk.stack_hor": {
+                                "size": ["100%c", "100%cm"],
+                                "controls": [
+                                    {
+                                        "lavaBucket@zk_furnace.f_container_item": {
+                                            "$item_texture": "bucket_lava",
+                                            "$item_name": "item.bucketLava.name",
+                                            "$minutes_burn": "16",
+                                            "$seconds_burn": "40",
+                                            "$items_smelted": "100"
+                                        }
+                                    },
+                                    {
+                                        "coalBlock@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:coal_block",
+                                            "$item_name": "tile.coal_block.name",
+                                            "$minutes_burn": "13",
+                                            "$seconds_burn": "20",
+                                            "$items_smelted": "80"
+                                        }
+                                    },
+                                    {
+                                        "driedKelp@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:dried_kelp_block",
+                                            "$item_name": "tile.dried_kelp_block.name",
+                                            "$minutes_burn": "3",
+                                            "$seconds_burn": "20",
+                                            "$items_smelted": "20"
+                                        }
+                                    },
+                                    {
+                                        "blazeRod@zk_furnace.f_container_item": {
+                                            "$item_texture": "blaze_rod",
+                                            "$item_name": "item.blaze_rod.name",
+                                            "$minutes_burn": "2",
+                                            "$seconds_burn": "0",
+                                            "$items_smelted": "12"
+                                        }
+                                    },
+                                    {
+                                        "coal@zk_furnace.f_container_item": {
+                                            "$item_texture": "coal",
+                                            "$item_name": "item.coal.name",
+                                            "$minutes_burn": "1",
+                                            "$seconds_burn": "20",
+                                            "$items_smelted": "8"
+                                        }
+                                    },
+                                    {
+                                        "charCoal@zk_furnace.f_container_item": {
+                                            "$item_texture": "charcoal",
+                                            "$item_name": "item.charcoal.name",
+                                            "$minutes_burn": "1",
+                                            "$seconds_burn": "20",
+                                            "$items_smelted": "8"
+                                        }
+                                    },
+                                    {
+                                        "boat@zk_furnace.f_container_item": {
+                                            "$item_texture": "boat_oak",
+                                            "$item_name": "entity.boat.name",
+                                            "$minutes_burn": "1",
+                                            "$seconds_burn": "0",
+                                            "$items_smelted": "6"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "row_2@zk.stack_hor": {
+                                "size": ["100%c", "100%cm"],
+                                "controls": [
+                                    {
+                                        "boatWithChest@zk_furnace.f_container_item": {
+                                            "$item_texture": "oak_chest_boat",
+                                            "$item_name": "entity.chest_boat.name",
+                                            "$minutes_burn": "1",
+                                            "$seconds_burn": "0",
+                                            "$items_smelted": "6"
+                                        }
+                                    },
+                                    {
+                                        "bambooMosaic@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:bamboo_mosaic",
+                                            "$item_name": "tile.bamboo_mosaic.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "bambooMosaicSlab@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:bamboo_mosaic_slab",
+                                            "$item_name": "tile.bamboo_mosaic_slab.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "bambooMosaicStairs@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:bamboo_mosaic_stairs",
+                                            "$item_name": "tile.bamboo_mosaic_stairs.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "chiseledBookshelf@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:chiseled_bookshelf",
+                                            "$item_name": "tile.chiseled_bookshelf.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "bambooBlock@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:bamboo_block",
+                                            "$item_name": "tile.bamboo_block.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "log@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:oak_log",
+                                            "$item_name": "itemGroup.name.log",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "row_3@zk.stack_hor": {
+                                "size": ["100%c", "100%cm"],
+                                "controls": [
+                                    {
+                                        "wood@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:oak_wood",
+                                            "$item_name": "itemGroup.name.wood",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "planks@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:oak_planks",
+                                            "$item_name": "itemGroup.name.planks",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "plankSlab@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:oak_slab",
+                                            "$item_name": "itemGroup.name.slab",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "plankStair@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:oak_stairs",
+                                            "$item_name": "itemGroup.name.stairs",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "woodPress@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:wooden_pressure_plate",
+                                            "$item_name": "itemGroup.name.pressurePlate",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "plankButton@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:wooden_button",
+                                            "$item_name": "itemGroup.name.buttons",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "5",
+                                            "$items_smelted": "0.5"
+                                        }
+                                    },
+                                    {
+                                        "plankTrapdoor@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:trapdoor",
+                                            "$item_name": "itemGroup.name.trapdoor",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "row_4@zk.stack_hor": {
+                                "size": ["100%c", "100%cm"],
+                                "controls": [
+                                    {
+                                        "plankFenceGate@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:fence_gate",
+                                            "$item_name": "itemGroup.name.fenceGate",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "plankFence@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:oak_fence",
+                                            "$item_name": "itemGroup.name.fence",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "mangroveRoots@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:mangrove_roots",
+                                            "$item_name": "tile.mangrove_roots.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "ladder@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:ladder",
+                                            "$item_name": "tile.ladder.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "craftingTable@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:crafting_table",
+                                            "$item_name": "tile.crafting_table.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "cartographyTable@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:cartography_table",
+                                            "$item_name": "tile.cartography_table.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "fletchingTable@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:fletching_table",
+                                            "$item_name": "tile.fletching_table.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "row_5@zk.stack_hor": {
+                                "size": ["100%c", "100%cm"],
+                                "controls": [
+                                    {
+                                        "smithingTable@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:smithing_table",
+                                            "$item_name": "tile.smithing_table.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "loom@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:loom",
+                                            "$item_name": "tile.loom.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "bookshelf@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:bookshelf",
+                                            "$item_name": "tile.bookshelf.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "lectern@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:lectern",
+                                            "$item_name": "tile.lectern.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "composter@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:composter",
+                                            "$item_name": "tile.composter.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "chest@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:chest",
+                                            "$item_name": "tile.chest.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "trapChest@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:trapped_chest",
+                                            "$item_name": "tile.trapped_chest.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "row_6@zk.stack_hor": {
+                                "size": ["100%c", "100%cm"],
+                                "controls": [
+                                    {
+                                        "barrel@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:barrel",
+                                            "$item_name": "tile.barrel.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "daylightDetector@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:daylight_detector",
+                                            "$item_name": "tile.daylight_detector.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "jukebox@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:jukebox",
+                                            "$item_name": "tile.jukebox.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "noteBlock@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:noteblock",
+                                            "$item_name": "tile.noteblock.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "banner@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:banner",
+                                            "$item_name": "itemGroup.name.banner",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "corssbow@zk_furnace.f_container_item": {
+                                            "$item_texture": "crossbow_standby",
+                                            "$item_name": "item.crossbow.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "10",
+                                            "$items_smelted": "1"
+                                        }
+                                    },
+                                    {
+                                        "bow@zk_furnace.f_container_item": {
+                                            "$item_texture": "bow_standby",
+                                            "$item_name": "item.bow.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "10",
+                                            "$items_smelted": "1"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "row_7@zk.stack_hor": {
+                                "size": ["100%c", "100%cm"],
+                                "controls": [
+                                    {
+                                        "fishingRod@zk_furnace.f_container_item": {
+                                            "$item_texture": "fishing_rod_uncast",
+                                            "$item_name": "item.fishing_rod.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "15",
+                                            "$items_smelted": "1.5"
+                                        }
+                                    },
+                                    {
+                                        "woodenDoor@zk_furnace.f_container_item": {
+                                            "$item_texture": "door_wood",
+                                            "$item_name": "itemGroup.name.door",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "10",
+                                            "$items_smelted": "1"
+                                        }
+                                    },
+                                    {
+                                        "woodenSign@zk_furnace.f_container_item": {
+                                            "$item_texture": "sign",
+                                            "$item_name": "itemGroup.name.sign",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "10",
+                                            "$items_smelted": "1"
+                                        }
+                                    },
+                                    {
+                                        "woodenHangingSign@zk_furnace.f_container_item": {
+                                            "$item_texture": "oak_hanging_sign",
+                                            "$item_name": "itemGroup.name.hanging_sign",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "10",
+                                            "$items_smelted": "1"
+                                        }
+                                    },
+                                    {
+                                        "woodenPickaxe@zk_furnace.f_container_item": {
+                                            "$item_texture": "wood_pickaxe",
+                                            "$item_name": "item.wooden_pickaxe.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "10",
+                                            "$items_smelted": "1"
+                                        }
+                                    },
+                                    {
+                                        "woodenShovel@zk_furnace.f_container_item": {
+                                            "$item_texture": "wood_shovel",
+                                            "$item_name": "item.wooden_shovel.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "10",
+                                            "$items_smelted": "1"
+                                        }
+                                    },
+                                    {
+                                        "woodenHoe@zk_furnace.f_container_item": {
+                                            "$item_texture": "wood_hoe",
+                                            "$item_name": "item.wooden_hoe.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "10",
+                                            "$items_smelted": "1"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "row_8@zk.stack_hor": {
+                                "size": ["100%c", "100%cm"],
+                                "controls": [
+                                    {
+                                        "woodenAxe@zk_furnace.f_container_item": {
+                                            "$item_texture": "wood_axe",
+                                            "$item_name": "item.wooden_axe.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "10",
+                                            "$items_smelted": "1"
+                                        }
+                                    },
+                                    {
+                                        "woodenSword@zk_furnace.f_container_item": {
+                                            "$item_texture": "wood_sword",
+                                            "$item_name": "item.wooden_sword.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "10",
+                                            "$items_smelted": "1"
+                                        }
+                                    },
+                                    {
+                                        "bowl@zk_furnace.f_container_item": {
+                                            "$item_texture": "bowl",
+                                            "$item_name": "item.bowl.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "10",
+                                            "$items_smelted": "1"
+                                        }
+                                    },
+                                    {
+                                        "saplings@zk_furnace.f_container_item": {
+                                            "$i_texture": "textures/blocks/sapling_oak",
+                                            "$item_name": "itemGroup.name.sapling",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "5",
+                                            "$items_smelted": "0.5"
+                                        }
+                                    },
+                                    {
+                                        "stick@zk_furnace.f_container_item": {
+                                            "$item_texture": "stick",
+                                            "$item_name": "item.stick.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "5",
+                                            "$items_smelted": "0.5"
+                                        }
+                                    },
+                                    {
+                                        "deadBush@zk_furnace.f_container_item": {
+                                            "$i_texture": "textures/blocks/deadbush",
+                                            "$item_name": "tile.deadbush.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "5",
+                                            "$items_smelted": "0.5"
+                                        }
+                                    },
+                                    {
+                                        "azalea@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:azalea",
+                                            "$item_name": "tile.azalea.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "5",
+                                            "$items_smelted": "0.5"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "row_9@zk.stack_hor": {
+                                "size": ["100%c", "100%cm"],
+                                "controls": [
+                                    {
+                                        "leaf@zk_furnace.f_container_item": {
+                                            "$item_texture": "leaf_litter",
+                                            "$item_name": "tile.leaf_litter.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "5",
+                                            "$items_smelted": "0.5"
+                                        }
+                                    },
+                                    {
+                                        "shortDryGrass@zk_furnace.f_container_item": {
+                                            "$i_texture": "textures/blocks/short_dry_grass",
+                                            "$item_name": "tile.short_dry_grass.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "5",
+                                            "$items_smelted": "0.5"
+                                        }
+                                    },
+                                    {
+                                        "tallDryGrass@zk_furnace.f_container_item": {
+                                            "$i_texture": "textures/blocks/tall_dry_grass",
+                                            "$item_name": "tile.tall_dry_grass.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "5",
+                                            "$items_smelted": "0.5"
+                                        }
+                                    },
+                                    {
+                                        "wool@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:white_wool",
+                                            "$item_name": "itemGroup.name.wool",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "5",
+                                            "$items_smelted": "0.5"
+                                        }
+                                    },
+                                    {
+                                        "carpet@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:white_carpet",
+                                            "$item_name": "itemGroup.name.woolCarpet",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "3.35",
+                                            "$items_smelted": "0.335"
+                                        }
+                                    },
+                                    {
+                                        "bamboo@zk_furnace.f_container_item": {
+                                            "$item_texture": "bamboo",
+                                            "$item_name": "tile.bamboo.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "2.5",
+                                            "$items_smelted": "0.25"
+                                        }
+                                    },
+                                    {
+                                        "scaffolding@zk_furnace.f_container_item": {
+                                            "$use_item_renderer": true,
+                                            "$item_id": "$minecraft:scaffolding",
+                                            "$item_name": "tile.scaffolding.name",
+                                            "$minutes_burn": "0",
+                                            "$seconds_burn": "2.5",
+                                            "$items_smelted": "0.25"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Fuel tab holder
+    "fuel_tab_holder": {
+        "type": "image",
+        "texture": "textures/ui/TabLeftFrontBottomMost",
+        "size": ["100%", 25],
+        "controls": [
+            {
+                "fuel_taub@common_toggles.light_content_toggle": {
+                    "$toggle_name": "fuel_tab_furnaze",
+                    "$toggle_view_binding_name": "fuel_toggle",
+                    "$button_content": "zk_common.icon_content",
+                    "$icon_texture": "textures/items/coal",
+                    "$icon_size": [14, 14],
+                    "$default_border_visible": false,
+                    "$hover_border_visible": false,
+                    "layer": 2,
+                    "size": [24, 18]
+                }
+            }
+        ]
+    }
+}

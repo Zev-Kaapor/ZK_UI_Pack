@@ -1,7 +1,7 @@
 // Pause screen
 {
 
-    // Skin viewer
+    // Skin viewer panel
     "skin_viewer_panel": {
         "$skin_viewer_panel_offset|default": [0, 0],
         "anchor_from": "center",
@@ -58,7 +58,7 @@
         ]
     },
 
-    // Main button slot
+    // Zk pause centering main button
     "zk_pause_centering_main_button": {
         "$button_controls|default": "common.empty_panel",
         "type": "panel",
@@ -70,7 +70,7 @@
         ]
     },
 
-    // Quit and confirm buttons
+    // Zk pause quit buttons
     "zk_pause_quit_buttons": {
         "type": "panel",
         "size": ["100%", 24],
@@ -94,7 +94,7 @@
         ]
     },
 
-    // Main buttons
+    // Zk pause main buttons
     "zk_pause_main_buttons": {
         "type": "stack_panel",
         "size": ["40%", "100%c"],
@@ -136,7 +136,7 @@
         ]
     },
 
-    // Logo
+    // Zk pause logo panel
     "zk_pause_logo_panel": {
         "type": "panel",
         "size": ["100% - 64px", "20%"],
@@ -150,7 +150,7 @@
         ]
     },
 
-    // Icon button slot
+    // Zk pause centering icon button
     "zk_pause_centering_icon_button": {
         "$button_controls|default": "common.empty_panel",
         "type": "input_panel",
@@ -164,7 +164,7 @@
         ]
     },
 
-    // Game paused label
+    // Zk pause game paused panel
     "zk_pause_game_paused_panel": {
         "type": "image",
         "texture": "textures/ui/Black",
@@ -187,7 +187,7 @@
         ]
     },
 
-    // Hide interface toggle
+    // Zk pause content toggle
     "zk_pause_content_toggle@common_toggles.light_content_toggle": {
         "$toggle_name": "zk_pause_content_toggle",
         "$toggle_view_binding_name": "zk_pause_content_toggle",
@@ -197,7 +197,7 @@
         "size": [24, 24]
     },
 
-    // Hide interface toggle icon
+    // Zk pause content toggle button content
     "zk_pause_content_toggle_button_content": {
         "type": "panel",
         "controls": [
@@ -220,7 +220,7 @@
         ]
     },
 
-    // Hidden interface content
+    // Zk pause hidden content
     "zk_pause_hidden_content": {
         "type": "panel",
         "controls": [
@@ -230,7 +230,7 @@
         ]
     },
 
-    // World title
+    // Zk pause world title panel
     "zk_pause_world_title_panel": {
         "type": "image",
         "texture": "textures/ui/Black",
@@ -293,7 +293,7 @@
         ]
     },
 
-    // Paused label and world title
+    // Zk pause status panel
     "zk_pause_status_panel": {
         "type": "stack_panel",
         "orientation": "horizontal",
@@ -332,7 +332,7 @@
         ]
     },
 
-    // Icon buttons
+    // Zk pause icon bar
     "zk_pause_icon_bar": {
         "type": "stack_panel",
         "orientation": "horizontal",
@@ -464,7 +464,7 @@
         ]
     },
 
-    // Icon buttons bar
+    // Zk pause icon bar panel
     "zk_pause_icon_bar_panel": {
         "type": "panel",
         "size": ["100%", "100%c + 4px"],
@@ -477,7 +477,7 @@
         ]
     },
 
-    // Trial timer
+    // Zk pause trial timer
     "zk_pause_trial_timer": {
         "ignored": "(not $trial)",
         "type": "custom",
@@ -496,7 +496,7 @@
         ]
     },
 
-    // Pause menu content
+    // Zk pause menu content
     "zk_pause_menu_content": {
         "type": "panel",
         "size": ["100%", "100%"],
@@ -553,7 +553,7 @@
         ]
     },
 
-    // About icon
+    // Zk about icon
     "zk_about_icon": {
         "type": "image",
         "texture": "textures/zk_ui/icons/about",
@@ -561,14 +561,14 @@
         "layer": 3
     },
 
-    // About button
+    // Zk about button
     "zk_about_button@common_buttons.light_content_button": {
         "size": [24, 24],
         "$button_content": "pause.zk_about_icon",
         "$pressed_button_name": "button.menu_buy_game"
     },
 
-    // About button slot
+    // Zk about icon button
     "zk_about_icon_button": {
         "type": "panel",
         "$button_tts_header": "zk.about",
@@ -650,7 +650,7 @@
         "shadow": true
     },
 
-    // Gamepad helpers
+    // Pause screen helpers content
     "pause_screen_helpers_content": {
         "type": "panel",
         "size": ["100%", "100%cm"],
@@ -714,5 +714,11 @@
                 }
             }
         ]
+    },
+
+    // How to play icon
+    "how_to_play_icon": {
+        "texture": "textures/ui/sidebar_icons/genre",
+        "size": [16, 16]
     }
 }

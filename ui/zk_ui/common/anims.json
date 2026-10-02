@@ -1,0 +1,25 @@
+// ZK animations
+{
+    "namespace": "zk_anims",
+
+    // Anim hud toggles touch menu tooltip hover offset
+    "anim_hud_toggles_touch_menu_tooltip_hover_offset": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": 0.3,
+        "from": [0, 34],
+        "to": [0, 18],
+        "reset_event": "button.hud_toggles_item_on_hover"
+    },
+
+    // Anim hud toggles touch menu tooltip hover alpha
+    "anim_hud_toggles_touch_menu_tooltip_hover_alpha": {
+        "anim_type": "alpha",
+        "scale_from_starting_alpha": true,
+        "easing": "out_cubic",
+        "duration": 0.3,
+        "from": 0,
+        "to": 1,
+        "reset_event": "button.hud_toggles_item_on_hover"
+    }
+}

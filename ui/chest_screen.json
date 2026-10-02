@@ -18,6 +18,7 @@
                             "$panel_anchor_from": "top_right",
                             "$panel_anchor_to": "top_left",
                             "$panel_offset": [-4, 0],
+                            "$item_search_tab_gap": [0, 24],
                             "$hover_text_anchor": "right_middle",
                             "$hover_text_offset": [-8, 2]
                         }
@@ -50,6 +51,13 @@
                 "operation": "insert_back",
                 "value": [
                     {
+                        "item_search_bar@zk_item_search.item_search_bar": {
+                            "ignored": "$pocket_screen",
+                            "layer": 10,
+                            "$search_count_container": true
+                        }
+                    },
+                    {
                         "item_lore_viewer@zk_item_lore_viewer.item_lore_viewer": {}
                     }
                 ]
@@ -74,6 +82,7 @@
                             "$panel_anchor_from": "top_right",
                             "$panel_anchor_to": "top_left",
                             "$panel_offset": [-4, 0],
+                            "$item_search_tab_gap": [0, 24],
                             "$hover_text_anchor": "right_middle",
                             "$hover_text_offset": [-8, 2]
                         }
@@ -105,6 +114,14 @@
                 "array_name": "controls",
                 "operation": "insert_back",
                 "value": [
+                    {
+                        "item_search_bar@zk_item_search.item_search_bar": {
+                            "ignored": "$pocket_screen",
+                            "layer": 10,
+                            "$search_count_container": true,
+                            "$is_large_chest": true
+                        }
+                    },
                     {
                         "item_lore_viewer@zk_item_lore_viewer.item_lore_viewer": {}
                     }

@@ -1,0 +1,18 @@
+// Chat settings screen
+{
+
+    // Chat settings scrolling content chat settings content area
+    "chat_settings_scrolling_content/chat_settings_content_area": {
+        "size": ["100% - 4px", "100%c"]
+    },
+
+    // Chat setting scrolling panel
+    "chat_setting_scrolling_panel": {
+        "size": [236, 200]
+    },
+
+    // Chat settings popup
+    "chat_settings_popup": {
+        "$fill_alpha": "$fill_alpha"
+    }
+}

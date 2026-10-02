@@ -214,5 +214,22 @@
                 }
             }
         ]
+    },
+
+    // Item renderer off
+    "item_renderer_off@zk_common.item_renderer": {
+        "type": "custom",
+        "renderer": "inventory_item_renderer",
+        "size": [16, 16],
+        "property_bag": {
+            "#item_id": "$item_id"
+        },
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_property_name": "(#item_id * 65536)",
+                "target_property_name": "#item_id_aux"
+            }
+        ]
     }
 }

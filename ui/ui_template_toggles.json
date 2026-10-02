@@ -153,5 +153,150 @@
         "$unchecked_underline_color|default": "$f_color_format",
         "$checked_state|default": false,
         "$hover_state|default": false
+    },
+
+    // Icon toggle image template
+    "icon_toggle_image_template": {
+        "type": "panel",
+        "$hover_state|default": false,
+        "$toggle_image_texture|default": "",
+        "controls": [
+            {
+                "icon_toggle_image_template@common.focus_border_white": {
+                    "ignored": "(not $hover_state)",
+                    "size": "$focus_border_size"
+                }
+            },
+            {
+                "toggle_image": {
+                    "type": "image",
+                    "size": "$toggle_image_size",
+                    "texture": "$toggle_image_texture",
+                    "anchor_from": "$toggle_image_anchor",
+                    "anchor_to": "$toggle_image_anchor",
+                    "offset": "$toggle_image_offset",
+                    "layer": 1
+                }
+            }
+        ]
+    },
+
+    // Icon toggle off
+    "icon_toggle_off@common_toggles.icon_toggle_image_template": {
+        "$toggle_image_texture": "$toggle_off_image"
+    },
+
+    // Icon toggle on
+    "icon_toggle_on@common_toggles.icon_toggle_image_template": {
+        "$toggle_image_texture": "$toggle_on_image"
+    },
+
+    // Icon toggle off hover
+    "icon_toggle_off_hover@common_toggles.icon_toggle_off": {
+        "$hover_state": true
+    },
+
+    // Icon toggle on hover
+    "icon_toggle_on_hover@common_toggles.icon_toggle_on": {
+        "$hover_state": true
+    },
+
+    // Icon toggle
+    "icon_toggle@common.toggle": {
+        "$toggle_on_image|default": "",
+        "$toggle_off_image|default": "",
+        "$toggle_image_size|default": [16, 16],
+        "$toggle_image_anchor|default": "center",
+        "$toggle_image_offset|default": [0, 0],
+        "$focus_border_size|default": ["100%", "100%"],
+        "$unchecked_control": "common_toggles.icon_toggle_off",
+        "$checked_control": "common_toggles.icon_toggle_on",
+        "$unchecked_hover_control": "common_toggles.icon_toggle_off_hover",
+        "$checked_hover_control": "common_toggles.icon_toggle_on_hover",
+        "$unchecked_locked_control": "common.empty_panel",
+        "$checked_locked_control": "common.empty_panel",
+        "$unchecked_locked_hover_control": "common.empty_panel",
+        "$checked_locked_hover_control": "common.empty_panel",
+        "sound_name": "random.release"
+    },
+
+    // Light content toggle one button state
+    "light_content_toggle_one_button_state@common_toggles.light_ui_toggle": {
+        "$template_toggle": "common_toggles.light_content_toggle_visibility_one_button_state"
+    },
+
+    // Light horizontal form fitting template toggle
+    "light_horizontal_form_fitting_template_toggle@common_toggles.light_template_toggle": {
+        "size": ["100%c", "100%"]
+    },
+
+    // Light horizontal form fitting content toggle
+    "light_horizontal_form_fitting_content_toggle": {
+        "type": "panel",
+        "size": ["100%c", "100%"],
+        "$toggle_state_panel_size": ["100%c", "100%"],
+        "$button_type_panel": "common_buttons.width_fitting_button_content_panel",
+        "$button_content|default": "common.empty_panel",
+        "$ui_button_panel": "common_buttons.new_ui_width_fitting_button_panel",
+        "$button_offset|default": [0, 0],
+        "$anchor": "top_left",
+        "controls": [
+            {
+                "light_content_toggle@common_toggles.light_ui_toggle": {
+                    "size": ["100%c", "100%"],
+                    "$template_toggle": "common_toggles.light_horizontal_form_fitting_template_toggle"
+                }
+            }
+        ]
+    },
+
+    // New ui width fitting borderless button panel
+    "new_ui_width_fitting_borderless_button_panel": {
+        "type": "panel",
+        "layer": 1,
+        "$button_size_override|default": ["100%c", "100%"],
+        "size": "$button_size_override",
+        "$content_alpha|default": 1,
+        "anchor_from": "$anchor",
+        "anchor_to": "$anchor",
+        "$button_image|default": "common_buttons.button_image",
+        "controls": [
+            {
+                "$button_image@$button_image": {
+                    "size": ["100%c + 2px", "100% - 2px"],
+                    "layer": 1,
+                    "controls": [
+                        {
+                            "button_content": {
+                                "type": "panel",
+                                "size": ["100%c + 6px", "100% - 6px"],
+                                "controls": [
+                                    {
+                                        "$button_type_panel@$button_type_panel": {
+                                            "layer": 3
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Transparent horizontal form fitting content toggle
+    "transparent_horizontal_form_fitting_content_toggle@common_toggles.light_horizontal_form_fitting_content_toggle": {
+        "$default_texture": "",
+        "$hover_texture": "",
+        "$pressed_texture": "",
+        "$pressed_no_hover_texture": "",
+        "$locked_texture": "",
+        "$ui_button_panel": "common_toggles.new_ui_width_fitting_borderless_button_panel"
+    },
+
+    // Light template toggle
+    "light_template_toggle": {
+        "sound_name": "random.release"
     }
 }

@@ -23,6 +23,7 @@
         "$panel_anchor_to|default": "top_right",
         "$panel_offset|default": [4, 0],
         "$force_auto_place_on|default": false,
+        "$item_search_tab_gap|default": [0, 0],
         "layer": 8,
         "controls": [
             {
@@ -67,6 +68,14 @@
                         }
                     ]
                 }
+            },
+            {
+                "item_search_tab_padding@common.empty_panel": {
+                    "size": "$item_search_tab_gap"
+                }
+            },
+            {
+                "item_search_tab@zk_item_search.item_search_tab": {}
             }
         ]
     },

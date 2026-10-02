@@ -8,5 +8,15 @@
                 "load_on_low_memory": true
             }
         ]
+    },
+    "random.modal_hide": {
+        "category": "ui",
+        "sounds": [
+            {
+                "name": "sounds/random/modal_hide",
+                "volume": 1,
+                "load_on_low_memory": true
+            }
+        ]
     }
 }

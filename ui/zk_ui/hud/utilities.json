@@ -1,0 +1,19 @@
+// ZK HUD utilities
+{
+    "namespace": "zk_hud_utilities",
+
+    // Hud utilities panel
+    "hud_utilities_panel": {
+        "ignored": "($is_chainsketch_UTM or $is_modules_plus or $is_utility_ui)",
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%cm"],
+        "layer": 5,
+        "$hud_utility_artifacts_mode|default": 0,
+        "controls": [
+            {
+                "mainhand_renderer@zk_hud_common.mainhand_renderer": {}
+            }
+        ]
+    }
+}

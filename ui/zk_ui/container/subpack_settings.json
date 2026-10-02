@@ -8,5 +8,21 @@
     // Item lore viewer settings
     "item_lore_viewer_settings": {
         "$enable_item_lore_viewer": false
+    },
+
+    // Chat screen varied settings
+    "chat_screen_varied_settings": {
+        "$use_chat_caret_mode_text_boxes": false
+    },
+
+    // Item count indexes varied settings
+    "item_count_indexes_varied_settings": {
+        "$disable_total_item_count_indexes": false
+    },
+
+    // Hud modules settings
+    "hud_modules_settings": {
+        "$enable_hud_modules": true,
+        "$enable_advanced_position_texts": true
     }
 }

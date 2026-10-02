@@ -1,0 +1,9 @@
+// Store top bar size used by the chat header
+{
+
+    // Store top bar
+    "store_top_bar": {
+        "$store_top_bar_size|default": ["100%", 30],
+        "size": "$store_top_bar_size"
+    }
+}

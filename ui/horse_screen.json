@@ -34,5 +34,23 @@
                 ]
             }
         ]
+    },
+
+    // Horse panel
+    "horse_panel": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "item_search_bar@zk_item_search.item_search_bar": {
+                            "ignored": "$pocket_screen",
+                            "layer": 10
+                        }
+                    }
+                ]
+            }
+        ]
     }
 }

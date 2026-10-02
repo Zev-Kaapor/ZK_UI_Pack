@@ -1,0 +1,1458 @@
+// ZK container item search
+{
+    "namespace": "zk_item_search",
+
+    // Highlight item bindings
+    "highlight_item_bindings": {
+        "bindings": [
+            {
+                "binding_type": "collection_details",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "invert_search_tog",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#invert"
+            },
+            {
+                "binding_name": "#hover_text",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "search_items_control",
+                "source_property_name": "#item_name",
+                "target_property_name": "#item_search_control"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "item_search_tog",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#search_open"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#invert = ((#hover_text - #item_search_control) = #hover_text))",
+                "target_property_name": "#highlight_item_mode"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#highlight_item_mode = (#item_search_control = ''))",
+                "target_property_name": "#nonhighlighted_item_mode"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "$item_action",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    // Container item utils
+    "container_item_utils": {
+        "type": "panel",
+        "controls": [
+            {
+                "unhighlighted_item@zk_item_search.highlight_item_bindings": {
+                    "type": "image",
+                    "texture": "textures/ui/Black",
+                    "alpha": 0.665,
+                    "size": ["100%", "100%"],
+                    "layer": 28,
+                    "visible": false,
+                    "$item_action": "(#nonhighlighted_item_mode and #search_open)"
+                }
+            },
+            {
+                "highlighted_item@zk_item_search.highlight_item_bindings": {
+                    "type": "image",
+                    "texture": "textures/ui/White",
+                    "color": [0.0, 0.745, 0.0],
+                    "size": ["100% - 2px", "100% - 2px"],
+                    "alpha": 0.25,
+                    "layer": 2,
+                    "visible": false,
+                    "$item_action": "(#highlight_item_mode and #search_open)"
+                }
+            }
+        ]
+    },
+
+    // Search slot item
+    "search_slot_item": {
+        "type": "panel",
+        "collection_index": "$id"
+    },
+
+    // Slot count search
+    "slot_count_search@zk_item_search.search_slot_item": {
+        "bindings": [
+            {
+                "binding_name": "#hover_text",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "search_items_control",
+                "source_property_name": "#item_name",
+                "target_property_name": "#item_search_control"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "invert_search_tog",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#invert"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#invert = ((#hover_text - #item_search_control) = #hover_text) * 1)",
+                "target_property_name": "#searched"
+            }
+        ]
+    },
+
+    // Item count search
+    "item_count_search@zk_item_search.search_slot_item": {
+        "bindings": [
+            {
+                "binding_name": "#inventory_stack_count",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_name": "#item_id_aux",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_name": "#hover_text",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "search_items_control",
+                "source_property_name": "#item_name",
+                "target_property_name": "#item_search_control"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "invert_search_tog",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#invert"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((0 + #inventory_stack_count) + (not (#item_id_aux = -1) * (#inventory_stack_count < 2)))",
+                "target_property_name": "#count"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#invert = ((#hover_text - #item_search_control) = #hover_text))",
+                "target_property_name": "#highlight_item_mode"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#count * #highlight_item_mode)",
+                "target_property_name": "#stack_count"
+            }
+        ]
+    },
+
+    // Search slot group
+    "search_slot_group": {
+        "type": "panel"
+    },
+
+    // Search slot control
+    "search_slot_control": {
+        "$ctrl": "($key + $id + '@' + $item_ctrl_name)",
+        "type": "collection_panel",
+        "collection_name": "$item_collection_name",
+        "controls": [
+            {
+                "$ctrl": {}
+            }
+        ]
+    },
+
+    // Search slots data
+    "search_slots_data": {
+        "$item_collection_name|default": "container_items",
+        "$item_ctrl_name|default": "unset",
+        "$key|default": "unset",
+        "$source_item|default": "#unset",
+        "$output_name|default": "#unset",
+        "$is_large_chest|default": false,
+        "$amount|default": 27,
+        "$source_prop|default": "(#a0 + #a1 + #a2 + #a3 + #a4 + #a5 + #a6 + #a7 + #a8 + #a9 + #a10 + #a11 + #a12 + #a13 + #a14 + #a15 + #a16 + #a17 + #a18 + #a19 + #a20 + #a21 + #a22 + #a23 + #a24 + #a25 + #a26)",
+        "type": "panel",
+        "size": [0, 0],
+        "visible": false,
+        "variables": [
+            {
+                "requires": "$is_large_chest",
+                "$amount": 54,
+                "$source_prop": "(#a0 + #a1 + #a2 + #a3 + #a4 + #a5 + #a6 + #a7 + #a8 + #a9 + #a10 + #a11 + #a12 + #a13 + #a14 + #a15 + #a16 + #a17 + #a18 + #a19 + #a20 + #a21 + #a22 + #a23 + #a24 + #a25 + #a26 + #a27 + #a28 + #a29 + #a30 + #a31 + #a32 + #a33 + #a34 + #a35 + #a36 + #a37 + #a38 + #a39 + #a40 + #a41 + #a42 + #a43 + #a44 + #a45 + #a46 + #a47 + #a48 + #a49 + #a50 + #a51 + #a52 + #a53)"
+            }
+        ],
+        "controls": [
+            {
+                "s0@zk_item_search.search_slot_group": {
+                    "$id": 0,
+                    "ignored": "(not ($amount > 0))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s1@zk_item_search.search_slot_group": {
+                    "$id": 1,
+                    "ignored": "(not ($amount > 1))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s2@zk_item_search.search_slot_group": {
+                    "$id": 2,
+                    "ignored": "(not ($amount > 2))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s3@zk_item_search.search_slot_group": {
+                    "$id": 3,
+                    "ignored": "(not ($amount > 3))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s4@zk_item_search.search_slot_group": {
+                    "$id": 4,
+                    "ignored": "(not ($amount > 4))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s5@zk_item_search.search_slot_group": {
+                    "$id": 5,
+                    "ignored": "(not ($amount > 5))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s6@zk_item_search.search_slot_group": {
+                    "$id": 6,
+                    "ignored": "(not ($amount > 6))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s7@zk_item_search.search_slot_group": {
+                    "$id": 7,
+                    "ignored": "(not ($amount > 7))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s8@zk_item_search.search_slot_group": {
+                    "$id": 8,
+                    "ignored": "(not ($amount > 8))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s9@zk_item_search.search_slot_group": {
+                    "$id": 9,
+                    "ignored": "(not ($amount > 9))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s10@zk_item_search.search_slot_group": {
+                    "$id": 10,
+                    "ignored": "(not ($amount > 10))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s11@zk_item_search.search_slot_group": {
+                    "$id": 11,
+                    "ignored": "(not ($amount > 11))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s12@zk_item_search.search_slot_group": {
+                    "$id": 12,
+                    "ignored": "(not ($amount > 12))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s13@zk_item_search.search_slot_group": {
+                    "$id": 13,
+                    "ignored": "(not ($amount > 13))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s14@zk_item_search.search_slot_group": {
+                    "$id": 14,
+                    "ignored": "(not ($amount > 14))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s15@zk_item_search.search_slot_group": {
+                    "$id": 15,
+                    "ignored": "(not ($amount > 15))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s16@zk_item_search.search_slot_group": {
+                    "$id": 16,
+                    "ignored": "(not ($amount > 16))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s17@zk_item_search.search_slot_group": {
+                    "$id": 17,
+                    "ignored": "(not ($amount > 17))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s18@zk_item_search.search_slot_group": {
+                    "$id": 18,
+                    "ignored": "(not ($amount > 18))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s19@zk_item_search.search_slot_group": {
+                    "$id": 19,
+                    "ignored": "(not ($amount > 19))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s20@zk_item_search.search_slot_group": {
+                    "$id": 20,
+                    "ignored": "(not ($amount > 20))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s21@zk_item_search.search_slot_group": {
+                    "$id": 21,
+                    "ignored": "(not ($amount > 21))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s22@zk_item_search.search_slot_group": {
+                    "$id": 22,
+                    "ignored": "(not ($amount > 22))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s23@zk_item_search.search_slot_group": {
+                    "$id": 23,
+                    "ignored": "(not ($amount > 23))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s24@zk_item_search.search_slot_group": {
+                    "$id": 24,
+                    "ignored": "(not ($amount > 24))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s25@zk_item_search.search_slot_group": {
+                    "$id": 25,
+                    "ignored": "(not ($amount > 25))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s26@zk_item_search.search_slot_group": {
+                    "$id": 26,
+                    "ignored": "(not ($amount > 26))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s27@zk_item_search.search_slot_group": {
+                    "$id": 27,
+                    "ignored": "(not ($amount > 27))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s28@zk_item_search.search_slot_group": {
+                    "$id": 28,
+                    "ignored": "(not ($amount > 28))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s29@zk_item_search.search_slot_group": {
+                    "$id": 29,
+                    "ignored": "(not ($amount > 29))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s30@zk_item_search.search_slot_group": {
+                    "$id": 30,
+                    "ignored": "(not ($amount > 30))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s31@zk_item_search.search_slot_group": {
+                    "$id": 31,
+                    "ignored": "(not ($amount > 31))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s32@zk_item_search.search_slot_group": {
+                    "$id": 32,
+                    "ignored": "(not ($amount > 32))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s33@zk_item_search.search_slot_group": {
+                    "$id": 33,
+                    "ignored": "(not ($amount > 33))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s34@zk_item_search.search_slot_group": {
+                    "$id": 34,
+                    "ignored": "(not ($amount > 34))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s35@zk_item_search.search_slot_group": {
+                    "$id": 35,
+                    "ignored": "(not ($amount > 35))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s36@zk_item_search.search_slot_group": {
+                    "$id": 36,
+                    "ignored": "(not ($amount > 36))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s37@zk_item_search.search_slot_group": {
+                    "$id": 37,
+                    "ignored": "(not ($amount > 37))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s38@zk_item_search.search_slot_group": {
+                    "$id": 38,
+                    "ignored": "(not ($amount > 38))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s39@zk_item_search.search_slot_group": {
+                    "$id": 39,
+                    "ignored": "(not ($amount > 39))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s40@zk_item_search.search_slot_group": {
+                    "$id": 40,
+                    "ignored": "(not ($amount > 40))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s41@zk_item_search.search_slot_group": {
+                    "$id": 41,
+                    "ignored": "(not ($amount > 41))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s42@zk_item_search.search_slot_group": {
+                    "$id": 42,
+                    "ignored": "(not ($amount > 42))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s43@zk_item_search.search_slot_group": {
+                    "$id": 43,
+                    "ignored": "(not ($amount > 43))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s44@zk_item_search.search_slot_group": {
+                    "$id": 44,
+                    "ignored": "(not ($amount > 44))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s45@zk_item_search.search_slot_group": {
+                    "$id": 45,
+                    "ignored": "(not ($amount > 45))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s46@zk_item_search.search_slot_group": {
+                    "$id": 46,
+                    "ignored": "(not ($amount > 46))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s47@zk_item_search.search_slot_group": {
+                    "$id": 47,
+                    "ignored": "(not ($amount > 47))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s48@zk_item_search.search_slot_group": {
+                    "$id": 48,
+                    "ignored": "(not ($amount > 48))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s49@zk_item_search.search_slot_group": {
+                    "$id": 49,
+                    "ignored": "(not ($amount > 49))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s50@zk_item_search.search_slot_group": {
+                    "$id": 50,
+                    "ignored": "(not ($amount > 50))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s51@zk_item_search.search_slot_group": {
+                    "$id": 51,
+                    "ignored": "(not ($amount > 51))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s52@zk_item_search.search_slot_group": {
+                    "$id": 52,
+                    "ignored": "(not ($amount > 52))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "s53@zk_item_search.search_slot_group": {
+                    "$id": 53,
+                    "ignored": "(not ($amount > 53))",
+                    "controls": [
+                        {
+                            "@zk_item_search.search_slot_control": {}
+                        }
+                    ]
+                }
+            }
+        ],
+        "bindings": [
+            {
+                "ignored": "(not ($amount > 53))",
+                "binding_type": "view",
+                "source_control_name": "($key+53)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a53"
+            },
+            {
+                "ignored": "(not ($amount > 52))",
+                "binding_type": "view",
+                "source_control_name": "($key+52)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a52"
+            },
+            {
+                "ignored": "(not ($amount > 51))",
+                "binding_type": "view",
+                "source_control_name": "($key+51)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a51"
+            },
+            {
+                "ignored": "(not ($amount > 50))",
+                "binding_type": "view",
+                "source_control_name": "($key+50)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a50"
+            },
+            {
+                "ignored": "(not ($amount > 49))",
+                "binding_type": "view",
+                "source_control_name": "($key+49)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a49"
+            },
+            {
+                "ignored": "(not ($amount > 48))",
+                "binding_type": "view",
+                "source_control_name": "($key+48)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a48"
+            },
+            {
+                "ignored": "(not ($amount > 47))",
+                "binding_type": "view",
+                "source_control_name": "($key+47)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a47"
+            },
+            {
+                "ignored": "(not ($amount > 46))",
+                "binding_type": "view",
+                "source_control_name": "($key+46)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a46"
+            },
+            {
+                "ignored": "(not ($amount > 45))",
+                "binding_type": "view",
+                "source_control_name": "($key+45)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a45"
+            },
+            {
+                "ignored": "(not ($amount > 44))",
+                "binding_type": "view",
+                "source_control_name": "($key+44)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a44"
+            },
+            {
+                "ignored": "(not ($amount > 43))",
+                "binding_type": "view",
+                "source_control_name": "($key+43)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a43"
+            },
+            {
+                "ignored": "(not ($amount > 42))",
+                "binding_type": "view",
+                "source_control_name": "($key+42)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a42"
+            },
+            {
+                "ignored": "(not ($amount > 41))",
+                "binding_type": "view",
+                "source_control_name": "($key+41)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a41"
+            },
+            {
+                "ignored": "(not ($amount > 40))",
+                "binding_type": "view",
+                "source_control_name": "($key+40)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a40"
+            },
+            {
+                "ignored": "(not ($amount > 39))",
+                "binding_type": "view",
+                "source_control_name": "($key+39)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a39"
+            },
+            {
+                "ignored": "(not ($amount > 38))",
+                "binding_type": "view",
+                "source_control_name": "($key+38)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a38"
+            },
+            {
+                "ignored": "(not ($amount > 37))",
+                "binding_type": "view",
+                "source_control_name": "($key+37)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a37"
+            },
+            {
+                "ignored": "(not ($amount > 36))",
+                "binding_type": "view",
+                "source_control_name": "($key+36)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a36"
+            },
+            {
+                "ignored": "(not ($amount > 35))",
+                "binding_type": "view",
+                "source_control_name": "($key+35)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a35"
+            },
+            {
+                "ignored": "(not ($amount > 34))",
+                "binding_type": "view",
+                "source_control_name": "($key+34)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a34"
+            },
+            {
+                "ignored": "(not ($amount > 33))",
+                "binding_type": "view",
+                "source_control_name": "($key+33)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a33"
+            },
+            {
+                "ignored": "(not ($amount > 32))",
+                "binding_type": "view",
+                "source_control_name": "($key+32)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a32"
+            },
+            {
+                "ignored": "(not ($amount > 31))",
+                "binding_type": "view",
+                "source_control_name": "($key+31)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a31"
+            },
+            {
+                "ignored": "(not ($amount > 30))",
+                "binding_type": "view",
+                "source_control_name": "($key+30)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a30"
+            },
+            {
+                "ignored": "(not ($amount > 29))",
+                "binding_type": "view",
+                "source_control_name": "($key+29)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a29"
+            },
+            {
+                "ignored": "(not ($amount > 28))",
+                "binding_type": "view",
+                "source_control_name": "($key+28)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a28"
+            },
+            {
+                "ignored": "(not ($amount > 27))",
+                "binding_type": "view",
+                "source_control_name": "($key+27)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a27"
+            },
+            {
+                "ignored": "(not ($amount > 26))",
+                "binding_type": "view",
+                "source_control_name": "($key+26)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a26"
+            },
+            {
+                "ignored": "(not ($amount > 25))",
+                "binding_type": "view",
+                "source_control_name": "($key+25)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a25"
+            },
+            {
+                "ignored": "(not ($amount > 24))",
+                "binding_type": "view",
+                "source_control_name": "($key+24)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a24"
+            },
+            {
+                "ignored": "(not ($amount > 23))",
+                "binding_type": "view",
+                "source_control_name": "($key+23)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a23"
+            },
+            {
+                "ignored": "(not ($amount > 22))",
+                "binding_type": "view",
+                "source_control_name": "($key+22)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a22"
+            },
+            {
+                "ignored": "(not ($amount > 21))",
+                "binding_type": "view",
+                "source_control_name": "($key+21)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a21"
+            },
+            {
+                "ignored": "(not ($amount > 20))",
+                "binding_type": "view",
+                "source_control_name": "($key+20)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a20"
+            },
+            {
+                "ignored": "(not ($amount > 19))",
+                "binding_type": "view",
+                "source_control_name": "($key+19)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a19"
+            },
+            {
+                "ignored": "(not ($amount > 18))",
+                "binding_type": "view",
+                "source_control_name": "($key+18)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a18"
+            },
+            {
+                "ignored": "(not ($amount > 17))",
+                "binding_type": "view",
+                "source_control_name": "($key+17)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a17"
+            },
+            {
+                "ignored": "(not ($amount > 16))",
+                "binding_type": "view",
+                "source_control_name": "($key+16)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a16"
+            },
+            {
+                "ignored": "(not ($amount > 15))",
+                "binding_type": "view",
+                "source_control_name": "($key+15)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a15"
+            },
+            {
+                "ignored": "(not ($amount > 14))",
+                "binding_type": "view",
+                "source_control_name": "($key+14)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a14"
+            },
+            {
+                "ignored": "(not ($amount > 13))",
+                "binding_type": "view",
+                "source_control_name": "($key+13)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a13"
+            },
+            {
+                "ignored": "(not ($amount > 12))",
+                "binding_type": "view",
+                "source_control_name": "($key+12)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a12"
+            },
+            {
+                "ignored": "(not ($amount > 11))",
+                "binding_type": "view",
+                "source_control_name": "($key+11)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a11"
+            },
+            {
+                "ignored": "(not ($amount > 10))",
+                "binding_type": "view",
+                "source_control_name": "($key+10)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a10"
+            },
+            {
+                "ignored": "(not ($amount > 9))",
+                "binding_type": "view",
+                "source_control_name": "($key+9)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a9"
+            },
+            {
+                "ignored": "(not ($amount > 8))",
+                "binding_type": "view",
+                "source_control_name": "($key+8)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a8"
+            },
+            {
+                "ignored": "(not ($amount > 7))",
+                "binding_type": "view",
+                "source_control_name": "($key+7)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a7"
+            },
+            {
+                "ignored": "(not ($amount > 6))",
+                "binding_type": "view",
+                "source_control_name": "($key+6)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a6"
+            },
+            {
+                "ignored": "(not ($amount > 5))",
+                "binding_type": "view",
+                "source_control_name": "($key+5)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a5"
+            },
+            {
+                "ignored": "(not ($amount > 4))",
+                "binding_type": "view",
+                "source_control_name": "($key+4)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a4"
+            },
+            {
+                "ignored": "(not ($amount > 3))",
+                "binding_type": "view",
+                "source_control_name": "($key+3)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a3"
+            },
+            {
+                "ignored": "(not ($amount > 2))",
+                "binding_type": "view",
+                "source_control_name": "($key+2)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a2"
+            },
+            {
+                "ignored": "(not ($amount > 1))",
+                "binding_type": "view",
+                "source_control_name": "($key+1)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a1"
+            },
+            {
+                "ignored": "(not ($amount > 0))",
+                "binding_type": "view",
+                "source_control_name": "($key+0)",
+                "source_property_name": "$source_item",
+                "target_property_name": "#a0"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "$source_prop",
+                "target_property_name": "$output_name"
+            }
+        ]
+    },
+
+    // Item counts bind
+    "item_counts_bind@zk_item_search.search_slots_data": {
+        "$item_ctrl_name": "item_count_search",
+        "$key": "kO66c",
+        "$source_item": "#stack_count",
+        "$output_name": "#ttl_item_count"
+    },
+
+    // Slot counts bind
+    "slot_counts_bind@zk_item_search.search_slots_data": {
+        "$item_ctrl_name": "slot_count_search",
+        "$key": "xMR1Y",
+        "$source_item": "#searched",
+        "$output_name": "#ttl_slot_count"
+    },
+
+    // Items found panel
+    "items_found_panel": {
+        "type": "image",
+        "texture": "textures/ui/hud_tip_text_background",
+        "alpha": 0.8,
+        "size": ["100%c + 10px", "100%c + 6px"],
+        "anchor_from": "top_middle",
+        "anchor_to": "bottom_middle",
+        "offset": [0, -2],
+        "controls": [
+            {
+                "item_counts_bind@zk_item_search.item_counts_bind": {}
+            },
+            {
+                "slot_counts_bind@zk_item_search.slot_counts_bind": {}
+            },
+            {
+                "text": {
+                    "type": "label",
+                    "text": "#text",
+                    "size": ["default", 10],
+                    "layer": 2,
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "item_counts_bind",
+                            "source_property_name": "#ttl_item_count",
+                            "target_property_name": "#ttl_item_count"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "slot_counts_bind",
+                            "source_property_name": "#ttl_slot_count",
+                            "target_property_name": "#ttl_slot_count"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('%zk.itemsFound: ' + #ttl_item_count + ' §7(' + #ttl_slot_count + ' %zk.slotsFound)')",
+                            "target_property_name": "#text"
+                        }
+                    ]
+                }
+            }
+        ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "slot_counts_bind",
+                "source_property_name": "(not #ttl_slot_count = 0)",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    // Invert search icon
+    "invert_search_icon": {
+        "type": "panel",
+        "controls": [
+            {
+                "icon": {
+                    "type": "image",
+                    "texture": "textures/zk_ui/container/invert_search_glyph",
+                    "size": [10, 10],
+                    "color": "$text_color"
+                }
+            },
+            {
+                "hover_text@zk_common.custom_hover_text_anims": {
+                    "$hover_text": "%zk.invertSearchTip",
+                    "$hover_text_anchor": "bottom_right"
+                }
+            }
+        ]
+    },
+
+    // Item search tab state
+    "item_search_tab_state": {
+        "type": "image",
+        "texture": "$tab_texture",
+        "size": [30, 25],
+        "controls": [
+            {
+                "icon": {
+                    "type": "image",
+                    "texture": "textures/ui/magnifying_glass",
+                    "color": "$icon_color",
+                    "size": [11, 11],
+                    "offset": "$icon_offset"
+                }
+            }
+        ]
+    },
+
+    // Item search tab
+    "item_search_tab": {
+        "type": "panel",
+        "size": [30, 25],
+        "controls": [
+            {
+                "item_search_tog@common.toggle": {
+                    "$toggle_name": "item_search",
+                    "$toggle_view_binding_name": "item_search_tog",
+                    "size": [30, 25],
+                    "$toggle_binding_type": "none",
+                    "$unchecked_control": "zk_item_search.item_search_tab_default",
+                    "$checked_control": "zk_item_search.item_search_tab_checked",
+                    "$unchecked_hover_control": "zk_item_search.item_search_tab_hover",
+                    "$checked_hover_control": "zk_item_search.item_search_tab_checked_hover",
+                    "$unchecked_locked_control": "zk_item_search.item_search_tab_default",
+                    "$checked_locked_control": "zk_item_search.item_search_tab_checked",
+                    "$unchecked_locked_hover_control": "zk_item_search.item_search_tab_default",
+                    "$checked_locked_hover_control": "zk_item_search.item_search_tab_checked"
+                }
+            }
+        ]
+    },
+
+    // Item search tab default
+    "item_search_tab_default@zk_item_search.item_search_tab_state": {
+        "$tab_texture": "textures/ui/TabRightBack",
+        "$icon_color": "$tab_unchecked_text_color",
+        "$icon_offset": [1, 0]
+    },
+
+    // Item search tab hover
+    "item_search_tab_hover@zk_item_search.item_search_tab_state": {
+        "$tab_texture": "textures/ui/TabRightBackHover",
+        "$icon_color": "$tab_unchecked_hover_text_color",
+        "$icon_offset": [1, 0],
+        "$hover_state": true,
+        "controls": [
+            {
+                "icon": {
+                    "type": "image",
+                    "texture": "textures/ui/magnifying_glass",
+                    "color": "$icon_color",
+                    "size": [11, 11],
+                    "offset": [1, 0]
+                }
+            },
+            {
+                "hover_text@zk_common.hover_text_panel": {
+                    "$hover_text": "zk.searchBar",
+                    "$hover_text_anchor": "right_middle",
+                    "$hover_text_offset": [-8, 2]
+                }
+            }
+        ]
+    },
+
+    // Item search tab checked
+    "item_search_tab_checked@zk_item_search.item_search_tab_state": {
+        "$tab_texture": "textures/ui/TabRightFront",
+        "$icon_color": "$tab_checked_text_color",
+        "$icon_offset": [1, 0]
+    },
+
+    // Item search tab checked hover
+    "item_search_tab_checked_hover@zk_item_search.item_search_tab_checked": {
+        "$tab_texture": "textures/ui/TabRightFrontHover",
+        "$icon_color": "$tab_checked_hover_text_color",
+        "$hover_state": true,
+        "controls": [
+            {
+                "icon": {
+                    "type": "image",
+                    "texture": "textures/ui/magnifying_glass",
+                    "color": "$icon_color",
+                    "size": [11, 11],
+                    "offset": [1, 0]
+                }
+            },
+            {
+                "hover_text@zk_common.hover_text_panel": {
+                    "$hover_text": "zk.searchBar",
+                    "$hover_text_anchor": "right_middle",
+                    "$hover_text_offset": [-8, 2]
+                }
+            }
+        ]
+    },
+
+    // Item search bar
+    "item_search_bar": {
+        "type": "panel",
+        "size": [176, 16],
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "offset": [0, -4],
+        "$search_count_container|default": false,
+        "$is_large_chest|default": false,
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "item_search_tog",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "bar": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": ["100%", "100%"],
+                    "controls": [
+                        {
+                            "text_box_panel": {
+                                "type": "panel",
+                                "size": ["fill", "100%"],
+                                "controls": [
+                                    {
+                                        "search_items_text_box@zk_common.custom_text_edit_box": {
+                                            "max_length": 50,
+                                            "layer": 1,
+                                            "size": ["100%", 16],
+                                            "$text_box_name": "search_items_text_box",
+                                            "$text_edit_text_control": "search_items_control",
+                                            "$place_holder_text": "zk.searchItems",
+                                            "$text_box_font_scale_factor": 0.7,
+                                            "$text_edit_box_label_offset": [15, 1],
+                                            "$clear_text_box_button_name": "clear_item_search_bar_button",
+                                            "focus_wrap_enabled": false,
+                                            "default_focus_precedence": -2
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "invert_panel": {
+                                "type": "panel",
+                                "size": [16, "100%"],
+                                "controls": [
+                                    {
+                                        "invert_search_toggle@common_toggles.light_content_toggle": {
+                                            "$toggle_name": "invert_search_de",
+                                            "$toggle_view_binding_name": "invert_search_tog",
+                                            "$button_content": "zk_item_search.invert_search_icon",
+                                            "size": ["100%y", "100%"],
+                                            "anchor_from": "right_middle",
+                                            "anchor_to": "right_middle"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "items_found@zk_item_search.items_found_panel": {
+                    "ignored": "(not $search_count_container)"
+                }
+            }
+        ]
+    }
+}

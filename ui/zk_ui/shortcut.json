@@ -37,5 +37,12 @@
     "pad_ver_8px": {
         "type": "panel",
         "size": ["100%", 8]
+    },
+
+    // Stack hor
+    "stack_hor": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%"]
     }
 }

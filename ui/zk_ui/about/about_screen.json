@@ -47,33 +47,38 @@
                             }
                         },
                         {
-                            "changelog040_button@zk_about.changelog040_button": {
+                            "changelog050_button@zk_about.changelog050_button": {
                                 "$toggle_group_forced_index": 4
                             }
                         },
                         {
-                            "changelog031_button@zk_about.changelog031_button": {
+                            "changelog040_button@zk_about.changelog040_button": {
                                 "$toggle_group_forced_index": 5
                             }
                         },
                         {
-                            "changelog030_button@zk_about.changelog030_button": {
+                            "changelog031_button@zk_about.changelog031_button": {
                                 "$toggle_group_forced_index": 6
                             }
                         },
                         {
-                            "changelog020_button@zk_about.changelog020_button": {
+                            "changelog030_button@zk_about.changelog030_button": {
                                 "$toggle_group_forced_index": 7
                             }
                         },
                         {
-                            "changelog010_button@zk_about.changelog010_button": {
+                            "changelog020_button@zk_about.changelog020_button": {
                                 "$toggle_group_forced_index": 8
                             }
                         },
                         {
-                            "changelog001_button@zk_about.changelog001_button": {
+                            "changelog010_button@zk_about.changelog010_button": {
                                 "$toggle_group_forced_index": 9
+                            }
+                        },
+                        {
+                            "changelog001_button@zk_about.changelog001_button": {
+                                "$toggle_group_forced_index": 10
                             }
                         }
                     ]
@@ -109,6 +114,12 @@
                 "usage@zk_about_common.section_title": {
                     "$section_title": "zk.about.usage",
                     "$section_topic_control": "usage"
+                }
+            },
+            {
+                "changelog050@zk_about_common.section_title_changelog": {
+                    "$version_label": "zk.about.changelog050",
+                    "$section_topic_control": "changelog050"
                 }
             },
             {
@@ -187,6 +198,9 @@
                         },
                         {
                             "usage@zk_about.usage_section": {}
+                        },
+                        {
+                            "changelog050@zk_about.changelog050_section": {}
                         },
                         {
                             "changelog040@zk_about.changelog040_section": {}
@@ -514,6 +528,31 @@
                 }
             },
             {
+                "label_20@$default_label": {
+                    "$line": 20
+                }
+            },
+            {
+                "label_21@$default_label": {
+                    "$line": 21
+                }
+            },
+            {
+                "label_22@$default_label": {
+                    "$line": 22
+                }
+            },
+            {
+                "label_23@$default_label": {
+                    "$line": 23
+                }
+            },
+            {
+                "label_24@$default_label": {
+                    "$line": 24
+                }
+            },
+            {
                 "sound_header@zk_about_common.header_title_label": {
                     "$text": "zk.about.features.sound"
                 }
@@ -633,6 +672,89 @@
             {
                 "label_4@$default_label": {
                     "$line": 4
+                }
+            }
+        ]
+    },
+
+    // Changelog v0.5.0 button
+    "changelog050_button@zk_about_common.section_toggle_button": {
+        "$section_topic": "changelog050"
+    },
+
+    // Changelog v0.5.0 line
+    "cl050_label@zk_about_common.changelog_desc_label": {
+        "$ver": 50
+    },
+
+    // Changelog v0.5.0 section
+    "changelog050_section@zk_about_common.main_sections": {
+        "$section_topic_control": "changelog050",
+        "$cl_label|default": "zk_about.cl050_label",
+        "controls": [
+            {
+                "title@zk_about_common.generic_label": {
+                    "text": "zk.about.changelog050.title",
+                    "font_type": "MinecraftTen",
+                    "font_size": "large"
+                }
+            },
+            {
+                "new_features_title@zk_about_common.new_features_title": {}
+            },
+            {
+                "pad_1": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_1@$cl_label": {
+                    "$line": 1
+                }
+            },
+            {
+                "label_2@$cl_label": {
+                    "$line": 2
+                }
+            },
+            {
+                "label_3@$cl_label": {
+                    "$line": 3
+                }
+            },
+            {
+                "label_4@$cl_label": {
+                    "$line": 4
+                }
+            },
+            {
+                "label_5@$cl_label": {
+                    "$line": 5
+                }
+            },
+            {
+                "changes_title@zk_about_common.changes_title": {}
+            },
+            {
+                "pad_6": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_6@$cl_label": {
+                    "$line": 6
+                }
+            },
+            {
+                "label_7@$cl_label": {
+                    "$line": 7
+                }
+            },
+            {
+                "label_8@$cl_label": {
+                    "$line": 8
                 }
             }
         ]

@@ -43,5 +43,18 @@
     "screen_background": {
         "$screen_background_size|default": ["100%", "100%"],
         "size": "$screen_background_size"
+    },
+
+    // Container item search highlight
+    "container_item/item_cell": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": {
+                    "container_item_utils@zk_item_search.container_item_utils": {}
+                }
+            }
+        ]
     }
 }

@@ -172,6 +172,12 @@
                 "operation": "insert_back",
                 "value": [
                     {
+                        "item_search_bar@zk_item_search.item_search_bar": {
+                            "ignored": "$pocket_screen",
+                            "layer": 10
+                        }
+                    },
+                    {
                         "grindstone_durability_gained_calc@zk_container_calc_panels.grindstone_durability_gained_calc": {}
                     }
                 ]

@@ -1,0 +1,53 @@
+// ZK HUD movable modules
+{
+    "namespace": "zk_hud_movable_modules",
+
+    // Main panel
+    "main_panel": {
+        "type": "panel",
+        "size": ["100%", "100%"],
+        "$mainhand_renderer_anchor|default": "bottom_right",
+        "$mainhand_renderer_offset|default": [-2, -2],
+        "$utility_artifacts_anchor|default": "bottom_right",
+        "$utility_artifacts_offset|default": [-2, -23],
+        "$inventory_free_slots_counter_anchor|default": "bottom_left",
+        "$inventory_free_slots_counter_offset|default": [2, -17],
+        "$lodestone_compass_artifacts_anchor|default": "bottom_left",
+        "$lodestone_compass_artifacts_offset|default": [2, -38],
+        "$accurate_exp_progress_anchor|default": "bottom_left",
+        "$accurate_exp_progress_offset|default": [2, -2],
+        "controls": [
+            {
+                "mainhand_renderer@zk_hud_common.mainhand_renderer": {
+                    "anchor_from": "$mainhand_renderer_anchor",
+                    "anchor_to": "$mainhand_renderer_anchor",
+                    "offset": "$mainhand_renderer_offset"
+                }
+            },
+            {
+                "inventory_free_slots_counter_panel@zk_hud_toggleables.inventory_free_slots_counter_panel": {
+                    "ignored": "(not $enable_hud_modules)",
+                    "anchor_from": "$inventory_free_slots_counter_anchor",
+                    "anchor_to": "$inventory_free_slots_counter_anchor",
+                    "offset": "$inventory_free_slots_counter_offset"
+                }
+            },
+            {
+                "clock_compass_panel@zk_hud_toggleables.clock_compass_panel": {
+                    "ignored": "(not $enable_hud_modules)",
+                    "anchor_from": "$lodestone_compass_artifacts_anchor",
+                    "anchor_to": "$lodestone_compass_artifacts_anchor",
+                    "offset": "$lodestone_compass_artifacts_offset"
+                }
+            },
+            {
+                "accurate_exp_progress@zk_hud_toggleables.accurate_exp_progress": {
+                    "ignored": "(not $enable_hud_modules)",
+                    "anchor_from": "$accurate_exp_progress_anchor",
+                    "anchor_to": "$accurate_exp_progress_anchor",
+                    "offset": "$accurate_exp_progress_offset"
+                }
+            }
+        ]
+    }
+}
