@@ -47,38 +47,43 @@
                             }
                         },
                         {
-                            "changelog050_button@zk_about.changelog050_button": {
+                            "changelog051_button@zk_about.changelog051_button": {
                                 "$toggle_group_forced_index": 4
                             }
                         },
                         {
-                            "changelog040_button@zk_about.changelog040_button": {
+                            "changelog050_button@zk_about.changelog050_button": {
                                 "$toggle_group_forced_index": 5
                             }
                         },
                         {
-                            "changelog031_button@zk_about.changelog031_button": {
+                            "changelog040_button@zk_about.changelog040_button": {
                                 "$toggle_group_forced_index": 6
                             }
                         },
                         {
-                            "changelog030_button@zk_about.changelog030_button": {
+                            "changelog031_button@zk_about.changelog031_button": {
                                 "$toggle_group_forced_index": 7
                             }
                         },
                         {
-                            "changelog020_button@zk_about.changelog020_button": {
+                            "changelog030_button@zk_about.changelog030_button": {
                                 "$toggle_group_forced_index": 8
                             }
                         },
                         {
-                            "changelog010_button@zk_about.changelog010_button": {
+                            "changelog020_button@zk_about.changelog020_button": {
                                 "$toggle_group_forced_index": 9
                             }
                         },
                         {
-                            "changelog001_button@zk_about.changelog001_button": {
+                            "changelog010_button@zk_about.changelog010_button": {
                                 "$toggle_group_forced_index": 10
+                            }
+                        },
+                        {
+                            "changelog001_button@zk_about.changelog001_button": {
+                                "$toggle_group_forced_index": 11
                             }
                         }
                     ]
@@ -114,6 +119,12 @@
                 "usage@zk_about_common.section_title": {
                     "$section_title": "zk.about.usage",
                     "$section_topic_control": "usage"
+                }
+            },
+            {
+                "changelog051@zk_about_common.section_title_changelog": {
+                    "$version_label": "zk.about.changelog051",
+                    "$section_topic_control": "changelog051"
                 }
             },
             {
@@ -198,6 +209,9 @@
                         },
                         {
                             "usage@zk_about.usage_section": {}
+                        },
+                        {
+                            "changelog051@zk_about.changelog051_section": {}
                         },
                         {
                             "changelog050@zk_about.changelog050_section": {}
@@ -672,6 +686,50 @@
             {
                 "label_4@$default_label": {
                     "$line": 4
+                }
+            }
+        ]
+    },
+
+    // Changelog v0.5.1 button
+    "changelog051_button@zk_about_common.section_toggle_button": {
+        "$section_topic": "changelog051"
+    },
+
+    // Changelog v0.5.1 line
+    "cl051_label@zk_about_common.changelog_desc_label": {
+        "$ver": 51
+    },
+
+    // Changelog v0.5.1 section
+    "changelog051_section@zk_about_common.main_sections": {
+        "$section_topic_control": "changelog051",
+        "$cl_label|default": "zk_about.cl051_label",
+        "controls": [
+            {
+                "title@zk_about_common.generic_label": {
+                    "text": "zk.about.changelog051.title",
+                    "font_type": "MinecraftTen",
+                    "font_size": "large"
+                }
+            },
+            {
+                "fixes_title@zk_about_common.fixes_title": {}
+            },
+            {
+                "pad_1": {
+                    "type": "panel",
+                    "size": [0, 4]
+                }
+            },
+            {
+                "label_1@$cl_label": {
+                    "$line": 1
+                }
+            },
+            {
+                "label_2@$cl_label": {
+                    "$line": 2
                 }
             }
         ]

@@ -186,7 +186,7 @@
                                     {
                                         "empty_padding": {
                                             "type": "panel",
-                                            "size": [2, 0]
+                                            "size": [6, 0]
                                         }
                                     }
                                 ]
@@ -735,7 +735,7 @@
             },
             {
                 "binding_type": "view",
-                "source_property_name": "(((#inventory_stack_count * 1) + (not (#item_id_aux = -1)) * (#inventory_stack_count = '') * 1))",
+                "source_property_name": "((0 + #inventory_stack_count) + (not (#item_id_aux = -1) * (#inventory_stack_count < 2)))",
                 "target_property_name": "#stack_count"
             },
             {
@@ -1382,7 +1382,7 @@
                         },
                         {
                             "binding_type": "view",
-                            "source_property_name": "(' x' + #count + ' ')",
+                            "source_property_name": "('§z ' + #count + 'x ')",
                             "target_property_name": "#text"
                         },
                         {
