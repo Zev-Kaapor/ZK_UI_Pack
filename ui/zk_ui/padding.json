@@ -20,5 +20,10 @@
     // 4px x
     "4px_x@panel": {
         "size": [4, 0]
+    },
+
+    // 1px y
+    "1px_y@panel": {
+        "size": [0, 1]
     }
 }

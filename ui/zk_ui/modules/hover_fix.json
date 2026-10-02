@@ -1,0 +1,17 @@
+// ZK hover fix
+{
+    "namespace": "zk_hoverFix",
+
+    // Button
+    "button": {
+        "ignored": "$game_pad",
+        "type": "button",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [0, 0],
+        "layer": 2048,
+        "default_focus_precedence": 2048,
+        "focus_enabled": true,
+        "focus_magnet_enabled": true
+    }
+}

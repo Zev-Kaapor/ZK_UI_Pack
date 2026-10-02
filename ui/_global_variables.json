@@ -31,5 +31,8 @@
     // Containers
     "$force_auto_place_on": false,
     "$use_container_toggles": true,
-    "$use_quick_craft_button": true
+    "$use_quick_craft_button": true,
+
+    // Trading
+    "$zk:enable_trade_unlocker": true
 }

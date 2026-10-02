@@ -1,8 +1,8 @@
-// Chest, ender chest, shulker box and barrel screens
+// Furnace, blast furnace and smoker screens
 {
 
-    // Small chest root panel
-    "small_chest_panel/root_panel": {
+    // Furnace right panel
+    "right_panel": {
         "$container_item_mode_supported": true,
         "$button_ref": "zk_container_item_mode.item_button_ref",
         "$default_mode_controls": "common.container_slot_button_prototype",
@@ -30,20 +30,14 @@
                             "$toggle_anchor_to": "bottom_right",
                             "$toggle_offset": [-8, -80]
                         }
-                    },
-                    {
-                        "bulk_move_tabs@zk_container_bulk_move.bulk_move_tabs": {
-                            "ignored": "$pocket_screen"
-                        }
                     }
                 ]
             }
         ]
     },
 
-    // Small chest panel
-    "small_chest_panel": {
-        "$zk_item_lore_viewer:container_items_collection_length": 27,
+    // Furnace panel
+    "furnace_panel": {
         "modifications": [
             {
                 "array_name": "controls",
@@ -57,59 +51,59 @@
         ]
     },
 
-    // Large chest root panel
-    "large_chest_panel/root_panel": {
-        "$container_item_mode_supported": true,
-        "$button_ref": "zk_container_item_mode.item_button_ref",
-        "$default_mode_controls": "common.container_slot_button_prototype",
+    // Furnace panel top half
+    "furnace_panel_top_half": {
         "modifications": [
             {
                 "array_name": "controls",
                 "operation": "insert_back",
                 "value": [
                     {
-                        "container_item_mode_switch_panel@zk_container_item_mode.container_item_mode_switch_panel": {
-                            "ignored": "$pocket_screen",
-                            "$toggle_panel": "zk_container_item_mode.container_item_mode_switch_right_tab",
-                            "$panel_anchor_from": "top_right",
-                            "$panel_anchor_to": "top_left",
-                            "$panel_offset": [-4, 0],
-                            "$hover_text_anchor": "right_middle",
-                            "$hover_text_offset": [-8, 2]
-                        }
-                    },
-                    {
-                        "container_item_type_switch_holder@zk_container_item_mode.container_item_type_switch_holder": {
-                            "ignored": "$pocket_screen",
-                            "layer": 10,
-                            "$toggle_anchor_from": "bottom_right",
-                            "$toggle_anchor_to": "bottom_right",
-                            "$toggle_offset": [-8, -80]
-                        }
-                    },
-                    {
-                        "bulk_move_tabs@zk_container_bulk_move.bulk_move_tabs": {
-                            "ignored": "$pocket_screen"
-                        }
+                        "furnace_arrow_progress@furnace.furnace_arrow_progress": {}
                     }
                 ]
             }
         ]
     },
 
-    // Large chest panel
-    "large_chest_panel": {
-        "$zk_item_lore_viewer:container_items_collection_length": 54,
+    // Flame panel
+    "flame_panel": {
         "modifications": [
             {
                 "array_name": "controls",
                 "operation": "insert_back",
                 "value": [
                     {
-                        "item_lore_viewer@zk_item_lore_viewer.item_lore_viewer": {}
+                        "furnace_flame_progress@furnace.furnace_flame_progress": {}
                     }
                 ]
             }
         ]
+    },
+
+    // Furnace arrow progress
+    "furnace_arrow_progress@zk_percentage.progress_percentage_label_template": {
+        "$progress_binding_name": "#furnace_arrow_ratio",
+        "$progress_binding_condition": "always",
+        "$progress_binding_type": "global",
+        "$percentage_text_color": "$title_text_color",
+        "$percentage_text_shadow": false,
+        "$show_floating_point_numbers": false,
+        "anchor_from": "center",
+        "anchor_to": "bottom_middle",
+        "offset": [0, -10]
+    },
+
+    // Furnace flame progress
+    "furnace_flame_progress@zk_percentage.progress_percentage_label_template": {
+        "$progress_binding_name": "#furnace_flame_ratio",
+        "$progress_binding_condition": "always",
+        "$progress_binding_type": "global",
+        "$percentage_text_color": "$title_text_color",
+        "$percentage_text_shadow": false,
+        "$show_floating_point_numbers": false,
+        "anchor_from": "left_middle",
+        "anchor_to": "right_middle",
+        "offset": [-2, 0]
     }
 }

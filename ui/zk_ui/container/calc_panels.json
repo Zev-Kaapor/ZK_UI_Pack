@@ -816,5 +816,521 @@
                 }
             }
         ]
+    },
+
+    // Stonecutter quick craft hover text panel
+    "stonecutter_quick_craft_hover_text_panel": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": ["100%cm", "100%c"],
+        "controls": [
+            {
+                "header_stack_panel": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": ["100%c", 10],
+                    "controls": [
+                        {
+                            "header@zk_common.hover_text_single_line": {
+                                "text": "controller.buttonTip.craftAll"
+                            }
+                        },
+                        {
+                            "padding": {
+                                "type": "panel",
+                                "size": [4, 0]
+                            }
+                        },
+                        {
+                            "double_press_header@zk_common.hover_text_single_line": {
+                                "text": "controller.buttonTip.doublePress"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "quick_craft_times_text_panel": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": ["100%c", 10],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "output_count_calc",
+                            "source_property_name": "(#item_count_final > 0)",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "p1@zk_common.hover_text_single_line": {
+                                "text": "container.craftAll.stepsToCraftPrefix",
+                                "color": "$5_color_format"
+                            }
+                        },
+                        {
+                            "padding_0": {
+                                "type": "panel",
+                                "size": [4, 0]
+                            }
+                        },
+                        {
+                            "p2@zk_common.hover_text_single_line": {
+                                "text": "#text",
+                                "color": "$5_color_format",
+                                "localize": false,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "output_count_calc",
+                                        "source_property_name": "('§l' + #times_count_final)",
+                                        "target_property_name": "#text"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "padding_1": {
+                                "type": "panel",
+                                "size": [4, 0]
+                            }
+                        },
+                        {
+                            "p3@zk_common.hover_text_single_line": {
+                                "text": "container.craftAll.stepsToCraftPostfix",
+                                "color": "$5_color_format"
+                            }
+                        },
+                        {
+                            "p4@zk_common.hover_text_single_line": {
+                                "text": "#text",
+                                "localize": false,
+                                "color": "$5_color_format",
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "output_count_calc",
+                                        "source_property_name": "(' ==> §lx' + #item_count_final)",
+                                        "target_property_name": "#text"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Stonecutter item count calc
+    "stonecutter_item_count_calc": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%cm"],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "offset": [0, 0],
+        "controls": [
+            {
+                "header": {
+                    "type": "label",
+                    "text": "stack_count: ",
+                    "font_size": "small",
+                    "shadow": true
+                }
+            },
+            {
+                "input_item_slot_count@zk_container_calc_panels.stonecutter_item_count_panel": {
+                    "$item_collection_name": "stonecutter_input_items",
+                    "$control_name": "input_item_count",
+                    "$separator": " x "
+                }
+            },
+            {
+                "result_item_slot_count@zk_container_calc_panels.stonecutter_item_count_panel": {
+                    "$item_collection_name": "stonecutter_result_items",
+                    "$control_name": "result_item_count"
+                }
+            },
+            {
+                "output_count_calc": {
+                    "type": "label",
+                    "text": "#text",
+                    "font_size": "small",
+                    "shadow": true,
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "input_item_count",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#input_count"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "result_item_count",
+                            "source_property_name": "#stack_count",
+                            "target_property_name": "#output_count"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#input_count * (not (#output_count = 0)))",
+                            "target_property_name": "#times_count_final"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#input_count * #output_count)",
+                            "target_property_name": "#item_count_final"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(' => ' + #item_count_final)",
+                            "target_property_name": "#text"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Stonecutter item count panel
+    "stonecutter_item_count_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%c"],
+        "collection_name": "$item_collection_name",
+        "$item_collection_name|default": "stonecutter_input_items",
+        "$control_name|default": "text",
+        "controls": [
+            {
+                "$control_name": {
+                    "type": "label",
+                    "text": "#text",
+                    "font_size": "small",
+                    "shadow": true,
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "$separator|default": "",
+                    "collection_index": 0,
+                    "bindings": [
+                        {
+                            "binding_name": "#inventory_stack_count",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$item_collection_name"
+                        },
+                        {
+                            "binding_name": "#item_id_aux",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$item_collection_name"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(((#inventory_stack_count * 1) + (not (#item_id_aux = -1)) * (#inventory_stack_count = '') * 1))",
+                            "target_property_name": "#stack_count"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('§z' + #stack_count + $separator)",
+                            "target_property_name": "#text"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Anvil durability gained calc
+    "anvil_durability_gained_calc": {
+        "visible": "(not $is_publish or $debug_mode)",
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%cm"],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "offset": [0, 0],
+        "controls": [
+            {
+                "header": {
+                    "type": "label",
+                    "text": "anvil_durability_gained: (",
+                    "font_size": "small",
+                    "shadow": true
+                }
+            },
+            {
+                "output_item_slot_count@zk_container_calc_panels.anvil_item_durability_panel": {
+                    "$item_collection_name": "anvil_result_items",
+                    "$control_name": "anvil_result_item_slot_data",
+                    "$separator": " - "
+                }
+            },
+            {
+                "ingredient_item_slot_count@zk_container_calc_panels.anvil_item_durability_panel": {
+                    "$item_collection_name": "anvil_input_items",
+                    "$control_name": "anvil_input_item_slot_data",
+                    "$separator": ") = "
+                }
+            },
+            {
+                "durability_gained_output_calc": {
+                    "type": "label",
+                    "text": "#durability_gained_value_final",
+                    "font_size": "small",
+                    "shadow": true,
+                    "localize": false,
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "anvil_input_item_slot_data",
+                            "source_property_name": "#durability_value",
+                            "target_property_name": "#input_durability"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "anvil_result_item_slot_data",
+                            "source_property_name": "#durability_value",
+                            "target_property_name": "#output_durability"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#output_durability - #input_durability)",
+                            "target_property_name": "#durability_gained_value_int"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('§z' + #durability_gained_value_int)",
+                            "target_property_name": "#durability_gained_value_final"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Anvil item durability panel
+    "anvil_item_durability_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%c"],
+        "collection_name": "$item_collection_name",
+        "$item_collection_name|default": "anvil_input_items",
+        "$control_name|default": "text",
+        "controls": [
+            {
+                "$control_name": {
+                    "type": "label",
+                    "text": "#text",
+                    "font_size": "small",
+                    "shadow": true,
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "$separator|default": "",
+                    "collection_index": 0,
+                    "bindings": [
+                        {
+                            "binding_name": "#item_durability_current_amount",
+                            "binding_name_override": "#num_pre",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$item_collection_name",
+                            "binding_condition": "always"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#num_pre * (1 - (#num_pre < 0) * 2))",
+                            "target_property_name": "#num"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(10000 * ((#num > 9999) + (#num > 19999) + (#num > 29999) + (#num > 39999) + (#num > 49999) + (#num > 59999) + (#num > 69999) + (#num > 79999) + (#num > 89999)))",
+                            "target_property_name": "#e4_c"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#e4_c + 1000 * ((#num - #e4_c > 999) + (#num - #e4_c > 1999) + (#num - #e4_c > 2999) + (#num - #e4_c > 3999) + (#num - #e4_c > 4999) + (#num - #e4_c > 5999) + (#num - #e4_c > 6999) + (#num - #e4_c > 7999) + (#num - #e4_c > 8999)))",
+                            "target_property_name": "#e3_c"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#e3_c + 100 * (((#num - #e3_c) > 99) + ((#num - #e3_c) > 199) + ((#num - #e3_c) > 299) + ((#num - #e3_c) > 399) + ((#num - #e3_c) > 499) + ((#num - #e3_c) > 599) + ((#num - #e3_c) > 699) + ((#num - #e3_c) > 799) + ((#num - #e3_c) > 899)))",
+                            "target_property_name": "#e2_c"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#e2_c + 10 * (((#num - #e2_c) > 9) + ((#num - #e2_c) > 19) + ((#num - #e2_c) > 29) + ((#num - #e2_c) > 39) + ((#num - #e2_c) > 49) + ((#num - #e2_c) > 59) + ((#num - #e2_c) > 69) + ((#num - #e2_c) > 79) + ((#num - #e2_c) > 89)))",
+                            "target_property_name": "#e1_c"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#e1_c + ((#num - #e1_c) = 1) + ((#num - #e1_c) = 2) * 2 + ((#num - #e1_c) = 3) * 3 + ((#num - #e1_c) = 4) * 4 + ((#num - #e1_c) = 5) * 5 + ((#num - #e1_c) = 6) * 6 + ((#num - #e1_c) = 7) * 7 + ((#num - #e1_c) = 8) * 8 + ((#num - #e1_c) = 9) * 9) * (1 - (#num_pre < 0) * 2))",
+                            "target_property_name": "#durability_value"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('§z' + #durability_value + $separator)",
+                            "target_property_name": "#text"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Grindstone durability gained calc
+    "grindstone_durability_gained_calc": {
+        "visible": "(not $is_publish or $debug_mode)",
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%cm"],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "offset": [0, 0],
+        "controls": [
+            {
+                "header": {
+                    "type": "label",
+                    "text": "grindstone_durability_gained: ",
+                    "font_size": "small",
+                    "shadow": true
+                }
+            },
+            {
+                "grindstone_input_item_slot@zk_container_calc_panels.grindstone_item_durability_panel": {
+                    "$item_collection_name": "grindstone_input_items",
+                    "$control_name": "grindstone_input_item_slot_data",
+                    "$separator": " ~/~ "
+                }
+            },
+            {
+                "grindstone_additional_item_slot@zk_container_calc_panels.grindstone_item_durability_panel": {
+                    "$item_collection_name": "grindstone_additional_items",
+                    "$control_name": "grindstone_additional_items_data",
+                    "$separator": " = "
+                }
+            },
+            {
+                "grindstone_result_item_slot@zk_container_calc_panels.grindstone_item_durability_panel": {
+                    "$item_collection_name": "grindstone_result_items",
+                    "$control_name": "grindstone_result_items_data",
+                    "$separator": " "
+                }
+            },
+            {
+                "durability_gained_output_calc": {
+                    "type": "label",
+                    "text": "#durability_gained_value_final",
+                    "font_size": "small",
+                    "shadow": true,
+                    "localize": false,
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "grindstone_input_item_slot_data",
+                            "source_property_name": "#durability_value",
+                            "target_property_name": "#input_durability_1"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "grindstone_additional_items_data",
+                            "source_property_name": "#durability_value",
+                            "target_property_name": "#input_durability_2"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "grindstone_result_items_data",
+                            "source_property_name": "#durability_value",
+                            "target_property_name": "#output_durability"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(((#input_durability_1 > #input_durability_2) * #input_durability_2) + ((#input_durability_1 < #input_durability_2) * #input_durability_1) + ((#input_durability_1 = #input_durability_2) * #input_durability_1))",
+                            "target_property_name": "#input_durability"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#output_durability - #input_durability)",
+                            "target_property_name": "#durability_gained_value_int"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('§z[' + #durability_gained_value_int + ']')",
+                            "target_property_name": "#durability_gained_value_final"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not (#durability_gained_value_int = 0) and not (#input_durability_1 = 0 or #input_durability_2 = 0))",
+                            "target_property_name": "#durability_gained_visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Grindstone item durability panel
+    "grindstone_item_durability_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": ["100%c", "100%c"],
+        "collection_name": "$item_collection_name",
+        "$item_collection_name|default": "grindstone_input_items",
+        "$control_name|default": "text",
+        "controls": [
+            {
+                "$control_name": {
+                    "type": "label",
+                    "text": "#text",
+                    "font_size": "small",
+                    "shadow": true,
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "$separator|default": "",
+                    "collection_index": 0,
+                    "bindings": [
+                        {
+                            "binding_name": "#item_durability_current_amount",
+                            "binding_name_override": "#num_pre",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$item_collection_name",
+                            "binding_condition": "always"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#num_pre * (1 - (#num_pre < 0) * 2))",
+                            "target_property_name": "#num"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(10000 * ((#num > 9999) + (#num > 19999) + (#num > 29999) + (#num > 39999) + (#num > 49999) + (#num > 59999) + (#num > 69999) + (#num > 79999) + (#num > 89999)))",
+                            "target_property_name": "#e4_c"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#e4_c + 1000 * ((#num - #e4_c > 999) + (#num - #e4_c > 1999) + (#num - #e4_c > 2999) + (#num - #e4_c > 3999) + (#num - #e4_c > 4999) + (#num - #e4_c > 5999) + (#num - #e4_c > 6999) + (#num - #e4_c > 7999) + (#num - #e4_c > 8999)))",
+                            "target_property_name": "#e3_c"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#e3_c + 100 * (((#num - #e3_c) > 99) + ((#num - #e3_c) > 199) + ((#num - #e3_c) > 299) + ((#num - #e3_c) > 399) + ((#num - #e3_c) > 499) + ((#num - #e3_c) > 599) + ((#num - #e3_c) > 699) + ((#num - #e3_c) > 799) + ((#num - #e3_c) > 899)))",
+                            "target_property_name": "#e2_c"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#e2_c + 10 * (((#num - #e2_c) > 9) + ((#num - #e2_c) > 19) + ((#num - #e2_c) > 29) + ((#num - #e2_c) > 39) + ((#num - #e2_c) > 49) + ((#num - #e2_c) > 59) + ((#num - #e2_c) > 69) + ((#num - #e2_c) > 79) + ((#num - #e2_c) > 89)))",
+                            "target_property_name": "#e1_c"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#e1_c + ((#num - #e1_c) = 1) + ((#num - #e1_c) = 2) * 2 + ((#num - #e1_c) = 3) * 3 + ((#num - #e1_c) = 4) * 4 + ((#num - #e1_c) = 5) * 5 + ((#num - #e1_c) = 6) * 6 + ((#num - #e1_c) = 7) * 7 + ((#num - #e1_c) = 8) * 8 + ((#num - #e1_c) = 9) * 9) * (1 - (#num_pre < 0) * 2))",
+                            "target_property_name": "#durability_value"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('§z' + #durability_value + $separator)",
+                            "target_property_name": "#text"
+                        }
+                    ]
+                }
+            }
+        ]
     }
 }

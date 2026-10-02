@@ -255,5 +255,491 @@
                 "target_property_name": "#item_name"
             }
         ]
+    },
+
+    // Container item holder
+    "container_item_holder": {
+        "type": "panel",
+        "size": [24, 18]
+    },
+
+    // Guide container item
+    "guide_container_item@common.button": {
+        "$pressed_button_name": "button.menu_nothin",
+        "size": [18, 18],
+        "$additional_control|default": "common.empty_panel",
+        "$use_item_renderer|default": false,
+        "$show_text_label|default": false,
+        "$text_label_anchor|default": "bottom_right",
+        "$text_font_scale_factor|default": 1.0,
+        "$text_label_offset|default": [0, 1],
+        "$hover_text|default": "evelyn",
+        "$background_images|default": "common.cell_image",
+        "$item_texture|default": "null",
+        "default_control": "empty",
+        "hover_control": "hover_text",
+        "pressed_control": "hover_text",
+        "sound_volume": 0,
+        "controls": [
+            {
+                "empty@zk_common.empty_panel": {}
+            },
+            {
+                "background_images@$background_images": {
+                    "layer": 1
+                }
+            },
+            {
+                "item_panel": {
+                    "type": "panel",
+                    "layer": 8,
+                    "size": [16, 16],
+                    "controls": [
+                        {
+                            "item_texture": {
+                                "ignored": "$use_item_renderer",
+                                "type": "image",
+                                "texture": "$i_texture",
+                                "$i_texture|default": "('textures/items/' + $item_texture)"
+                            }
+                        },
+                        {
+                            "item_renderer@zk_common.item_renderer": {
+                                "ignored": "(not $use_item_renderer)"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "text_label": {
+                    "ignored": "(not $show_text_label)",
+                    "type": "label",
+                    "text": "$text_label",
+                    "color": "$item_stack_count_color",
+                    "offset": "$text_label_offset",
+                    "anchor_to": "$text_label_anchor",
+                    "anchor_from": "$text_label_anchor",
+                    "font_scale_factor": "$text_font_scale_factor",
+                    "layer": 9,
+                    "shadow": true
+                }
+            },
+            {
+                "additional_control@$additional_control": {}
+            },
+            {
+                "hover_text@common.white_border_slot": {
+                    "layer": 2,
+                    "controls": [
+                        {
+                            "highlight@common.cell_image": {
+                                "texture": "textures/ui/highlight_slot",
+                                "size": ["100% - 2px", "100% - 2px"],
+                                "controls": [
+                                    {
+                                        "hover_tex@zk_common.custom_hover_text": {
+                                            "follows_cursor": false,
+                                            "offset": [-2, 14]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Tab icon content
+    "tab_icon_content": {
+        "$tab_icon_texture_path|default": "",
+        "type": "image",
+        "texture": "$tab_icon_texture_path"
+    },
+
+    // Tab icon panel
+    "tab_icon_panel": {
+        "type": "panel",
+        "size": [16, 16],
+        "$tab_icon_control|default": "zk_common.tab_icon_content",
+        "controls": [
+            {
+                "content@$tab_icon_control": {}
+            }
+        ]
+    },
+
+    // Tab navigation
+    "tab_navigation@common_tabs.tab_left": {
+        "$toggle_name": "container_guide_tab",
+        "$radio_toggle_group": true,
+        "$toggle_group_default_selected": 0,
+        "$tab_content": "zk_common.tab_icon_panel"
+    },
+
+    // Container guide title
+    "container_guide_title": {
+        "type": "label",
+        "size": ["100%", 10],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "text_alignment": "right",
+        "color": "$title_text_color",
+        "layer": 2,
+        "text": "$tab_title_text",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "$tab_navigation_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    // Container guide panel
+    "container_guide_panel@common.root_panel": {
+        "size": [146, "100%"],
+        "visible": false,
+        "$tab_title_text|default": "test",
+        "$container_guide_tab_navigation_panel_controls|default": [],
+        "$container_guide_title_panel_controls|default": [],
+        "controls": [
+            {
+                "common_panel@common.common_panel": {
+                    "$show_close_button": false
+                }
+            },
+            {
+                "tab_navigation_panel": {
+                    "type": "stack_panel",
+                    "size": [25, "100%"],
+                    "layer": 9,
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_right",
+                    "controls": [
+                        {
+                            "navigation_tabs": {
+                                "type": "panel",
+                                "size": ["100%", "fill"],
+                                "controls": [
+                                    {
+                                        "content": {
+                                            "type": "stack_panel",
+                                            "size": ["100%", "100%"],
+                                            "offset": [5, 0],
+                                            "anchor_to": "top_right",
+                                            "anchor_from": "top_right",
+                                            "controls": "$container_guide_tab_navigation_panel_controls"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "tab_content": {
+                    "type": "panel",
+                    "layer": 7,
+                    "size": ["100%", "100%"],
+                    "controls": [
+                        {
+                            "content": {
+                                "type": "stack_panel",
+                                "size": ["100% - 12px", "100% - 12px"],
+                                "orientation": "vertical",
+                                "controls": [
+                                    {
+                                        "padding_1@common.empty_panel": {
+                                            "size": ["100%", 2]
+                                        }
+                                    },
+                                    {
+                                        "container_guide_title_panel": {
+                                            "type": "panel",
+                                            "size": ["100%", 10],
+                                            "controls": "$container_guide_title_panel_controls"
+                                        }
+                                    },
+                                    {
+                                        "padding_3@common.empty_panel": {
+                                            "size": ["100%", 2]
+                                        }
+                                    },
+                                    {
+                                        "scrolling_content_control@$scrolling_content_control": {
+                                            "layer": 8,
+                                            "size": ["100%", "fill"]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "$container_guide_toggle_bind",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    // Empty panel
+    "empty_panel": {
+        "type": "panel",
+        "size": [0, 0]
+    },
+
+    // Icon content
+    "icon_content": {
+        "$icon_color|default": "",
+        "$icon_size|default": ["100%", "100%"],
+        "$icon_offset|default": [0, 0],
+        "type": "image",
+        "texture": "$icon_texture",
+        "color": "$icon_color",
+        "size": "$icon_size",
+        "offset": "$icon_offset",
+        "$icon_c_addit_control|default": "common.empty_panel",
+        "controls": [
+            {
+                "additional_control@$icon_c_addit_control": {}
+            }
+        ]
+    },
+
+    // Toolbar panel
+    "toolbar_panel@common.root_panel": {
+        "size": ["100%c", 20],
+        "prevent_touch_input": true,
+        "anchor_from": "top_right",
+        "anchor_to": "bottom_right",
+        "$gamepad_helper_icon_description_background_visible": false,
+        "controls": [
+            {
+                "toolbar_background": {
+                    "type": "image",
+                    "texture": "textures/ui/toolbar_background",
+                    "size": ["100%cm", "100% + 8px"],
+                    "offset": [0, -3],
+                    "anchor_from": "top_right",
+                    "anchor_to": "top_right",
+                    "controls": [
+                        {
+                            "toolbar_stack_panel": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "size": ["default", "100% - 8px"],
+                                "offset": [0, 3],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "controls": [
+                                    {
+                                        "left_trigger_anchor": {
+                                            "type": "panel",
+                                            "size": [0, "100%"],
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#gamepad_helper_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "gamepad_helper_left_trigger@common.gamepad_helper_left_trigger": {
+                                                        "offset": [3, -2],
+                                                        "anchor_from": "left_middle",
+                                                        "anchor_to": "right_middle"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "padding_0": {
+                                            "type": "panel",
+                                            "size": [8, 0]
+                                        }
+                                    },
+                                    {
+                                        "container_guide_layout_toggle_panel": {
+                                            "type": "panel",
+                                            "size": ["100%c", "100%"],
+                                            "controls": [
+                                                {
+                                                    "container_guide_layout_toggle@zk_common.layout_toggle": {
+                                                        "$toggle_default_state": true,
+                                                        "$toggle_group_forced_index": 1,
+                                                        "$toggle_view_binding_name": "$recipe_toggle_view_binding_name",
+                                                        "$layout_toggle_icon": "recipe_book_icon",
+                                                        "$gamepad_button_name": "button.menu_alternate_tab_left"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "padding_1": {
+                                            "type": "panel",
+                                            "size": [2, 0]
+                                        }
+                                    },
+                                    {
+                                        "root_panel_layout_toggle_panel": {
+                                            "type": "panel",
+                                            "size": ["100%c", "100%"],
+                                            "controls": [
+                                                {
+                                                    "root_panel_layout_toggle@zk_common.layout_toggle": {
+                                                        "$toggle_group_forced_index": 0,
+                                                        "$layout_toggle_icon": "inventory_icon",
+                                                        "$gamepad_button_name": "button.menu_alternate_tab_right"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "padding_3": {
+                                            "type": "panel",
+                                            "size": [4, 0]
+                                        }
+                                    },
+                                    {
+                                        "close_button_panel": {
+                                            "type": "panel",
+                                            "size": [15, "100%"],
+                                            "controls": [
+                                                {
+                                                    "close_button@common.light_close_button": {
+                                                        "offset": [0, 0],
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center"
+                                                    }
+                                                }
+                                            ],
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#close_button_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "padding_4": {
+                                            "type": "panel",
+                                            "size": [6, 0]
+                                        }
+                                    },
+                                    {
+                                        "right_trigger_anchor": {
+                                            "type": "panel",
+                                            "size": [0, "100%"],
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#gamepad_helper_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "gamepad_helper_right_trigger@common.gamepad_helper_right_trigger": {
+                                                        "offset": [-2, -2],
+                                                        "anchor_from": "right_middle",
+                                                        "anchor_to": "left_middle"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    // Toolbar anchor
+    "toolbar_anchor": {
+        "type": "panel",
+        "size": [0, "100%"],
+        "layer": 4,
+        "controls": [
+            {
+                "toolbar_panel@zk_common.toolbar_panel": {
+                    "anchor_from": "top_right",
+                    "anchor_to": "bottom_right"
+                }
+            }
+        ]
+    },
+
+    // Layout toggle content
+    "layout_toggle_content": {
+        "type": "panel",
+        "controls": [
+            {
+                "image@$toggle_image": {}
+            },
+            {
+                "icon": {
+                    "type": "image",
+                    "size": [19, 13],
+                    "texture": "('textures/ui/' + $layout_toggle_icon)",
+                    "offset": [0, -1],
+                    "anchor_to": "top_middle",
+                    "anchor_from": "top_middle",
+                    "layer": 1
+                }
+            }
+        ]
+    },
+
+    // Layout template toggle
+    "layout_template_toggle@common_toggles.light_template_toggle": {
+        "$default_texture": "textures/ui/recipe_book_button_borderless_light",
+        "$hover_texture": "textures/ui/recipe_book_button_borderless_lightpressednohover",
+        "$pressed_texture": "textures/ui/recipe_book_button_borderless_lighthover",
+        "$pressed_no_hover_texture": "textures/ui/recipe_book_button_borderless_lightpressed"
+    },
+
+    // Layout toggle
+    "layout_toggle@common_toggles.light_image_toggle": {
+        "size": [25, 18],
+        "$button_content": "zk_common.layout_toggle_content",
+        "$toggle_name": "container_guide_layout_toggle",
+        "$template_toggle": "zk_common.layout_template_toggle",
+        "$radio_toggle_group": true,
+        "$toggle_group_default_selected": 1,
+        "$gamepad_button_name|default": "button.menu_ok",
+        "$button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.menu_select",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "button.menu_ok",
+                "mapping_type": "focused"
+            },
+            {
+                "from_button_id": "$gamepad_button_name",
+                "to_button_id": "button.menu_ok",
+                "mapping_type": "global"
+            }
+        ]
     }
 }

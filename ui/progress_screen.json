@@ -240,31 +240,9 @@
         ]
     },
 
-    // Modal progress panel with cancel
-    "modal_progress_panel_with_cancel": {
-        "type": "stack_panel",
-        "orientation": "vertical",
-        "size": [256, "100%c"],
-        "controls": [
-            {
-                "dialog@zk_oreui_design__dialogs.oreui_dialog_panel": {
-                    "size": ["100%", "100%c"],
-                    "$dialog_style": "no_footer",
-                    "$dialog_header_content": "progress.modal_progress_dialog_header",
-                    "$dialog_body_content": "progress.modal_progress_dialog_body"
-                }
-            },
-            {
-                "modal_button_panel@progress.modal_button_panel": {
-                    "size": ["100%", 40]
-                }
-            }
-        ]
-    },
-
     // Modal progress screen
     "modal_progress_screen": {
-        "$is_full_screen_layout": true
+        "$screen_content": "progress.modal_progress_screen_content"
     },
 
     // Modal button panel with retry
@@ -584,103 +562,152 @@
         "layer": 2
     },
 
-    // Modal progress dialog header
-    "modal_progress_dialog_header": {
+    // Modal progress screen content
+    "modal_progress_screen_content": {
         "type": "panel",
         "controls": [
             {
-                "title_label_panel": {
-                    "type": "panel",
-                    "size": ["100%", 24],
-                    "controls": [
-                        {
-                            "dialog_title": {
-                                "type": "label",
-                                "color": "$main_header_text_color",
-                                "text": "#title_text",
-                                "size": ["default", "default"],
-                                "max_size": ["100%", "default"],
-                                "shadow": true,
-                                "text_alignment": "center",
-                                "bindings": [
-                                    {
-                                        "binding_name": "#title_text"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
+                "dialog@progress.modal_progress_dialog": {
+                    "size": [256, 90]
+                }
+            },
+            {
+                "modal_button_panel@progress.modal_button_panel": {
+                    "size": ["100%", 40],
+                    "offset": [0, 64]
+                }
+            },
+            {
+                "background@common.screen_background": {
+                    "alpha": 0.4,
+                    "$screen_background_size": ["150%", "150%"]
                 }
             }
         ]
     },
 
-    // Modal progress dialog body
-    "modal_progress_dialog_body": {
+    // Modal progress dialog
+    "modal_progress_dialog": {
         "type": "panel",
+        "layer": 32,
         "controls": [
             {
-                "inner_controls": {
+                "stacked": {
                     "type": "stack_panel",
-                    "orientation": "vertical",
-                    "use_child_anchors": true,
-                    "size": ["100% - 16px", "100%c"],
+                    "size": ["100%", "100%"],
+                    "layer": 2,
                     "controls": [
                         {
-                            "padding_top@common.empty_panel": {
-                                "size": [10, 10]
-                            }
-                        },
-                        {
-                            "loading_spinner": {
+                            "header_panel": {
                                 "type": "image",
-                                "texture": "textures/ui/loading_spin",
-                                "uv_size": [7, 7],
-                                "size": [14, 14],
-                                "uv": "@progress.spinner_animation"
-                            }
-                        },
-                        {
-                            "padding_middle@common.empty_panel": {
-                                "size": [8, 8]
-                            }
-                        },
-                        {
-                            "progress_bar_text@progress.progress_screen_text": {
-                                "size": ["100%", "default"],
-                                "max_size": ["100%", 30],
-                                "text_alignment": "center",
-                                "text": "#progress_text",
-                                "color": "$body_text_color",
-                                "font_scale_factor": 0.8,
-                                "shadow": true,
-                                "bindings": [
-                                    {
-                                        "binding_name": "#progress_text"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "padding_bar@common.empty_panel": {
-                                "size": [6, 6]
-                            }
-                        },
-                        {
-                            "progress_bar_panel@common.empty_panel": {
-                                "size": ["100%", "100%c"],
+                                "texture": "textures/zk_ui/ore_ui/dialogs/dialog_background_header",
+                                "size": ["100%", 28],
                                 "controls": [
                                     {
-                                        "progress_bar@progress.progress_bar": {
-                                            "size": ["100% - 4px", 2]
+                                        "title_label": {
+                                            "type": "label",
+                                            "text": "#title_text",
+                                            "size": ["default", "default"],
+                                            "max_size": ["100%", "default"],
+                                            "shadow": true,
+                                            "layer": 9,
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#title_text",
+                                                    "binding_name_override": "#title_text",
+                                                    "binding_type": "global"
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
                             }
                         },
                         {
-                            "padding_bottom@common.empty_panel": {
-                                "size": [10, 10]
+                            "body_panel": {
+                                "type": "image",
+                                "texture": "textures/zk_ui/ore_ui/dialogs/dialog_background",
+                                "size": ["100%", "fill"],
+                                "controls": [
+                                    {
+                                        "content@progress.modal_progress_dialog_content": {
+                                            "size": ["100% - 8px", "100% - 8px"],
+                                            "layer": 2
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "border": {
+                    "type": "image",
+                    "texture": "textures/ui/Black",
+                    "layer": -1,
+                    "alpha": 0.67,
+                    "size": ["100% + 2px", "100% + 2px"]
+                }
+            }
+        ]
+    },
+
+    // Modal progress dialog content
+    "modal_progress_dialog_content": {
+        "type": "panel",
+        "controls": [
+            {
+                "stack": {
+                    "type": "stack_panel",
+                    "size": ["100%", "100%c"],
+                    "use_child_anchors": true,
+                    "controls": [
+                        {
+                            "loading_spinner": {
+                                "type": "image",
+                                "texture": "textures/ui/loading_spin",
+                                "uv_size": [7, 7],
+                                "size": [12, 12],
+                                "uv": "@progress.spinner_animation"
+                            }
+                        },
+                        {
+                            "padding@common.empty_panel": {
+                                "size": [0, 8],
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "progress_bar_text_",
+                                        "source_property_name": "#visible",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "progress_bar_text_@progress.progress_bar_text": {
+                                "size": ["100%", "default"],
+                                "font_scale_factor": 0.8,
+                                "shadow": true,
+                                "text_alignment": "center",
+                                "text": "#text",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#progress_text",
+                                        "binding_name_override": "#text"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(not (#text = ''))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "progress_bar@progress.progress_bar": {
+                                "size": ["100% - 4px", 2]
                             }
                         }
                     ]

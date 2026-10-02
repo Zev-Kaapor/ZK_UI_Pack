@@ -1,0 +1,181 @@
+// Anvil screen
+{
+
+    // Text edit control
+    "text_edit_control": {
+        "$text_edit_text_control": "text_edit_control_display_text",
+        "max_length": 50
+    },
+
+    // Cost label
+    "cost_label": {
+        "layer": 4,
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left"
+    },
+
+    // Cost label gray
+    "cost_label/gray": {
+        "size": ["100% + 4px", "100% + 1px"]
+    },
+
+    // Durability gained label
+    "durability_gained_label@anvil.generic_label": {
+        "layer": 2,
+        "shadow": true,
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
+        "offset": [1, 0],
+        "text": "#text",
+        "color": "$color",
+        "$color|default": "$anvil_cost_success_text_color",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "durability_gained_output_calc",
+                "source_property_name": "#durability_gained_value_final",
+                "target_property_name": "#text"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "durability_gained_output_calc",
+                "source_property_name": "#durability_gained_value_int",
+                "target_property_name": "#value"
+            },
+            {
+                "binding_name": "$visible_binding_name"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "($visible_binding_name and (#value > 0))",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "gray@resource_packs.gray_image": {
+                    "layer": -1,
+                    "size": ["100% + 12px", "100% + 1px"],
+                    "anchor_from": "right_middle",
+                    "anchor_to": "right_middle",
+                    "offset": [1, 0],
+                    "alpha": 0.3,
+                    "controls": [
+                        {
+                            "hover_tooltip@common.button": {
+                                "size": ["100%", "100%"],
+                                "pressed_control": "hover",
+                                "$pressed_button_name": "button.ignore_me",
+                                "sound_volume": 0.0,
+                                "controls": [
+                                    {
+                                        "default@common.empty_panel": {}
+                                    },
+                                    {
+                                        "hover@common.empty_panel": {
+                                            "$hover_state": true,
+                                            "controls": [
+                                                {
+                                                    "hover@zk_common.hover_text_panel": {
+                                                        "visible": true,
+                                                        "$hover_text": "container.repair.durabilityGainedTooltip.anvil",
+                                                        "$hover_text_max_size": [160, "default"]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "up_arrow_icon": {
+                    "type": "image",
+                    "texture": "textures/zk_ui/container/arrow_up_glyph_small",
+                    "color": "$color",
+                    "size": [10, 10],
+                    "anchor_from": "left_middle",
+                    "anchor_to": "right_middle",
+                    "offset": [0, 0]
+                }
+            }
+        ]
+    },
+
+    // Recipe panel
+    "recipe_panel": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "durability_gained_label_0@anvil.durability_gained_label": {
+                            "$color": "$anvil_cost_fail_text_color",
+                            "$visible_binding_name": "#cost_text_red"
+                        }
+                    },
+                    {
+                        "durability_gained_label_1@anvil.durability_gained_label": {
+                            "$color": "$anvil_cost_success_text_color",
+                            "$visible_binding_name": "#cost_text_green"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    // Anvil panel root panel
+    "anvil_panel/root_panel": {
+        "$container_item_mode_supported": true,
+        "$button_ref": "zk_container_item_mode.item_button_ref",
+        "$default_mode_controls": "common.container_slot_button_prototype",
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "container_item_mode_switch_panel@zk_container_item_mode.container_item_mode_switch_panel": {
+                            "ignored": "$pocket_screen",
+                            "$toggle_panel": "zk_container_item_mode.container_item_mode_switch_right_tab",
+                            "$panel_anchor_from": "top_right",
+                            "$panel_anchor_to": "top_left",
+                            "$panel_offset": [-4, 0],
+                            "$hover_text_anchor": "right_middle",
+                            "$hover_text_offset": [-8, 2]
+                        }
+                    },
+                    {
+                        "container_item_type_switch_holder@zk_container_item_mode.container_item_type_switch_holder": {
+                            "ignored": "$pocket_screen",
+                            "layer": 10,
+                            "$toggle_anchor_from": "bottom_right",
+                            "$toggle_anchor_to": "bottom_right",
+                            "$toggle_offset": [-8, -80]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    // Anvil panel
+    "anvil_panel": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "anvil_durability_gained_calc@zk_container_calc_panels.anvil_durability_gained_calc": {}
+                    }
+                ]
+            }
+        ]
+    }
+}

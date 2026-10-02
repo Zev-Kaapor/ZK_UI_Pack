@@ -26,9 +26,9 @@
                         "container_item_type_switch_holder@zk_container_item_mode.container_item_type_switch_holder": {
                             "ignored": "$pocket_screen",
                             "layer": 10,
-                            "$toggle_anchor_from": "top_right",
-                            "$toggle_anchor_to": "top_right",
-                            "$toggle_offset": [-22, 9]
+                            "$toggle_anchor_from": "bottom_right",
+                            "$toggle_anchor_to": "bottom_right",
+                            "$toggle_offset": [-8, -80]
                         }
                     },
                     {

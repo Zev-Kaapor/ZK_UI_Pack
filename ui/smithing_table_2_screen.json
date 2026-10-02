@@ -1,12 +1,35 @@
-// Data driven container screens, such as the copper chest
+// Smithing table screen with the upgrade template
 {
+    // Smithing table panel root panel inventory
+    "smithing_table_panel/root_panel/smithing_table_screen_inventory": {
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "smithing_preview_tog",
+                "source_property_name": "(not #toggle_state)",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
 
-    // Desktop root panel
-    "desktop_panel/root_panel": {
+    // Smithing table root panel
+    "smithing_table_panel/root_panel": {
         "$container_item_mode_supported": true,
         "$button_ref": "zk_container_item_mode.item_button_ref",
         "$default_mode_controls": "common.container_slot_button_prototype",
         "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "smithing_armor_preview_panel@zk_smithingPreview.smithing_armor_preview_panel": {}
+                    },
+                    {
+                        "smithing_armor_preview_button@zk_smithingPreview.smithing_armor_preview_button": {}
+                    }
+                ]
+            },
             {
                 "array_name": "controls",
                 "operation": "insert_back",
@@ -30,27 +53,6 @@
                             "$toggle_anchor_to": "bottom_right",
                             "$toggle_offset": [-8, -80]
                         }
-                    },
-                    {
-                        "bulk_move_tabs@zk_container_bulk_move.bulk_move_tabs": {
-                            "ignored": "$pocket_screen"
-                        }
-                    }
-                ]
-            }
-        ]
-    },
-
-    // Desktop panel
-    "desktop_panel": {
-        "$zk_item_lore_viewer:container_items_collection_length": "$container_size",
-        "modifications": [
-            {
-                "array_name": "controls",
-                "operation": "insert_back",
-                "value": [
-                    {
-                        "item_lore_viewer@zk_item_lore_viewer.item_lore_viewer": {}
                     }
                 ]
             }

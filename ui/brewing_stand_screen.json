@@ -1,0 +1,45 @@
+// Brewing stand screen
+{
+
+    // Brewing fuel slot
+    "brewing_fuel_slot": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": {
+                    "fuel_text_panel@zk_brewing.fuel_text_panel": {}
+                }
+            }
+        ]
+    },
+
+    // Brewing stand panel root panel
+    "brewing_stand_panel/root_panel": {
+        "$container_item_mode_supported": true,
+        "$button_ref": "zk_container_item_mode.item_button_ref",
+        "$default_mode_controls": "common.container_slot_button_prototype",
+        "modifications": [
+            {
+                "control_name": "common_panel",
+                "operation": "remove"
+            },
+            {
+                "control_name": "furnace_screen_inventory",
+                "operation": "replace",
+                "value": {
+                    "brewing_stand_stack_panel@zk_brewing.brewing_stand_stack_panel": {}
+                }
+            },
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "hover_fix@zk_hoverFix.button": {}
+                    }
+                ]
+            }
+        ]
+    }
+}
